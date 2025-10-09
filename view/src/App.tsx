@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 
 const nodeTypes = {
   default: (props) => {
-    const { data, id } = props;
+    const { data } = props;
     const fieldCount = data.fields?.length || 0;
 
     return (
@@ -20,7 +20,7 @@ const nodeTypes = {
         fontFamily: 'monospace',
       }}>
         <Handle type="target" position={Position.Left} id="table-input" />
-        
+
         <div style={{
           fontSize: '14px',
           fontWeight: 'bold',
@@ -33,7 +33,7 @@ const nodeTypes = {
         }}>
           {data.label}
         </div>
-        
+
         <div style={{ fontSize: '12px', color: '#cbd5e1' }}>
           {data.fields?.map((field, idx) => (
             <div key={idx} style={{
@@ -60,7 +60,7 @@ const nodeTypes = {
                   }}
                 />
               )}
-              
+
               <span style={{
                 display: 'inline-block',
                 width: '6px',
@@ -68,14 +68,14 @@ const nodeTypes = {
                 borderRadius: '50%',
                 background: field.isId ? '#10b981' : field.kind === 'object' ? '#f59e0b' : '#6366f1',
               }} />
-              
-              <span style={{ 
-                color: field.isId ? '#10b981' : field.kind === 'object' ? '#f59e0b' : '#e2e8f0', 
-                fontWeight: field.isId ? '600' : field.kind === 'object' ? '600' : '400' 
+
+              <span style={{
+                color: field.isId ? '#10b981' : field.kind === 'object' ? '#f59e0b' : '#e2e8f0',
+                fontWeight: field.isId ? '600' : field.kind === 'object' ? '600' : '400'
               }}>
                 {field.name}
               </span>
-              
+
               <span style={{ color: '#64748b', fontSize: '11px', marginLeft: 'auto' }}>
                 {field.type}
               </span>
