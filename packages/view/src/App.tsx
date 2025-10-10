@@ -6,7 +6,7 @@ import { api } from "@/lib/api";
 // import { Diagram } from "@/components/diagram"
 
 const App = async () => {
-  const res = await api.api.data.$get()
+  const res = await api.diagram.$get({ query: { name: "test" } })
   const data = await res.json()
   console.log(data)
 

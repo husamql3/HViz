@@ -1,4 +1,6 @@
 import { Hono } from 'hono'
+import { z } from 'zod'
+import { zValidator } from '@hono/zod-validator'
 import type { ErdResult } from './generate-erd';
 import { serveStatic } from 'hono/bun';
 import path from 'path';
@@ -24,6 +26,21 @@ export const createServer = (reactFlowData: ErdResult) => {
   app.get('/api/data', (c) => {
     return c.json(reactFlowData);
   });
+
+  app.get(
+    "/diagram",
+    zValidator(
+      'query', z.object({
+        name: z.string(),
+      })
+    ),
+    (c) => {
+      const { name } = c.req.valid('query')
+      return c.json({
+        message: `Hello! ${name}`,
+      })
+    }
+  )
 
   // Serve static files from the dist directory
   app.use('/*', serveStatic({ root: distPath }))
