@@ -1,11 +1,20 @@
-import { Header } from "@/components/header"
-import { Diagram } from "@/components/diagram"
+"use client"
 
-const App = () => {
+import { Header } from "@/components/header"
+import { api } from "@/lib/api";
+
+// import { Diagram } from "@/components/diagram"
+
+const App = async () => {
+  const res = await api.api.data.$get()
+  const data = await res.json()
+  console.log(data)
+
   return (
     <main className="h-dvh bg-zinc-950 text-zinc-50 flex flex-col">
       <Header />
-      <Diagram />
+      <pre>{JSON.stringify(data, null, 2)}</pre>
+      {/* <Diagram /> */}
     </main>
   )
 };

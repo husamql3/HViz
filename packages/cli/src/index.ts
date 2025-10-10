@@ -7,12 +7,10 @@ import {
   cancel,
   text,
 } from "@clack/prompts";
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { access, readFile } from "node:fs/promises";
 import color from "picocolors";
 import open from "open";
-import path from "node:path";
 import { generateErd } from "./generate-erd";
-import { Hono } from "hono";
 import { serve } from "@hono/node-server";
 import { createServer, PORT } from "./create-server";
 
@@ -43,7 +41,7 @@ export const main = async () => {
   }
 
   // check if the schema file exists
-  if (!existsSync(schemaFilePath)) {
+  if (!access(schemaFilePath)) {
     cancel("Schema file does not exist");
     return process.exit(0);
   }
@@ -51,21 +49,13 @@ export const main = async () => {
   const s1 = spinner();
   s1.start("getting schema");
   // read the schema file
-  const schema = readFileSync(schemaFilePath, "utf8");
+  const schema = await readFile(schemaFilePath, "utf8");
   s1.stop("got schema");
 
   const s2 = spinner();
   s2.start("generating ERD");
   const reactFlowData = await generateErd(schema);
   s2.stop("ERD generated");
-
-  // const s3 = spinner();
-  // s3.start("writing data");
-  // writeFileSync(
-  //   path.join(__dirname, '../../view/src', 'data.json'),
-  //   JSON.stringify(reactFlowData, null, 2)
-  // );
-  // s3.stop("data written");
 
   const s4 = spinner();
   s4.start("starting server");
