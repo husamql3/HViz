@@ -1,13 +1,15 @@
 import type { ErdResult } from "@/types/erd.type";
-import { zValidator } from "@hono/zod-validator";
+import { serveStatic } from '@hono/node-server/serve-static'
 import { Hono } from "hono";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { z } from "zod";
 
 export const PORT = 3000
 
 export const createServer = (reactFlowData: ErdResult) => {
+  const __dirname = path.dirname(fileURLToPath(import.meta.url));
+  const distPath = path.join(__dirname, '../view/dist');
+
   const app = new Hono()
     .use("*", async (c, next) => {
       c.header("Access-Control-Allow-Origin", "*");
@@ -15,9 +17,7 @@ export const createServer = (reactFlowData: ErdResult) => {
       c.header("Access-Control-Allow-Headers", "Content-Type");
       await next();
     })
-    .get('/', (c) => {
-      return c.json(reactFlowData);
-    })
+    .use('/*', serveStatic({ path: distPath }))
     .get(
       "/diagram",
       (c) => {
@@ -29,12 +29,3 @@ export const createServer = (reactFlowData: ErdResult) => {
 
   return app;
 }
-
-// Get the absolute path to the view dist directory
-// const __dirname = path.dirname(fileURLToPath(import.meta.url));
-// const distPath = path.join(__dirname, '../../view/dist');
-
-// API endpoint to serve the ERD data
-// app.get('/api/data', (c) => {
-//   return c.json(reactFlowData);
-// });
