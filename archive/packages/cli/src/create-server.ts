@@ -6,7 +6,7 @@ import { serveStatic } from 'hono/bun';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-export const PORT = 3000
+export const PORT = 4000
 
 export const createServer = (reactFlowData: ErdResult) => {
   const app = new Hono();

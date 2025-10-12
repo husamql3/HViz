@@ -1,29 +1,34 @@
 - [x] cli tool
+  - commander
+  - clack
 - [x] options
-- [x] prisma first
+  - [ ] add spinners
+  - [ ] review them after its done
+- [ ] ORMs
+  - [x] prisma
+  - [ ] drizzle
+  - [ ] typeORM
 - [x] select your schema file
 - [x] schema parser
 - [ ] validate schema
-- [ ] convert to json file
-  - [ ] ERD
-- [ ] enable hono server 
-- [ ] send the json file to the client
+- [x] convert to json file
+  - [x] ERD
+- [x] enable hono server 
+- [x] send the json file to the client
+- [ ] schema
+  - [ ] prisma
+    - [ ] all schema files has .prisma file extension
+    - [ ] https://www.prisma.io/docs/orm/reference/prisma-config-reference
+- [ ] structure
+  - [ ] project structure
+    - [ ] workspace
+      - [ ] https://bun.com/docs/install/workspaces
+      - [ ] https://bun.com/docs/install/catalogs
+    - [ ] packages > cli/server/view
+    - [ ] apps > website OR www
+- [ ] [header](https://github.com/guhrodrrigues/luxe/blob/main/apps/www/src/app/ui/_components/Header.tsx)
+- [ ] [roadmap](https://athas.dev)
 
 ---
 
-1. schema
-
-- all schema files has .prisma file extension
-- https://www.prisma.io/docs/orm/reference/prisma-config-reference
-
-2. project structure
-- https://bun.com/docs/install/workspaces
-- https://bun.com/docs/install/catalogs
-- structure
-  - packages > cli/server/view
-  - apps > website OR website
-
----
-
-later
 - [ ] automatially get the schema file from package.json

@@ -1,8 +1,32 @@
 {
-  "name": "vizma",
+  "name": "viz",
   "version": "1.0.0",
+  "scripts": {
+    "dev:cli": "bun run --cwd packages/view build && bun run --cwd packages/cli dev",
+    "dev:view": "bun run --cwd packages/view dev",
+    "build": "",
+    "deploy": "",
+    "check": "biome check --write --verbose --unsafe"
+  },
   "workspaces": [
-    "packages/*",
-    "website"
-  ]
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.2",
+    "@types/bun": "latest"
+  },
+  "engines": {
+    "node": "20.x",
+    "bun": ">=1.2.19"
+  },
+  "packageManager": "bun@1.2.19",
+  "dependencies": {
+    "@solidjs/router": "^0.15.3"
+  },
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "peerDependencies": {
+    "typescript": "^5"
+  }
 }

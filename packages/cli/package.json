@@ -1,0 +1,24 @@
+{
+	"name": "@viz/cli",
+	"type": "module",
+	"scripts": {
+		"dev": "bun run src/index.ts",
+		"build": "tsc",
+		"start": "node dist/index.js"
+	},
+	"dependencies": {
+		"@viz/server": "workspace:*",
+		"@clack/prompts": "^0.11.0",
+		"@prisma/internals": "^5.0.0",
+		"open": "^10.2.0",
+		"picocolors": "^1.1.1"
+	},
+	"devDependencies": {
+		"@types/node": "^20.11.17",
+		"tsx": "^4.7.1",
+		"typescript": "^5"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	}
+}

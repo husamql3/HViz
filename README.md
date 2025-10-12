@@ -1,1 +1,1 @@
-# Vizma
+# Viz
