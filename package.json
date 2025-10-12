@@ -6,7 +6,7 @@
     "dev:view": "bun run --cwd packages/view dev",
     "build": "",
     "deploy": "",
-    "check": "biome check --write --verbose --unsafe"
+    "check": "bun run --cwd packages/view check && bun run --cwd packages/cli check && bun run --cwd packages/server check"
   },
   "workspaces": [
     "packages/*"

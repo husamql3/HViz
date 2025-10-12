@@ -1,0 +1,4716 @@
+{
+	"nodes": [
+		{
+			"id": "OrganizationSubscription",
+			"type": "default",
+			"data": {
+				"label": "OrganizationSubscription",
+				"fields": [
+					{
+						"name": "id",
+						"type": "String",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)"
+					},
+					{
+						"name": "createdAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt"
+					},
+					{
+						"name": "updatedAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt"
+					},
+					{
+						"name": "startDate",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "startDate"
+					},
+					{
+						"name": "endDate",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "endDate"
+					},
+					{
+						"name": "organizationId",
+						"type": "String",
+						"isId": false,
+						"isUnique": true,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId"
+					},
+					{
+						"name": "type",
+						"type": "OrganizationType",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "enum",
+						"label": "type"
+					},
+					{
+						"name": "status",
+						"type": "OrganizationStatus",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "enum",
+						"label": "status"
+					},
+					{
+						"name": "amount",
+						"type": "Float",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "amount"
+					},
+					{
+						"name": "organization",
+						"type": "organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "OrganizationSubscriptionToorganization",
+						"label": "organization → organization"
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 280,
+				"height": 310
+			}
+		},
+		{
+			"id": "CampaignVisitor",
+			"type": "default",
+			"data": {
+				"label": "CampaignVisitor",
+				"fields": [
+					{
+						"name": "id",
+						"type": "String",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)"
+					},
+					{
+						"name": "createdAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt"
+					},
+					{
+						"name": "campaignId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "campaignId"
+					},
+					{
+						"name": "city",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "city"
+					},
+					{
+						"name": "country",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "country"
+					},
+					{
+						"name": "ipAddress",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "ipAddress"
+					},
+					{
+						"name": "userAgent",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "userAgent"
+					},
+					{
+						"name": "campaign",
+						"type": "campaign",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "CampaignVisitorTocampaign",
+						"label": "campaign → campaign"
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 280,
+				"height": 260
+			}
+		},
+		{
+			"id": "Beneficiary",
+			"type": "default",
+			"data": {
+				"label": "Beneficiary",
+				"fields": [
+					{
+						"name": "id",
+						"type": "String",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)"
+					},
+					{
+						"name": "name",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "name"
+					},
+					{
+						"name": "createdAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt"
+					},
+					{
+						"name": "updatedAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt"
+					},
+					{
+						"name": "beneficiaryRoleId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "beneficiaryRoleId"
+					},
+					{
+						"name": "supportType",
+						"type": "SupportType",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "enum",
+						"label": "supportType"
+					},
+					{
+						"name": "supportValue",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "supportValue"
+					},
+					{
+						"name": "supportStatus",
+						"type": "SupportStatus",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "enum",
+						"label": "supportStatus"
+					},
+					{
+						"name": "organizationId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId"
+					},
+					{
+						"name": "description",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "description"
+					},
+					{
+						"name": "BeneficiaryRole",
+						"type": "BeneficiaryRole",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "BeneficiaryToBeneficiaryRole",
+						"label": "BeneficiaryRole → BeneficiaryRole"
+					},
+					{
+						"name": "organization",
+						"type": "organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "BeneficiaryToorganization",
+						"label": "organization → organization"
+					},
+					{
+						"name": "BeneficiarySupport",
+						"type": "BeneficiarySupport",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "BeneficiaryToBeneficiarySupport",
+						"label": "BeneficiarySupport → BeneficiarySupport"
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 280,
+				"height": 385
+			}
+		},
+		{
+			"id": "BeneficiaryRole",
+			"type": "default",
+			"data": {
+				"label": "BeneficiaryRole",
+				"fields": [
+					{
+						"name": "id",
+						"type": "String",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)"
+					},
+					{
+						"name": "createdAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt"
+					},
+					{
+						"name": "updatedAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt"
+					},
+					{
+						"name": "role",
+						"type": "String",
+						"isId": false,
+						"isUnique": true,
+						"isList": false,
+						"kind": "scalar",
+						"label": "role"
+					},
+					{
+						"name": "organizationId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId"
+					},
+					{
+						"name": "Beneficiaries",
+						"type": "Beneficiary",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "BeneficiaryToBeneficiaryRole",
+						"label": "Beneficiaries → Beneficiary"
+					},
+					{
+						"name": "Organization",
+						"type": "organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "BeneficiaryRoleToorganization",
+						"label": "Organization → organization"
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 280,
+				"height": 235
+			}
+		},
+		{
+			"id": "BeneficiarySupport",
+			"type": "default",
+			"data": {
+				"label": "BeneficiarySupport",
+				"fields": [
+					{
+						"name": "id",
+						"type": "String",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)"
+					},
+					{
+						"name": "createdAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt"
+					},
+					{
+						"name": "updatedAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt"
+					},
+					{
+						"name": "supportValue",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "supportValue"
+					},
+					{
+						"name": "supportType",
+						"type": "SupportType",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "enum",
+						"label": "supportType"
+					},
+					{
+						"name": "beneficiaryId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "beneficiaryId"
+					},
+					{
+						"name": "beneficiary",
+						"type": "Beneficiary",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "BeneficiaryToBeneficiarySupport",
+						"label": "beneficiary → Beneficiary"
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 280,
+				"height": 235
+			}
+		},
+		{
+			"id": "Expense",
+			"type": "default",
+			"data": {
+				"label": "Expense",
+				"fields": [
+					{
+						"name": "id",
+						"type": "String",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)"
+					},
+					{
+						"name": "createdAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt"
+					},
+					{
+						"name": "updatedAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt"
+					},
+					{
+						"name": "organizationId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId"
+					},
+					{
+						"name": "expenseCategory",
+						"type": "ExpenseCategory",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "enum",
+						"label": "expenseCategory"
+					},
+					{
+						"name": "expenseTypeId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "expenseTypeId"
+					},
+					{
+						"name": "campaignId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "campaignId"
+					},
+					{
+						"name": "amount",
+						"type": "Float",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "amount"
+					},
+					{
+						"name": "description",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "description"
+					},
+					{
+						"name": "userId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "userId"
+					},
+					{
+						"name": "invoiceUrl",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "invoiceUrl"
+					},
+					{
+						"name": "campaign",
+						"type": "campaign",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "ExpenseTocampaign",
+						"label": "campaign → campaign"
+					},
+					{
+						"name": "ExpenseType",
+						"type": "ExpenseType",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "ExpenseToExpenseType",
+						"label": "ExpenseType → ExpenseType"
+					},
+					{
+						"name": "organization",
+						"type": "organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "ExpenseToorganization",
+						"label": "organization → organization"
+					},
+					{
+						"name": "user",
+						"type": "user",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "ExpenseTouser",
+						"label": "user → user"
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 280,
+				"height": 435
+			}
+		},
+		{
+			"id": "ExpenseType",
+			"type": "default",
+			"data": {
+				"label": "ExpenseType",
+				"fields": [
+					{
+						"name": "id",
+						"type": "String",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)"
+					},
+					{
+						"name": "createdAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt"
+					},
+					{
+						"name": "updatedAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt"
+					},
+					{
+						"name": "organizationId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId"
+					},
+					{
+						"name": "type",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "type"
+					},
+					{
+						"name": "Expense",
+						"type": "Expense",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "ExpenseToExpenseType",
+						"label": "Expense → Expense"
+					},
+					{
+						"name": "organization",
+						"type": "organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "ExpenseTypeToorganization",
+						"label": "organization → organization"
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 280,
+				"height": 235
+			}
+		},
+		{
+			"id": "Employee",
+			"type": "default",
+			"data": {
+				"label": "Employee",
+				"fields": [
+					{
+						"name": "id",
+						"type": "String",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)"
+					},
+					{
+						"name": "name",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "name"
+					},
+					{
+						"name": "createdAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt"
+					},
+					{
+						"name": "updatedAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt"
+					},
+					{
+						"name": "organizationId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId"
+					},
+					{
+						"name": "employeeRoleId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "employeeRoleId"
+					},
+					{
+						"name": "salary",
+						"type": "Float",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "salary"
+					},
+					{
+						"name": "dutyType",
+						"type": "DutyType",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "enum",
+						"label": "dutyType"
+					},
+					{
+						"name": "status",
+						"type": "EmployeeStatus",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "enum",
+						"label": "status"
+					},
+					{
+						"name": "administrativeRole",
+						"type": "AdministrativeRole",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "enum",
+						"label": "administrativeRole"
+					},
+					{
+						"name": "employeeRole",
+						"type": "EmployeeRole",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "EmployeeToEmployeeRole",
+						"label": "employeeRole → EmployeeRole"
+					},
+					{
+						"name": "organization",
+						"type": "organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "EmployeeToorganization",
+						"label": "organization → organization"
+					},
+					{
+						"name": "employeeSalaries",
+						"type": "EmployeeSalaries",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "EmployeeToEmployeeSalaries",
+						"label": "employeeSalaries → EmployeeSalaries"
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 280,
+				"height": 385
+			}
+		},
+		{
+			"id": "EmployeeRole",
+			"type": "default",
+			"data": {
+				"label": "EmployeeRole",
+				"fields": [
+					{
+						"name": "id",
+						"type": "String",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)"
+					},
+					{
+						"name": "createdAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt"
+					},
+					{
+						"name": "updatedAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt"
+					},
+					{
+						"name": "role",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "role"
+					},
+					{
+						"name": "Employee",
+						"type": "Employee",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "EmployeeToEmployeeRole",
+						"label": "Employee → Employee"
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 280,
+				"height": 185
+			}
+		},
+		{
+			"id": "EmployeeSalaries",
+			"type": "default",
+			"data": {
+				"label": "EmployeeSalaries",
+				"fields": [
+					{
+						"name": "id",
+						"type": "String",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)"
+					},
+					{
+						"name": "createdAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt"
+					},
+					{
+						"name": "updatedAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt"
+					},
+					{
+						"name": "salary",
+						"type": "Float",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "salary"
+					},
+					{
+						"name": "type",
+						"type": "EmployeeSalaryType",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "enum",
+						"label": "type"
+					},
+					{
+						"name": "employeeId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "employeeId"
+					},
+					{
+						"name": "employee",
+						"type": "Employee",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "EmployeeToEmployeeSalaries",
+						"label": "employee → Employee"
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 280,
+				"height": 235
+			}
+		},
+		{
+			"id": "BankCard",
+			"type": "default",
+			"data": {
+				"label": "BankCard",
+				"fields": [
+					{
+						"name": "id",
+						"type": "String",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)"
+					},
+					{
+						"name": "bankCardName",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "bankCardName"
+					},
+					{
+						"name": "IBAN",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "IBAN"
+					},
+					{
+						"name": "swiftCode",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "swiftCode"
+					},
+					{
+						"name": "address",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "address"
+					},
+					{
+						"name": "saved",
+						"type": "Boolean",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "saved"
+					},
+					{
+						"name": "isDeleted",
+						"type": "Boolean",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "isDeleted"
+					},
+					{
+						"name": "Payout",
+						"type": "Payout",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "BankCardToPayout",
+						"label": "Payout → Payout"
+					},
+					{
+						"name": "organization",
+						"type": "organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "BankCardToOrganization",
+						"label": "organization → organization"
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 280,
+				"height": 285
+			}
+		},
+		{
+			"id": "Card",
+			"type": "default",
+			"data": {
+				"label": "Card",
+				"fields": [
+					{
+						"name": "id",
+						"type": "String",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)"
+					},
+					{
+						"name": "donatorId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "donatorId"
+					},
+					{
+						"name": "stripeCardId",
+						"type": "String",
+						"isId": false,
+						"isUnique": true,
+						"isList": false,
+						"kind": "scalar",
+						"label": "stripeCardId"
+					},
+					{
+						"name": "stripeCustomerId",
+						"type": "String",
+						"isId": false,
+						"isUnique": true,
+						"isList": false,
+						"kind": "scalar",
+						"label": "stripeCustomerId"
+					},
+					{
+						"name": "last4",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "last4"
+					},
+					{
+						"name": "brand",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "brand"
+					},
+					{
+						"name": "expMonth",
+						"type": "Int",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "expMonth"
+					},
+					{
+						"name": "expYear",
+						"type": "Int",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "expYear"
+					},
+					{
+						"name": "Donator",
+						"type": "Donator",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "CardToDonator",
+						"label": "Donator → Donator"
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 280,
+				"height": 285
+			}
+		},
+		{
+			"id": "Donator",
+			"type": "default",
+			"data": {
+				"label": "Donator",
+				"fields": [
+					{
+						"name": "id",
+						"type": "String",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)"
+					},
+					{
+						"name": "stripeCustomerId",
+						"type": "String",
+						"isId": false,
+						"isUnique": true,
+						"isList": false,
+						"kind": "scalar",
+						"label": "stripeCustomerId"
+					},
+					{
+						"name": "name",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "name"
+					},
+					{
+						"name": "email",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "email"
+					},
+					{
+						"name": "phone",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "phone"
+					},
+					{
+						"name": "address",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "address"
+					},
+					{
+						"name": "city",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "city"
+					},
+					{
+						"name": "state",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "state"
+					},
+					{
+						"name": "country",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "country"
+					},
+					{
+						"name": "createdAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt"
+					},
+					{
+						"name": "updatedAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt"
+					},
+					{
+						"name": "organizationId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId"
+					},
+					{
+						"name": "Card",
+						"type": "Card",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "CardToDonator",
+						"label": "Card → Card"
+					},
+					{
+						"name": "organization",
+						"type": "organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "DonatorToorganization",
+						"label": "organization → organization"
+					},
+					{
+						"name": "Payment",
+						"type": "Payment",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "DonatorToPayment",
+						"label": "Payment → Payment"
+					},
+					{
+						"name": "Subscription",
+						"type": "Subscription",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "DonatorToSubscription",
+						"label": "Subscription → Subscription"
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 280,
+				"height": 460
+			}
+		},
+		{
+			"id": "Payment",
+			"type": "default",
+			"data": {
+				"label": "Payment",
+				"fields": [
+					{
+						"name": "id",
+						"type": "String",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)"
+					},
+					{
+						"name": "donatorId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "donatorId"
+					},
+					{
+						"name": "stripePaymentId",
+						"type": "String",
+						"isId": false,
+						"isUnique": true,
+						"isList": false,
+						"kind": "scalar",
+						"label": "stripePaymentId"
+					},
+					{
+						"name": "amount",
+						"type": "Decimal",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "amount"
+					},
+					{
+						"name": "currency",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "currency"
+					},
+					{
+						"name": "status",
+						"type": "PaymentStatus",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "enum",
+						"label": "status"
+					},
+					{
+						"name": "createdAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt"
+					},
+					{
+						"name": "campaignId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "campaignId"
+					},
+					{
+						"name": "organizationId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId"
+					},
+					{
+						"name": "campaign",
+						"type": "campaign",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "PaymentTocampaign",
+						"label": "campaign → campaign"
+					},
+					{
+						"name": "Donator",
+						"type": "Donator",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "DonatorToPayment",
+						"label": "Donator → Donator"
+					},
+					{
+						"name": "organization",
+						"type": "organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "PaymentToorganization",
+						"label": "organization → organization"
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 280,
+				"height": 360
+			}
+		},
+		{
+			"id": "Payout",
+			"type": "default",
+			"data": {
+				"label": "Payout",
+				"fields": [
+					{
+						"name": "amount",
+						"type": "Decimal",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "amount"
+					},
+					{
+						"name": "createdAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt"
+					},
+					{
+						"name": "updatedAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt"
+					},
+					{
+						"name": "status",
+						"type": "PayoutStatus",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "enum",
+						"label": "status"
+					},
+					{
+						"name": "id",
+						"type": "Int",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)"
+					},
+					{
+						"name": "bankCardId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "bankCardId"
+					},
+					{
+						"name": "organizationId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId"
+					},
+					{
+						"name": "BankCard",
+						"type": "BankCard",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "BankCardToPayout",
+						"label": "BankCard → BankCard"
+					},
+					{
+						"name": "organization",
+						"type": "organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "PayoutToorganization",
+						"label": "organization → organization"
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 280,
+				"height": 285
+			}
+		},
+		{
+			"id": "Subscription",
+			"type": "default",
+			"data": {
+				"label": "Subscription",
+				"fields": [
+					{
+						"name": "id",
+						"type": "String",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)"
+					},
+					{
+						"name": "donatorId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "donatorId"
+					},
+					{
+						"name": "stripeSubId",
+						"type": "String",
+						"isId": false,
+						"isUnique": true,
+						"isList": false,
+						"kind": "scalar",
+						"label": "stripeSubId"
+					},
+					{
+						"name": "stripeCustomerId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "stripeCustomerId"
+					},
+					{
+						"name": "status",
+						"type": "SubscriptionStatus",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "enum",
+						"label": "status"
+					},
+					{
+						"name": "createdAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt"
+					},
+					{
+						"name": "amount",
+						"type": "Decimal",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "amount"
+					},
+					{
+						"name": "campaignId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "campaignId"
+					},
+					{
+						"name": "updatedAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt"
+					},
+					{
+						"name": "campaign",
+						"type": "campaign",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "SubscriptionTocampaign",
+						"label": "campaign → campaign"
+					},
+					{
+						"name": "Donator",
+						"type": "Donator",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "DonatorToSubscription",
+						"label": "Donator → Donator"
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 280,
+				"height": 335
+			}
+		},
+		{
+			"id": "account",
+			"type": "default",
+			"data": {
+				"label": "account",
+				"fields": [
+					{
+						"name": "id",
+						"type": "String",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)"
+					},
+					{
+						"name": "accountId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "accountId"
+					},
+					{
+						"name": "providerId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "providerId"
+					},
+					{
+						"name": "userId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "userId"
+					},
+					{
+						"name": "accessToken",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "accessToken"
+					},
+					{
+						"name": "refreshToken",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "refreshToken"
+					},
+					{
+						"name": "idToken",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "idToken"
+					},
+					{
+						"name": "accessTokenExpiresAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "accessTokenExpiresAt"
+					},
+					{
+						"name": "refreshTokenExpiresAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "refreshTokenExpiresAt"
+					},
+					{
+						"name": "scope",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "scope"
+					},
+					{
+						"name": "password",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "password"
+					},
+					{
+						"name": "createdAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt"
+					},
+					{
+						"name": "updatedAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt"
+					},
+					{
+						"name": "user",
+						"type": "user",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "accountTouser",
+						"label": "user → user"
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 280,
+				"height": 410
+			}
+		},
+		{
+			"id": "campaign",
+			"type": "default",
+			"data": {
+				"label": "campaign",
+				"fields": [
+					{
+						"name": "id",
+						"type": "String",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)"
+					},
+					{
+						"name": "createdAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt"
+					},
+					{
+						"name": "updatedAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt"
+					},
+					{
+						"name": "title",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "title"
+					},
+					{
+						"name": "country",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "country"
+					},
+					{
+						"name": "targetAmount",
+						"type": "Float",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "targetAmount"
+					},
+					{
+						"name": "collectedAmount",
+						"type": "Float",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "collectedAmount"
+					},
+					{
+						"name": "description",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "description"
+					},
+					{
+						"name": "videoLink",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "videoLink"
+					},
+					{
+						"name": "imageGallery",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "scalar",
+						"label": "imageGallery"
+					},
+					{
+						"name": "mainImage",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "mainImage"
+					},
+					{
+						"name": "mdDescription",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "mdDescription"
+					},
+					{
+						"name": "seoTitle",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "seoTitle"
+					},
+					{
+						"name": "seoKeywords",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "scalar",
+						"label": "seoKeywords"
+					},
+					{
+						"name": "seoDescription",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "seoDescription"
+					},
+					{
+						"name": "organizationId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId"
+					},
+					{
+						"name": "isDraft",
+						"type": "Boolean",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "isDraft"
+					},
+					{
+						"name": "landingPageLink",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "landingPageLink"
+					},
+					{
+						"name": "userId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "userId"
+					},
+					{
+						"name": "needs",
+						"type": "Json",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "needs"
+					},
+					{
+						"name": "status",
+						"type": "CampaignStatus",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "enum",
+						"label": "status"
+					},
+					{
+						"name": "campaignDonationType",
+						"type": "CampaignDonationType",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "enum",
+						"label": "campaignDonationType"
+					},
+					{
+						"name": "campaignTypeId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "scalar",
+						"label": "campaignTypeId"
+					},
+					{
+						"name": "isDeleted",
+						"type": "Boolean",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "isDeleted"
+					},
+					{
+						"name": "Payment",
+						"type": "Payment",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "PaymentTocampaign",
+						"label": "Payment → Payment"
+					},
+					{
+						"name": "Subscription",
+						"type": "Subscription",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "SubscriptionTocampaign",
+						"label": "Subscription → Subscription"
+					},
+					{
+						"name": "organization",
+						"type": "organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "campaignToorganization",
+						"label": "organization → organization"
+					},
+					{
+						"name": "user",
+						"type": "user",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "campaignTouser",
+						"label": "user → user"
+					},
+					{
+						"name": "visitors",
+						"type": "CampaignVisitor",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "CampaignVisitorTocampaign",
+						"label": "visitors → CampaignVisitor"
+					},
+					{
+						"name": "email_campaign",
+						"type": "email_campaign",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "campaignToemail_campaign",
+						"label": "email_campaign → email_campaign"
+					},
+					{
+						"name": "expenses",
+						"type": "Expense",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "ExpenseTocampaign",
+						"label": "expenses → Expense"
+					},
+					{
+						"name": "campaign_type",
+						"type": "campaign_type",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "CampaignToType",
+						"label": "campaign_type → campaign_type"
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 280,
+				"height": 860
+			}
+		},
+		{
+			"id": "campaign_type",
+			"type": "default",
+			"data": {
+				"label": "campaign_type",
+				"fields": [
+					{
+						"name": "id",
+						"type": "String",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)"
+					},
+					{
+						"name": "createdAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt"
+					},
+					{
+						"name": "updatedAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt"
+					},
+					{
+						"name": "type",
+						"type": "String",
+						"isId": false,
+						"isUnique": true,
+						"isList": false,
+						"kind": "scalar",
+						"label": "type"
+					},
+					{
+						"name": "isDeleted",
+						"type": "Boolean",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "isDeleted"
+					},
+					{
+						"name": "organizationId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId"
+					},
+					{
+						"name": "organization",
+						"type": "organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "campaign_typeToorganization",
+						"label": "organization → organization"
+					},
+					{
+						"name": "campaign",
+						"type": "campaign",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "CampaignToType",
+						"label": "campaign → campaign"
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 280,
+				"height": 260
+			}
+		},
+		{
+			"id": "email_campaign",
+			"type": "default",
+			"data": {
+				"label": "email_campaign",
+				"fields": [
+					{
+						"name": "id",
+						"type": "String",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)"
+					},
+					{
+						"name": "campaignId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "campaignId"
+					},
+					{
+						"name": "organizationId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId"
+					},
+					{
+						"name": "createdAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt"
+					},
+					{
+						"name": "updatedAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt"
+					},
+					{
+						"name": "campaign",
+						"type": "campaign",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "campaignToemail_campaign",
+						"label": "campaign → campaign"
+					},
+					{
+						"name": "organization",
+						"type": "organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "email_campaignToorganization",
+						"label": "organization → organization"
+					},
+					{
+						"name": "email_campaign_open",
+						"type": "email_campaign_open",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "email_campaignToemail_campaign_open",
+						"label": "email_campaign_open → email_campaign_open"
+					},
+					{
+						"name": "email_donator",
+						"type": "email_donator",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "EmailCampaignToEmailDonator",
+						"label": "email_donator → email_donator"
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 280,
+				"height": 285
+			}
+		},
+		{
+			"id": "email_campaign_open",
+			"type": "default",
+			"data": {
+				"label": "email_campaign_open",
+				"fields": [
+					{
+						"name": "id",
+						"type": "String",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)"
+					},
+					{
+						"name": "emailCampaignId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "emailCampaignId"
+					},
+					{
+						"name": "emailDonatorId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "emailDonatorId"
+					},
+					{
+						"name": "organizationId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId"
+					},
+					{
+						"name": "createdAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt"
+					},
+					{
+						"name": "updatedAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt"
+					},
+					{
+						"name": "email_campaign",
+						"type": "email_campaign",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "email_campaignToemail_campaign_open",
+						"label": "email_campaign → email_campaign"
+					},
+					{
+						"name": "email_donator",
+						"type": "email_donator",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "email_campaign_openToemail_donator",
+						"label": "email_donator → email_donator"
+					},
+					{
+						"name": "organization",
+						"type": "organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "email_campaign_openToorganization",
+						"label": "organization → organization"
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 280,
+				"height": 285
+			}
+		},
+		{
+			"id": "email_donator",
+			"type": "default",
+			"data": {
+				"label": "email_donator",
+				"fields": [
+					{
+						"name": "id",
+						"type": "String",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)"
+					},
+					{
+						"name": "email",
+						"type": "String",
+						"isId": false,
+						"isUnique": true,
+						"isList": false,
+						"kind": "scalar",
+						"label": "email"
+					},
+					{
+						"name": "name",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "name"
+					},
+					{
+						"name": "country",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "country"
+					},
+					{
+						"name": "createdAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt"
+					},
+					{
+						"name": "updatedAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt"
+					},
+					{
+						"name": "organizationId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId"
+					},
+					{
+						"name": "status",
+						"type": "EmailStatus",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "enum",
+						"label": "status"
+					},
+					{
+						"name": "email_campaign_open",
+						"type": "email_campaign_open",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "email_campaign_openToemail_donator",
+						"label": "email_campaign_open → email_campaign_open"
+					},
+					{
+						"name": "organization",
+						"type": "organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "email_donatorToorganization",
+						"label": "organization → organization"
+					},
+					{
+						"name": "email_campaign",
+						"type": "email_campaign",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "EmailCampaignToEmailDonator",
+						"label": "email_campaign → email_campaign"
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 280,
+				"height": 335
+			}
+		},
+		{
+			"id": "email_usage",
+			"type": "default",
+			"data": {
+				"label": "email_usage",
+				"fields": [
+					{
+						"name": "id",
+						"type": "String",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)"
+					},
+					{
+						"name": "organizationId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId"
+					},
+					{
+						"name": "year",
+						"type": "Int",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "year"
+					},
+					{
+						"name": "month",
+						"type": "Int",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "month"
+					},
+					{
+						"name": "used",
+						"type": "Int",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "used"
+					},
+					{
+						"name": "createdAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt"
+					},
+					{
+						"name": "updatedAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt"
+					},
+					{
+						"name": "organization",
+						"type": "organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "email_usageToorganization",
+						"label": "organization → organization"
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 280,
+				"height": 260
+			}
+		},
+		{
+			"id": "organization",
+			"type": "default",
+			"data": {
+				"label": "organization",
+				"fields": [
+					{
+						"name": "id",
+						"type": "String",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)"
+					},
+					{
+						"name": "name",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "name"
+					},
+					{
+						"name": "email",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "email"
+					},
+					{
+						"name": "emailVerified",
+						"type": "Boolean",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "emailVerified"
+					},
+					{
+						"name": "logo",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "logo"
+					},
+					{
+						"name": "createdAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt"
+					},
+					{
+						"name": "updatedAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt"
+					},
+					{
+						"name": "description",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "description"
+					},
+					{
+						"name": "facebook",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "facebook"
+					},
+					{
+						"name": "instagram",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "instagram"
+					},
+					{
+						"name": "link",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "link"
+					},
+					{
+						"name": "location",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "location"
+					},
+					{
+						"name": "phone",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "phone"
+					},
+					{
+						"name": "telegram",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "telegram"
+					},
+					{
+						"name": "thanksMessage",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "thanksMessage"
+					},
+					{
+						"name": "theme",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "theme"
+					},
+					{
+						"name": "twitter",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "twitter"
+					},
+					{
+						"name": "whatsapp",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "whatsapp"
+					},
+					{
+						"name": "youtube",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "youtube"
+					},
+					{
+						"name": "active",
+						"type": "Boolean",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "active"
+					},
+					{
+						"name": "adminEmail",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "adminEmail"
+					},
+					{
+						"name": "adminName",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "adminName"
+					},
+					{
+						"name": "host",
+						"type": "String",
+						"isId": false,
+						"isUnique": true,
+						"isList": false,
+						"kind": "scalar",
+						"label": "host"
+					},
+					{
+						"name": "type",
+						"type": "OrgType",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "enum",
+						"label": "type"
+					},
+					{
+						"name": "secondaryColor",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "secondaryColor"
+					},
+					{
+						"name": "integrationNotes",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "integrationNotes"
+					},
+					{
+						"name": "orgHostType",
+						"type": "OrgHostType",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "enum",
+						"label": "orgHostType"
+					},
+					{
+						"name": "isDeleted",
+						"type": "Boolean",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "isDeleted"
+					},
+					{
+						"name": "Beneficiary",
+						"type": "Beneficiary",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "BeneficiaryToorganization",
+						"label": "Beneficiary → Beneficiary"
+					},
+					{
+						"name": "Donator",
+						"type": "Donator",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "DonatorToorganization",
+						"label": "Donator → Donator"
+					},
+					{
+						"name": "OrganizationSubscription",
+						"type": "OrganizationSubscription",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "OrganizationSubscriptionToorganization",
+						"label": "OrganizationSubscription → OrganizationSubscription"
+					},
+					{
+						"name": "Payment",
+						"type": "Payment",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "PaymentToorganization",
+						"label": "Payment → Payment"
+					},
+					{
+						"name": "Payout",
+						"type": "Payout",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "PayoutToorganization",
+						"label": "Payout → Payout"
+					},
+					{
+						"name": "BeneficiaryRole",
+						"type": "BeneficiaryRole",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "BeneficiaryRoleToorganization",
+						"label": "BeneficiaryRole → BeneficiaryRole"
+					},
+					{
+						"name": "campaign",
+						"type": "campaign",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "campaignToorganization",
+						"label": "campaign → campaign"
+					},
+					{
+						"name": "campaign_type",
+						"type": "campaign_type",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "campaign_typeToorganization",
+						"label": "campaign_type → campaign_type"
+					},
+					{
+						"name": "email_campaign",
+						"type": "email_campaign",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "email_campaignToorganization",
+						"label": "email_campaign → email_campaign"
+					},
+					{
+						"name": "email_campaign_open",
+						"type": "email_campaign_open",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "email_campaign_openToorganization",
+						"label": "email_campaign_open → email_campaign_open"
+					},
+					{
+						"name": "email_donator",
+						"type": "email_donator",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "email_donatorToorganization",
+						"label": "email_donator → email_donator"
+					},
+					{
+						"name": "email_usage",
+						"type": "email_usage",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "email_usageToorganization",
+						"label": "email_usage → email_usage"
+					},
+					{
+						"name": "Employee",
+						"type": "Employee",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "EmployeeToorganization",
+						"label": "Employee → Employee"
+					},
+					{
+						"name": "Expense",
+						"type": "Expense",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "ExpenseToorganization",
+						"label": "Expense → Expense"
+					},
+					{
+						"name": "ExpenseType",
+						"type": "ExpenseType",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "ExpenseTypeToorganization",
+						"label": "ExpenseType → ExpenseType"
+					},
+					{
+						"name": "user",
+						"type": "user",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "organizationTouser",
+						"label": "user → user"
+					},
+					{
+						"name": "BankCard",
+						"type": "BankCard",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "BankCardToOrganization",
+						"label": "BankCard → BankCard"
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 280,
+				"height": 1185
+			}
+		},
+		{
+			"id": "session",
+			"type": "default",
+			"data": {
+				"label": "session",
+				"fields": [
+					{
+						"name": "id",
+						"type": "String",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)"
+					},
+					{
+						"name": "expiresAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "expiresAt"
+					},
+					{
+						"name": "token",
+						"type": "String",
+						"isId": false,
+						"isUnique": true,
+						"isList": false,
+						"kind": "scalar",
+						"label": "token"
+					},
+					{
+						"name": "createdAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt"
+					},
+					{
+						"name": "updatedAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt"
+					},
+					{
+						"name": "ipAddress",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "ipAddress"
+					},
+					{
+						"name": "userAgent",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "userAgent"
+					},
+					{
+						"name": "userId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "userId"
+					},
+					{
+						"name": "type",
+						"type": "SessionType",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "enum",
+						"label": "type"
+					},
+					{
+						"name": "user",
+						"type": "user",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "sessionTouser",
+						"label": "user → user"
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 280,
+				"height": 310
+			}
+		},
+		{
+			"id": "user",
+			"type": "default",
+			"data": {
+				"label": "user",
+				"fields": [
+					{
+						"name": "id",
+						"type": "String",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)"
+					},
+					{
+						"name": "name",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "name"
+					},
+					{
+						"name": "email",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "email"
+					},
+					{
+						"name": "emailVerified",
+						"type": "Boolean",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "emailVerified"
+					},
+					{
+						"name": "image",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "image"
+					},
+					{
+						"name": "createdAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt"
+					},
+					{
+						"name": "updatedAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt"
+					},
+					{
+						"name": "organizationId",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId"
+					},
+					{
+						"name": "active",
+						"type": "Boolean",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "active"
+					},
+					{
+						"name": "role",
+						"type": "UserRole",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "enum",
+						"label": "role"
+					},
+					{
+						"name": "account",
+						"type": "account",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "accountTouser",
+						"label": "account → account"
+					},
+					{
+						"name": "campaign",
+						"type": "campaign",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "campaignTouser",
+						"label": "campaign → campaign"
+					},
+					{
+						"name": "Expense",
+						"type": "Expense",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "ExpenseTouser",
+						"label": "Expense → Expense"
+					},
+					{
+						"name": "session",
+						"type": "session",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": "sessionTouser",
+						"label": "session → session"
+					},
+					{
+						"name": "organization",
+						"type": "organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": "organizationTouser",
+						"label": "organization → organization"
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 280,
+				"height": 435
+			}
+		},
+		{
+			"id": "verification",
+			"type": "default",
+			"data": {
+				"label": "verification",
+				"fields": [
+					{
+						"name": "id",
+						"type": "String",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)"
+					},
+					{
+						"name": "identifier",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "identifier"
+					},
+					{
+						"name": "value",
+						"type": "String",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "value"
+					},
+					{
+						"name": "expiresAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "expiresAt"
+					},
+					{
+						"name": "createdAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt"
+					},
+					{
+						"name": "updatedAt",
+						"type": "DateTime",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt"
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 280,
+				"height": 210
+			}
+		}
+	],
+	"edges": [
+		{
+			"id": "OrganizationSubscription-organization-organization",
+			"source": "OrganizationSubscription",
+			"sourceHandle": "field-9",
+			"target": "organization",
+			"targetHandle": "table-input",
+			"label": "OrganizationSubscriptionToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organization",
+				"fromTable": "OrganizationSubscription",
+				"isList": false
+			}
+		},
+		{
+			"id": "CampaignVisitor-campaign-campaign",
+			"source": "CampaignVisitor",
+			"sourceHandle": "field-7",
+			"target": "campaign",
+			"targetHandle": "table-input",
+			"label": "CampaignVisitorTocampaign",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "campaign",
+				"fromTable": "CampaignVisitor",
+				"isList": false
+			}
+		},
+		{
+			"id": "Beneficiary-BeneficiaryRole-BeneficiaryRole",
+			"source": "Beneficiary",
+			"sourceHandle": "field-10",
+			"target": "BeneficiaryRole",
+			"targetHandle": "table-input",
+			"label": "BeneficiaryToBeneficiaryRole",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "BeneficiaryRole",
+				"fromTable": "Beneficiary",
+				"isList": false
+			}
+		},
+		{
+			"id": "Beneficiary-organization-organization",
+			"source": "Beneficiary",
+			"sourceHandle": "field-11",
+			"target": "organization",
+			"targetHandle": "table-input",
+			"label": "BeneficiaryToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organization",
+				"fromTable": "Beneficiary",
+				"isList": false
+			}
+		},
+		{
+			"id": "Beneficiary-BeneficiarySupport-BeneficiarySupport",
+			"source": "Beneficiary",
+			"sourceHandle": "field-12",
+			"target": "BeneficiarySupport",
+			"targetHandle": "table-input",
+			"label": "BeneficiaryToBeneficiarySupport",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "BeneficiarySupport",
+				"fromTable": "Beneficiary",
+				"isList": true
+			}
+		},
+		{
+			"id": "BeneficiaryRole-Beneficiaries-Beneficiary",
+			"source": "BeneficiaryRole",
+			"sourceHandle": "field-5",
+			"target": "Beneficiary",
+			"targetHandle": "table-input",
+			"label": "BeneficiaryToBeneficiaryRole",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "Beneficiaries",
+				"fromTable": "BeneficiaryRole",
+				"isList": true
+			}
+		},
+		{
+			"id": "BeneficiaryRole-Organization-organization",
+			"source": "BeneficiaryRole",
+			"sourceHandle": "field-6",
+			"target": "organization",
+			"targetHandle": "table-input",
+			"label": "BeneficiaryRoleToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "Organization",
+				"fromTable": "BeneficiaryRole",
+				"isList": false
+			}
+		},
+		{
+			"id": "BeneficiarySupport-beneficiary-Beneficiary",
+			"source": "BeneficiarySupport",
+			"sourceHandle": "field-6",
+			"target": "Beneficiary",
+			"targetHandle": "table-input",
+			"label": "BeneficiaryToBeneficiarySupport",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "beneficiary",
+				"fromTable": "BeneficiarySupport",
+				"isList": false
+			}
+		},
+		{
+			"id": "Expense-campaign-campaign",
+			"source": "Expense",
+			"sourceHandle": "field-11",
+			"target": "campaign",
+			"targetHandle": "table-input",
+			"label": "ExpenseTocampaign",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "campaign",
+				"fromTable": "Expense",
+				"isList": false
+			}
+		},
+		{
+			"id": "Expense-ExpenseType-ExpenseType",
+			"source": "Expense",
+			"sourceHandle": "field-12",
+			"target": "ExpenseType",
+			"targetHandle": "table-input",
+			"label": "ExpenseToExpenseType",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "ExpenseType",
+				"fromTable": "Expense",
+				"isList": false
+			}
+		},
+		{
+			"id": "Expense-organization-organization",
+			"source": "Expense",
+			"sourceHandle": "field-13",
+			"target": "organization",
+			"targetHandle": "table-input",
+			"label": "ExpenseToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organization",
+				"fromTable": "Expense",
+				"isList": false
+			}
+		},
+		{
+			"id": "Expense-user-user",
+			"source": "Expense",
+			"sourceHandle": "field-14",
+			"target": "user",
+			"targetHandle": "table-input",
+			"label": "ExpenseTouser",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "user",
+				"fromTable": "Expense",
+				"isList": false
+			}
+		},
+		{
+			"id": "ExpenseType-Expense-Expense",
+			"source": "ExpenseType",
+			"sourceHandle": "field-5",
+			"target": "Expense",
+			"targetHandle": "table-input",
+			"label": "ExpenseToExpenseType",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "Expense",
+				"fromTable": "ExpenseType",
+				"isList": true
+			}
+		},
+		{
+			"id": "ExpenseType-organization-organization",
+			"source": "ExpenseType",
+			"sourceHandle": "field-6",
+			"target": "organization",
+			"targetHandle": "table-input",
+			"label": "ExpenseTypeToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organization",
+				"fromTable": "ExpenseType",
+				"isList": false
+			}
+		},
+		{
+			"id": "Employee-employeeRole-EmployeeRole",
+			"source": "Employee",
+			"sourceHandle": "field-10",
+			"target": "EmployeeRole",
+			"targetHandle": "table-input",
+			"label": "EmployeeToEmployeeRole",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "employeeRole",
+				"fromTable": "Employee",
+				"isList": false
+			}
+		},
+		{
+			"id": "Employee-organization-organization",
+			"source": "Employee",
+			"sourceHandle": "field-11",
+			"target": "organization",
+			"targetHandle": "table-input",
+			"label": "EmployeeToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organization",
+				"fromTable": "Employee",
+				"isList": false
+			}
+		},
+		{
+			"id": "Employee-employeeSalaries-EmployeeSalaries",
+			"source": "Employee",
+			"sourceHandle": "field-12",
+			"target": "EmployeeSalaries",
+			"targetHandle": "table-input",
+			"label": "EmployeeToEmployeeSalaries",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "employeeSalaries",
+				"fromTable": "Employee",
+				"isList": true
+			}
+		},
+		{
+			"id": "EmployeeRole-Employee-Employee",
+			"source": "EmployeeRole",
+			"sourceHandle": "field-4",
+			"target": "Employee",
+			"targetHandle": "table-input",
+			"label": "EmployeeToEmployeeRole",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "Employee",
+				"fromTable": "EmployeeRole",
+				"isList": true
+			}
+		},
+		{
+			"id": "EmployeeSalaries-employee-Employee",
+			"source": "EmployeeSalaries",
+			"sourceHandle": "field-6",
+			"target": "Employee",
+			"targetHandle": "table-input",
+			"label": "EmployeeToEmployeeSalaries",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "employee",
+				"fromTable": "EmployeeSalaries",
+				"isList": false
+			}
+		},
+		{
+			"id": "BankCard-Payout-Payout",
+			"source": "BankCard",
+			"sourceHandle": "field-7",
+			"target": "Payout",
+			"targetHandle": "table-input",
+			"label": "BankCardToPayout",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "Payout",
+				"fromTable": "BankCard",
+				"isList": true
+			}
+		},
+		{
+			"id": "BankCard-organization-organization",
+			"source": "BankCard",
+			"sourceHandle": "field-8",
+			"target": "organization",
+			"targetHandle": "table-input",
+			"label": "BankCardToOrganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "organization",
+				"fromTable": "BankCard",
+				"isList": true
+			}
+		},
+		{
+			"id": "Card-Donator-Donator",
+			"source": "Card",
+			"sourceHandle": "field-8",
+			"target": "Donator",
+			"targetHandle": "table-input",
+			"label": "CardToDonator",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "Donator",
+				"fromTable": "Card",
+				"isList": false
+			}
+		},
+		{
+			"id": "Donator-Card-Card",
+			"source": "Donator",
+			"sourceHandle": "field-12",
+			"target": "Card",
+			"targetHandle": "table-input",
+			"label": "CardToDonator",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "Card",
+				"fromTable": "Donator",
+				"isList": true
+			}
+		},
+		{
+			"id": "Donator-organization-organization",
+			"source": "Donator",
+			"sourceHandle": "field-13",
+			"target": "organization",
+			"targetHandle": "table-input",
+			"label": "DonatorToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organization",
+				"fromTable": "Donator",
+				"isList": false
+			}
+		},
+		{
+			"id": "Donator-Payment-Payment",
+			"source": "Donator",
+			"sourceHandle": "field-14",
+			"target": "Payment",
+			"targetHandle": "table-input",
+			"label": "DonatorToPayment",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "Payment",
+				"fromTable": "Donator",
+				"isList": true
+			}
+		},
+		{
+			"id": "Donator-Subscription-Subscription",
+			"source": "Donator",
+			"sourceHandle": "field-15",
+			"target": "Subscription",
+			"targetHandle": "table-input",
+			"label": "DonatorToSubscription",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "Subscription",
+				"fromTable": "Donator",
+				"isList": true
+			}
+		},
+		{
+			"id": "Payment-campaign-campaign",
+			"source": "Payment",
+			"sourceHandle": "field-9",
+			"target": "campaign",
+			"targetHandle": "table-input",
+			"label": "PaymentTocampaign",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "campaign",
+				"fromTable": "Payment",
+				"isList": false
+			}
+		},
+		{
+			"id": "Payment-Donator-Donator",
+			"source": "Payment",
+			"sourceHandle": "field-10",
+			"target": "Donator",
+			"targetHandle": "table-input",
+			"label": "DonatorToPayment",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "Donator",
+				"fromTable": "Payment",
+				"isList": false
+			}
+		},
+		{
+			"id": "Payment-organization-organization",
+			"source": "Payment",
+			"sourceHandle": "field-11",
+			"target": "organization",
+			"targetHandle": "table-input",
+			"label": "PaymentToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organization",
+				"fromTable": "Payment",
+				"isList": false
+			}
+		},
+		{
+			"id": "Payout-BankCard-BankCard",
+			"source": "Payout",
+			"sourceHandle": "field-7",
+			"target": "BankCard",
+			"targetHandle": "table-input",
+			"label": "BankCardToPayout",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "BankCard",
+				"fromTable": "Payout",
+				"isList": false
+			}
+		},
+		{
+			"id": "Payout-organization-organization",
+			"source": "Payout",
+			"sourceHandle": "field-8",
+			"target": "organization",
+			"targetHandle": "table-input",
+			"label": "PayoutToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organization",
+				"fromTable": "Payout",
+				"isList": false
+			}
+		},
+		{
+			"id": "Subscription-campaign-campaign",
+			"source": "Subscription",
+			"sourceHandle": "field-9",
+			"target": "campaign",
+			"targetHandle": "table-input",
+			"label": "SubscriptionTocampaign",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "campaign",
+				"fromTable": "Subscription",
+				"isList": false
+			}
+		},
+		{
+			"id": "Subscription-Donator-Donator",
+			"source": "Subscription",
+			"sourceHandle": "field-10",
+			"target": "Donator",
+			"targetHandle": "table-input",
+			"label": "DonatorToSubscription",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "Donator",
+				"fromTable": "Subscription",
+				"isList": false
+			}
+		},
+		{
+			"id": "account-user-user",
+			"source": "account",
+			"sourceHandle": "field-13",
+			"target": "user",
+			"targetHandle": "table-input",
+			"label": "accountTouser",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "user",
+				"fromTable": "account",
+				"isList": false
+			}
+		},
+		{
+			"id": "campaign-Payment-Payment",
+			"source": "campaign",
+			"sourceHandle": "field-24",
+			"target": "Payment",
+			"targetHandle": "table-input",
+			"label": "PaymentTocampaign",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "Payment",
+				"fromTable": "campaign",
+				"isList": true
+			}
+		},
+		{
+			"id": "campaign-Subscription-Subscription",
+			"source": "campaign",
+			"sourceHandle": "field-25",
+			"target": "Subscription",
+			"targetHandle": "table-input",
+			"label": "SubscriptionTocampaign",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "Subscription",
+				"fromTable": "campaign",
+				"isList": true
+			}
+		},
+		{
+			"id": "campaign-organization-organization",
+			"source": "campaign",
+			"sourceHandle": "field-26",
+			"target": "organization",
+			"targetHandle": "table-input",
+			"label": "campaignToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organization",
+				"fromTable": "campaign",
+				"isList": false
+			}
+		},
+		{
+			"id": "campaign-user-user",
+			"source": "campaign",
+			"sourceHandle": "field-27",
+			"target": "user",
+			"targetHandle": "table-input",
+			"label": "campaignTouser",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "user",
+				"fromTable": "campaign",
+				"isList": false
+			}
+		},
+		{
+			"id": "campaign-visitors-CampaignVisitor",
+			"source": "campaign",
+			"sourceHandle": "field-28",
+			"target": "CampaignVisitor",
+			"targetHandle": "table-input",
+			"label": "CampaignVisitorTocampaign",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "visitors",
+				"fromTable": "campaign",
+				"isList": true
+			}
+		},
+		{
+			"id": "campaign-email_campaign-email_campaign",
+			"source": "campaign",
+			"sourceHandle": "field-29",
+			"target": "email_campaign",
+			"targetHandle": "table-input",
+			"label": "campaignToemail_campaign",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "email_campaign",
+				"fromTable": "campaign",
+				"isList": true
+			}
+		},
+		{
+			"id": "campaign-expenses-Expense",
+			"source": "campaign",
+			"sourceHandle": "field-30",
+			"target": "Expense",
+			"targetHandle": "table-input",
+			"label": "ExpenseTocampaign",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "expenses",
+				"fromTable": "campaign",
+				"isList": true
+			}
+		},
+		{
+			"id": "campaign-campaign_type-campaign_type",
+			"source": "campaign",
+			"sourceHandle": "field-31",
+			"target": "campaign_type",
+			"targetHandle": "table-input",
+			"label": "CampaignToType",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "campaign_type",
+				"fromTable": "campaign",
+				"isList": true
+			}
+		},
+		{
+			"id": "campaign_type-organization-organization",
+			"source": "campaign_type",
+			"sourceHandle": "field-6",
+			"target": "organization",
+			"targetHandle": "table-input",
+			"label": "campaign_typeToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organization",
+				"fromTable": "campaign_type",
+				"isList": false
+			}
+		},
+		{
+			"id": "campaign_type-campaign-campaign",
+			"source": "campaign_type",
+			"sourceHandle": "field-7",
+			"target": "campaign",
+			"targetHandle": "table-input",
+			"label": "CampaignToType",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "campaign",
+				"fromTable": "campaign_type",
+				"isList": true
+			}
+		},
+		{
+			"id": "email_campaign-campaign-campaign",
+			"source": "email_campaign",
+			"sourceHandle": "field-5",
+			"target": "campaign",
+			"targetHandle": "table-input",
+			"label": "campaignToemail_campaign",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "campaign",
+				"fromTable": "email_campaign",
+				"isList": false
+			}
+		},
+		{
+			"id": "email_campaign-organization-organization",
+			"source": "email_campaign",
+			"sourceHandle": "field-6",
+			"target": "organization",
+			"targetHandle": "table-input",
+			"label": "email_campaignToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organization",
+				"fromTable": "email_campaign",
+				"isList": false
+			}
+		},
+		{
+			"id": "email_campaign-email_campaign_open-email_campaign_open",
+			"source": "email_campaign",
+			"sourceHandle": "field-7",
+			"target": "email_campaign_open",
+			"targetHandle": "table-input",
+			"label": "email_campaignToemail_campaign_open",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "email_campaign_open",
+				"fromTable": "email_campaign",
+				"isList": true
+			}
+		},
+		{
+			"id": "email_campaign-email_donator-email_donator",
+			"source": "email_campaign",
+			"sourceHandle": "field-8",
+			"target": "email_donator",
+			"targetHandle": "table-input",
+			"label": "EmailCampaignToEmailDonator",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "email_donator",
+				"fromTable": "email_campaign",
+				"isList": true
+			}
+		},
+		{
+			"id": "email_campaign_open-email_campaign-email_campaign",
+			"source": "email_campaign_open",
+			"sourceHandle": "field-6",
+			"target": "email_campaign",
+			"targetHandle": "table-input",
+			"label": "email_campaignToemail_campaign_open",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "email_campaign",
+				"fromTable": "email_campaign_open",
+				"isList": false
+			}
+		},
+		{
+			"id": "email_campaign_open-email_donator-email_donator",
+			"source": "email_campaign_open",
+			"sourceHandle": "field-7",
+			"target": "email_donator",
+			"targetHandle": "table-input",
+			"label": "email_campaign_openToemail_donator",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "email_donator",
+				"fromTable": "email_campaign_open",
+				"isList": false
+			}
+		},
+		{
+			"id": "email_campaign_open-organization-organization",
+			"source": "email_campaign_open",
+			"sourceHandle": "field-8",
+			"target": "organization",
+			"targetHandle": "table-input",
+			"label": "email_campaign_openToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organization",
+				"fromTable": "email_campaign_open",
+				"isList": false
+			}
+		},
+		{
+			"id": "email_donator-email_campaign_open-email_campaign_open",
+			"source": "email_donator",
+			"sourceHandle": "field-8",
+			"target": "email_campaign_open",
+			"targetHandle": "table-input",
+			"label": "email_campaign_openToemail_donator",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "email_campaign_open",
+				"fromTable": "email_donator",
+				"isList": true
+			}
+		},
+		{
+			"id": "email_donator-organization-organization",
+			"source": "email_donator",
+			"sourceHandle": "field-9",
+			"target": "organization",
+			"targetHandle": "table-input",
+			"label": "email_donatorToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organization",
+				"fromTable": "email_donator",
+				"isList": false
+			}
+		},
+		{
+			"id": "email_donator-email_campaign-email_campaign",
+			"source": "email_donator",
+			"sourceHandle": "field-10",
+			"target": "email_campaign",
+			"targetHandle": "table-input",
+			"label": "EmailCampaignToEmailDonator",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "email_campaign",
+				"fromTable": "email_donator",
+				"isList": true
+			}
+		},
+		{
+			"id": "email_usage-organization-organization",
+			"source": "email_usage",
+			"sourceHandle": "field-7",
+			"target": "organization",
+			"targetHandle": "table-input",
+			"label": "email_usageToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organization",
+				"fromTable": "email_usage",
+				"isList": false
+			}
+		},
+		{
+			"id": "organization-Beneficiary-Beneficiary",
+			"source": "organization",
+			"sourceHandle": "field-28",
+			"target": "Beneficiary",
+			"targetHandle": "table-input",
+			"label": "BeneficiaryToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "Beneficiary",
+				"fromTable": "organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "organization-Donator-Donator",
+			"source": "organization",
+			"sourceHandle": "field-29",
+			"target": "Donator",
+			"targetHandle": "table-input",
+			"label": "DonatorToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "Donator",
+				"fromTable": "organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "organization-OrganizationSubscription-OrganizationSubscription",
+			"source": "organization",
+			"sourceHandle": "field-30",
+			"target": "OrganizationSubscription",
+			"targetHandle": "table-input",
+			"label": "OrganizationSubscriptionToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "OrganizationSubscription",
+				"fromTable": "organization",
+				"isList": false
+			}
+		},
+		{
+			"id": "organization-Payment-Payment",
+			"source": "organization",
+			"sourceHandle": "field-31",
+			"target": "Payment",
+			"targetHandle": "table-input",
+			"label": "PaymentToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "Payment",
+				"fromTable": "organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "organization-Payout-Payout",
+			"source": "organization",
+			"sourceHandle": "field-32",
+			"target": "Payout",
+			"targetHandle": "table-input",
+			"label": "PayoutToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "Payout",
+				"fromTable": "organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "organization-BeneficiaryRole-BeneficiaryRole",
+			"source": "organization",
+			"sourceHandle": "field-33",
+			"target": "BeneficiaryRole",
+			"targetHandle": "table-input",
+			"label": "BeneficiaryRoleToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "BeneficiaryRole",
+				"fromTable": "organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "organization-campaign-campaign",
+			"source": "organization",
+			"sourceHandle": "field-34",
+			"target": "campaign",
+			"targetHandle": "table-input",
+			"label": "campaignToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "campaign",
+				"fromTable": "organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "organization-campaign_type-campaign_type",
+			"source": "organization",
+			"sourceHandle": "field-35",
+			"target": "campaign_type",
+			"targetHandle": "table-input",
+			"label": "campaign_typeToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "campaign_type",
+				"fromTable": "organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "organization-email_campaign-email_campaign",
+			"source": "organization",
+			"sourceHandle": "field-36",
+			"target": "email_campaign",
+			"targetHandle": "table-input",
+			"label": "email_campaignToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "email_campaign",
+				"fromTable": "organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "organization-email_campaign_open-email_campaign_open",
+			"source": "organization",
+			"sourceHandle": "field-37",
+			"target": "email_campaign_open",
+			"targetHandle": "table-input",
+			"label": "email_campaign_openToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "email_campaign_open",
+				"fromTable": "organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "organization-email_donator-email_donator",
+			"source": "organization",
+			"sourceHandle": "field-38",
+			"target": "email_donator",
+			"targetHandle": "table-input",
+			"label": "email_donatorToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "email_donator",
+				"fromTable": "organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "organization-email_usage-email_usage",
+			"source": "organization",
+			"sourceHandle": "field-39",
+			"target": "email_usage",
+			"targetHandle": "table-input",
+			"label": "email_usageToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "email_usage",
+				"fromTable": "organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "organization-Employee-Employee",
+			"source": "organization",
+			"sourceHandle": "field-40",
+			"target": "Employee",
+			"targetHandle": "table-input",
+			"label": "EmployeeToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "Employee",
+				"fromTable": "organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "organization-Expense-Expense",
+			"source": "organization",
+			"sourceHandle": "field-41",
+			"target": "Expense",
+			"targetHandle": "table-input",
+			"label": "ExpenseToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "Expense",
+				"fromTable": "organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "organization-ExpenseType-ExpenseType",
+			"source": "organization",
+			"sourceHandle": "field-42",
+			"target": "ExpenseType",
+			"targetHandle": "table-input",
+			"label": "ExpenseTypeToorganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "ExpenseType",
+				"fromTable": "organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "organization-user-user",
+			"source": "organization",
+			"sourceHandle": "field-43",
+			"target": "user",
+			"targetHandle": "table-input",
+			"label": "organizationTouser",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "user",
+				"fromTable": "organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "organization-BankCard-BankCard",
+			"source": "organization",
+			"sourceHandle": "field-44",
+			"target": "BankCard",
+			"targetHandle": "table-input",
+			"label": "BankCardToOrganization",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "BankCard",
+				"fromTable": "organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "session-user-user",
+			"source": "session",
+			"sourceHandle": "field-9",
+			"target": "user",
+			"targetHandle": "table-input",
+			"label": "sessionTouser",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "user",
+				"fromTable": "session",
+				"isList": false
+			}
+		},
+		{
+			"id": "user-account-account",
+			"source": "user",
+			"sourceHandle": "field-10",
+			"target": "account",
+			"targetHandle": "table-input",
+			"label": "accountTouser",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "account",
+				"fromTable": "user",
+				"isList": true
+			}
+		},
+		{
+			"id": "user-campaign-campaign",
+			"source": "user",
+			"sourceHandle": "field-11",
+			"target": "campaign",
+			"targetHandle": "table-input",
+			"label": "campaignTouser",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "campaign",
+				"fromTable": "user",
+				"isList": true
+			}
+		},
+		{
+			"id": "user-Expense-Expense",
+			"source": "user",
+			"sourceHandle": "field-12",
+			"target": "Expense",
+			"targetHandle": "table-input",
+			"label": "ExpenseTouser",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "Expense",
+				"fromTable": "user",
+				"isList": true
+			}
+		},
+		{
+			"id": "user-session-session",
+			"source": "user",
+			"sourceHandle": "field-13",
+			"target": "session",
+			"targetHandle": "table-input",
+			"label": "sessionTouser",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "session",
+				"fromTable": "user",
+				"isList": true
+			}
+		},
+		{
+			"id": "user-organization-organization",
+			"source": "user",
+			"sourceHandle": "field-14",
+			"target": "organization",
+			"targetHandle": "table-input",
+			"label": "organizationTouser",
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organization",
+				"fromTable": "user",
+				"isList": false
+			}
+		}
+	]
+}
