@@ -9,3 +9,11 @@ directory = "./dist"
 [[kv_namespaces]]
 binding = "SESSION"
 id = "3e89c4360905482b807c47f5468188d4"
+
+[observability]
+enabled = true
+[observability.logs]
+enabled = false
+head_sampling_rate = 1
+invocation_logs = true
+persist = true

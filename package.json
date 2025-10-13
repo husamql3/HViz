@@ -6,7 +6,7 @@
     "dev:view": "bun run --filter='@viz/view' dev",
     "dev:www": "bun run --filter='@viz/www' dev",
     "build": "bun run --filter='*' build",
-    "deploy": "",
+    "deploy:www": "bun run --filter='@viz/www' deploy",
     "check": "bunx biome check --write --verbose --unsafe"
   },
   "workspaces": [
