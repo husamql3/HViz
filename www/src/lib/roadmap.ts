@@ -67,7 +67,7 @@ export const ROADMAP: RoadmapItem[] = [
 	},
 	{
 		title: "Export & Integration",
-		subtitle: "PNG/SVG export, API integration",
+		subtitle: "PNG/SVG/PDF export, API integration",
 		status: "not started",
 		priority: "P3",
 	},
