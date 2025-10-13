@@ -7,6 +7,7 @@ export type Field = {
 	kind: string;
 	relationName?: string;
 	label: string;
+	isNullable: boolean;
 };
 
 export type NodeData = {
@@ -21,7 +22,6 @@ export type Node = {
 	position: { x: number; y: number };
 	style: {
 		width: number;
-		height: number;
 	};
 };
 

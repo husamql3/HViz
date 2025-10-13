@@ -215,7 +215,7 @@
 //             maskColor="rgba(82, 82, 91, 0.2)"
 //           />
 //         </ReactFlow>
-//         <style>{`
+//         {/* <style>{`
 //         .react-flow__edge-path {
 //           stroke: #71717a !important;
 //           stroke-width: 2px !important;
@@ -252,7 +252,7 @@
 //         .react-flow__minimap-canvas {
 //           background: rgba(24, 24, 27, 0.5) !important;
 //         }
-//       `}</style>
+//       `}</style> */}
 //       </div>
 //     </div>
 //   )

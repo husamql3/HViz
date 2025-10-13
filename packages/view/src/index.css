@@ -240,3 +240,13 @@
 		}
 	}
 }
+ 
+
+/* XYFlow */
+.react-flow__node-default {
+	background-color: transparent;
+	padding: 0 !important;
+	/* overflow: hidden !important; */
+	/* override the default border-radius */
+	border-radius: 12px !important;
+}

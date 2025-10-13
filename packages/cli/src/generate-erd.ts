@@ -1,23 +1,18 @@
 import { getDMMF } from "@prisma/internals";
-import type { Edge, ErdResult, Node } from "./erd.type";
 
-const NODE_HEIGHT = 60; // Base height per attribute
+import type { Edge, ErdResult, Node } from "@/types/erd.type";
+import { calcTableWidth } from "@/utils/calc-table-width";
 
 export const generateErd = async (schema: string): Promise<ErdResult> => {
 	const dmmf = await getDMMF({
 		datamodel: schema,
-		// prismaPath: "../../prisma/schema.prisma"
 	});
 
 	const nodes: Node[] = [];
 	const edges: Edge[] = [];
 
 	dmmf.datamodel.models.forEach((model) => {
-		// Calculate node height based on number of fields
-		const fieldCount = model.fields.length;
-		const calculatedHeight = NODE_HEIGHT + fieldCount * 25;
-
-		// Create node with table name and attributes
+		// Create node with table ame and attributes
 		const fields = model.fields.map((field) => {
 			let fieldLabel = field.name;
 
@@ -37,6 +32,7 @@ export const generateErd = async (schema: string): Promise<ErdResult> => {
 				kind: field.kind,
 				relationName: field.relationName,
 				label: fieldLabel,
+				isNullable: field.isRequired !== undefined ? !field.isRequired : true,
 			};
 		});
 
@@ -49,8 +45,7 @@ export const generateErd = async (schema: string): Promise<ErdResult> => {
 			},
 			position: { x: 0, y: 0 }, // Will be set by dagre layout
 			style: {
-				width: 280,
-				height: calculatedHeight,
+				width: calcTableWidth(fields),
 			},
 		});
 	});

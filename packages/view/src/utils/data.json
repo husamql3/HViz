@@ -13,7 +13,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "id (ID)"
+						"label": "id (ID)",
+						"isNullable": false
 					},
 					{
 						"name": "createdAt",
@@ -22,7 +23,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "createdAt"
+						"label": "createdAt",
+						"isNullable": false
 					},
 					{
 						"name": "updatedAt",
@@ -31,7 +33,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "updatedAt"
+						"label": "updatedAt",
+						"isNullable": false
 					},
 					{
 						"name": "startDate",
@@ -40,7 +43,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "startDate"
+						"label": "startDate",
+						"isNullable": false
 					},
 					{
 						"name": "endDate",
@@ -49,7 +53,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "endDate"
+						"label": "endDate",
+						"isNullable": false
 					},
 					{
 						"name": "organizationId",
@@ -58,7 +63,8 @@
 						"isUnique": true,
 						"isList": false,
 						"kind": "scalar",
-						"label": "organizationId"
+						"label": "organizationId",
+						"isNullable": false
 					},
 					{
 						"name": "type",
@@ -67,7 +73,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "enum",
-						"label": "type"
+						"label": "type",
+						"isNullable": false
 					},
 					{
 						"name": "status",
@@ -76,7 +83,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "enum",
-						"label": "status"
+						"label": "status",
+						"isNullable": false
 					},
 					{
 						"name": "amount",
@@ -85,7 +93,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "amount"
+						"label": "amount",
+						"isNullable": true
 					},
 					{
 						"name": "organization",
@@ -95,7 +104,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "OrganizationSubscriptionToorganization",
-						"label": "organization → organization"
+						"label": "organization → organization",
+						"isNullable": false
 					}
 				]
 			},
@@ -104,8 +114,7 @@
 				"y": 0
 			},
 			"style": {
-				"width": 280,
-				"height": 310
+				"width": 336
 			}
 		},
 		{
@@ -121,7 +130,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "id (ID)"
+						"label": "id (ID)",
+						"isNullable": false
 					},
 					{
 						"name": "createdAt",
@@ -130,7 +140,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "createdAt"
+						"label": "createdAt",
+						"isNullable": false
 					},
 					{
 						"name": "campaignId",
@@ -139,7 +150,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "campaignId"
+						"label": "campaignId",
+						"isNullable": false
 					},
 					{
 						"name": "city",
@@ -148,7 +160,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "city"
+						"label": "city",
+						"isNullable": true
 					},
 					{
 						"name": "country",
@@ -157,7 +170,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "country"
+						"label": "country",
+						"isNullable": true
 					},
 					{
 						"name": "ipAddress",
@@ -166,7 +180,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "ipAddress"
+						"label": "ipAddress",
+						"isNullable": false
 					},
 					{
 						"name": "userAgent",
@@ -175,7 +190,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "userAgent"
+						"label": "userAgent",
+						"isNullable": true
 					},
 					{
 						"name": "campaign",
@@ -185,7 +201,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "CampaignVisitorTocampaign",
-						"label": "campaign → campaign"
+						"label": "campaign → campaign",
+						"isNullable": false
 					}
 				]
 			},
@@ -194,8 +211,7 @@
 				"y": 0
 			},
 			"style": {
-				"width": 280,
-				"height": 260
+				"width": 287
 			}
 		},
 		{
@@ -211,7 +227,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "id (ID)"
+						"label": "id (ID)",
+						"isNullable": false
 					},
 					{
 						"name": "name",
@@ -220,7 +237,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "name"
+						"label": "name",
+						"isNullable": false
 					},
 					{
 						"name": "createdAt",
@@ -229,7 +247,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "createdAt"
+						"label": "createdAt",
+						"isNullable": false
 					},
 					{
 						"name": "updatedAt",
@@ -238,7 +257,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "updatedAt"
+						"label": "updatedAt",
+						"isNullable": false
 					},
 					{
 						"name": "beneficiaryRoleId",
@@ -247,7 +267,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "beneficiaryRoleId"
+						"label": "beneficiaryRoleId",
+						"isNullable": false
 					},
 					{
 						"name": "supportType",
@@ -256,7 +277,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "enum",
-						"label": "supportType"
+						"label": "supportType",
+						"isNullable": false
 					},
 					{
 						"name": "supportValue",
@@ -265,7 +287,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "supportValue"
+						"label": "supportValue",
+						"isNullable": false
 					},
 					{
 						"name": "supportStatus",
@@ -274,7 +297,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "enum",
-						"label": "supportStatus"
+						"label": "supportStatus",
+						"isNullable": false
 					},
 					{
 						"name": "organizationId",
@@ -283,7 +307,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "organizationId"
+						"label": "organizationId",
+						"isNullable": true
 					},
 					{
 						"name": "description",
@@ -292,7 +317,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "description"
+						"label": "description",
+						"isNullable": true
 					},
 					{
 						"name": "BeneficiaryRole",
@@ -302,7 +328,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "BeneficiaryToBeneficiaryRole",
-						"label": "BeneficiaryRole → BeneficiaryRole"
+						"label": "BeneficiaryRole → BeneficiaryRole",
+						"isNullable": false
 					},
 					{
 						"name": "organization",
@@ -312,7 +339,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "BeneficiaryToorganization",
-						"label": "organization → organization"
+						"label": "organization → organization",
+						"isNullable": true
 					},
 					{
 						"name": "BeneficiarySupport",
@@ -322,7 +350,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "BeneficiaryToBeneficiarySupport",
-						"label": "BeneficiarySupport → BeneficiarySupport"
+						"label": "BeneficiarySupport → BeneficiarySupport",
+						"isNullable": false
 					}
 				]
 			},
@@ -331,8 +360,7 @@
 				"y": 0
 			},
 			"style": {
-				"width": 280,
-				"height": 385
+				"width": 420
 			}
 		},
 		{
@@ -348,7 +376,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "id (ID)"
+						"label": "id (ID)",
+						"isNullable": false
 					},
 					{
 						"name": "createdAt",
@@ -357,7 +386,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "createdAt"
+						"label": "createdAt",
+						"isNullable": false
 					},
 					{
 						"name": "updatedAt",
@@ -366,7 +396,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "updatedAt"
+						"label": "updatedAt",
+						"isNullable": false
 					},
 					{
 						"name": "role",
@@ -375,7 +406,8 @@
 						"isUnique": true,
 						"isList": false,
 						"kind": "scalar",
-						"label": "role"
+						"label": "role",
+						"isNullable": false
 					},
 					{
 						"name": "organizationId",
@@ -384,7 +416,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "organizationId"
+						"label": "organizationId",
+						"isNullable": true
 					},
 					{
 						"name": "Beneficiaries",
@@ -394,7 +427,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "BeneficiaryToBeneficiaryRole",
-						"label": "Beneficiaries → Beneficiary"
+						"label": "Beneficiaries → Beneficiary",
+						"isNullable": false
 					},
 					{
 						"name": "Organization",
@@ -404,7 +438,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "BeneficiaryRoleToorganization",
-						"label": "Organization → organization"
+						"label": "Organization → organization",
+						"isNullable": true
 					}
 				]
 			},
@@ -413,8 +448,7 @@
 				"y": 0
 			},
 			"style": {
-				"width": 280,
-				"height": 235
+				"width": 336
 			}
 		},
 		{
@@ -430,7 +464,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "id (ID)"
+						"label": "id (ID)",
+						"isNullable": false
 					},
 					{
 						"name": "createdAt",
@@ -439,7 +474,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "createdAt"
+						"label": "createdAt",
+						"isNullable": false
 					},
 					{
 						"name": "updatedAt",
@@ -448,7 +484,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "updatedAt"
+						"label": "updatedAt",
+						"isNullable": false
 					},
 					{
 						"name": "supportValue",
@@ -457,7 +494,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "supportValue"
+						"label": "supportValue",
+						"isNullable": false
 					},
 					{
 						"name": "supportType",
@@ -466,7 +504,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "enum",
-						"label": "supportType"
+						"label": "supportType",
+						"isNullable": false
 					},
 					{
 						"name": "beneficiaryId",
@@ -475,7 +514,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "beneficiaryId"
+						"label": "beneficiaryId",
+						"isNullable": false
 					},
 					{
 						"name": "beneficiary",
@@ -485,7 +525,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "BeneficiaryToBeneficiarySupport",
-						"label": "beneficiary → Beneficiary"
+						"label": "beneficiary → Beneficiary",
+						"isNullable": false
 					}
 				]
 			},
@@ -494,8 +535,7 @@
 				"y": 0
 			},
 			"style": {
-				"width": 280,
-				"height": 235
+				"width": 322
 			}
 		},
 		{
@@ -511,7 +551,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "id (ID)"
+						"label": "id (ID)",
+						"isNullable": false
 					},
 					{
 						"name": "createdAt",
@@ -520,7 +561,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "createdAt"
+						"label": "createdAt",
+						"isNullable": false
 					},
 					{
 						"name": "updatedAt",
@@ -529,7 +571,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "updatedAt"
+						"label": "updatedAt",
+						"isNullable": false
 					},
 					{
 						"name": "organizationId",
@@ -538,7 +581,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "organizationId"
+						"label": "organizationId",
+						"isNullable": true
 					},
 					{
 						"name": "expenseCategory",
@@ -547,7 +591,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "enum",
-						"label": "expenseCategory"
+						"label": "expenseCategory",
+						"isNullable": false
 					},
 					{
 						"name": "expenseTypeId",
@@ -556,7 +601,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "expenseTypeId"
+						"label": "expenseTypeId",
+						"isNullable": true
 					},
 					{
 						"name": "campaignId",
@@ -565,7 +611,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "campaignId"
+						"label": "campaignId",
+						"isNullable": true
 					},
 					{
 						"name": "amount",
@@ -574,7 +621,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "amount"
+						"label": "amount",
+						"isNullable": false
 					},
 					{
 						"name": "description",
@@ -583,7 +631,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "description"
+						"label": "description",
+						"isNullable": true
 					},
 					{
 						"name": "userId",
@@ -592,7 +641,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "userId"
+						"label": "userId",
+						"isNullable": true
 					},
 					{
 						"name": "invoiceUrl",
@@ -601,7 +651,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "invoiceUrl"
+						"label": "invoiceUrl",
+						"isNullable": true
 					},
 					{
 						"name": "campaign",
@@ -611,7 +662,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "ExpenseTocampaign",
-						"label": "campaign → campaign"
+						"label": "campaign → campaign",
+						"isNullable": true
 					},
 					{
 						"name": "ExpenseType",
@@ -621,7 +673,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "ExpenseToExpenseType",
-						"label": "ExpenseType → ExpenseType"
+						"label": "ExpenseType → ExpenseType",
+						"isNullable": true
 					},
 					{
 						"name": "organization",
@@ -631,7 +684,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "ExpenseToorganization",
-						"label": "organization → organization"
+						"label": "organization → organization",
+						"isNullable": true
 					},
 					{
 						"name": "user",
@@ -641,7 +695,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "ExpenseTouser",
-						"label": "user → user"
+						"label": "user → user",
+						"isNullable": true
 					}
 				]
 			},
@@ -650,8 +705,7 @@
 				"y": 0
 			},
 			"style": {
-				"width": 280,
-				"height": 435
+				"width": 378
 			}
 		},
 		{
@@ -667,7 +721,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "id (ID)"
+						"label": "id (ID)",
+						"isNullable": false
 					},
 					{
 						"name": "createdAt",
@@ -676,7 +731,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "createdAt"
+						"label": "createdAt",
+						"isNullable": false
 					},
 					{
 						"name": "updatedAt",
@@ -685,7 +741,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "updatedAt"
+						"label": "updatedAt",
+						"isNullable": false
 					},
 					{
 						"name": "organizationId",
@@ -694,7 +751,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "organizationId"
+						"label": "organizationId",
+						"isNullable": true
 					},
 					{
 						"name": "type",
@@ -703,7 +761,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "type"
+						"label": "type",
+						"isNullable": false
 					},
 					{
 						"name": "Expense",
@@ -713,7 +772,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "ExpenseToExpenseType",
-						"label": "Expense → Expense"
+						"label": "Expense → Expense",
+						"isNullable": false
 					},
 					{
 						"name": "organization",
@@ -723,7 +783,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "ExpenseTypeToorganization",
-						"label": "organization → organization"
+						"label": "organization → organization",
+						"isNullable": true
 					}
 				]
 			},
@@ -732,8 +793,7 @@
 				"y": 0
 			},
 			"style": {
-				"width": 280,
-				"height": 235
+				"width": 336
 			}
 		},
 		{
@@ -749,7 +809,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "id (ID)"
+						"label": "id (ID)",
+						"isNullable": false
 					},
 					{
 						"name": "name",
@@ -758,7 +819,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "name"
+						"label": "name",
+						"isNullable": false
 					},
 					{
 						"name": "createdAt",
@@ -767,7 +829,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "createdAt"
+						"label": "createdAt",
+						"isNullable": false
 					},
 					{
 						"name": "updatedAt",
@@ -776,7 +839,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "updatedAt"
+						"label": "updatedAt",
+						"isNullable": false
 					},
 					{
 						"name": "organizationId",
@@ -785,7 +849,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "organizationId"
+						"label": "organizationId",
+						"isNullable": true
 					},
 					{
 						"name": "employeeRoleId",
@@ -794,7 +859,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "employeeRoleId"
+						"label": "employeeRoleId",
+						"isNullable": false
 					},
 					{
 						"name": "salary",
@@ -803,7 +869,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "salary"
+						"label": "salary",
+						"isNullable": true
 					},
 					{
 						"name": "dutyType",
@@ -812,7 +879,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "enum",
-						"label": "dutyType"
+						"label": "dutyType",
+						"isNullable": true
 					},
 					{
 						"name": "status",
@@ -821,7 +889,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "enum",
-						"label": "status"
+						"label": "status",
+						"isNullable": false
 					},
 					{
 						"name": "administrativeRole",
@@ -830,7 +899,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "enum",
-						"label": "administrativeRole"
+						"label": "administrativeRole",
+						"isNullable": false
 					},
 					{
 						"name": "employeeRole",
@@ -840,7 +910,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "EmployeeToEmployeeRole",
-						"label": "employeeRole → EmployeeRole"
+						"label": "employeeRole → EmployeeRole",
+						"isNullable": false
 					},
 					{
 						"name": "organization",
@@ -850,7 +921,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "EmployeeToorganization",
-						"label": "organization → organization"
+						"label": "organization → organization",
+						"isNullable": true
 					},
 					{
 						"name": "employeeSalaries",
@@ -860,7 +932,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "EmployeeToEmployeeSalaries",
-						"label": "employeeSalaries → EmployeeSalaries"
+						"label": "employeeSalaries → EmployeeSalaries",
+						"isNullable": false
 					}
 				]
 			},
@@ -869,8 +942,7 @@
 				"y": 0
 			},
 			"style": {
-				"width": 280,
-				"height": 385
+				"width": 420
 			}
 		},
 		{
@@ -886,7 +958,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "id (ID)"
+						"label": "id (ID)",
+						"isNullable": false
 					},
 					{
 						"name": "createdAt",
@@ -895,7 +968,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "createdAt"
+						"label": "createdAt",
+						"isNullable": false
 					},
 					{
 						"name": "updatedAt",
@@ -904,7 +978,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "updatedAt"
+						"label": "updatedAt",
+						"isNullable": false
 					},
 					{
 						"name": "role",
@@ -913,7 +988,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "role"
+						"label": "role",
+						"isNullable": false
 					},
 					{
 						"name": "Employee",
@@ -923,7 +999,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "EmployeeToEmployeeRole",
-						"label": "Employee → Employee"
+						"label": "Employee → Employee",
+						"isNullable": false
 					}
 				]
 			},
@@ -932,8 +1009,7 @@
 				"y": 0
 			},
 			"style": {
-				"width": 280,
-				"height": 185
+				"width": 287
 			}
 		},
 		{
@@ -949,7 +1025,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "id (ID)"
+						"label": "id (ID)",
+						"isNullable": false
 					},
 					{
 						"name": "createdAt",
@@ -958,7 +1035,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "createdAt"
+						"label": "createdAt",
+						"isNullable": false
 					},
 					{
 						"name": "updatedAt",
@@ -967,7 +1045,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "updatedAt"
+						"label": "updatedAt",
+						"isNullable": false
 					},
 					{
 						"name": "salary",
@@ -976,7 +1055,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "salary"
+						"label": "salary",
+						"isNullable": false
 					},
 					{
 						"name": "type",
@@ -985,7 +1065,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "enum",
-						"label": "type"
+						"label": "type",
+						"isNullable": false
 					},
 					{
 						"name": "employeeId",
@@ -994,7 +1075,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "employeeId"
+						"label": "employeeId",
+						"isNullable": false
 					},
 					{
 						"name": "employee",
@@ -1004,7 +1086,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "EmployeeToEmployeeSalaries",
-						"label": "employee → Employee"
+						"label": "employee → Employee",
+						"isNullable": false
 					}
 				]
 			},
@@ -1013,8 +1096,7 @@
 				"y": 0
 			},
 			"style": {
-				"width": 280,
-				"height": 235
+				"width": 322
 			}
 		},
 		{
@@ -1030,7 +1112,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "id (ID)"
+						"label": "id (ID)",
+						"isNullable": false
 					},
 					{
 						"name": "bankCardName",
@@ -1039,7 +1122,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "bankCardName"
+						"label": "bankCardName",
+						"isNullable": false
 					},
 					{
 						"name": "IBAN",
@@ -1048,7 +1132,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "IBAN"
+						"label": "IBAN",
+						"isNullable": false
 					},
 					{
 						"name": "swiftCode",
@@ -1057,7 +1142,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "swiftCode"
+						"label": "swiftCode",
+						"isNullable": false
 					},
 					{
 						"name": "address",
@@ -1066,7 +1152,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "address"
+						"label": "address",
+						"isNullable": false
 					},
 					{
 						"name": "saved",
@@ -1075,7 +1162,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "saved"
+						"label": "saved",
+						"isNullable": false
 					},
 					{
 						"name": "isDeleted",
@@ -1084,7 +1172,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "isDeleted"
+						"label": "isDeleted",
+						"isNullable": false
 					},
 					{
 						"name": "Payout",
@@ -1094,7 +1183,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "BankCardToPayout",
-						"label": "Payout → Payout"
+						"label": "Payout → Payout",
+						"isNullable": false
 					},
 					{
 						"name": "organization",
@@ -1104,7 +1194,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "BankCardToOrganization",
-						"label": "organization → organization"
+						"label": "organization → organization",
+						"isNullable": false
 					}
 				]
 			},
@@ -1113,8 +1204,7 @@
 				"y": 0
 			},
 			"style": {
-				"width": 280,
-				"height": 285
+				"width": 336
 			}
 		},
 		{
@@ -1130,7 +1220,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "id (ID)"
+						"label": "id (ID)",
+						"isNullable": false
 					},
 					{
 						"name": "donatorId",
@@ -1139,7 +1230,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "donatorId"
+						"label": "donatorId",
+						"isNullable": false
 					},
 					{
 						"name": "stripeCardId",
@@ -1148,7 +1240,8 @@
 						"isUnique": true,
 						"isList": false,
 						"kind": "scalar",
-						"label": "stripeCardId"
+						"label": "stripeCardId",
+						"isNullable": false
 					},
 					{
 						"name": "stripeCustomerId",
@@ -1157,7 +1250,8 @@
 						"isUnique": true,
 						"isList": false,
 						"kind": "scalar",
-						"label": "stripeCustomerId"
+						"label": "stripeCustomerId",
+						"isNullable": false
 					},
 					{
 						"name": "last4",
@@ -1166,7 +1260,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "last4"
+						"label": "last4",
+						"isNullable": false
 					},
 					{
 						"name": "brand",
@@ -1175,7 +1270,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "brand"
+						"label": "brand",
+						"isNullable": false
 					},
 					{
 						"name": "expMonth",
@@ -1184,7 +1280,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "expMonth"
+						"label": "expMonth",
+						"isNullable": false
 					},
 					{
 						"name": "expYear",
@@ -1193,7 +1290,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "expYear"
+						"label": "expYear",
+						"isNullable": false
 					},
 					{
 						"name": "Donator",
@@ -1203,7 +1301,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "CardToDonator",
-						"label": "Donator → Donator"
+						"label": "Donator → Donator",
+						"isNullable": false
 					}
 				]
 			},
@@ -1212,8 +1311,7 @@
 				"y": 0
 			},
 			"style": {
-				"width": 280,
-				"height": 285
+				"width": 322
 			}
 		},
 		{
@@ -1229,7 +1327,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "id (ID)"
+						"label": "id (ID)",
+						"isNullable": false
 					},
 					{
 						"name": "stripeCustomerId",
@@ -1238,7 +1337,8 @@
 						"isUnique": true,
 						"isList": false,
 						"kind": "scalar",
-						"label": "stripeCustomerId"
+						"label": "stripeCustomerId",
+						"isNullable": false
 					},
 					{
 						"name": "name",
@@ -1247,7 +1347,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "name"
+						"label": "name",
+						"isNullable": false
 					},
 					{
 						"name": "email",
@@ -1256,7 +1357,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "email"
+						"label": "email",
+						"isNullable": false
 					},
 					{
 						"name": "phone",
@@ -1265,7 +1367,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "phone"
+						"label": "phone",
+						"isNullable": true
 					},
 					{
 						"name": "address",
@@ -1274,7 +1377,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "address"
+						"label": "address",
+						"isNullable": true
 					},
 					{
 						"name": "city",
@@ -1283,7 +1387,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "city"
+						"label": "city",
+						"isNullable": true
 					},
 					{
 						"name": "state",
@@ -1292,7 +1397,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "state"
+						"label": "state",
+						"isNullable": true
 					},
 					{
 						"name": "country",
@@ -1301,7 +1407,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "country"
+						"label": "country",
+						"isNullable": true
 					},
 					{
 						"name": "createdAt",
@@ -1310,7 +1417,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "createdAt"
+						"label": "createdAt",
+						"isNullable": false
 					},
 					{
 						"name": "updatedAt",
@@ -1319,7 +1427,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "updatedAt"
+						"label": "updatedAt",
+						"isNullable": false
 					},
 					{
 						"name": "organizationId",
@@ -1328,7 +1437,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "organizationId"
+						"label": "organizationId",
+						"isNullable": true
 					},
 					{
 						"name": "Card",
@@ -1338,7 +1448,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "CardToDonator",
-						"label": "Card → Card"
+						"label": "Card → Card",
+						"isNullable": false
 					},
 					{
 						"name": "organization",
@@ -1348,7 +1459,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "DonatorToorganization",
-						"label": "organization → organization"
+						"label": "organization → organization",
+						"isNullable": true
 					},
 					{
 						"name": "Payment",
@@ -1358,7 +1470,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "DonatorToPayment",
-						"label": "Payment → Payment"
+						"label": "Payment → Payment",
+						"isNullable": false
 					},
 					{
 						"name": "Subscription",
@@ -1368,7 +1481,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "DonatorToSubscription",
-						"label": "Subscription → Subscription"
+						"label": "Subscription → Subscription",
+						"isNullable": false
 					}
 				]
 			},
@@ -1377,8 +1491,7 @@
 				"y": 0
 			},
 			"style": {
-				"width": 280,
-				"height": 460
+				"width": 336
 			}
 		},
 		{
@@ -1394,7 +1507,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "id (ID)"
+						"label": "id (ID)",
+						"isNullable": false
 					},
 					{
 						"name": "donatorId",
@@ -1403,7 +1517,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "donatorId"
+						"label": "donatorId",
+						"isNullable": false
 					},
 					{
 						"name": "stripePaymentId",
@@ -1412,7 +1527,8 @@
 						"isUnique": true,
 						"isList": false,
 						"kind": "scalar",
-						"label": "stripePaymentId"
+						"label": "stripePaymentId",
+						"isNullable": false
 					},
 					{
 						"name": "amount",
@@ -1421,7 +1537,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "amount"
+						"label": "amount",
+						"isNullable": false
 					},
 					{
 						"name": "currency",
@@ -1430,7 +1547,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "currency"
+						"label": "currency",
+						"isNullable": false
 					},
 					{
 						"name": "status",
@@ -1439,7 +1557,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "enum",
-						"label": "status"
+						"label": "status",
+						"isNullable": false
 					},
 					{
 						"name": "createdAt",
@@ -1448,7 +1567,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "createdAt"
+						"label": "createdAt",
+						"isNullable": false
 					},
 					{
 						"name": "campaignId",
@@ -1457,7 +1577,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "campaignId"
+						"label": "campaignId",
+						"isNullable": true
 					},
 					{
 						"name": "organizationId",
@@ -1466,7 +1587,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "organizationId"
+						"label": "organizationId",
+						"isNullable": true
 					},
 					{
 						"name": "campaign",
@@ -1476,7 +1598,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "PaymentTocampaign",
-						"label": "campaign → campaign"
+						"label": "campaign → campaign",
+						"isNullable": true
 					},
 					{
 						"name": "Donator",
@@ -1486,7 +1609,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "DonatorToPayment",
-						"label": "Donator → Donator"
+						"label": "Donator → Donator",
+						"isNullable": false
 					},
 					{
 						"name": "organization",
@@ -1496,7 +1620,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "PaymentToorganization",
-						"label": "organization → organization"
+						"label": "organization → organization",
+						"isNullable": true
 					}
 				]
 			},
@@ -1505,8 +1630,7 @@
 				"y": 0
 			},
 			"style": {
-				"width": 280,
-				"height": 360
+				"width": 336
 			}
 		},
 		{
@@ -1522,7 +1646,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "amount"
+						"label": "amount",
+						"isNullable": false
 					},
 					{
 						"name": "createdAt",
@@ -1531,7 +1656,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "createdAt"
+						"label": "createdAt",
+						"isNullable": false
 					},
 					{
 						"name": "updatedAt",
@@ -1540,7 +1666,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "updatedAt"
+						"label": "updatedAt",
+						"isNullable": false
 					},
 					{
 						"name": "status",
@@ -1549,7 +1676,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "enum",
-						"label": "status"
+						"label": "status",
+						"isNullable": false
 					},
 					{
 						"name": "id",
@@ -1558,7 +1686,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "id (ID)"
+						"label": "id (ID)",
+						"isNullable": false
 					},
 					{
 						"name": "bankCardId",
@@ -1567,7 +1696,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "bankCardId"
+						"label": "bankCardId",
+						"isNullable": false
 					},
 					{
 						"name": "organizationId",
@@ -1576,7 +1706,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "organizationId"
+						"label": "organizationId",
+						"isNullable": false
 					},
 					{
 						"name": "BankCard",
@@ -1586,7 +1717,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "BankCardToPayout",
-						"label": "BankCard → BankCard"
+						"label": "BankCard → BankCard",
+						"isNullable": false
 					},
 					{
 						"name": "organization",
@@ -1596,7 +1728,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "PayoutToorganization",
-						"label": "organization → organization"
+						"label": "organization → organization",
+						"isNullable": false
 					}
 				]
 			},
@@ -1605,8 +1738,7 @@
 				"y": 0
 			},
 			"style": {
-				"width": 280,
-				"height": 285
+				"width": 336
 			}
 		},
 		{
@@ -1622,7 +1754,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "id (ID)"
+						"label": "id (ID)",
+						"isNullable": false
 					},
 					{
 						"name": "donatorId",
@@ -1631,7 +1764,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "donatorId"
+						"label": "donatorId",
+						"isNullable": false
 					},
 					{
 						"name": "stripeSubId",
@@ -1640,7 +1774,8 @@
 						"isUnique": true,
 						"isList": false,
 						"kind": "scalar",
-						"label": "stripeSubId"
+						"label": "stripeSubId",
+						"isNullable": false
 					},
 					{
 						"name": "stripeCustomerId",
@@ -1649,7 +1784,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "stripeCustomerId"
+						"label": "stripeCustomerId",
+						"isNullable": false
 					},
 					{
 						"name": "status",
@@ -1658,7 +1794,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "enum",
-						"label": "status"
+						"label": "status",
+						"isNullable": false
 					},
 					{
 						"name": "createdAt",
@@ -1667,7 +1804,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "createdAt"
+						"label": "createdAt",
+						"isNullable": false
 					},
 					{
 						"name": "amount",
@@ -1676,7 +1814,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "amount"
+						"label": "amount",
+						"isNullable": false
 					},
 					{
 						"name": "campaignId",
@@ -1685,7 +1824,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "campaignId"
+						"label": "campaignId",
+						"isNullable": false
 					},
 					{
 						"name": "updatedAt",
@@ -1694,7 +1834,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "updatedAt"
+						"label": "updatedAt",
+						"isNullable": false
 					},
 					{
 						"name": "campaign",
@@ -1704,7 +1845,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "SubscriptionTocampaign",
-						"label": "campaign → campaign"
+						"label": "campaign → campaign",
+						"isNullable": false
 					},
 					{
 						"name": "Donator",
@@ -1714,7 +1856,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "DonatorToSubscription",
-						"label": "Donator → Donator"
+						"label": "Donator → Donator",
+						"isNullable": false
 					}
 				]
 			},
@@ -1723,8 +1866,7 @@
 				"y": 0
 			},
 			"style": {
-				"width": 280,
-				"height": 335
+				"width": 336
 			}
 		},
 		{
@@ -1740,7 +1882,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "id (ID)"
+						"label": "id (ID)",
+						"isNullable": false
 					},
 					{
 						"name": "accountId",
@@ -1749,7 +1892,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "accountId"
+						"label": "accountId",
+						"isNullable": false
 					},
 					{
 						"name": "providerId",
@@ -1758,7 +1902,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "providerId"
+						"label": "providerId",
+						"isNullable": false
 					},
 					{
 						"name": "userId",
@@ -1767,7 +1912,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "userId"
+						"label": "userId",
+						"isNullable": false
 					},
 					{
 						"name": "accessToken",
@@ -1776,7 +1922,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "accessToken"
+						"label": "accessToken",
+						"isNullable": true
 					},
 					{
 						"name": "refreshToken",
@@ -1785,7 +1932,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "refreshToken"
+						"label": "refreshToken",
+						"isNullable": true
 					},
 					{
 						"name": "idToken",
@@ -1794,7 +1942,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "idToken"
+						"label": "idToken",
+						"isNullable": true
 					},
 					{
 						"name": "accessTokenExpiresAt",
@@ -1803,7 +1952,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "accessTokenExpiresAt"
+						"label": "accessTokenExpiresAt",
+						"isNullable": true
 					},
 					{
 						"name": "refreshTokenExpiresAt",
@@ -1812,7 +1962,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "refreshTokenExpiresAt"
+						"label": "refreshTokenExpiresAt",
+						"isNullable": true
 					},
 					{
 						"name": "scope",
@@ -1821,7 +1972,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "scope"
+						"label": "scope",
+						"isNullable": true
 					},
 					{
 						"name": "password",
@@ -1830,7 +1982,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "password"
+						"label": "password",
+						"isNullable": true
 					},
 					{
 						"name": "createdAt",
@@ -1839,7 +1992,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "createdAt"
+						"label": "createdAt",
+						"isNullable": false
 					},
 					{
 						"name": "updatedAt",
@@ -1848,7 +2002,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "updatedAt"
+						"label": "updatedAt",
+						"isNullable": false
 					},
 					{
 						"name": "user",
@@ -1858,7 +2013,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "accountTouser",
-						"label": "user → user"
+						"label": "user → user",
+						"isNullable": false
 					}
 				]
 			},
@@ -1867,8 +2023,7 @@
 				"y": 0
 			},
 			"style": {
-				"width": 280,
-				"height": 410
+				"width": 371
 			}
 		},
 		{
@@ -1884,7 +2039,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "id (ID)"
+						"label": "id (ID)",
+						"isNullable": false
 					},
 					{
 						"name": "createdAt",
@@ -1893,7 +2049,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "createdAt"
+						"label": "createdAt",
+						"isNullable": false
 					},
 					{
 						"name": "updatedAt",
@@ -1902,7 +2059,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "updatedAt"
+						"label": "updatedAt",
+						"isNullable": false
 					},
 					{
 						"name": "title",
@@ -1911,7 +2069,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "title"
+						"label": "title",
+						"isNullable": false
 					},
 					{
 						"name": "country",
@@ -1920,7 +2079,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "country"
+						"label": "country",
+						"isNullable": true
 					},
 					{
 						"name": "targetAmount",
@@ -1929,7 +2089,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "targetAmount"
+						"label": "targetAmount",
+						"isNullable": false
 					},
 					{
 						"name": "collectedAmount",
@@ -1938,7 +2099,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "collectedAmount"
+						"label": "collectedAmount",
+						"isNullable": false
 					},
 					{
 						"name": "description",
@@ -1947,7 +2109,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "description"
+						"label": "description",
+						"isNullable": true
 					},
 					{
 						"name": "videoLink",
@@ -1956,7 +2119,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "videoLink"
+						"label": "videoLink",
+						"isNullable": true
 					},
 					{
 						"name": "imageGallery",
@@ -1965,7 +2129,8 @@
 						"isUnique": false,
 						"isList": true,
 						"kind": "scalar",
-						"label": "imageGallery"
+						"label": "imageGallery",
+						"isNullable": false
 					},
 					{
 						"name": "mainImage",
@@ -1974,7 +2139,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "mainImage"
+						"label": "mainImage",
+						"isNullable": true
 					},
 					{
 						"name": "mdDescription",
@@ -1983,7 +2149,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "mdDescription"
+						"label": "mdDescription",
+						"isNullable": true
 					},
 					{
 						"name": "seoTitle",
@@ -1992,7 +2159,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "seoTitle"
+						"label": "seoTitle",
+						"isNullable": true
 					},
 					{
 						"name": "seoKeywords",
@@ -2001,7 +2169,8 @@
 						"isUnique": false,
 						"isList": true,
 						"kind": "scalar",
-						"label": "seoKeywords"
+						"label": "seoKeywords",
+						"isNullable": false
 					},
 					{
 						"name": "seoDescription",
@@ -2010,7 +2179,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "seoDescription"
+						"label": "seoDescription",
+						"isNullable": true
 					},
 					{
 						"name": "organizationId",
@@ -2019,7 +2189,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "organizationId"
+						"label": "organizationId",
+						"isNullable": true
 					},
 					{
 						"name": "isDraft",
@@ -2028,7 +2199,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "isDraft"
+						"label": "isDraft",
+						"isNullable": true
 					},
 					{
 						"name": "landingPageLink",
@@ -2037,7 +2209,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "landingPageLink"
+						"label": "landingPageLink",
+						"isNullable": true
 					},
 					{
 						"name": "userId",
@@ -2046,7 +2219,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "userId"
+						"label": "userId",
+						"isNullable": true
 					},
 					{
 						"name": "needs",
@@ -2055,7 +2229,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "needs"
+						"label": "needs",
+						"isNullable": true
 					},
 					{
 						"name": "status",
@@ -2064,7 +2239,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "enum",
-						"label": "status"
+						"label": "status",
+						"isNullable": false
 					},
 					{
 						"name": "campaignDonationType",
@@ -2073,7 +2249,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "enum",
-						"label": "campaignDonationType"
+						"label": "campaignDonationType",
+						"isNullable": true
 					},
 					{
 						"name": "campaignTypeId",
@@ -2082,7 +2259,8 @@
 						"isUnique": false,
 						"isList": true,
 						"kind": "scalar",
-						"label": "campaignTypeId"
+						"label": "campaignTypeId",
+						"isNullable": false
 					},
 					{
 						"name": "isDeleted",
@@ -2091,7 +2269,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "isDeleted"
+						"label": "isDeleted",
+						"isNullable": true
 					},
 					{
 						"name": "Payment",
@@ -2101,7 +2280,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "PaymentTocampaign",
-						"label": "Payment → Payment"
+						"label": "Payment → Payment",
+						"isNullable": false
 					},
 					{
 						"name": "Subscription",
@@ -2111,7 +2291,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "SubscriptionTocampaign",
-						"label": "Subscription → Subscription"
+						"label": "Subscription → Subscription",
+						"isNullable": false
 					},
 					{
 						"name": "organization",
@@ -2121,7 +2302,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "campaignToorganization",
-						"label": "organization → organization"
+						"label": "organization → organization",
+						"isNullable": true
 					},
 					{
 						"name": "user",
@@ -2131,7 +2313,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "campaignTouser",
-						"label": "user → user"
+						"label": "user → user",
+						"isNullable": true
 					},
 					{
 						"name": "visitors",
@@ -2141,7 +2324,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "CampaignVisitorTocampaign",
-						"label": "visitors → CampaignVisitor"
+						"label": "visitors → CampaignVisitor",
+						"isNullable": false
 					},
 					{
 						"name": "email_campaign",
@@ -2151,7 +2335,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "campaignToemail_campaign",
-						"label": "email_campaign → email_campaign"
+						"label": "email_campaign → email_campaign",
+						"isNullable": false
 					},
 					{
 						"name": "expenses",
@@ -2161,7 +2346,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "ExpenseTocampaign",
-						"label": "expenses → Expense"
+						"label": "expenses → Expense",
+						"isNullable": false
 					},
 					{
 						"name": "campaign_type",
@@ -2171,7 +2357,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "CampaignToType",
-						"label": "campaign_type → campaign_type"
+						"label": "campaign_type → campaign_type",
+						"isNullable": false
 					}
 				]
 			},
@@ -2180,8 +2367,7 @@
 				"y": 0
 			},
 			"style": {
-				"width": 280,
-				"height": 860
+				"width": 448
 			}
 		},
 		{
@@ -2197,7 +2383,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "id (ID)"
+						"label": "id (ID)",
+						"isNullable": false
 					},
 					{
 						"name": "createdAt",
@@ -2206,7 +2393,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "createdAt"
+						"label": "createdAt",
+						"isNullable": false
 					},
 					{
 						"name": "updatedAt",
@@ -2215,7 +2403,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "updatedAt"
+						"label": "updatedAt",
+						"isNullable": false
 					},
 					{
 						"name": "type",
@@ -2224,7 +2413,8 @@
 						"isUnique": true,
 						"isList": false,
 						"kind": "scalar",
-						"label": "type"
+						"label": "type",
+						"isNullable": false
 					},
 					{
 						"name": "isDeleted",
@@ -2233,7 +2423,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "isDeleted"
+						"label": "isDeleted",
+						"isNullable": true
 					},
 					{
 						"name": "organizationId",
@@ -2242,7 +2433,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "organizationId"
+						"label": "organizationId",
+						"isNullable": true
 					},
 					{
 						"name": "organization",
@@ -2252,7 +2444,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "campaign_typeToorganization",
-						"label": "organization → organization"
+						"label": "organization → organization",
+						"isNullable": true
 					},
 					{
 						"name": "campaign",
@@ -2262,7 +2455,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "CampaignToType",
-						"label": "campaign → campaign"
+						"label": "campaign → campaign",
+						"isNullable": false
 					}
 				]
 			},
@@ -2271,8 +2465,7 @@
 				"y": 0
 			},
 			"style": {
-				"width": 280,
-				"height": 260
+				"width": 336
 			}
 		},
 		{
@@ -2288,7 +2481,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "id (ID)"
+						"label": "id (ID)",
+						"isNullable": false
 					},
 					{
 						"name": "campaignId",
@@ -2297,7 +2491,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "campaignId"
+						"label": "campaignId",
+						"isNullable": false
 					},
 					{
 						"name": "organizationId",
@@ -2306,7 +2501,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "organizationId"
+						"label": "organizationId",
+						"isNullable": false
 					},
 					{
 						"name": "createdAt",
@@ -2315,7 +2511,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "createdAt"
+						"label": "createdAt",
+						"isNullable": false
 					},
 					{
 						"name": "updatedAt",
@@ -2324,7 +2521,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "updatedAt"
+						"label": "updatedAt",
+						"isNullable": false
 					},
 					{
 						"name": "campaign",
@@ -2334,7 +2532,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "campaignToemail_campaign",
-						"label": "campaign → campaign"
+						"label": "campaign → campaign",
+						"isNullable": false
 					},
 					{
 						"name": "organization",
@@ -2344,7 +2543,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "email_campaignToorganization",
-						"label": "organization → organization"
+						"label": "organization → organization",
+						"isNullable": false
 					},
 					{
 						"name": "email_campaign_open",
@@ -2354,7 +2554,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "email_campaignToemail_campaign_open",
-						"label": "email_campaign_open → email_campaign_open"
+						"label": "email_campaign_open → email_campaign_open",
+						"isNullable": false
 					},
 					{
 						"name": "email_donator",
@@ -2364,7 +2565,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "EmailCampaignToEmailDonator",
-						"label": "email_donator → email_donator"
+						"label": "email_donator → email_donator",
+						"isNullable": false
 					}
 				]
 			},
@@ -2373,8 +2575,7 @@
 				"y": 0
 			},
 			"style": {
-				"width": 280,
-				"height": 285
+				"width": 434
 			}
 		},
 		{
@@ -2390,7 +2591,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "id (ID)"
+						"label": "id (ID)",
+						"isNullable": false
 					},
 					{
 						"name": "emailCampaignId",
@@ -2399,7 +2601,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "emailCampaignId"
+						"label": "emailCampaignId",
+						"isNullable": false
 					},
 					{
 						"name": "emailDonatorId",
@@ -2408,7 +2611,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "emailDonatorId"
+						"label": "emailDonatorId",
+						"isNullable": false
 					},
 					{
 						"name": "organizationId",
@@ -2417,7 +2621,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "organizationId"
+						"label": "organizationId",
+						"isNullable": false
 					},
 					{
 						"name": "createdAt",
@@ -2426,7 +2631,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "createdAt"
+						"label": "createdAt",
+						"isNullable": false
 					},
 					{
 						"name": "updatedAt",
@@ -2435,7 +2641,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "updatedAt"
+						"label": "updatedAt",
+						"isNullable": false
 					},
 					{
 						"name": "email_campaign",
@@ -2445,7 +2652,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "email_campaignToemail_campaign_open",
-						"label": "email_campaign → email_campaign"
+						"label": "email_campaign → email_campaign",
+						"isNullable": false
 					},
 					{
 						"name": "email_donator",
@@ -2455,7 +2663,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "email_campaign_openToemail_donator",
-						"label": "email_donator → email_donator"
+						"label": "email_donator → email_donator",
+						"isNullable": false
 					},
 					{
 						"name": "organization",
@@ -2465,7 +2674,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "email_campaign_openToorganization",
-						"label": "organization → organization"
+						"label": "organization → organization",
+						"isNullable": false
 					}
 				]
 			},
@@ -2474,8 +2684,7 @@
 				"y": 0
 			},
 			"style": {
-				"width": 280,
-				"height": 285
+				"width": 364
 			}
 		},
 		{
@@ -2491,7 +2700,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "id (ID)"
+						"label": "id (ID)",
+						"isNullable": false
 					},
 					{
 						"name": "email",
@@ -2500,7 +2710,8 @@
 						"isUnique": true,
 						"isList": false,
 						"kind": "scalar",
-						"label": "email"
+						"label": "email",
+						"isNullable": false
 					},
 					{
 						"name": "name",
@@ -2509,7 +2720,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "name"
+						"label": "name",
+						"isNullable": false
 					},
 					{
 						"name": "country",
@@ -2518,7 +2730,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "country"
+						"label": "country",
+						"isNullable": false
 					},
 					{
 						"name": "createdAt",
@@ -2527,7 +2740,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "createdAt"
+						"label": "createdAt",
+						"isNullable": false
 					},
 					{
 						"name": "updatedAt",
@@ -2536,7 +2750,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "updatedAt"
+						"label": "updatedAt",
+						"isNullable": false
 					},
 					{
 						"name": "organizationId",
@@ -2545,7 +2760,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "organizationId"
+						"label": "organizationId",
+						"isNullable": false
 					},
 					{
 						"name": "status",
@@ -2554,7 +2770,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "enum",
-						"label": "status"
+						"label": "status",
+						"isNullable": false
 					},
 					{
 						"name": "email_campaign_open",
@@ -2564,7 +2781,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "email_campaign_openToemail_donator",
-						"label": "email_campaign_open → email_campaign_open"
+						"label": "email_campaign_open → email_campaign_open",
+						"isNullable": false
 					},
 					{
 						"name": "organization",
@@ -2574,7 +2792,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "email_donatorToorganization",
-						"label": "organization → organization"
+						"label": "organization → organization",
+						"isNullable": false
 					},
 					{
 						"name": "email_campaign",
@@ -2584,7 +2803,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "EmailCampaignToEmailDonator",
-						"label": "email_campaign → email_campaign"
+						"label": "email_campaign → email_campaign",
+						"isNullable": false
 					}
 				]
 			},
@@ -2593,8 +2813,7 @@
 				"y": 0
 			},
 			"style": {
-				"width": 280,
-				"height": 335
+				"width": 434
 			}
 		},
 		{
@@ -2610,7 +2829,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "id (ID)"
+						"label": "id (ID)",
+						"isNullable": false
 					},
 					{
 						"name": "organizationId",
@@ -2619,7 +2839,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "organizationId"
+						"label": "organizationId",
+						"isNullable": false
 					},
 					{
 						"name": "year",
@@ -2628,7 +2849,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "year"
+						"label": "year",
+						"isNullable": false
 					},
 					{
 						"name": "month",
@@ -2637,7 +2859,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "month"
+						"label": "month",
+						"isNullable": false
 					},
 					{
 						"name": "used",
@@ -2646,7 +2869,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "used"
+						"label": "used",
+						"isNullable": false
 					},
 					{
 						"name": "createdAt",
@@ -2655,7 +2879,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "createdAt"
+						"label": "createdAt",
+						"isNullable": false
 					},
 					{
 						"name": "updatedAt",
@@ -2664,7 +2889,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "updatedAt"
+						"label": "updatedAt",
+						"isNullable": false
 					},
 					{
 						"name": "organization",
@@ -2674,7 +2900,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "email_usageToorganization",
-						"label": "organization → organization"
+						"label": "organization → organization",
+						"isNullable": false
 					}
 				]
 			},
@@ -2683,8 +2910,7 @@
 				"y": 0
 			},
 			"style": {
-				"width": 280,
-				"height": 260
+				"width": 336
 			}
 		},
 		{
@@ -2700,7 +2926,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "id (ID)"
+						"label": "id (ID)",
+						"isNullable": false
 					},
 					{
 						"name": "name",
@@ -2709,7 +2936,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "name"
+						"label": "name",
+						"isNullable": false
 					},
 					{
 						"name": "email",
@@ -2718,7 +2946,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "email"
+						"label": "email",
+						"isNullable": true
 					},
 					{
 						"name": "emailVerified",
@@ -2727,7 +2956,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "emailVerified"
+						"label": "emailVerified",
+						"isNullable": true
 					},
 					{
 						"name": "logo",
@@ -2736,7 +2966,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "logo"
+						"label": "logo",
+						"isNullable": true
 					},
 					{
 						"name": "createdAt",
@@ -2745,7 +2976,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "createdAt"
+						"label": "createdAt",
+						"isNullable": false
 					},
 					{
 						"name": "updatedAt",
@@ -2754,7 +2986,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "updatedAt"
+						"label": "updatedAt",
+						"isNullable": false
 					},
 					{
 						"name": "description",
@@ -2763,7 +2996,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "description"
+						"label": "description",
+						"isNullable": true
 					},
 					{
 						"name": "facebook",
@@ -2772,7 +3006,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "facebook"
+						"label": "facebook",
+						"isNullable": true
 					},
 					{
 						"name": "instagram",
@@ -2781,7 +3016,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "instagram"
+						"label": "instagram",
+						"isNullable": true
 					},
 					{
 						"name": "link",
@@ -2790,7 +3026,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "link"
+						"label": "link",
+						"isNullable": true
 					},
 					{
 						"name": "location",
@@ -2799,7 +3036,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "location"
+						"label": "location",
+						"isNullable": true
 					},
 					{
 						"name": "phone",
@@ -2808,7 +3046,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "phone"
+						"label": "phone",
+						"isNullable": true
 					},
 					{
 						"name": "telegram",
@@ -2817,7 +3056,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "telegram"
+						"label": "telegram",
+						"isNullable": true
 					},
 					{
 						"name": "thanksMessage",
@@ -2826,7 +3066,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "thanksMessage"
+						"label": "thanksMessage",
+						"isNullable": true
 					},
 					{
 						"name": "theme",
@@ -2835,7 +3076,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "theme"
+						"label": "theme",
+						"isNullable": true
 					},
 					{
 						"name": "twitter",
@@ -2844,7 +3086,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "twitter"
+						"label": "twitter",
+						"isNullable": true
 					},
 					{
 						"name": "whatsapp",
@@ -2853,7 +3096,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "whatsapp"
+						"label": "whatsapp",
+						"isNullable": true
 					},
 					{
 						"name": "youtube",
@@ -2862,7 +3106,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "youtube"
+						"label": "youtube",
+						"isNullable": true
 					},
 					{
 						"name": "active",
@@ -2871,7 +3116,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "active"
+						"label": "active",
+						"isNullable": false
 					},
 					{
 						"name": "adminEmail",
@@ -2880,7 +3126,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "adminEmail"
+						"label": "adminEmail",
+						"isNullable": true
 					},
 					{
 						"name": "adminName",
@@ -2889,7 +3136,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "adminName"
+						"label": "adminName",
+						"isNullable": true
 					},
 					{
 						"name": "host",
@@ -2898,7 +3146,8 @@
 						"isUnique": true,
 						"isList": false,
 						"kind": "scalar",
-						"label": "host"
+						"label": "host",
+						"isNullable": true
 					},
 					{
 						"name": "type",
@@ -2907,7 +3156,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "enum",
-						"label": "type"
+						"label": "type",
+						"isNullable": false
 					},
 					{
 						"name": "secondaryColor",
@@ -2916,7 +3166,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "secondaryColor"
+						"label": "secondaryColor",
+						"isNullable": true
 					},
 					{
 						"name": "integrationNotes",
@@ -2925,7 +3176,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "integrationNotes"
+						"label": "integrationNotes",
+						"isNullable": true
 					},
 					{
 						"name": "orgHostType",
@@ -2934,7 +3186,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "enum",
-						"label": "orgHostType"
+						"label": "orgHostType",
+						"isNullable": true
 					},
 					{
 						"name": "isDeleted",
@@ -2943,7 +3196,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "isDeleted"
+						"label": "isDeleted",
+						"isNullable": true
 					},
 					{
 						"name": "Beneficiary",
@@ -2953,7 +3207,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "BeneficiaryToorganization",
-						"label": "Beneficiary → Beneficiary"
+						"label": "Beneficiary → Beneficiary",
+						"isNullable": false
 					},
 					{
 						"name": "Donator",
@@ -2963,7 +3218,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "DonatorToorganization",
-						"label": "Donator → Donator"
+						"label": "Donator → Donator",
+						"isNullable": false
 					},
 					{
 						"name": "OrganizationSubscription",
@@ -2973,7 +3229,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "OrganizationSubscriptionToorganization",
-						"label": "OrganizationSubscription → OrganizationSubscription"
+						"label": "OrganizationSubscription → OrganizationSubscription",
+						"isNullable": true
 					},
 					{
 						"name": "Payment",
@@ -2983,7 +3240,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "PaymentToorganization",
-						"label": "Payment → Payment"
+						"label": "Payment → Payment",
+						"isNullable": false
 					},
 					{
 						"name": "Payout",
@@ -2993,7 +3251,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "PayoutToorganization",
-						"label": "Payout → Payout"
+						"label": "Payout → Payout",
+						"isNullable": false
 					},
 					{
 						"name": "BeneficiaryRole",
@@ -3003,7 +3262,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "BeneficiaryRoleToorganization",
-						"label": "BeneficiaryRole → BeneficiaryRole"
+						"label": "BeneficiaryRole → BeneficiaryRole",
+						"isNullable": false
 					},
 					{
 						"name": "campaign",
@@ -3013,7 +3273,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "campaignToorganization",
-						"label": "campaign → campaign"
+						"label": "campaign → campaign",
+						"isNullable": false
 					},
 					{
 						"name": "campaign_type",
@@ -3023,7 +3284,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "campaign_typeToorganization",
-						"label": "campaign_type → campaign_type"
+						"label": "campaign_type → campaign_type",
+						"isNullable": false
 					},
 					{
 						"name": "email_campaign",
@@ -3033,7 +3295,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "email_campaignToorganization",
-						"label": "email_campaign → email_campaign"
+						"label": "email_campaign → email_campaign",
+						"isNullable": false
 					},
 					{
 						"name": "email_campaign_open",
@@ -3043,7 +3306,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "email_campaign_openToorganization",
-						"label": "email_campaign_open → email_campaign_open"
+						"label": "email_campaign_open → email_campaign_open",
+						"isNullable": false
 					},
 					{
 						"name": "email_donator",
@@ -3053,7 +3317,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "email_donatorToorganization",
-						"label": "email_donator → email_donator"
+						"label": "email_donator → email_donator",
+						"isNullable": false
 					},
 					{
 						"name": "email_usage",
@@ -3063,7 +3328,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "email_usageToorganization",
-						"label": "email_usage → email_usage"
+						"label": "email_usage → email_usage",
+						"isNullable": false
 					},
 					{
 						"name": "Employee",
@@ -3073,7 +3339,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "EmployeeToorganization",
-						"label": "Employee → Employee"
+						"label": "Employee → Employee",
+						"isNullable": false
 					},
 					{
 						"name": "Expense",
@@ -3083,7 +3350,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "ExpenseToorganization",
-						"label": "Expense → Expense"
+						"label": "Expense → Expense",
+						"isNullable": false
 					},
 					{
 						"name": "ExpenseType",
@@ -3093,7 +3361,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "ExpenseTypeToorganization",
-						"label": "ExpenseType → ExpenseType"
+						"label": "ExpenseType → ExpenseType",
+						"isNullable": false
 					},
 					{
 						"name": "user",
@@ -3103,7 +3372,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "organizationTouser",
-						"label": "user → user"
+						"label": "user → user",
+						"isNullable": false
 					},
 					{
 						"name": "BankCard",
@@ -3113,7 +3383,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "BankCardToOrganization",
-						"label": "BankCard → BankCard"
+						"label": "BankCard → BankCard",
+						"isNullable": false
 					}
 				]
 			},
@@ -3122,8 +3393,7 @@
 				"y": 0
 			},
 			"style": {
-				"width": 280,
-				"height": 1185
+				"width": 504
 			}
 		},
 		{
@@ -3139,7 +3409,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "id (ID)"
+						"label": "id (ID)",
+						"isNullable": false
 					},
 					{
 						"name": "expiresAt",
@@ -3148,7 +3419,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "expiresAt"
+						"label": "expiresAt",
+						"isNullable": false
 					},
 					{
 						"name": "token",
@@ -3157,7 +3429,8 @@
 						"isUnique": true,
 						"isList": false,
 						"kind": "scalar",
-						"label": "token"
+						"label": "token",
+						"isNullable": false
 					},
 					{
 						"name": "createdAt",
@@ -3166,7 +3439,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "createdAt"
+						"label": "createdAt",
+						"isNullable": false
 					},
 					{
 						"name": "updatedAt",
@@ -3175,7 +3449,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "updatedAt"
+						"label": "updatedAt",
+						"isNullable": false
 					},
 					{
 						"name": "ipAddress",
@@ -3184,7 +3459,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "ipAddress"
+						"label": "ipAddress",
+						"isNullable": true
 					},
 					{
 						"name": "userAgent",
@@ -3193,7 +3469,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "userAgent"
+						"label": "userAgent",
+						"isNullable": true
 					},
 					{
 						"name": "userId",
@@ -3202,7 +3479,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "userId"
+						"label": "userId",
+						"isNullable": false
 					},
 					{
 						"name": "type",
@@ -3211,7 +3489,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "enum",
-						"label": "type"
+						"label": "type",
+						"isNullable": false
 					},
 					{
 						"name": "user",
@@ -3221,7 +3500,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "sessionTouser",
-						"label": "user → user"
+						"label": "user → user",
+						"isNullable": false
 					}
 				]
 			},
@@ -3230,8 +3510,7 @@
 				"y": 0
 			},
 			"style": {
-				"width": 280,
-				"height": 310
+				"width": 287
 			}
 		},
 		{
@@ -3247,7 +3526,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "id (ID)"
+						"label": "id (ID)",
+						"isNullable": false
 					},
 					{
 						"name": "name",
@@ -3256,7 +3536,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "name"
+						"label": "name",
+						"isNullable": false
 					},
 					{
 						"name": "email",
@@ -3265,7 +3546,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "email"
+						"label": "email",
+						"isNullable": false
 					},
 					{
 						"name": "emailVerified",
@@ -3274,7 +3556,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "emailVerified"
+						"label": "emailVerified",
+						"isNullable": false
 					},
 					{
 						"name": "image",
@@ -3283,7 +3566,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "image"
+						"label": "image",
+						"isNullable": true
 					},
 					{
 						"name": "createdAt",
@@ -3292,7 +3576,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "createdAt"
+						"label": "createdAt",
+						"isNullable": false
 					},
 					{
 						"name": "updatedAt",
@@ -3301,7 +3586,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "updatedAt"
+						"label": "updatedAt",
+						"isNullable": false
 					},
 					{
 						"name": "organizationId",
@@ -3310,7 +3596,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "organizationId"
+						"label": "organizationId",
+						"isNullable": true
 					},
 					{
 						"name": "active",
@@ -3319,7 +3606,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "active"
+						"label": "active",
+						"isNullable": false
 					},
 					{
 						"name": "role",
@@ -3328,7 +3616,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "enum",
-						"label": "role"
+						"label": "role",
+						"isNullable": false
 					},
 					{
 						"name": "account",
@@ -3338,7 +3627,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "accountTouser",
-						"label": "account → account"
+						"label": "account → account",
+						"isNullable": false
 					},
 					{
 						"name": "campaign",
@@ -3348,7 +3638,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "campaignTouser",
-						"label": "campaign → campaign"
+						"label": "campaign → campaign",
+						"isNullable": false
 					},
 					{
 						"name": "Expense",
@@ -3358,7 +3649,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "ExpenseTouser",
-						"label": "Expense → Expense"
+						"label": "Expense → Expense",
+						"isNullable": false
 					},
 					{
 						"name": "session",
@@ -3368,7 +3660,8 @@
 						"isList": true,
 						"kind": "object",
 						"relationName": "sessionTouser",
-						"label": "session → session"
+						"label": "session → session",
+						"isNullable": false
 					},
 					{
 						"name": "organization",
@@ -3378,7 +3671,8 @@
 						"isList": false,
 						"kind": "object",
 						"relationName": "organizationTouser",
-						"label": "organization → organization"
+						"label": "organization → organization",
+						"isNullable": true
 					}
 				]
 			},
@@ -3387,8 +3681,7 @@
 				"y": 0
 			},
 			"style": {
-				"width": 280,
-				"height": 435
+				"width": 336
 			}
 		},
 		{
@@ -3404,7 +3697,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "id (ID)"
+						"label": "id (ID)",
+						"isNullable": false
 					},
 					{
 						"name": "identifier",
@@ -3413,7 +3707,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "identifier"
+						"label": "identifier",
+						"isNullable": false
 					},
 					{
 						"name": "value",
@@ -3422,7 +3717,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "value"
+						"label": "value",
+						"isNullable": false
 					},
 					{
 						"name": "expiresAt",
@@ -3431,7 +3727,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "expiresAt"
+						"label": "expiresAt",
+						"isNullable": false
 					},
 					{
 						"name": "createdAt",
@@ -3440,7 +3737,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "createdAt"
+						"label": "createdAt",
+						"isNullable": true
 					},
 					{
 						"name": "updatedAt",
@@ -3449,7 +3747,8 @@
 						"isUnique": false,
 						"isList": false,
 						"kind": "scalar",
-						"label": "updatedAt"
+						"label": "updatedAt",
+						"isNullable": true
 					}
 				]
 			},
@@ -3458,8 +3757,7 @@
 				"y": 0
 			},
 			"style": {
-				"width": 280,
-				"height": 210
+				"width": 287
 			}
 		}
 	],

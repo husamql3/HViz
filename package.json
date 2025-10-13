@@ -2,11 +2,11 @@
   "name": "viz",
   "version": "1.0.0",
   "scripts": {
-    "dev:cli": "bun run --cwd packages/view build && bun run --cwd packages/cli dev",
-    "dev:view": "bun run --cwd packages/view dev",
-    "build": "",
+    "dev:cli": "bun run --filter='@viz/view' build && bun run --cwd packages/cli dev",
+    "dev:view": "bun run --filter='@viz/view' dev",
+    "build": "bun run --filter='*' build",
     "deploy": "",
-    "check": "bun run --cwd packages/view check && bun run --cwd packages/cli check && bun run --cwd packages/server check"
+    "check": "bunx biome check --write --verbose --unsafe"
   },
   "workspaces": [
     "packages/*"

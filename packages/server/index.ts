@@ -1,5 +1,5 @@
 import path from "node:path";
-import type { ErdResult } from "@viz/cli/src/erd.type";
+import type { ErdResult } from "@viz/cli/src/types/erd.type";
 import { Hono } from "hono";
 import { serveStatic } from "hono/bun";
 
