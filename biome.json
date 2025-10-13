@@ -37,7 +37,9 @@
 			"packages/view/src/**",
 			"!packages/view/src/index.css",
 			"packages/cli/src/**",
-			"packages/server/index.ts"
+			"packages/server/index.ts",
+			"www/src/**",
+			"!www/src/global.css"
 		],
 		"ignoreUnknown": true
 	}

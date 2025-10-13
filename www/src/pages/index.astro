@@ -1,0 +1,85 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import "../global.css";
+import { cn } from "@/lib/utils";
+
+const ROADMAP = [
+  {
+    title: "core features",
+    subtitle: "minimal editor with syntax highlighting",
+    inProgress: true,
+  },
+  {
+    title: "plugins",
+    subtitle: "minimal editor with syntax highlighting",
+    inProgress: false,
+  },
+  {
+    title: "customization",
+    subtitle: "custom themes, fonts, and more",
+    inProgress: false,
+  },
+];
+---
+
+<Layout>
+  <div
+    class="bg-zinc-950 font-roboto-mono h-dvh text-zinc-50 flex flex-col justify-center items-center max-w-3xl mx-auto"
+  >
+    <div class="text-center">
+      <h1 class="text-6xl pb-2 border-b-4 mb-2 border-green-700">hviz</h1>
+      <p class="text-neutral-300 text-xs">ERD generator for your database</p>
+    </div>
+
+    <div class="flex flex-row gap-6 pt-14 pb-28">
+      <div class="flex flex-col gap-4">
+        <p class="border-l-4 pl-2 text-lg border-green-700">join waitlist</p>
+        <p class="text-xs">
+          It is a work in progress and is not ready for production.
+        </p>
+        <Input placeholder="your@email.com" />
+        <Button size="sm">Get Started</Button>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <p class="border-l-4 pl-2 text-lg border-green-700">roadmap</p>
+        <p class="text-xs">
+          It is a work in progress and is not ready for production.
+        </p>
+        <div class="flex flex-col gap-4">
+          {
+            ROADMAP.map((item) => (
+              <div class="flex flex-col gap-1">
+                <div class="flex flex-row gap-2 items-center">
+                  <div
+                    class={cn(
+                      "w-2 h-2 rounded-full",
+                      item.inProgress ? "bg-green-700" : "bg-neutral-500"
+                    )}
+                  />
+                  <p class="text-lg">{item.title}</p>
+                </div>
+
+                <p class="text-sm">{item.subtitle}</p>
+                <p
+                  class={cn(
+                    "text-xs",
+                    item.inProgress ? "text-green-700" : "text-neutral-500"
+                  )}
+                >
+                  {item.inProgress ? "in progress" : "not started"}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <hr class="w-full border-zinc-700" />
+
+    <p class="text-xs text-zinc-300 pt-4">© 2025 hviz — @husamql3</p>
+  </div>
+</Layout>
