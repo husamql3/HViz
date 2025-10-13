@@ -1,5 +1,7 @@
 name = "hviz"
 compatibility_date = "2025-10-13"
+main = "./dist/_worker.js/index.js"
+compatibility_flags = ["nodejs_compat"]
 
 [assets]
 directory = "./dist"
