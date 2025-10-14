@@ -9,7 +9,9 @@ export const schemaPathSuggestions = (db: DatabaseType) => {
 			schemaPromptMessage = "Enter the Prisma schema file path";
 			defaultSchemaPath = "prisma/schema.prisma";
 			break;
-		case "drizzle":
+		case "drizzle-postgres":
+		case "drizzle-mysql":
+		case "drizzle-sqlite":
 			schemaPromptMessage = "Enter the Drizzle schema file path";
 			defaultSchemaPath = "drizzle/schema.ts";
 			break;

@@ -1,10 +1,9 @@
 ---
 import "../global.css";
 import Layout from "@/layouts/Layout.astro";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ROADMAP } from "@/lib/roadmap";
+import { Wishlist } from "@/components/wishlist";
 ---
 
 <Layout>
@@ -25,13 +24,7 @@ import { ROADMAP } from "@/lib/roadmap";
           hviz is in active development and not yet production-ready. Sign up to
           stay updated!
         </p>
-        <Input placeholder="your@email.com" variant="lg" />
-        <Button
-          size="lg"
-          className="hover:bg-green-700 transition-colors font-medium"
-        >
-          join waitlist
-        </Button>
+        <Wishlist client:load />
       </div>
 
       <div class="flex flex-col gap-4">

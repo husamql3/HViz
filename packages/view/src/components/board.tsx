@@ -208,9 +208,9 @@ export const Board = () => {
 					className="rounded-lg border border-zinc-700 background-zinc-800 shadow-xl overflow-hidden"
 					nodeColor="#52525b"
 					maskColor="rgba(24, 24, 27, 0.8)"
-					// style={{
-					// 	backgroundColor: "rgba(24, 24, 27, 0.95)",
-					// }}
+				// style={{
+				// 	backgroundColor: "rgba(24, 24, 27, 0.95)",
+				// }}
 				/>
 			</ReactFlow>
 		</div>

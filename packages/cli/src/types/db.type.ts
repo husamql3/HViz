@@ -1,1 +1,10 @@
-export type DatabaseType = "prisma" | "drizzle" | "typeorm" | "postgres" | "mysql" | "sqlite";
+export type DatabaseType =
+	| "prisma"
+	| "drizzle"
+	| "drizzle-postgres"
+	| "drizzle-mysql"
+	| "drizzle-sqlite"
+	| "typeorm"
+	| "postgres"
+	| "mysql"
+	| "sqlite";

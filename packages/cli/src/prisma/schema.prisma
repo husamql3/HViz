@@ -7,556 +7,102 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model OrganizationSubscription {
-  id             String             @id @default(uuid())
-  createdAt      DateTime           @default(now())
-  updatedAt      DateTime           @updatedAt
-  startDate      DateTime           @default(now())
-  endDate        DateTime           @default(now())
-  organizationId String             @unique
-  type           OrganizationType   @default(STANDARD)
-  status         OrganizationStatus @default(PENDING)
-  amount         Float?
-  organization   organization       @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+model group_progress {
+  id              String   @id @default(uuid()) @db.Uuid
+  created_at      DateTime @default(now()) @db.Timestamptz(6)
+  group_no        Int
+  current_problem Int
+  roadmap         roadmap  @relation(fields: [current_problem], references: [problem_order])
+  group           groups   @relation(fields: [group_no], references: [group_no])
 }
 
-model CampaignVisitor {
-  id         String   @id @default(uuid())
-  createdAt  DateTime @default(now())
-  campaignId String
-  city       String?
-  country    String?
-  ipAddress  String
-  userAgent  String?
-  campaign   campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
-
-  @@unique([campaignId, ipAddress])
-  @@map("campaign_visitors")
+model groups {
+  id             String           @id @default(uuid()) @db.Uuid
+  group_no       Int              @unique @default(autoincrement())
+  group_progress group_progress[]
+  leetcoders     leetcoders[]
+  submissions    submissions[]
 }
 
-model Beneficiary {
-  id                 String               @id @default(uuid())
-  name               String
-  createdAt          DateTime             @default(now())
-  updatedAt          DateTime             @updatedAt
-  beneficiaryRoleId  String
-  supportType        SupportType
-  supportValue       String
-  supportStatus      SupportStatus        @default(PENDING)
-  organizationId     String?
-  description        String?
-  BeneficiaryRole    BeneficiaryRole      @relation(fields: [beneficiaryRoleId], references: [id])
-  organization       organization?        @relation(fields: [organizationId], references: [id])
-  BeneficiarySupport BeneficiarySupport[]
+model leetcoders {
+  id                String         @id @default(uuid()) @db.Uuid
+  name              String
+  email             String         @unique
+  lc_username       String
+  gh_username       String?
+  x_username        String?
+  li_username       String?
+  avatar            String?
+  website           String?
+  group_no          Int
+  has_second_chance Boolean        @default(false)
+  rejoined_at       DateTime       @default(now()) @db.Timestamptz(6)
+  is_visible        Boolean        @default(true)
+  username          String         @unique
+  created_at        DateTime       @default(now()) @db.Timestamptz(6)
+  is_notified       Boolean        @default(false)
+  status            LeetcodeStatus @default(PENDING)
+  group             groups         @relation(fields: [group_no], references: [group_no])
+  submissions       submissions[]
 }
 
-model BeneficiaryRole {
-  id             String        @id @default(uuid())
-  createdAt      DateTime      @default(now()) @db.Timestamptz(6)
-  updatedAt      DateTime      @default(now()) @updatedAt @db.Timestamptz(6)
-  role           String        @unique
-  organizationId String?
-  Beneficiaries  Beneficiary[]
-  Organization   organization? @relation(fields: [organizationId], references: [id])
-
-  @@map("beneficiary_role")
-}
-
-model BeneficiarySupport {
-  id            String      @id @default(uuid())
-  createdAt     DateTime    @default(now())
-  updatedAt     DateTime    @updatedAt
-  supportValue  String
-  supportType   SupportType @default(FINANCIAL)
-  beneficiaryId String
-  beneficiary   Beneficiary @relation(fields: [beneficiaryId], references: [id], onDelete: Cascade)
-
-  @@map("beneficiary_support")
-}
-
-model Expense {
-  id              String          @id @default(uuid())
-  createdAt       DateTime        @default(now()) @db.Timestamptz(6)
-  updatedAt       DateTime        @default(now()) @db.Timestamptz(6)
-  organizationId  String?
-  expenseCategory ExpenseCategory
-  expenseTypeId   String?
-  campaignId      String?
-  amount          Float
-  description     String?
-  userId          String?
-  invoiceUrl      String?
-  campaign        campaign?       @relation(fields: [campaignId], references: [id])
-  ExpenseType     ExpenseType?    @relation(fields: [expenseTypeId], references: [id])
-  organization    organization?   @relation(fields: [organizationId], references: [id])
-  user            user?           @relation(fields: [userId], references: [id])
-
-  @@map("expense")
-}
-
-model ExpenseType {
-  id             String        @id @default(uuid())
-  createdAt      DateTime      @default(now()) @db.Timestamptz(6)
-  updatedAt      DateTime      @default(now()) @db.Timestamptz(6)
-  organizationId String?
-  type           String
-  Expense        Expense[]
-  organization   organization? @relation(fields: [organizationId], references: [id])
-
-  @@unique([type, organizationId])
-  @@map("expense_type")
-}
-
-model Employee {
-  id                 String             @id @default(uuid())
-  name               String
-  createdAt          DateTime           @default(now()) @db.Timestamptz(6)
-  updatedAt          DateTime           @default(now()) @db.Timestamptz(6)
-  organizationId     String?
-  employeeRoleId     String
-  salary             Float?
-  dutyType           DutyType?
-  status             EmployeeStatus
-  administrativeRole AdministrativeRole
-  employeeRole       EmployeeRole       @relation(fields: [employeeRoleId], references: [id])
-  organization       organization?      @relation(fields: [organizationId], references: [id])
-  employeeSalaries   EmployeeSalaries[]
-
-  @@map("employee")
-}
-
-model EmployeeRole {
-  id        String     @id @default(uuid())
-  createdAt DateTime   @default(now()) @db.Timestamptz(6)
-  updatedAt DateTime   @default(now()) @db.Timestamptz(6)
-  role      String
-  Employee  Employee[]
-
-  @@map("employee_role")
-}
-
-model EmployeeSalaries {
-  id         String             @id @default(uuid())
-  createdAt  DateTime           @default(now()) @db.Timestamptz(6)
-  updatedAt  DateTime           @default(now()) @db.Timestamptz(6)
-  salary     Float
-  type       EmployeeSalaryType
-  employeeId String
-  employee   Employee           @relation(fields: [employeeId], references: [id])
-
-  @@map("employee_salary")
-}
-
-model BankCard {
-  id           String         @id
-  bankCardName String
-  IBAN         String
-  swiftCode    String
-  address      String
-  saved        Boolean        @default(false)
-  isDeleted    Boolean        @default(false)
-  Payout       Payout[]
-  organization organization[] @relation("BankCardToOrganization")
-}
-
-model Card {
-  id               String  @id
-  donatorId        String
-  stripeCardId     String  @unique
-  stripeCustomerId String  @unique
-  last4            String
-  brand            String
-  expMonth         Int
-  expYear          Int
-  Donator          Donator @relation(fields: [donatorId], references: [id])
-}
-
-model Donator {
-  id               String         @id
-  stripeCustomerId String         @unique
-  name             String
-  email            String
-  phone            String?
-  address          String?
-  city             String?
-  state            String?
-  country          String?
-  createdAt        DateTime       @default(now())
-  updatedAt        DateTime
-  organizationId   String?
-  Card             Card[]
-  organization     organization?  @relation(fields: [organizationId], references: [id])
-  Payment          Payment[]
-  Subscription     Subscription[]
-}
-
-model Payment {
-  id              String        @id
-  donatorId       String
-  stripePaymentId String        @unique
-  amount          Decimal       @db.Decimal(10, 2)
-  currency        String
-  status          PaymentStatus
-  createdAt       DateTime      @default(now())
-  campaignId      String?
-  organizationId  String?
-  campaign        campaign?     @relation(fields: [campaignId], references: [id])
-  Donator         Donator       @relation(fields: [donatorId], references: [id])
-  organization    organization? @relation(fields: [organizationId], references: [id])
-
-  @@index([campaignId, status, createdAt])
-  @@index([donatorId])
-  @@index([organizationId, status])
-}
-
-model Payout {
-  amount         Decimal      @default(0) @db.Decimal(10, 2)
-  createdAt      DateTime     @default(now())
-  updatedAt      DateTime     @default(now())
-  status         PayoutStatus @default(PENDING)
-  id             Int          @id @default(autoincrement())
-  bankCardId     String
-  organizationId String
-  BankCard       BankCard     @relation(fields: [bankCardId], references: [id])
-  organization   organization @relation(fields: [organizationId], references: [id])
-}
-
-model Subscription {
-  id               String             @id
-  donatorId        String
-  stripeSubId      String             @unique
-  stripeCustomerId String
-  status           SubscriptionStatus
-  createdAt        DateTime           @default(now())
-  amount           Decimal            @default(0) @db.Decimal(10, 2)
-  campaignId       String
-  updatedAt        DateTime
-  campaign         campaign           @relation(fields: [campaignId], references: [id], onDelete: Cascade)
-  Donator          Donator            @relation(fields: [donatorId], references: [id], onDelete: Cascade)
-
-  @@unique([donatorId, campaignId])
-}
-
-model account {
-  id                    String    @id
-  accountId             String
-  providerId            String
-  userId                String
-  accessToken           String?
-  refreshToken          String?
-  idToken               String?
-  accessTokenExpiresAt  DateTime?
-  refreshTokenExpiresAt DateTime?
-  scope                 String?
-  password              String?
-  createdAt             DateTime
-  updatedAt             DateTime
-  user                  user      @relation(fields: [userId], references: [id], onDelete: Cascade)
-}
-
-model campaign {
-  id                   String                @id
-  createdAt            DateTime              @default(now()) @db.Timestamptz(6)
-  updatedAt            DateTime              @default(now()) @db.Timestamptz(6)
-  title                String                @default("")
-  country              String?
-  targetAmount         Float
-  collectedAmount      Float                 @default(0)
-  description          String?
-  videoLink            String?
-  imageGallery         String[]
-  mainImage            String?
-  mdDescription        String?
-  seoTitle             String?
-  seoKeywords          String[]
-  seoDescription       String?
-  organizationId       String?
-  isDraft              Boolean?              @default(true)
-  landingPageLink      String?
-  userId               String?
-  needs                Json?                 @default("{}")
-  status               CampaignStatus        @default(ACTIVE)
-  campaignDonationType CampaignDonationType? @default(LINK)
-  campaignTypeId       String[]
-  isDeleted            Boolean?              @default(false)
-  Payment              Payment[]
-  Subscription         Subscription[]
-  organization         organization?         @relation(fields: [organizationId], references: [id])
-  user                 user?                 @relation(fields: [userId], references: [id])
-  visitors             CampaignVisitor[]
-  email_campaign       email_campaign[]
-  expenses             Expense[]
-  campaign_type        campaign_type[]       @relation("CampaignToType")
-
-  @@index([id, isDeleted])
-}
-
-model campaign_type {
-  id             String        @id
-  createdAt      DateTime      @default(now()) @db.Timestamptz(6)
-  updatedAt      DateTime      @default(now()) @db.Timestamptz(6)
-  type           String        @unique
-  isDeleted      Boolean?      @default(false)
-  organizationId String?
-  organization   organization? @relation(fields: [organizationId], references: [id])
-  campaign       campaign[]    @relation("CampaignToType")
-}
-
-model email_campaign {
-  id                  String                @id
-  campaignId          String
-  organizationId      String
-  createdAt           DateTime              @default(now())
-  updatedAt           DateTime
-  campaign            campaign              @relation(fields: [campaignId], references: [id], onDelete: Cascade)
-  organization        organization          @relation(fields: [organizationId], references: [id], onDelete: Cascade)
-  email_campaign_open email_campaign_open[]
-  email_donator       email_donator[]       @relation("EmailCampaignToEmailDonator")
-}
-
-model email_campaign_open {
-  id              String         @id
-  emailCampaignId String
-  emailDonatorId  String
-  organizationId  String
-  createdAt       DateTime       @default(now())
-  updatedAt       DateTime
-  email_campaign  email_campaign @relation(fields: [emailCampaignId], references: [id], onDelete: Cascade)
-  email_donator   email_donator  @relation(fields: [emailDonatorId], references: [id], onDelete: Cascade)
-  organization    organization   @relation(fields: [organizationId], references: [id], onDelete: Cascade)
-
-  @@unique([emailCampaignId, emailDonatorId])
-}
-
-model email_donator {
-  id                  String                @id
-  email               String                @unique
-  name                String
-  country             String
-  createdAt           DateTime              @default(now())
-  updatedAt           DateTime
-  organizationId      String
-  status              EmailStatus           @default(ACTIVE)
-  email_campaign_open email_campaign_open[]
-  organization        organization          @relation(fields: [organizationId], references: [id], onDelete: Cascade)
-  email_campaign      email_campaign[]      @relation("EmailCampaignToEmailDonator")
-}
-
-model email_usage {
-  id             String       @id
-  organizationId String
-  year           Int
-  month          Int
-  used           Int          @default(0)
-  createdAt      DateTime     @default(now())
-  updatedAt      DateTime
-  organization   organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
-
-  @@unique([organizationId, year, month])
-}
-
-model organization {
-  id                       String                    @id
-  name                     String
-  email                    String?
-  emailVerified            Boolean?                  @default(false)
-  logo                     String?
-  createdAt                DateTime                  @default(now()) @db.Timestamptz(6)
-  updatedAt                DateTime                  @default(now()) @db.Timestamptz(6)
-  description              String?
-  facebook                 String?
-  instagram                String?
-  link                     String?
-  location                 String?
-  phone                    String?
-  telegram                 String?
-  thanksMessage            String?
-  theme                    String?
-  twitter                  String?
-  whatsapp                 String?
-  youtube                  String?
-  active                   Boolean                   @default(true)
-  adminEmail               String?
-  adminName                String?
-  host                     String?                   @unique
-  type                     OrgType                   @default(INTERNAL)
-  secondaryColor           String?
-  integrationNotes         String?
-  orgHostType              OrgHostType?
-  isDeleted                Boolean?                  @default(false)
-  Beneficiary              Beneficiary[]
-  Donator                  Donator[]
-  OrganizationSubscription OrganizationSubscription?
-  Payment                  Payment[]
-  Payout                   Payout[]
-  BeneficiaryRole          BeneficiaryRole[]
-  campaign                 campaign[]
-  campaign_type            campaign_type[]
-  email_campaign           email_campaign[]
-  email_campaign_open      email_campaign_open[]
-  email_donator            email_donator[]
-  email_usage              email_usage[]
-  Employee                 Employee[]
-  Expense                  Expense[]
-  ExpenseType              ExpenseType[]
-  user                     user[]
-  BankCard                 BankCard[]                @relation("BankCardToOrganization")
-
-  @@index([host])
-}
-
-model session {
-  id        String      @id
-  expiresAt DateTime
-  token     String      @unique
-  createdAt DateTime
-  updatedAt DateTime
-  ipAddress String?
-  userAgent String?
-  userId    String
-  type      SessionType @default(USER)
-  user      user        @relation(fields: [userId], references: [id], onDelete: Cascade)
-}
-
-model user {
-  id             String        @id
-  name           String
-  email          String
-  emailVerified  Boolean
-  image          String?
-  createdAt      DateTime
-  updatedAt      DateTime
-  organizationId String?
-  active         Boolean       @default(true)
-  role           UserRole      @default(USER)
-  account        account[]
-  campaign       campaign[]
-  Expense        Expense[]
-  session        session[]
-  organization   organization? @relation(fields: [organizationId], references: [id])
-
-  @@unique([email, organizationId])
-}
-
-model verification {
-  id         String    @id
-  identifier String
-  value      String
-  expiresAt  DateTime
-  createdAt  DateTime?
-  updatedAt  DateTime?
-}
-
-enum UserRole {
-  USER
-  ADMIN
-  CAMPAIGN_SUPERVISOR
-  EXPENSES_SUPERVISOR
-  MARKETING_SUPERVISOR
-  SUPER_ADMIN
-  SUBSCRIBER
-}
-
-enum OrgType {
-  EXTERNAL
-  INTERNAL
-}
-
-enum OrganizationType {
-  PRO
-  STANDARD
-  PREMIUM
-}
-
-enum OrganizationStatus {
-  ACTIVE
-  INACTIVE
-  PENDING
-}
-
-enum PaymentStatus {
-  SUCCEEDED
-  PENDING
-  FAILED
-  REFUNDED
-}
-
-enum SubscriptionStatus {
-  ACTIVE
-  CANCELED
-  INCOMPLETE
-  PAST_DUE
-  UNPAID
-}
-
-enum SupportType {
-  FINANCIAL
-  INKIND
-}
-
-enum SupportStatus {
+enum LeetcodeStatus {
   PENDING
   APPROVED
-  REJECTED
+  SUSPENDED
 }
 
-enum ExpenseCategory {
-  CAMPAIGN
-  GENERAL
+model roadmap {
+  id             String           @id @default(uuid()) @db.Uuid
+  created_at     DateTime         @default(now()) @db.Timestamptz(6)
+  problem_no     Int
+  problem_order  Int              @unique
+  problem_slug   String
+  topic          String
+  difficulty     String           @default("easy")
+  group_progress group_progress[]
+  submissions    submissions[]
 }
 
-enum DutyType {
-  FULL_TIME
-  PART_TIME
+model submissions {
+  id         String     @default(uuid()) @db.Uuid
+  created_at DateTime   @default(now()) @db.Timestamptz(6)
+  user_id    String     @db.Uuid
+  problem_id String     @db.Uuid
+  solved     Boolean    @default(true)
+  group_no   Int?
+  group      groups?    @relation(fields: [group_no], references: [group_no])
+  problem    roadmap    @relation(fields: [problem_id], references: [id])
+  user       leetcoders @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@id([id, user_id])
+  @@index([user_id])
+  @@index([problem_id])
 }
 
-enum EmployeeSalaryType {
-  BASIC
-  BONUS
+model resources {
+  id          String         @id @default(uuid()) @db.Uuid
+  created_at  DateTime       @default(now()) @db.Timestamptz(6)
+  title       String
+  url         String
+  contributor String
+  topic       String
+  is_visible  Boolean        @default(false)
+  is_approved Boolean        @default(false)
+  type_id     Int
+  tab_id      Int
+  type        resource_types @relation(fields: [type_id], references: [id])
+  tab         resource_tabs  @relation(fields: [tab_id], references: [id])
 }
 
-enum AdministrativeRole {
-  EMPLOYEE
-  VOLUNTEER
+model resource_tabs {
+  id        Int         @id @default(autoincrement())
+  name      String      @unique
+  resources resources[]
 }
 
-enum EmployeeStatus {
-  ACTIVE
-  NON_ACTIVE
-  HOLIDAY
-}
-
-enum CampaignStatus {
-  ACTIVE
-  INACTIVE
-  COMPLETED
-}
-
-enum CampaignDonationType {
-  LINK
-  LANDING_PAGE
-  EMAIL
-}
-
-enum EmailStatus {
-  ACTIVE
-  INACTIVE
-}
-
-enum OrgHostType {
-  WORDPRESS
-  CUSTOM
-  OTHER
-}
-
-enum PayoutStatus {
-  PENDING
-  SUCCESS
-  FAILED
-  REQUESTED
-}
-
-enum SessionType {
-  SUBSCRIBER
-  USER
+model resource_types {
+  id        Int         @id @default(autoincrement())
+  name      String      @unique
+  resources resources[]
 }

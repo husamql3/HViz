@@ -45,3 +45,10 @@ CloudFlare deploy scripts
 "preview": "wrangler types && astro preview",
 "astro": "astro"
 ```
+
+```
+"dev": "astro dev",
+"build": "astro build",
+"preview": "astro preview",
+"astro": "astro"
+```

@@ -1,35 +1,25 @@
 import { resolve } from "node:path";
-import { cancel, intro, isCancel, outro, select, spinner, text } from "@clack/prompts";
+import { cancel, intro, isCancel, outro, spinner, text } from "@clack/prompts";
 import { createServer, PORT } from "@viz/server";
 import { file, serve, write } from "bun";
 import open from "open";
 import color from "picocolors";
 
 import type { ErdResult } from "@/types/erd.type";
-import { generateErd } from "@/utils/generate-erd";
-import { schemaPathSuggestions } from "@/utils/schema-path-suggestions";
+import { schemaPathSuggestions } from "@/utils/cmd/schema-path-suggestions";
+import { generateERD } from "@/utils/generate-erd";
+import { selectDB } from "./utils/cmd/select-db";
 
 export const main = async () => {
 	console.log();
 	intro(color.inverse(" Viz "));
 
-	const projectType = await select({
-		message: "Pick your ORM/Database.",
-		options: [
-			{ value: "prisma", label: "Prisma" },
-			{ value: "drizzle", label: "Drizzle", hint: "coming soon" },
-			{ value: "typeorm", label: "TypeORM", hint: "coming soon" },
-			{ value: "postgres", label: "Postgres", hint: "coming soon" },
-			{ value: "mysql", label: "MySQL", hint: "coming soon" },
-			{ value: "sqlite", label: "SQLite", hint: "coming soon" },
-		],
-	});
-	if (isCancel(projectType)) {
-		cancel("Operation cancelled");
-		return process.exit(0);
-	}
+	// Select the database type (prisma, drizzle, typeorm)
+	const projectType = await selectDB();
 
+	// Get the schema path suggestions based on the database type
 	const { schemaPromptMessage, defaultSchemaPath } = schemaPathSuggestions(projectType);
+
 	const schemaFilePathInput = await text({
 		message: schemaPromptMessage,
 		placeholder: defaultSchemaPath,
@@ -64,7 +54,16 @@ export const main = async () => {
 	s2.start("Generating ERD");
 	let erdResult: ErdResult | undefined;
 	try {
-		erdResult = await generateErd(schema, projectType);
+		// erdResult = await generateERD(schema, projectType);
+		if (projectType.startsWith('drizzle')) {
+			const schemaModule = await import(schemaFilePath);
+			erdResult = await generateERD(schemaModule, projectType);
+		} else {
+			const schema = await file(schemaFilePath).text();
+			erdResult = await generateERD(schema, projectType);
+		}
+
+		console.log("erdResult", erdResult);
 	} catch (e) {
 		s2.stop("ERD generation failed");
 		cancel(`Error generating ERD: ${e instanceof Error ? e.message : "Unknown error"}`);
