@@ -1,0 +1,75 @@
+---
+const WEBSITE_URL = "https://www.hviz.com/";
+const WEBSITE_NAME = "hviz";
+const WEBSITE_DESCRIPTION = "hviz is an advanced ERD generator tool for databases. Generate Entity-Relationship Diagrams from schema files, supporting Prisma, Drizzle, TypeORM, Postgres, MySQL, and more. Join the waitlist for updates on our CLI tool, ORM support, and visual editor.";
+const WEBSITE_KEYWORDS = "ERD generator, database diagram, schema visualization, Prisma ERD, Drizzle ERD, TypeORM ERD, Postgres ERD, MySQL ERD, SQLite ERD, database design tool, CLI ERD tool";
+const WEBSITE_AUTHOR = "husamql3";
+const WEBSITE_TWITTER_USERNAME = "@husamql3";
+const WEBSITE_SITEMAP = "/sitemap-index.xml";
+const WEBSITE_OG_TITLE = "hviz - ERD Generator for Your Database";
+const WEBSITE_OG_DESCRIPTION = "hviz is an advanced ERD generator tool for databases. Generate Entity-Relationship Diagrams from schema files, supporting Prisma, Drizzle, TypeORM, Postgres, MySQL, and more. Join the waitlist for updates on our CLI tool, ORM support, and visual editor.";
+const WEBSITE_OG_IMAGE = "https://www.hviz.com/_astro/seo-banner.BZD7kegZ.webp";
+const WEBSITE_OG_IMAGE_ALT = "hviz ERD Generator Logo and Diagram Example";
+const { title = WEBSITE_OG_TITLE } = Astro.props;
+---
+
+<!-- Basic SEO -->
+<title>{title}</title>
+<meta
+  name="description"
+  content={WEBSITE_DESCRIPTION}
+/>
+<meta
+  name="keywords"
+  content={WEBSITE_KEYWORDS}
+/>
+<meta name="author" content={WEBSITE_AUTHOR} />
+<meta name="robots" content="index, follow" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="canonical" href={WEBSITE_URL} />
+<link rel="sitemap" href={WEBSITE_SITEMAP} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:title" content={WEBSITE_OG_TITLE} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={WEBSITE_URL} />
+<meta
+  property="og:description"
+  content={WEBSITE_OG_DESCRIPTION}
+/>
+<meta
+  property="og:image"
+  content={WEBSITE_OG_IMAGE}
+/>
+<meta
+  property="og:image:alt"
+  content={WEBSITE_OG_IMAGE_ALT}
+/>
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content={WEBSITE_NAME} />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content={WEBSITE_TWITTER_USERNAME} />
+<meta name="twitter:creator" content={WEBSITE_TWITTER_USERNAME} />
+<meta name="twitter:title" content={WEBSITE_OG_TITLE} />
+<meta
+  name="twitter:description"
+  content={WEBSITE_OG_DESCRIPTION}
+/>
+<meta
+  name="twitter:image"
+  content={WEBSITE_OG_IMAGE}
+/>
+<meta
+  name="twitter:image:alt"
+  content={WEBSITE_OG_IMAGE_ALT}
+/>
+
+<!-- Additional SEO Enhancements -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="English" />
+<meta name="revisit-after" content="7 days" />
+<meta name="distribution" content="global" />

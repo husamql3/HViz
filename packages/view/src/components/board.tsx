@@ -174,7 +174,7 @@ export const Board = () => {
 	const [edges, , onEdgesChange] = useEdgesState<Edge>(INITIAL_EDGES);
 
 	return (
-		<div className="bg-zinc-950 h-full w-full rounded-xl border overflow-hidden border-zinc-900">
+		<div className="bg-zinc-950 h-full w-full rounded-md border overflow-hidden border-zinc-900">
 			<ReactFlow
 				nodes={nodes}
 				edges={edges}
