@@ -32,3 +32,16 @@
 ---
 
 - [ ] automatially get the schema file from package.json
+
+---
+
+CloudFlare deploy scripts
+
+```
+"dev": "wrangler types && astro dev",
+"deploy": "wrangler types && wrangler deploy --minify --outdir dist",
+"start": "wrangler types && astro dev",
+"build": "wrangler types && astro check && astro build",
+"preview": "wrangler types && astro preview",
+"astro": "astro"
+```
