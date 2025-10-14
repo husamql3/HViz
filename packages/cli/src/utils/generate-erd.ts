@@ -1,9 +1,9 @@
 import { getDMMF } from "@prisma/internals";
-
+import type { DatabaseType } from "@/types/db.type";
 import type { Edge, ErdResult, Node } from "@/types/erd.type";
 import { calcTableWidth } from "@/utils/calc-table-width";
 
-export const generateErd = async (schema: string): Promise<ErdResult> => {
+export const generateErd = async (schema: string, _type: DatabaseType): Promise<ErdResult> => {
 	const dmmf = await getDMMF({
 		datamodel: schema,
 	});

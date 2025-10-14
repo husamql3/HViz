@@ -1,10 +1,12 @@
+type Status = "done" | "in progress" | "not started";
+
 type RoadmapItem = {
 	title: string;
 	subtitle?: string;
-	status: "done" | "in progress" | "not started";
+	status: Status;
 	subFeatures?: {
 		title: string;
-		status: "done" | "in progress" | "not started";
+		status: Status;
 	}[];
 	priority: "P1" | "P2" | "P3" | "P4";
 };
@@ -21,7 +23,7 @@ export const ROADMAP: RoadmapItem[] = [
 		title: "ORM Support",
 		subFeatures: [
 			{ title: "Prisma", status: "done" },
-			{ title: "Drizzle", status: "not started" },
+			{ title: "Drizzle", status: "in progress" },
 			{ title: "TypeORM", status: "not started" },
 		],
 		priority: "P1", // Critical - without this, no parsing

@@ -2,7 +2,7 @@
   "name": "viz",
   "version": "1.0.0",
   "scripts": {
-    "dev:cli": "bun run --filter='@viz/view' build && bun run --cwd packages/cli dev",
+    "dev": "bun run --filter='@viz/view' build && bun run --cwd packages/cli dev",
     "dev:view": "bun run --filter='@viz/view' dev",
     "dev:www": "bun run --filter='@viz/www' dev",
     "build": "bun run --filter='*' build",
