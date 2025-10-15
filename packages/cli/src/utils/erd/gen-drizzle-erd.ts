@@ -6,7 +6,7 @@ import { calcTableWidth } from "@/utils/calc-table-width";
 import { pluralize, removeIdSuffix, toCamelCase } from "../helpers/drizzle-helpers";
 
 export const genDrizzleERD = async (schemaModule: string, dbType: DatabaseType): Promise<ErdResult> => {
-	let generateFn;
+	let generateFn: (options: { schema: string; relational: boolean }) => string;
 
 	switch (dbType) {
 		case "drizzle-postgres":
@@ -79,10 +79,10 @@ export const genDrizzleERD = async (schemaModule: string, dbType: DatabaseType):
 		const isComposite = left && left.fieldNames.length > 1; // Skip composites for simplicity;
 		if (isComposite) return;
 
-		const _leftFieldName = left?.fieldNames[0];
-		const _rightFieldName = right?.fieldNames[0];
+		// const _leftFieldName = left?.fieldNames[0];
+		// const _rightFieldName = right?.fieldNames[0];
 
-		let manyEndpoint, oneEndpoint, relationshipDir;
+		let manyEndpoint: typeof left, oneEndpoint: typeof right, relationshipDir: ">" | "<" | "-";
 		if (left?.relation === "*" && right?.relation === "1") {
 			manyEndpoint = left;
 			oneEndpoint = right;
@@ -103,7 +103,7 @@ export const genDrizzleERD = async (schemaModule: string, dbType: DatabaseType):
 		const manyTableName = manyEndpoint.tableName;
 		const oneTableName = oneEndpoint.tableName;
 		const fkFieldName = manyEndpoint.fieldNames[0];
-		const _pkFieldName = oneEndpoint.fieldNames[0];
+		// 	const _pkFieldName = oneEndpoint.fieldNames[0];
 
 		// Find nodes
 		const manyNode = nodes.find((n) => n.id === manyTableName);
@@ -121,7 +121,7 @@ export const genDrizzleERD = async (schemaModule: string, dbType: DatabaseType):
 			type: oneTableName,
 			isId: false,
 			isUnique: false,
-			isList: relationshipDir === "-" ? false : false, // false for many-to-one or one-to-one
+			isList: false, // false for many-to-one or one-to-one
 			kind: "object",
 			relationName: ref.name,
 			label: `${manyVirtualName} → ${oneTableName}`,

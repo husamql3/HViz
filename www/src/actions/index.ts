@@ -1,6 +1,6 @@
 import { defineAction } from 'astro:actions';
 import { z } from 'astro:schema';
-import { supabase } from '@/lib/supabase';
+import { getSupabaseClient } from '@/lib/supabase';
 
 export const server = {
   joinWaitlist: defineAction({
@@ -9,10 +9,17 @@ export const server = {
     }),
     handler: async ({ email }) => {
       try {
-        const { error } = await supabase
+        const { error } = await getSupabaseClient()
           .from('hviz_waitlist')
           .insert([{ email }])
           .select();
+
+        if (error?.code === '23505') {
+          return {
+            success: false,
+            message: 'Email already exists in the waitlist.'
+          };
+        }
 
         if (error) {
           console.error('Supabase error:', JSON.stringify(error, null, 2));
