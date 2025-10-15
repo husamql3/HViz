@@ -47,7 +47,7 @@ export const main = async () => {
 
 	const s1 = spinner();
 	s1.start("Loading schema");
-	const schema = await file(schemaFilePath).text();
+	const _schema = await file(schemaFilePath).text();
 	s1.stop("Schema loaded");
 
 	const s2 = spinner();
@@ -55,7 +55,7 @@ export const main = async () => {
 	let erdResult: ErdResult | undefined;
 	try {
 		// erdResult = await generateERD(schema, projectType);
-		if (projectType.startsWith('drizzle')) {
+		if (projectType.startsWith("drizzle")) {
 			const schemaModule = await import(schemaFilePath);
 			erdResult = await generateERD(schemaModule, projectType);
 		} else {

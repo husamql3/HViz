@@ -47,8 +47,8 @@ export const genDrizzleERD = async (schemaModule: string, dbType: DatabaseType):
 			return {
 				name: field.name,
 				type: field.type.type_name,
-				isId: !!field.pk,  // Convert to boolean
-				isUnique: !!field.unique,  // Convert to boolean
+				isId: !!field.pk, // Convert to boolean
+				isUnique: !!field.unique, // Convert to boolean
 				isList: false,
 				kind: "scalar" as const,
 				relationName: undefined,
