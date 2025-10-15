@@ -10,9 +10,6 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
-    ssr: {
-      external: ['node:buffer'],
-    },
   },
 
   experimental: {
