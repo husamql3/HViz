@@ -14,11 +14,7 @@ export const Header = () => {
 			/>
 
 			<a href={REPO_URL} target="_blank" rel="noopener noreferrer" className="group">
-				<Button
-					variant="ghost"
-					className="dark:group-hover:text-neutral-300 text-zinc-400"
-					size="icon-lg"
-				>
+				<Button variant="ghost" className="dark:group-hover:text-neutral-300 text-zinc-400" size="icon-lg">
 					<IoLogoGithub className="size-5" />
 				</Button>
 			</a>
