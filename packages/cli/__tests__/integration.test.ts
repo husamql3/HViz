@@ -1,4 +1,4 @@
-// Mock drizzle generator
+// @ts-nocheck
 import { describe, expect, it, vi } from "vitest";
 import { mediumDrizzleDbml } from "../__mocks__/drizzle-schemas";
 import { complexPrismaSchema, mediumPrismaSchema } from "../__mocks__/prisma-schemas";

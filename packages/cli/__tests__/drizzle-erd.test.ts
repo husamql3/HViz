@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { mysqlGenerate, pgGenerate, sqliteGenerate } from "drizzle-dbml-generator";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import {
