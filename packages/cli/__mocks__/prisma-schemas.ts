@@ -235,46 +235,102 @@ model Message {
 
 // Stress test: Generate a large schema programmatically
 export const generateLargePrismaSchema = (numTables: number): string => {
-	const models: string[] = [];
+	const models: Array<{
+		name: string;
+		fields: string[];
+		childRelations: Array<{ model: string; relation: string }>;
+		backRelations: Array<{ model: string; relation: string; field: string }>;
+	}> = [];
 
-	// Create main entities
+	// Create main entities structure
 	for (let i = 0; i < numTables; i++) {
 		const modelName = `Entity${i}`;
-		const relatedModel = i > 0 ? `Entity${i - 1}` : null;
+		const fields = [
+			"id          Int      @id @default(autoincrement())",
+			"name        String",
+			"description String?",
+			"status      String   @default(\"active\")",
+			"value       Float?",
+			"count       Int      @default(0)",
+			"isActive    Boolean  @default(true)",
+			"metadata    Json?",
+			"createdAt   DateTime @default(now())",
+			"updatedAt   DateTime @updatedAt",
+		];
 
-		let model = `
-model ${modelName} {
-  id          Int      @id @default(autoincrement())
-  name        String
-  description String?
-  status      String   @default("active")
-  value       Float?
-  count       Int      @default(0)
-  isActive    Boolean  @default(true)
-  metadata    Json?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-`;
-
-		// Add relation to previous entity (chain)
-		if (relatedModel) {
-			model += `  parentId    Int?\n`;
-			model += `  parent      ${relatedModel}?  @relation("${modelName}To${relatedModel}", fields: [parentId], references: [id])\n`;
-			model += `  children    ${modelName}[]  @relation("${modelName}To${relatedModel}")\n`;
-		}
-
-		// Add some random relations to other entities
-		if (i > 2 && i % 3 === 0) {
-			const targetEntity = `Entity${Math.floor(i / 2)}`;
-			model += `  relatedId   Int?\n`;
-			model += `  related     ${targetEntity}? @relation(fields: [relatedId], references: [id])\n`;
-		}
-
-		model += `}\n`;
-		models.push(model);
+		models.push({
+			name: modelName,
+			fields,
+			childRelations: [],
+			backRelations: [],
+		});
 	}
 
-	return models.join("\n");
+	// Add relations between entities
+	for (let i = 0; i < numTables; i++) {
+		const currentModel = models[i];
+		if (!currentModel) continue;
+
+		// Add relation to previous entity (chain)
+		if (i > 0) {
+			const parentModel = models[i - 1];
+			if (!parentModel) continue;
+
+			const relationName = `${currentModel.name}To${parentModel.name}`;
+
+			currentModel.fields.push(`parentId    Int?`);
+			currentModel.fields.push(
+				`parent      ${parentModel.name}?  @relation("${relationName}", fields: [parentId], references: [id])`,
+			);
+
+			// Add back-reference to parent model
+			parentModel.childRelations.push({
+				model: currentModel.name,
+				relation: relationName,
+			});
+		}
+
+		// Add some random relations to other entities (many-to-one)
+		if (i > 2 && i % 3 === 0) {
+			const targetIndex = Math.floor(i / 2);
+			const targetModel = models[targetIndex];
+			if (!targetModel) continue;
+
+			const relationName = `${currentModel.name}To${targetModel.name}_related`;
+
+			currentModel.fields.push(`relatedId   Int?`);
+			currentModel.fields.push(
+				`related     ${targetModel.name}? @relation("${relationName}", fields: [relatedId], references: [id])`,
+			);
+
+			// Add back-reference to target model
+			targetModel.backRelations.push({
+				model: currentModel.name,
+				relation: relationName,
+				field: `related${currentModel.name}`,
+			});
+		}
+	}
+
+	// Generate final schema
+	const schemaModels = models.map((model) => {
+		const fields = [...model.fields];
+
+		// Add child relations
+		for (const child of model.childRelations) {
+			fields.push(`children${child.model}  ${child.model}[] @relation("${child.relation}")`);
+		}
+
+		// Add back-references
+		for (const backRef of model.backRelations) {
+			fields.push(`${backRef.field}  ${backRef.model}[] @relation("${backRef.relation}")`);
+		}
+
+		const fieldStr = fields.map((f) => `  ${f}`).join("\n");
+		return `model ${model.name} {\n${fieldStr}\n}`;
+	});
+
+	return schemaModels.join("\n\n");
 };
 
 export const emptyPrismaSchema = ``;

@@ -6,16 +6,23 @@ import {
 	simpleDrizzleDbml,
 } from "../__mocks__/drizzle-schemas";
 import { genDrizzleERD } from "../src/utils/erd/gen-drizzle-erd";
+import { mysqlGenerate, pgGenerate, sqliteGenerate } from "drizzle-dbml-generator";
 
 // Mock the drizzle-dbml-generator functions
 vi.mock("drizzle-dbml-generator", () => ({
-	pgGenerate: vi.fn(() => simpleDrizzleDbml),
-	mysqlGenerate: vi.fn(() => simpleDrizzleDbml),
-	sqliteGenerate: vi.fn(() => simpleDrizzleDbml),
+	pgGenerate: vi.fn(),
+	mysqlGenerate: vi.fn(),
+	sqliteGenerate: vi.fn(),
 }));
 
 describe("Drizzle ERD Generation", () => {
 	describe("Database Type Support", () => {
+		beforeEach(() => {
+			vi.mocked(pgGenerate).mockReturnValue(simpleDrizzleDbml);
+			vi.mocked(mysqlGenerate).mockReturnValue(simpleDrizzleDbml);
+			vi.mocked(sqliteGenerate).mockReturnValue(simpleDrizzleDbml);
+		});
+
 		it("should handle postgres dialect", async () => {
 			const result = await genDrizzleERD("", "drizzle-postgres");
 
@@ -44,8 +51,7 @@ describe("Drizzle ERD Generation", () => {
 
 	describe("Simple Schema", () => {
 		beforeEach(() => {
-			const { pgGenerate } = require("drizzle-dbml-generator");
-			pgGenerate.mockReturnValue(simpleDrizzleDbml);
+			vi.mocked(pgGenerate).mockReturnValue(simpleDrizzleDbml);
 		});
 
 		it("should generate ERD from DBML", async () => {
@@ -80,8 +86,7 @@ describe("Drizzle ERD Generation", () => {
 
 	describe("Medium Schema", () => {
 		beforeEach(() => {
-			const { pgGenerate } = require("drizzle-dbml-generator");
-			pgGenerate.mockReturnValue(mediumDrizzleDbml);
+			vi.mocked(pgGenerate).mockReturnValue(mediumDrizzleDbml);
 		});
 
 		it("should handle multiple relationships", async () => {
@@ -116,8 +121,7 @@ describe("Drizzle ERD Generation", () => {
 
 	describe("Complex Schema", () => {
 		beforeEach(() => {
-			const { pgGenerate } = require("drizzle-dbml-generator");
-			pgGenerate.mockReturnValue(complexDrizzleDbml);
+			vi.mocked(pgGenerate).mockReturnValue(complexDrizzleDbml);
 		});
 
 		it("should handle complex schema with many tables", async () => {
@@ -153,8 +157,7 @@ describe("Drizzle ERD Generation", () => {
 	describe("Stress Tests", () => {
 		it("should handle 50 tables efficiently", async () => {
 			const largeDbml = generateLargeDrizzleDbml(50);
-			const { pgGenerate } = require("drizzle-dbml-generator");
-			pgGenerate.mockReturnValue(largeDbml);
+			vi.mocked(pgGenerate).mockReturnValue(largeDbml);
 
 			const startTime = performance.now();
 			const result = await genDrizzleERD("", "drizzle-postgres");
@@ -166,8 +169,7 @@ describe("Drizzle ERD Generation", () => {
 
 		it("should handle 100 tables efficiently", async () => {
 			const largeDbml = generateLargeDrizzleDbml(100);
-			const { pgGenerate } = require("drizzle-dbml-generator");
-			pgGenerate.mockReturnValue(largeDbml);
+			vi.mocked(pgGenerate).mockReturnValue(largeDbml);
 
 			const startTime = performance.now();
 			const result = await genDrizzleERD("", "drizzle-postgres");
@@ -179,8 +181,7 @@ describe("Drizzle ERD Generation", () => {
 
 		it("should handle 500 tables without crashing", async () => {
 			const largeDbml = generateLargeDrizzleDbml(500);
-			const { pgGenerate } = require("drizzle-dbml-generator");
-			pgGenerate.mockReturnValue(largeDbml);
+			vi.mocked(pgGenerate).mockReturnValue(largeDbml);
 
 			const result = await genDrizzleERD("", "drizzle-postgres");
 
@@ -190,8 +191,7 @@ describe("Drizzle ERD Generation", () => {
 
 		it("should maintain data integrity under stress", async () => {
 			const largeDbml = generateLargeDrizzleDbml(100);
-			const { pgGenerate } = require("drizzle-dbml-generator");
-			pgGenerate.mockReturnValue(largeDbml);
+			vi.mocked(pgGenerate).mockReturnValue(largeDbml);
 
 			const result = await genDrizzleERD("", "drizzle-postgres");
 
@@ -216,8 +216,7 @@ describe("Drizzle ERD Generation", () => {
 
 		it("should handle memory efficiently", async () => {
 			const largeDbml = generateLargeDrizzleDbml(200);
-			const { pgGenerate } = require("drizzle-dbml-generator");
-			pgGenerate.mockReturnValue(largeDbml);
+			vi.mocked(pgGenerate).mockReturnValue(largeDbml);
 
 			const initialMemory = process.memoryUsage().heapUsed;
 			const result = await genDrizzleERD("", "drizzle-postgres");
@@ -232,8 +231,7 @@ describe("Drizzle ERD Generation", () => {
 
 	describe("Field Properties", () => {
 		beforeEach(() => {
-			const { pgGenerate } = require("drizzle-dbml-generator");
-			pgGenerate.mockReturnValue(simpleDrizzleDbml);
+			vi.mocked(pgGenerate).mockReturnValue(simpleDrizzleDbml);
 		});
 
 		it("should correctly identify primary keys", async () => {
@@ -280,8 +278,7 @@ describe("Drizzle ERD Generation", () => {
 
 	describe("Edge Creation", () => {
 		beforeEach(() => {
-			const { pgGenerate } = require("drizzle-dbml-generator");
-			pgGenerate.mockReturnValue(simpleDrizzleDbml);
+			vi.mocked(pgGenerate).mockReturnValue(simpleDrizzleDbml);
 		});
 
 		it("should create bidirectional edges", async () => {

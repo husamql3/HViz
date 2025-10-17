@@ -57,7 +57,21 @@ export const genPrismaERD = async (schema: string): Promise<ErdResult> => {
 				const targetModel = dmmf.datamodel.models.find((m) => m.name === field.type);
 
 				if (targetModel) {
-					const relationshipType = field.isList ? "one-to-many" : "many-to-one";
+					// Determine relationship type
+					let relationshipType: "one-to-one" | "one-to-many" | "many-to-one";
+
+					if (field.isList) {
+						relationshipType = "one-to-many";
+					} else {
+						// Check if this is a one-to-one relationship
+						// A relation is one-to-one if the foreign key field is unique
+						const isOneToOne =
+							field.relationFromFields &&
+							field.relationFromFields.length > 0 &&
+							model.fields.some((f) => field.relationFromFields?.includes(f.name) && (f.isUnique || f.isId));
+
+						relationshipType = isOneToOne ? "one-to-one" : "many-to-one";
+					}
 
 					// Create edge from the source field to the target table
 					edges.push({
