@@ -1,3 +1,4 @@
+import { mysqlGenerate, pgGenerate, sqliteGenerate } from "drizzle-dbml-generator";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import {
 	complexDrizzleDbml,
@@ -6,7 +7,6 @@ import {
 	simpleDrizzleDbml,
 } from "../__mocks__/drizzle-schemas";
 import { genDrizzleERD } from "../src/utils/erd/gen-drizzle-erd";
-import { mysqlGenerate, pgGenerate, sqliteGenerate } from "drizzle-dbml-generator";
 
 // Mock the drizzle-dbml-generator functions
 vi.mock("drizzle-dbml-generator", () => ({

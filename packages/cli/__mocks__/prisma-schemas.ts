@@ -249,7 +249,7 @@ export const generateLargePrismaSchema = (numTables: number): string => {
 			"id          Int      @id @default(autoincrement())",
 			"name        String",
 			"description String?",
-			"status      String   @default(\"active\")",
+			'status      String   @default("active")',
 			"value       Float?",
 			"count       Int      @default(0)",
 			"isActive    Boolean  @default(true)",

@@ -150,27 +150,27 @@ export const Board = ({ erdData }: { erdData: ErdResult }) => {
 		dagreGraph.setDefaultEdgeLabel(() => ({}));
 		dagreGraph.setGraph({ rankdir: "LR", ranksep: 250, nodesep: 200 });
 
-		erdData.nodes.forEach((node) => {
+		erdData.nodes?.forEach((node) => {
 			dagreGraph.setNode(node.id, { width: 320, height: 200 });
 		});
 
-		erdData.edges.forEach((edge) => {
+		erdData.edges?.forEach((edge) => {
 			dagreGraph.setEdge(edge.source, edge.target);
 		});
 
 		dagre.layout(dagreGraph);
 
-		return erdData.nodes.map((node) => {
+		return erdData.nodes?.map((node) => {
 			const position = dagreGraph.node(node.id);
 			return {
 				...node,
 				position: { x: position.x - 100, y: position.y - 100 },
 			};
 		});
-	}, [erdData.edges.forEach, erdData.nodes.forEach, erdData.nodes.map]); // Empty deps - only run once
+	}, [erdData.edges, erdData.nodes]); // Empty deps - only run once
 
 	const [nodes, , onNodesChange] = useNodesState<NodeType>(initialLayoutedNodes);
-	const [edges, , onEdgesChange] = useEdgesState<Edge>(erdData.edges);
+	const [edges, , onEdgesChange] = useEdgesState<Edge>(erdData.edges ?? []);
 
 	return (
 		<div className="bg-zinc-950 h-full w-full rounded-md border overflow-hidden border-zinc-900">
