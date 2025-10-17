@@ -15,7 +15,7 @@ import {
 } from "@xyflow/react";
 import dagre from "dagre";
 import "@xyflow/react/dist/style.css";
-import type { Edge, Field } from "@viz/cli/src/types/erd.type";
+import type { Edge, ErdResult, Field } from "@viz/cli/src/types/erd.type";
 import { Key, Link } from "lucide-react";
 import { useMemo } from "react";
 import { BsDiamond, BsDiamondFill } from "react-icons/bs";
@@ -25,7 +25,6 @@ import { HiOutlineFingerPrint } from "react-icons/hi";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/utils/cn";
-import { INITIAL_EDGES, INITIAL_NODES } from "@/utils/data";
 
 type NodeData = {
 	label: string;
@@ -145,33 +144,33 @@ const nodeTypes = {
 	},
 };
 
-export const Board = () => {
+export const Board = ({ erdData }: { erdData: ErdResult }) => {
 	const initialLayoutedNodes = useMemo(() => {
 		const dagreGraph = new dagre.graphlib.Graph();
 		dagreGraph.setDefaultEdgeLabel(() => ({}));
 		dagreGraph.setGraph({ rankdir: "LR", ranksep: 250, nodesep: 200 });
 
-		INITIAL_NODES.forEach((node) => {
+		erdData.nodes.forEach((node) => {
 			dagreGraph.setNode(node.id, { width: 320, height: 200 });
 		});
 
-		INITIAL_EDGES.forEach((edge) => {
+		erdData.edges.forEach((edge) => {
 			dagreGraph.setEdge(edge.source, edge.target);
 		});
 
 		dagre.layout(dagreGraph);
 
-		return INITIAL_NODES.map((node) => {
+		return erdData.nodes.map((node) => {
 			const position = dagreGraph.node(node.id);
 			return {
 				...node,
 				position: { x: position.x - 100, y: position.y - 100 },
 			};
 		});
-	}, []); // Empty deps - only run once
+	}, [erdData.edges.forEach, erdData.nodes.forEach, erdData.nodes.map]); // Empty deps - only run once
 
 	const [nodes, , onNodesChange] = useNodesState<NodeType>(initialLayoutedNodes);
-	const [edges, , onEdgesChange] = useEdgesState<Edge>(INITIAL_EDGES);
+	const [edges, , onEdgesChange] = useEdgesState<Edge>(erdData.edges);
 
 	return (
 		<div className="bg-zinc-950 h-full w-full rounded-md border overflow-hidden border-zinc-900">

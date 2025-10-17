@@ -4,9 +4,9 @@ import { Hono } from "hono";
 import { serveStatic } from "hono/bun";
 
 export const PORT = 4000;
-const distPath = path.resolve(import.meta.dir, "../view/dist");
+const distPath = path.resolve(import.meta.dir, "../view/build/client");
 
-export const createServer = (reactFlowData: ErdResult) => {
+export const createServer = (erdData: ErdResult) => {
 	const app = new Hono()
 		.use("*", async (c, next) => {
 			c.header("Access-Control-Allow-Origin", "*");
@@ -15,9 +15,9 @@ export const createServer = (reactFlowData: ErdResult) => {
 			await next();
 		})
 		.use("/*", serveStatic({ root: distPath }))
-		.get("/diagram", (c) => {
+		.get("/api/diagram", (c) => {
 			return c.json({
-				reactFlowData,
+				data: erdData,
 			});
 		});
 

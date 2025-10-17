@@ -18,7 +18,8 @@
 	"devDependencies": {
 		"@types/node": "^20.11.17",
 		"tsx": "^4.7.1",
-		"typescript": "^5"
+		"typescript": "^5",
+		"vitest": "^3.2.4"
 	},
 	"peerDependencies": {
 		"typescript": "^5"

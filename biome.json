@@ -34,8 +34,8 @@
 	},
 	"files": {
 		"includes": [
-			"packages/view/src/**",
-			"!packages/view/src/index.css",
+			"packages/view/app/**",
+			"!packages/view/app/app.css",
 			"packages/cli/src/**",
 			"packages/server/index.ts",
 			"www/app/**",

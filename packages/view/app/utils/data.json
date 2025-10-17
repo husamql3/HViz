@@ -1,0 +1,4930 @@
+{
+	"nodes": [
+		{
+			"id": "Beneficiary",
+			"type": "default",
+			"data": {
+				"label": "Beneficiary",
+				"fields": [
+					{
+						"name": "id",
+						"type": "uuid",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)",
+						"isNullable": false
+					},
+					{
+						"name": "name",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "name",
+						"isNullable": false
+					},
+					{
+						"name": "beneficiaryRoleId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "beneficiaryRoleId",
+						"isNullable": false
+					},
+					{
+						"name": "supportType",
+						"type": "SupportType",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "supportType",
+						"isNullable": false
+					},
+					{
+						"name": "supportValue",
+						"type": "text",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "supportValue",
+						"isNullable": false
+					},
+					{
+						"name": "supportStatus",
+						"type": "SupportStatus",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "supportStatus",
+						"isNullable": false
+					},
+					{
+						"name": "organizationId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId",
+						"isNullable": false
+					},
+					{
+						"name": "createdAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt",
+						"isNullable": false
+					},
+					{
+						"name": "updatedAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt",
+						"isNullable": true
+					},
+					{
+						"name": "beneficiaryRoleId",
+						"type": "beneficiary_role",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "beneficiaryRoleId → beneficiary_role",
+						"isNullable": false
+					},
+					{
+						"name": "organizationId",
+						"type": "Organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "organizationId → Organization",
+						"isNullable": false
+					},
+					{
+						"name": "beneficiarySupports",
+						"type": "beneficiary_support",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "beneficiarySupports → beneficiary_support",
+						"isNullable": true
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 434
+			}
+		},
+		{
+			"id": "beneficiary_role",
+			"type": "default",
+			"data": {
+				"label": "beneficiary_role",
+				"fields": [
+					{
+						"name": "id",
+						"type": "uuid",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)",
+						"isNullable": false
+					},
+					{
+						"name": "role",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": true,
+						"isList": false,
+						"kind": "scalar",
+						"label": "role",
+						"isNullable": false
+					},
+					{
+						"name": "organizationId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId",
+						"isNullable": false
+					},
+					{
+						"name": "createdAt",
+						"type": "timestamp (6) with time zone",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt",
+						"isNullable": false
+					},
+					{
+						"name": "updatedAt",
+						"type": "timestamp (6) with time zone",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt",
+						"isNullable": false
+					},
+					{
+						"name": "Beneficiaries",
+						"type": "Beneficiary",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "Beneficiaries → Beneficiary",
+						"isNullable": true
+					},
+					{
+						"name": "organizationId",
+						"type": "Organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "organizationId → Organization",
+						"isNullable": false
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 427
+			}
+		},
+		{
+			"id": "beneficiary_support",
+			"type": "default",
+			"data": {
+				"label": "beneficiary_support",
+				"fields": [
+					{
+						"name": "id",
+						"type": "uuid",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)",
+						"isNullable": false
+					},
+					{
+						"name": "supportType",
+						"type": "SupportType",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "supportType",
+						"isNullable": false
+					},
+					{
+						"name": "supportValue",
+						"type": "text",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "supportValue",
+						"isNullable": false
+					},
+					{
+						"name": "beneficiaryId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "beneficiaryId",
+						"isNullable": false
+					},
+					{
+						"name": "createdAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt",
+						"isNullable": false
+					},
+					{
+						"name": "updatedAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt",
+						"isNullable": true
+					},
+					{
+						"name": "beneficiaryId",
+						"type": "Beneficiary",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "beneficiaryId → Beneficiary",
+						"isNullable": false
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 336
+			}
+		},
+		{
+			"id": "campaign_category",
+			"type": "default",
+			"data": {
+				"label": "campaign_category",
+				"fields": [
+					{
+						"name": "id",
+						"type": "uuid",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)",
+						"isNullable": false
+					},
+					{
+						"name": "createdAt",
+						"type": "timestamp (6) with time zone",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt",
+						"isNullable": false
+					},
+					{
+						"name": "updatedAt",
+						"type": "timestamp (6) with time zone",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt",
+						"isNullable": false
+					},
+					{
+						"name": "type",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "type",
+						"isNullable": false
+					},
+					{
+						"name": "organizationId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId",
+						"isNullable": false
+					},
+					{
+						"name": "organizationId",
+						"type": "Organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "organizationId → Organization",
+						"isNullable": false
+					},
+					{
+						"name": "campaignCategoryCampaigns",
+						"type": "campaign_category_campaign",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "campaignCategoryCampaigns → campaign_category_campaign",
+						"isNullable": true
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 525
+			}
+		},
+		{
+			"id": "campaign_category_campaign",
+			"type": "default",
+			"data": {
+				"label": "campaign_category_campaign",
+				"fields": [
+					{
+						"name": "id",
+						"type": "uuid",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)",
+						"isNullable": false
+					},
+					{
+						"name": "campaignId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "campaignId",
+						"isNullable": false
+					},
+					{
+						"name": "campaignCategoryId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "campaignCategoryId",
+						"isNullable": false
+					},
+					{
+						"name": "createdAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt",
+						"isNullable": false
+					},
+					{
+						"name": "updatedAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt",
+						"isNullable": true
+					},
+					{
+						"name": "campaignId",
+						"type": "campaigns",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "campaignId → campaigns",
+						"isNullable": false
+					},
+					{
+						"name": "campaignCategoryId",
+						"type": "campaign_category",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "campaignCategoryId → campaign_category",
+						"isNullable": false
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 413
+			}
+		},
+		{
+			"id": "campaign_visitors",
+			"type": "default",
+			"data": {
+				"label": "campaign_visitors",
+				"fields": [
+					{
+						"name": "id",
+						"type": "uuid",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)",
+						"isNullable": false
+					},
+					{
+						"name": "ipAddress",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "ipAddress",
+						"isNullable": false
+					},
+					{
+						"name": "country",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "country",
+						"isNullable": true
+					},
+					{
+						"name": "visitCount",
+						"type": "integer",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "visitCount",
+						"isNullable": false
+					},
+					{
+						"name": "lastVisit",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "lastVisit",
+						"isNullable": false
+					},
+					{
+						"name": "campaignId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "campaignId",
+						"isNullable": false
+					},
+					{
+						"name": "createdAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt",
+						"isNullable": false
+					},
+					{
+						"name": "updatedAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt",
+						"isNullable": true
+					},
+					{
+						"name": "campaignId",
+						"type": "campaigns",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "campaignId → campaigns",
+						"isNullable": false
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 315
+			}
+		},
+		{
+			"id": "campaigns",
+			"type": "default",
+			"data": {
+				"label": "campaigns",
+				"fields": [
+					{
+						"name": "id",
+						"type": "uuid",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)",
+						"isNullable": false
+					},
+					{
+						"name": "title",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "title",
+						"isNullable": false
+					},
+					{
+						"name": "targetAmount",
+						"type": "integer",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "targetAmount",
+						"isNullable": true
+					},
+					{
+						"name": "currentAmount",
+						"type": "integer",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "currentAmount",
+						"isNullable": false
+					},
+					{
+						"name": "isActive",
+						"type": "boolean",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "isActive",
+						"isNullable": false
+					},
+					{
+						"name": "mainImage",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "mainImage",
+						"isNullable": true
+					},
+					{
+						"name": "status",
+						"type": "CampaignStatus",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "status",
+						"isNullable": false
+					},
+					{
+						"name": "country",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "country",
+						"isNullable": true
+					},
+					{
+						"name": "organizationId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId",
+						"isNullable": false
+					},
+					{
+						"name": "createdAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt",
+						"isNullable": false
+					},
+					{
+						"name": "updatedAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt",
+						"isNullable": true
+					},
+					{
+						"name": "campaignCategoryCampaigns",
+						"type": "campaign_category_campaign",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "campaignCategoryCampaigns → campaign_category_campaign",
+						"isNullable": true
+					},
+					{
+						"name": "campaignVisitors",
+						"type": "campaign_visitors",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "campaignVisitors → campaign_visitors",
+						"isNullable": true
+					},
+					{
+						"name": "CampainLinks",
+						"type": "CampainLink",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "CampainLinks → CampainLink",
+						"isNullable": true
+					},
+					{
+						"name": "CampainPages",
+						"type": "CampainPage",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "CampainPages → CampainPage",
+						"isNullable": true
+					},
+					{
+						"name": "campaignEmails",
+						"type": "campaign_email",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "campaignEmails → campaign_email",
+						"isNullable": true
+					},
+					{
+						"name": "organizationId",
+						"type": "Organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "organizationId → Organization",
+						"isNullable": false
+					},
+					{
+						"name": "expenses",
+						"type": "expense",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "expenses → expense",
+						"isNullable": true
+					},
+					{
+						"name": "payments",
+						"type": "payments",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "payments → payments",
+						"isNullable": true
+					},
+					{
+						"name": "subscriptions",
+						"type": "subscriptions",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "subscriptions → subscriptions",
+						"isNullable": true
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 525
+			}
+		},
+		{
+			"id": "campaign_email",
+			"type": "default",
+			"data": {
+				"label": "campaign_email",
+				"fields": [
+					{
+						"name": "id",
+						"type": "uuid",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)",
+						"isNullable": false
+					},
+					{
+						"name": "campaignId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": true,
+						"isList": false,
+						"kind": "scalar",
+						"label": "campaignId",
+						"isNullable": false
+					},
+					{
+						"name": "totalMessages",
+						"type": "integer",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "totalMessages",
+						"isNullable": false
+					},
+					{
+						"name": "createdAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt",
+						"isNullable": false
+					},
+					{
+						"name": "updatedAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt",
+						"isNullable": true
+					},
+					{
+						"name": "campaignId",
+						"type": "campaigns",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "campaignId → campaigns",
+						"isNullable": false
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 308
+			}
+		},
+		{
+			"id": "CampainLink",
+			"type": "default",
+			"data": {
+				"label": "CampainLink",
+				"fields": [
+					{
+						"name": "id",
+						"type": "uuid",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)",
+						"isNullable": false
+					},
+					{
+						"name": "campaignId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": true,
+						"isList": false,
+						"kind": "scalar",
+						"label": "campaignId",
+						"isNullable": false
+					},
+					{
+						"name": "link",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "link",
+						"isNullable": false
+					},
+					{
+						"name": "campaignId",
+						"type": "campaigns",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "campaignId → campaigns",
+						"isNullable": false
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 301
+			}
+		},
+		{
+			"id": "CampainPage",
+			"type": "default",
+			"data": {
+				"label": "CampainPage",
+				"fields": [
+					{
+						"name": "id",
+						"type": "uuid",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)",
+						"isNullable": false
+					},
+					{
+						"name": "campaignId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": true,
+						"isList": false,
+						"kind": "scalar",
+						"label": "campaignId",
+						"isNullable": false
+					},
+					{
+						"name": "description",
+						"type": "varchar(150)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "description",
+						"isNullable": false
+					},
+					{
+						"name": "fullDescription",
+						"type": "text",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "fullDescription",
+						"isNullable": false
+					},
+					{
+						"name": "videoUrl",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "videoUrl",
+						"isNullable": true
+					},
+					{
+						"name": "imageGallery",
+						"type": "varchar(1000)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "imageGallery",
+						"isNullable": false
+					},
+					{
+						"name": "needs",
+						"type": "jsonb",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "needs",
+						"isNullable": true
+					},
+					{
+						"name": "seoTitle",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "seoTitle",
+						"isNullable": true
+					},
+					{
+						"name": "seoKeywords",
+						"type": "varchar(1000)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "seoKeywords",
+						"isNullable": false
+					},
+					{
+						"name": "seoDescription",
+						"type": "text",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "seoDescription",
+						"isNullable": true
+					},
+					{
+						"name": "campaignId",
+						"type": "campaigns",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "campaignId → campaigns",
+						"isNullable": false
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 343
+			}
+		},
+		{
+			"id": "cards",
+			"type": "default",
+			"data": {
+				"label": "cards",
+				"fields": [
+					{
+						"name": "id",
+						"type": "uuid",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)",
+						"isNullable": false
+					},
+					{
+						"name": "donorId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "donorId",
+						"isNullable": false
+					},
+					{
+						"name": "provider",
+						"type": "PaymentProvider",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "provider",
+						"isNullable": false
+					},
+					{
+						"name": "providerCardId",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "providerCardId",
+						"isNullable": false
+					},
+					{
+						"name": "providerCustomerId",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "providerCustomerId",
+						"isNullable": false
+					},
+					{
+						"name": "last4",
+						"type": "varchar(4)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "last4",
+						"isNullable": false
+					},
+					{
+						"name": "brand",
+						"type": "CardBrand",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "brand",
+						"isNullable": false
+					},
+					{
+						"name": "expMonth",
+						"type": "integer",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "expMonth",
+						"isNullable": false
+					},
+					{
+						"name": "expYear",
+						"type": "integer",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "expYear",
+						"isNullable": false
+					},
+					{
+						"name": "isDefault",
+						"type": "boolean",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "isDefault",
+						"isNullable": false
+					},
+					{
+						"name": "isActive",
+						"type": "boolean",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "isActive",
+						"isNullable": false
+					},
+					{
+						"name": "createdAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt",
+						"isNullable": false
+					},
+					{
+						"name": "updatedAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt",
+						"isNullable": true
+					},
+					{
+						"name": "donorId",
+						"type": "donors",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "donorId → donors",
+						"isNullable": false
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 378
+			}
+		},
+		{
+			"id": "donors",
+			"type": "default",
+			"data": {
+				"label": "donors",
+				"fields": [
+					{
+						"name": "id",
+						"type": "uuid",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)",
+						"isNullable": false
+					},
+					{
+						"name": "name",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "name",
+						"isNullable": false
+					},
+					{
+						"name": "email",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "email",
+						"isNullable": false
+					},
+					{
+						"name": "phone",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "phone",
+						"isNullable": true
+					},
+					{
+						"name": "country",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "country",
+						"isNullable": true
+					},
+					{
+						"name": "organizationId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId",
+						"isNullable": false
+					},
+					{
+						"name": "createdAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt",
+						"isNullable": false
+					},
+					{
+						"name": "updatedAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt",
+						"isNullable": true
+					},
+					{
+						"name": "cards",
+						"type": "cards",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "cards → cards",
+						"isNullable": true
+					},
+					{
+						"name": "organizationId",
+						"type": "Organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "organizationId → Organization",
+						"isNullable": false
+					},
+					{
+						"name": "payments",
+						"type": "payments",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "payments → payments",
+						"isNullable": true
+					},
+					{
+						"name": "providerCustomers",
+						"type": "provider_customers",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "providerCustomers → provider_customers",
+						"isNullable": true
+					},
+					{
+						"name": "subscriptions",
+						"type": "subscriptions",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "subscriptions → subscriptions",
+						"isNullable": true
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 413
+			}
+		},
+		{
+			"id": "email_campaign_contact",
+			"type": "default",
+			"data": {
+				"label": "email_campaign_contact",
+				"fields": [
+					{
+						"name": "id",
+						"type": "uuid",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)",
+						"isNullable": false
+					},
+					{
+						"name": "organizationId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId",
+						"isNullable": false
+					},
+					{
+						"name": "email",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "email",
+						"isNullable": false
+					},
+					{
+						"name": "name",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "name",
+						"isNullable": false
+					},
+					{
+						"name": "country",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "country",
+						"isNullable": false
+					},
+					{
+						"name": "status",
+						"type": "EmailCampaignContactStatus",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "status",
+						"isNullable": false
+					},
+					{
+						"name": "createdAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt",
+						"isNullable": false
+					},
+					{
+						"name": "updatedAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt",
+						"isNullable": true
+					},
+					{
+						"name": "organizationId",
+						"type": "Organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "organizationId → Organization",
+						"isNullable": false
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 392
+			}
+		},
+		{
+			"id": "employee_role",
+			"type": "default",
+			"data": {
+				"label": "employee_role",
+				"fields": [
+					{
+						"name": "id",
+						"type": "uuid",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)",
+						"isNullable": false
+					},
+					{
+						"name": "role",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": true,
+						"isList": false,
+						"kind": "scalar",
+						"label": "role",
+						"isNullable": false
+					},
+					{
+						"name": "organizationId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId",
+						"isNullable": false
+					},
+					{
+						"name": "createdAt",
+						"type": "timestamp (6) with time zone",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt",
+						"isNullable": false
+					},
+					{
+						"name": "updatedAt",
+						"type": "timestamp (6) with time zone",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt",
+						"isNullable": false
+					},
+					{
+						"name": "organizationId",
+						"type": "Organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "organizationId → Organization",
+						"isNullable": false
+					},
+					{
+						"name": "employees",
+						"type": "employee",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "employees → employee",
+						"isNullable": true
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 427
+			}
+		},
+		{
+			"id": "employee_salary",
+			"type": "default",
+			"data": {
+				"label": "employee_salary",
+				"fields": [
+					{
+						"name": "id",
+						"type": "uuid",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)",
+						"isNullable": false
+					},
+					{
+						"name": "salary",
+						"type": "real",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "salary",
+						"isNullable": false
+					},
+					{
+						"name": "type",
+						"type": "EmployeeSalaryType",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "type",
+						"isNullable": false
+					},
+					{
+						"name": "employeeId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "employeeId",
+						"isNullable": false
+					},
+					{
+						"name": "createdAt",
+						"type": "timestamp (6) with time zone",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt",
+						"isNullable": false
+					},
+					{
+						"name": "updatedAt",
+						"type": "timestamp (6) with time zone",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt",
+						"isNullable": false
+					},
+					{
+						"name": "employeeId",
+						"type": "employee",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "employeeId → employee",
+						"isNullable": false
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 427
+			}
+		},
+		{
+			"id": "employee",
+			"type": "default",
+			"data": {
+				"label": "employee",
+				"fields": [
+					{
+						"name": "id",
+						"type": "uuid",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)",
+						"isNullable": false
+					},
+					{
+						"name": "name",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "name",
+						"isNullable": false
+					},
+					{
+						"name": "salary",
+						"type": "real",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "salary",
+						"isNullable": true
+					},
+					{
+						"name": "email",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "email",
+						"isNullable": true
+					},
+					{
+						"name": "dutyType",
+						"type": "DutyType",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "dutyType",
+						"isNullable": true
+					},
+					{
+						"name": "status",
+						"type": "EmployeeStatus",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "status",
+						"isNullable": false
+					},
+					{
+						"name": "administrativeRole",
+						"type": "AdministrativeRole",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "administrativeRole",
+						"isNullable": false
+					},
+					{
+						"name": "employeeRoleId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "employeeRoleId",
+						"isNullable": false
+					},
+					{
+						"name": "organizationId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId",
+						"isNullable": true
+					},
+					{
+						"name": "createdAt",
+						"type": "timestamp (6) with time zone",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt",
+						"isNullable": false
+					},
+					{
+						"name": "updatedAt",
+						"type": "timestamp (6) with time zone",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt",
+						"isNullable": false
+					},
+					{
+						"name": "employeeSalaries",
+						"type": "employee_salary",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "employeeSalaries → employee_salary",
+						"isNullable": true
+					},
+					{
+						"name": "employeeRoleId",
+						"type": "employee_role",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "employeeRoleId → employee_role",
+						"isNullable": false
+					},
+					{
+						"name": "organizationId",
+						"type": "Organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "organizationId → Organization",
+						"isNullable": true
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 427
+			}
+		},
+		{
+			"id": "expense_type",
+			"type": "default",
+			"data": {
+				"label": "expense_type",
+				"fields": [
+					{
+						"name": "id",
+						"type": "uuid",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)",
+						"isNullable": false
+					},
+					{
+						"name": "createdAt",
+						"type": "timestamp (6) with time zone",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt",
+						"isNullable": false
+					},
+					{
+						"name": "updatedAt",
+						"type": "timestamp (6) with time zone",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt",
+						"isNullable": false
+					},
+					{
+						"name": "type",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "type",
+						"isNullable": false
+					},
+					{
+						"name": "organizationId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId",
+						"isNullable": false
+					},
+					{
+						"name": "organizationId",
+						"type": "Organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "organizationId → Organization",
+						"isNullable": false
+					},
+					{
+						"name": "expenses",
+						"type": "expense",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "expenses → expense",
+						"isNullable": true
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 427
+			}
+		},
+		{
+			"id": "expense",
+			"type": "default",
+			"data": {
+				"label": "expense",
+				"fields": [
+					{
+						"name": "id",
+						"type": "uuid",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)",
+						"isNullable": false
+					},
+					{
+						"name": "expenseCategory",
+						"type": "ExpenseCategory",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "expenseCategory",
+						"isNullable": false
+					},
+					{
+						"name": "amount",
+						"type": "real",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "amount",
+						"isNullable": false
+					},
+					{
+						"name": "description",
+						"type": "text",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "description",
+						"isNullable": true
+					},
+					{
+						"name": "invoiceUrl",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "invoiceUrl",
+						"isNullable": true
+					},
+					{
+						"name": "expenseTypeId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "expenseTypeId",
+						"isNullable": true
+					},
+					{
+						"name": "campaignId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "campaignId",
+						"isNullable": true
+					},
+					{
+						"name": "organizationId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId",
+						"isNullable": true
+					},
+					{
+						"name": "userId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "userId",
+						"isNullable": true
+					},
+					{
+						"name": "createdAt",
+						"type": "timestamp (6) with time zone",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt",
+						"isNullable": false
+					},
+					{
+						"name": "updatedAt",
+						"type": "timestamp (6) with time zone",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt",
+						"isNullable": false
+					},
+					{
+						"name": "expenseTypeId",
+						"type": "expense_type",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "expenseTypeId → expense_type",
+						"isNullable": true
+					},
+					{
+						"name": "campaignId",
+						"type": "campaigns",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "campaignId → campaigns",
+						"isNullable": true
+					},
+					{
+						"name": "organizationId",
+						"type": "Organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "organizationId → Organization",
+						"isNullable": true
+					},
+					{
+						"name": "userId",
+						"type": "User",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "userId → User",
+						"isNullable": true
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 427
+			}
+		},
+		{
+			"id": "OrganizationSubscription",
+			"type": "default",
+			"data": {
+				"label": "OrganizationSubscription",
+				"fields": [
+					{
+						"name": "id",
+						"type": "uuid",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)",
+						"isNullable": false
+					},
+					{
+						"name": "createdAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt",
+						"isNullable": false
+					},
+					{
+						"name": "updatedAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt",
+						"isNullable": true
+					},
+					{
+						"name": "startDate",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "startDate",
+						"isNullable": false
+					},
+					{
+						"name": "endDate",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "endDate",
+						"isNullable": false
+					},
+					{
+						"name": "organizationId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": true,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId",
+						"isNullable": false
+					},
+					{
+						"name": "type",
+						"type": "OrganizationType",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "type",
+						"isNullable": false
+					},
+					{
+						"name": "status",
+						"type": "OrganizationStatus",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "status",
+						"isNullable": false
+					},
+					{
+						"name": "amount",
+						"type": "real",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "amount",
+						"isNullable": true
+					},
+					{
+						"name": "maxEmailContacts",
+						"type": "integer",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "maxEmailContacts",
+						"isNullable": false
+					},
+					{
+						"name": "maxEmailMessages",
+						"type": "integer",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "maxEmailMessages",
+						"isNullable": false
+					},
+					{
+						"name": "Organizations",
+						"type": "Organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "Organizations → Organization",
+						"isNullable": true
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 343
+			}
+		},
+		{
+			"id": "Organization",
+			"type": "default",
+			"data": {
+				"label": "Organization",
+				"fields": [
+					{
+						"name": "id",
+						"type": "uuid",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)",
+						"isNullable": false
+					},
+					{
+						"name": "name",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "name",
+						"isNullable": false
+					},
+					{
+						"name": "host",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": true,
+						"isList": false,
+						"kind": "scalar",
+						"label": "host",
+						"isNullable": false
+					},
+					{
+						"name": "email",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "email",
+						"isNullable": true
+					},
+					{
+						"name": "logo",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "logo",
+						"isNullable": true
+					},
+					{
+						"name": "description",
+						"type": "text",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "description",
+						"isNullable": true
+					},
+					{
+						"name": "facebook",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "facebook",
+						"isNullable": true
+					},
+					{
+						"name": "instagram",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "instagram",
+						"isNullable": true
+					},
+					{
+						"name": "link",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "link",
+						"isNullable": true
+					},
+					{
+						"name": "location",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "location",
+						"isNullable": true
+					},
+					{
+						"name": "phone",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "phone",
+						"isNullable": true
+					},
+					{
+						"name": "telegram",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "telegram",
+						"isNullable": true
+					},
+					{
+						"name": "thanksMessage",
+						"type": "text",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "thanksMessage",
+						"isNullable": true
+					},
+					{
+						"name": "theme",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "theme",
+						"isNullable": true
+					},
+					{
+						"name": "twitter",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "twitter",
+						"isNullable": true
+					},
+					{
+						"name": "whatsapp",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "whatsapp",
+						"isNullable": true
+					},
+					{
+						"name": "youtube",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "youtube",
+						"isNullable": true
+					},
+					{
+						"name": "adminEmail",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "adminEmail",
+						"isNullable": true
+					},
+					{
+						"name": "adminName",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "adminName",
+						"isNullable": true
+					},
+					{
+						"name": "type",
+						"type": "OrgType",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "type",
+						"isNullable": false
+					},
+					{
+						"name": "integrationNotes",
+						"type": "text",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "integrationNotes",
+						"isNullable": true
+					},
+					{
+						"name": "notes",
+						"type": "text",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "notes",
+						"isNullable": true
+					},
+					{
+						"name": "isDeleted",
+						"type": "boolean",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "isDeleted",
+						"isNullable": true
+					},
+					{
+						"name": "defaultLanguage",
+						"type": "LanguageCode",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "defaultLanguage",
+						"isNullable": false
+					},
+					{
+						"name": "supportedLanguages",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "supportedLanguages",
+						"isNullable": false
+					},
+					{
+						"name": "createdAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt",
+						"isNullable": false
+					},
+					{
+						"name": "updatedAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt",
+						"isNullable": true
+					},
+					{
+						"name": "Beneficiaries",
+						"type": "Beneficiary",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "Beneficiaries → Beneficiary",
+						"isNullable": true
+					},
+					{
+						"name": "beneficiaryRoles",
+						"type": "beneficiary_role",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "beneficiaryRoles → beneficiary_role",
+						"isNullable": true
+					},
+					{
+						"name": "campaignCategories",
+						"type": "campaign_category",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "campaignCategories → campaign_category",
+						"isNullable": true
+					},
+					{
+						"name": "campaigns",
+						"type": "campaigns",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "campaigns → campaigns",
+						"isNullable": true
+					},
+					{
+						"name": "donors",
+						"type": "donors",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "donors → donors",
+						"isNullable": true
+					},
+					{
+						"name": "emailCampaignContacts",
+						"type": "email_campaign_contact",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "emailCampaignContacts → email_campaign_contact",
+						"isNullable": true
+					},
+					{
+						"name": "employeeRoles",
+						"type": "employee_role",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "employeeRoles → employee_role",
+						"isNullable": true
+					},
+					{
+						"name": "employees",
+						"type": "employee",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "employees → employee",
+						"isNullable": true
+					},
+					{
+						"name": "expenseTypes",
+						"type": "expense_type",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "expenseTypes → expense_type",
+						"isNullable": true
+					},
+					{
+						"name": "expenses",
+						"type": "expense",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "expenses → expense",
+						"isNullable": true
+					},
+					{
+						"name": "id",
+						"type": "OrganizationSubscription",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "id → OrganizationSubscription",
+						"isNullable": false
+					},
+					{
+						"name": "paymentProviderConfigs",
+						"type": "payment_provider_configs",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "paymentProviderConfigs → payment_provider_configs",
+						"isNullable": true
+					},
+					{
+						"name": "payments",
+						"type": "payments",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "payments → payments",
+						"isNullable": true
+					},
+					{
+						"name": "providerCustomers",
+						"type": "provider_customers",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "providerCustomers → provider_customers",
+						"isNullable": true
+					},
+					{
+						"name": "subscriptions",
+						"type": "subscriptions",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "subscriptions → subscriptions",
+						"isNullable": true
+					},
+					{
+						"name": "Users",
+						"type": "User",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "Users → User",
+						"isNullable": true
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 490
+			}
+		},
+		{
+			"id": "payment_provider_configs",
+			"type": "default",
+			"data": {
+				"label": "payment_provider_configs",
+				"fields": [
+					{
+						"name": "id",
+						"type": "uuid",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)",
+						"isNullable": false
+					},
+					{
+						"name": "organizationId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId",
+						"isNullable": false
+					},
+					{
+						"name": "provider",
+						"type": "PaymentProvider",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "provider",
+						"isNullable": false
+					},
+					{
+						"name": "isActive",
+						"type": "boolean",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "isActive",
+						"isNullable": false
+					},
+					{
+						"name": "isDefault",
+						"type": "boolean",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "isDefault",
+						"isNullable": false
+					},
+					{
+						"name": "priority",
+						"type": "integer",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "priority",
+						"isNullable": false
+					},
+					{
+						"name": "configName",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "configName",
+						"isNullable": false
+					},
+					{
+						"name": "apiKey",
+						"type": "varchar(1000)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "apiKey",
+						"isNullable": true
+					},
+					{
+						"name": "secretKey",
+						"type": "varchar(1000)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "secretKey",
+						"isNullable": true
+					},
+					{
+						"name": "webhookSecret",
+						"type": "varchar(1000)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "webhookSecret",
+						"isNullable": true
+					},
+					{
+						"name": "publicKey",
+						"type": "varchar(1000)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "publicKey",
+						"isNullable": true
+					},
+					{
+						"name": "settings",
+						"type": "jsonb",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "settings",
+						"isNullable": true
+					},
+					{
+						"name": "supportedCurrencies",
+						"type": "varchar(1000)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "supportedCurrencies",
+						"isNullable": false
+					},
+					{
+						"name": "supportedMethods",
+						"type": "varchar(1000)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "supportedMethods",
+						"isNullable": false
+					},
+					{
+						"name": "description",
+						"type": "text",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "description",
+						"isNullable": true
+					},
+					{
+						"name": "isTestMode",
+						"type": "boolean",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "isTestMode",
+						"isNullable": false
+					},
+					{
+						"name": "createdAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt",
+						"isNullable": false
+					},
+					{
+						"name": "updatedAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt",
+						"isNullable": true
+					},
+					{
+						"name": "organizationId",
+						"type": "Organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "organizationId → Organization",
+						"isNullable": false
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 392
+			}
+		},
+		{
+			"id": "payments",
+			"type": "default",
+			"data": {
+				"label": "payments",
+				"fields": [
+					{
+						"name": "id",
+						"type": "uuid",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)",
+						"isNullable": false
+					},
+					{
+						"name": "donorId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "donorId",
+						"isNullable": false
+					},
+					{
+						"name": "provider",
+						"type": "PaymentProvider",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "provider",
+						"isNullable": false
+					},
+					{
+						"name": "providerPaymentId",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "providerPaymentId",
+						"isNullable": false
+					},
+					{
+						"name": "providerCustomerId",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "providerCustomerId",
+						"isNullable": true
+					},
+					{
+						"name": "manualPaymentMethod",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "manualPaymentMethod",
+						"isNullable": true
+					},
+					{
+						"name": "grossAmount",
+						"type": "integer",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "grossAmount",
+						"isNullable": false
+					},
+					{
+						"name": "netAmount",
+						"type": "integer",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "netAmount",
+						"isNullable": false
+					},
+					{
+						"name": "feeAmount",
+						"type": "integer",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "feeAmount",
+						"isNullable": false
+					},
+					{
+						"name": "currency",
+						"type": "varchar(3)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "currency",
+						"isNullable": false
+					},
+					{
+						"name": "status",
+						"type": "PaymentStatus",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "status",
+						"isNullable": false
+					},
+					{
+						"name": "paymentMethod",
+						"type": "PaymentMethod",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "paymentMethod",
+						"isNullable": false
+					},
+					{
+						"name": "campaignId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "campaignId",
+						"isNullable": true
+					},
+					{
+						"name": "organizationId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId",
+						"isNullable": false
+					},
+					{
+						"name": "subscriptionId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "subscriptionId",
+						"isNullable": true
+					},
+					{
+						"name": "description",
+						"type": "text",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "description",
+						"isNullable": true
+					},
+					{
+						"name": "receiptUrl",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "receiptUrl",
+						"isNullable": true
+					},
+					{
+						"name": "providerMetadata",
+						"type": "jsonb",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "providerMetadata",
+						"isNullable": true
+					},
+					{
+						"name": "createdAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt",
+						"isNullable": false
+					},
+					{
+						"name": "updatedAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt",
+						"isNullable": true
+					},
+					{
+						"name": "donorId",
+						"type": "donors",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "donorId → donors",
+						"isNullable": false
+					},
+					{
+						"name": "campaignId",
+						"type": "campaigns",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "campaignId → campaigns",
+						"isNullable": true
+					},
+					{
+						"name": "organizationId",
+						"type": "Organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "organizationId → Organization",
+						"isNullable": false
+					},
+					{
+						"name": "subscriptionId",
+						"type": "subscriptions",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "subscriptionId → subscriptions",
+						"isNullable": true
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 385
+			}
+		},
+		{
+			"id": "provider_customers",
+			"type": "default",
+			"data": {
+				"label": "provider_customers",
+				"fields": [
+					{
+						"name": "id",
+						"type": "uuid",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)",
+						"isNullable": false
+					},
+					{
+						"name": "donorId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "donorId",
+						"isNullable": false
+					},
+					{
+						"name": "provider",
+						"type": "PaymentProvider",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "provider",
+						"isNullable": false
+					},
+					{
+						"name": "providerCustomerId",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "providerCustomerId",
+						"isNullable": false
+					},
+					{
+						"name": "isActive",
+						"type": "boolean",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "isActive",
+						"isNullable": false
+					},
+					{
+						"name": "providerMetadata",
+						"type": "jsonb",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "providerMetadata",
+						"isNullable": true
+					},
+					{
+						"name": "organizationId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId",
+						"isNullable": false
+					},
+					{
+						"name": "createdAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt",
+						"isNullable": false
+					},
+					{
+						"name": "updatedAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt",
+						"isNullable": true
+					},
+					{
+						"name": "donorId",
+						"type": "donors",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "donorId → donors",
+						"isNullable": false
+					},
+					{
+						"name": "organizationId",
+						"type": "Organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "organizationId → Organization",
+						"isNullable": false
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 378
+			}
+		},
+		{
+			"id": "Session",
+			"type": "default",
+			"data": {
+				"label": "Session",
+				"fields": [
+					{
+						"name": "id",
+						"type": "uuid",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)",
+						"isNullable": false
+					},
+					{
+						"name": "status",
+						"type": "SessionStatus",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "status",
+						"isNullable": false
+					},
+					{
+						"name": "token",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "token",
+						"isNullable": true
+					},
+					{
+						"name": "ipAddress",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "ipAddress",
+						"isNullable": true
+					},
+					{
+						"name": "userAgent",
+						"type": "text",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "userAgent",
+						"isNullable": true
+					},
+					{
+						"name": "userId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "userId",
+						"isNullable": false
+					},
+					{
+						"name": "createdAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt",
+						"isNullable": false
+					},
+					{
+						"name": "updatedAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt",
+						"isNullable": true
+					},
+					{
+						"name": "userId",
+						"type": "User",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "userId → User",
+						"isNullable": false
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 315
+			}
+		},
+		{
+			"id": "subscriptions",
+			"type": "default",
+			"data": {
+				"label": "subscriptions",
+				"fields": [
+					{
+						"name": "id",
+						"type": "uuid",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)",
+						"isNullable": false
+					},
+					{
+						"name": "donorId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "donorId",
+						"isNullable": false
+					},
+					{
+						"name": "provider",
+						"type": "PaymentProvider",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "provider",
+						"isNullable": false
+					},
+					{
+						"name": "providerSubscriptionId",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "providerSubscriptionId",
+						"isNullable": false
+					},
+					{
+						"name": "providerCustomerId",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "providerCustomerId",
+						"isNullable": false
+					},
+					{
+						"name": "status",
+						"type": "SubscriptionStatus",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "status",
+						"isNullable": false
+					},
+					{
+						"name": "amount",
+						"type": "integer",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "amount",
+						"isNullable": true
+					},
+					{
+						"name": "currency",
+						"type": "varchar(3)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "currency",
+						"isNullable": true
+					},
+					{
+						"name": "billingCycle",
+						"type": "BillingCycle",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "billingCycle",
+						"isNullable": true
+					},
+					{
+						"name": "campaignId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "campaignId",
+						"isNullable": false
+					},
+					{
+						"name": "organizationId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId",
+						"isNullable": false
+					},
+					{
+						"name": "createdAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt",
+						"isNullable": false
+					},
+					{
+						"name": "updatedAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt",
+						"isNullable": true
+					},
+					{
+						"name": "payments",
+						"type": "payments",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "payments → payments",
+						"isNullable": true
+					},
+					{
+						"name": "donorId",
+						"type": "donors",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "donorId → donors",
+						"isNullable": false
+					},
+					{
+						"name": "campaignId",
+						"type": "campaigns",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "campaignId → campaigns",
+						"isNullable": false
+					},
+					{
+						"name": "organizationId",
+						"type": "Organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "organizationId → Organization",
+						"isNullable": false
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 406
+			}
+		},
+		{
+			"id": "User",
+			"type": "default",
+			"data": {
+				"label": "User",
+				"fields": [
+					{
+						"name": "id",
+						"type": "uuid",
+						"isId": true,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "id (ID)",
+						"isNullable": false
+					},
+					{
+						"name": "email",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "email",
+						"isNullable": false
+					},
+					{
+						"name": "name",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "name",
+						"isNullable": true
+					},
+					{
+						"name": "image",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "image",
+						"isNullable": true
+					},
+					{
+						"name": "password",
+						"type": "varchar(255)",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "password",
+						"isNullable": true
+					},
+					{
+						"name": "emailVerified",
+						"type": "boolean",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "emailVerified",
+						"isNullable": false
+					},
+					{
+						"name": "role",
+						"type": "UserRole",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "role",
+						"isNullable": false
+					},
+					{
+						"name": "active",
+						"type": "boolean",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "active",
+						"isNullable": false
+					},
+					{
+						"name": "createdAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "createdAt",
+						"isNullable": false
+					},
+					{
+						"name": "updatedAt",
+						"type": "timestamp",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "updatedAt",
+						"isNullable": true
+					},
+					{
+						"name": "organizationId",
+						"type": "uuid",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "scalar",
+						"label": "organizationId",
+						"isNullable": false
+					},
+					{
+						"name": "expenses",
+						"type": "expense",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "expenses → expense",
+						"isNullable": true
+					},
+					{
+						"name": "Sessions",
+						"type": "Session",
+						"isId": false,
+						"isUnique": false,
+						"isList": true,
+						"kind": "object",
+						"relationName": null,
+						"label": "Sessions → Session",
+						"isNullable": true
+					},
+					{
+						"name": "organizationId",
+						"type": "Organization",
+						"isId": false,
+						"isUnique": false,
+						"isList": false,
+						"kind": "object",
+						"relationName": null,
+						"label": "organizationId → Organization",
+						"isNullable": false
+					}
+				]
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"style": {
+				"width": 350
+			}
+		}
+	],
+	"edges": [
+		{
+			"id": "Beneficiary-beneficiaryRoleId-beneficiary_role",
+			"source": "Beneficiary",
+			"sourceHandle": "field-9",
+			"target": "beneficiary_role",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "beneficiaryRoleId",
+				"fromTable": "Beneficiary",
+				"isList": false
+			}
+		},
+		{
+			"id": "beneficiary_role-Beneficiaries-Beneficiary",
+			"source": "beneficiary_role",
+			"sourceHandle": "field-5",
+			"target": "Beneficiary",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "Beneficiaries",
+				"fromTable": "beneficiary_role",
+				"isList": true
+			}
+		},
+		{
+			"id": "Beneficiary-organizationId-Organization",
+			"source": "Beneficiary",
+			"sourceHandle": "field-10",
+			"target": "Organization",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organizationId",
+				"fromTable": "Beneficiary",
+				"isList": false
+			}
+		},
+		{
+			"id": "Organization-Beneficiaries-Beneficiary",
+			"source": "Organization",
+			"sourceHandle": "field-27",
+			"target": "Beneficiary",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "Beneficiaries",
+				"fromTable": "Organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "beneficiary_role-organizationId-Organization",
+			"source": "beneficiary_role",
+			"sourceHandle": "field-6",
+			"target": "Organization",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organizationId",
+				"fromTable": "beneficiary_role",
+				"isList": false
+			}
+		},
+		{
+			"id": "Organization-beneficiaryRoles-beneficiary_role",
+			"source": "Organization",
+			"sourceHandle": "field-28",
+			"target": "beneficiary_role",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "beneficiaryRoles",
+				"fromTable": "Organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "beneficiary_support-beneficiaryId-Beneficiary",
+			"source": "beneficiary_support",
+			"sourceHandle": "field-6",
+			"target": "Beneficiary",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "beneficiaryId",
+				"fromTable": "beneficiary_support",
+				"isList": false
+			}
+		},
+		{
+			"id": "Beneficiary-beneficiarySupports-beneficiary_support",
+			"source": "Beneficiary",
+			"sourceHandle": "field-11",
+			"target": "beneficiary_support",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "beneficiarySupports",
+				"fromTable": "Beneficiary",
+				"isList": true
+			}
+		},
+		{
+			"id": "campaign_category-organizationId-Organization",
+			"source": "campaign_category",
+			"sourceHandle": "field-5",
+			"target": "Organization",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organizationId",
+				"fromTable": "campaign_category",
+				"isList": false
+			}
+		},
+		{
+			"id": "Organization-campaignCategories-campaign_category",
+			"source": "Organization",
+			"sourceHandle": "field-29",
+			"target": "campaign_category",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "campaignCategories",
+				"fromTable": "Organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "campaign_category_campaign-campaignId-campaigns",
+			"source": "campaign_category_campaign",
+			"sourceHandle": "field-5",
+			"target": "campaigns",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "campaignId",
+				"fromTable": "campaign_category_campaign",
+				"isList": false
+			}
+		},
+		{
+			"id": "campaigns-campaignCategoryCampaigns-campaign_category_campaign",
+			"source": "campaigns",
+			"sourceHandle": "field-11",
+			"target": "campaign_category_campaign",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "campaignCategoryCampaigns",
+				"fromTable": "campaigns",
+				"isList": true
+			}
+		},
+		{
+			"id": "campaign_category_campaign-campaignCategoryId-campaign_category",
+			"source": "campaign_category_campaign",
+			"sourceHandle": "field-6",
+			"target": "campaign_category",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "campaignCategoryId",
+				"fromTable": "campaign_category_campaign",
+				"isList": false
+			}
+		},
+		{
+			"id": "campaign_category-campaignCategoryCampaigns-campaign_category_campaign",
+			"source": "campaign_category",
+			"sourceHandle": "field-6",
+			"target": "campaign_category_campaign",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "campaignCategoryCampaigns",
+				"fromTable": "campaign_category",
+				"isList": true
+			}
+		},
+		{
+			"id": "campaign_visitors-campaignId-campaigns",
+			"source": "campaign_visitors",
+			"sourceHandle": "field-8",
+			"target": "campaigns",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "campaignId",
+				"fromTable": "campaign_visitors",
+				"isList": false
+			}
+		},
+		{
+			"id": "campaigns-campaignVisitors-campaign_visitors",
+			"source": "campaigns",
+			"sourceHandle": "field-12",
+			"target": "campaign_visitors",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "campaignVisitors",
+				"fromTable": "campaigns",
+				"isList": true
+			}
+		},
+		{
+			"id": "CampainLink-campaignId-campaigns",
+			"source": "CampainLink",
+			"sourceHandle": "field-3",
+			"target": "campaigns",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-one",
+				"fromField": "campaignId",
+				"fromTable": "CampainLink",
+				"isList": false
+			}
+		},
+		{
+			"id": "campaigns-CampainLinks-CampainLink",
+			"source": "campaigns",
+			"sourceHandle": "field-13",
+			"target": "CampainLink",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-one",
+				"fromField": "CampainLinks",
+				"fromTable": "campaigns",
+				"isList": false
+			}
+		},
+		{
+			"id": "CampainPage-campaignId-campaigns",
+			"source": "CampainPage",
+			"sourceHandle": "field-10",
+			"target": "campaigns",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-one",
+				"fromField": "campaignId",
+				"fromTable": "CampainPage",
+				"isList": false
+			}
+		},
+		{
+			"id": "campaigns-CampainPages-CampainPage",
+			"source": "campaigns",
+			"sourceHandle": "field-14",
+			"target": "CampainPage",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-one",
+				"fromField": "CampainPages",
+				"fromTable": "campaigns",
+				"isList": false
+			}
+		},
+		{
+			"id": "campaign_email-campaignId-campaigns",
+			"source": "campaign_email",
+			"sourceHandle": "field-5",
+			"target": "campaigns",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-one",
+				"fromField": "campaignId",
+				"fromTable": "campaign_email",
+				"isList": false
+			}
+		},
+		{
+			"id": "campaigns-campaignEmails-campaign_email",
+			"source": "campaigns",
+			"sourceHandle": "field-15",
+			"target": "campaign_email",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-one",
+				"fromField": "campaignEmails",
+				"fromTable": "campaigns",
+				"isList": false
+			}
+		},
+		{
+			"id": "campaigns-organizationId-Organization",
+			"source": "campaigns",
+			"sourceHandle": "field-16",
+			"target": "Organization",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organizationId",
+				"fromTable": "campaigns",
+				"isList": false
+			}
+		},
+		{
+			"id": "Organization-campaigns-campaigns",
+			"source": "Organization",
+			"sourceHandle": "field-30",
+			"target": "campaigns",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "campaigns",
+				"fromTable": "Organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "cards-donorId-donors",
+			"source": "cards",
+			"sourceHandle": "field-13",
+			"target": "donors",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "donorId",
+				"fromTable": "cards",
+				"isList": false
+			}
+		},
+		{
+			"id": "donors-cards-cards",
+			"source": "donors",
+			"sourceHandle": "field-8",
+			"target": "cards",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "cards",
+				"fromTable": "donors",
+				"isList": true
+			}
+		},
+		{
+			"id": "donors-organizationId-Organization",
+			"source": "donors",
+			"sourceHandle": "field-9",
+			"target": "Organization",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organizationId",
+				"fromTable": "donors",
+				"isList": false
+			}
+		},
+		{
+			"id": "Organization-donors-donors",
+			"source": "Organization",
+			"sourceHandle": "field-31",
+			"target": "donors",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "donors",
+				"fromTable": "Organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "email_campaign_contact-organizationId-Organization",
+			"source": "email_campaign_contact",
+			"sourceHandle": "field-8",
+			"target": "Organization",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organizationId",
+				"fromTable": "email_campaign_contact",
+				"isList": false
+			}
+		},
+		{
+			"id": "Organization-emailCampaignContacts-email_campaign_contact",
+			"source": "Organization",
+			"sourceHandle": "field-32",
+			"target": "email_campaign_contact",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "emailCampaignContacts",
+				"fromTable": "Organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "employee_role-organizationId-Organization",
+			"source": "employee_role",
+			"sourceHandle": "field-5",
+			"target": "Organization",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organizationId",
+				"fromTable": "employee_role",
+				"isList": false
+			}
+		},
+		{
+			"id": "Organization-employeeRoles-employee_role",
+			"source": "Organization",
+			"sourceHandle": "field-33",
+			"target": "employee_role",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "employeeRoles",
+				"fromTable": "Organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "employee_salary-employeeId-employee",
+			"source": "employee_salary",
+			"sourceHandle": "field-6",
+			"target": "employee",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "employeeId",
+				"fromTable": "employee_salary",
+				"isList": false
+			}
+		},
+		{
+			"id": "employee-employeeSalaries-employee_salary",
+			"source": "employee",
+			"sourceHandle": "field-11",
+			"target": "employee_salary",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "employeeSalaries",
+				"fromTable": "employee",
+				"isList": true
+			}
+		},
+		{
+			"id": "employee-employeeRoleId-employee_role",
+			"source": "employee",
+			"sourceHandle": "field-12",
+			"target": "employee_role",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "employeeRoleId",
+				"fromTable": "employee",
+				"isList": false
+			}
+		},
+		{
+			"id": "employee_role-employees-employee",
+			"source": "employee_role",
+			"sourceHandle": "field-6",
+			"target": "employee",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "employees",
+				"fromTable": "employee_role",
+				"isList": true
+			}
+		},
+		{
+			"id": "employee-organizationId-Organization",
+			"source": "employee",
+			"sourceHandle": "field-13",
+			"target": "Organization",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organizationId",
+				"fromTable": "employee",
+				"isList": false
+			}
+		},
+		{
+			"id": "Organization-employees-employee",
+			"source": "Organization",
+			"sourceHandle": "field-34",
+			"target": "employee",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "employees",
+				"fromTable": "Organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "expense_type-organizationId-Organization",
+			"source": "expense_type",
+			"sourceHandle": "field-5",
+			"target": "Organization",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organizationId",
+				"fromTable": "expense_type",
+				"isList": false
+			}
+		},
+		{
+			"id": "Organization-expenseTypes-expense_type",
+			"source": "Organization",
+			"sourceHandle": "field-35",
+			"target": "expense_type",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "expenseTypes",
+				"fromTable": "Organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "expense-expenseTypeId-expense_type",
+			"source": "expense",
+			"sourceHandle": "field-11",
+			"target": "expense_type",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "expenseTypeId",
+				"fromTable": "expense",
+				"isList": false
+			}
+		},
+		{
+			"id": "expense_type-expenses-expense",
+			"source": "expense_type",
+			"sourceHandle": "field-6",
+			"target": "expense",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "expenses",
+				"fromTable": "expense_type",
+				"isList": true
+			}
+		},
+		{
+			"id": "expense-campaignId-campaigns",
+			"source": "expense",
+			"sourceHandle": "field-12",
+			"target": "campaigns",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "campaignId",
+				"fromTable": "expense",
+				"isList": false
+			}
+		},
+		{
+			"id": "campaigns-expenses-expense",
+			"source": "campaigns",
+			"sourceHandle": "field-17",
+			"target": "expense",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "expenses",
+				"fromTable": "campaigns",
+				"isList": true
+			}
+		},
+		{
+			"id": "expense-organizationId-Organization",
+			"source": "expense",
+			"sourceHandle": "field-13",
+			"target": "Organization",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organizationId",
+				"fromTable": "expense",
+				"isList": false
+			}
+		},
+		{
+			"id": "Organization-expenses-expense",
+			"source": "Organization",
+			"sourceHandle": "field-36",
+			"target": "expense",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "expenses",
+				"fromTable": "Organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "expense-userId-User",
+			"source": "expense",
+			"sourceHandle": "field-14",
+			"target": "User",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "userId",
+				"fromTable": "expense",
+				"isList": false
+			}
+		},
+		{
+			"id": "User-expenses-expense",
+			"source": "User",
+			"sourceHandle": "field-11",
+			"target": "expense",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "expenses",
+				"fromTable": "User",
+				"isList": true
+			}
+		},
+		{
+			"id": "Organization-id-OrganizationSubscription",
+			"source": "Organization",
+			"sourceHandle": "field-37",
+			"target": "OrganizationSubscription",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-one",
+				"fromField": "id",
+				"fromTable": "Organization",
+				"isList": false
+			}
+		},
+		{
+			"id": "OrganizationSubscription-Organizations-Organization",
+			"source": "OrganizationSubscription",
+			"sourceHandle": "field-11",
+			"target": "Organization",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-one",
+				"fromField": "Organizations",
+				"fromTable": "OrganizationSubscription",
+				"isList": false
+			}
+		},
+		{
+			"id": "payment_provider_configs-organizationId-Organization",
+			"source": "payment_provider_configs",
+			"sourceHandle": "field-18",
+			"target": "Organization",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organizationId",
+				"fromTable": "payment_provider_configs",
+				"isList": false
+			}
+		},
+		{
+			"id": "Organization-paymentProviderConfigs-payment_provider_configs",
+			"source": "Organization",
+			"sourceHandle": "field-38",
+			"target": "payment_provider_configs",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "paymentProviderConfigs",
+				"fromTable": "Organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "payments-donorId-donors",
+			"source": "payments",
+			"sourceHandle": "field-20",
+			"target": "donors",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "donorId",
+				"fromTable": "payments",
+				"isList": false
+			}
+		},
+		{
+			"id": "donors-payments-payments",
+			"source": "donors",
+			"sourceHandle": "field-10",
+			"target": "payments",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "payments",
+				"fromTable": "donors",
+				"isList": true
+			}
+		},
+		{
+			"id": "payments-campaignId-campaigns",
+			"source": "payments",
+			"sourceHandle": "field-21",
+			"target": "campaigns",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "campaignId",
+				"fromTable": "payments",
+				"isList": false
+			}
+		},
+		{
+			"id": "campaigns-payments-payments",
+			"source": "campaigns",
+			"sourceHandle": "field-18",
+			"target": "payments",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "payments",
+				"fromTable": "campaigns",
+				"isList": true
+			}
+		},
+		{
+			"id": "payments-organizationId-Organization",
+			"source": "payments",
+			"sourceHandle": "field-22",
+			"target": "Organization",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organizationId",
+				"fromTable": "payments",
+				"isList": false
+			}
+		},
+		{
+			"id": "Organization-payments-payments",
+			"source": "Organization",
+			"sourceHandle": "field-39",
+			"target": "payments",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "payments",
+				"fromTable": "Organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "payments-subscriptionId-subscriptions",
+			"source": "payments",
+			"sourceHandle": "field-23",
+			"target": "subscriptions",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "subscriptionId",
+				"fromTable": "payments",
+				"isList": false
+			}
+		},
+		{
+			"id": "subscriptions-payments-payments",
+			"source": "subscriptions",
+			"sourceHandle": "field-13",
+			"target": "payments",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "payments",
+				"fromTable": "subscriptions",
+				"isList": true
+			}
+		},
+		{
+			"id": "provider_customers-donorId-donors",
+			"source": "provider_customers",
+			"sourceHandle": "field-9",
+			"target": "donors",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "donorId",
+				"fromTable": "provider_customers",
+				"isList": false
+			}
+		},
+		{
+			"id": "donors-providerCustomers-provider_customers",
+			"source": "donors",
+			"sourceHandle": "field-11",
+			"target": "provider_customers",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "providerCustomers",
+				"fromTable": "donors",
+				"isList": true
+			}
+		},
+		{
+			"id": "provider_customers-organizationId-Organization",
+			"source": "provider_customers",
+			"sourceHandle": "field-10",
+			"target": "Organization",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organizationId",
+				"fromTable": "provider_customers",
+				"isList": false
+			}
+		},
+		{
+			"id": "Organization-providerCustomers-provider_customers",
+			"source": "Organization",
+			"sourceHandle": "field-40",
+			"target": "provider_customers",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "providerCustomers",
+				"fromTable": "Organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "Session-userId-User",
+			"source": "Session",
+			"sourceHandle": "field-8",
+			"target": "User",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "userId",
+				"fromTable": "Session",
+				"isList": false
+			}
+		},
+		{
+			"id": "User-Sessions-Session",
+			"source": "User",
+			"sourceHandle": "field-12",
+			"target": "Session",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "Sessions",
+				"fromTable": "User",
+				"isList": true
+			}
+		},
+		{
+			"id": "subscriptions-donorId-donors",
+			"source": "subscriptions",
+			"sourceHandle": "field-14",
+			"target": "donors",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "donorId",
+				"fromTable": "subscriptions",
+				"isList": false
+			}
+		},
+		{
+			"id": "donors-subscriptions-subscriptions",
+			"source": "donors",
+			"sourceHandle": "field-12",
+			"target": "subscriptions",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "subscriptions",
+				"fromTable": "donors",
+				"isList": true
+			}
+		},
+		{
+			"id": "subscriptions-campaignId-campaigns",
+			"source": "subscriptions",
+			"sourceHandle": "field-15",
+			"target": "campaigns",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "campaignId",
+				"fromTable": "subscriptions",
+				"isList": false
+			}
+		},
+		{
+			"id": "campaigns-subscriptions-subscriptions",
+			"source": "campaigns",
+			"sourceHandle": "field-19",
+			"target": "subscriptions",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "subscriptions",
+				"fromTable": "campaigns",
+				"isList": true
+			}
+		},
+		{
+			"id": "subscriptions-organizationId-Organization",
+			"source": "subscriptions",
+			"sourceHandle": "field-16",
+			"target": "Organization",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organizationId",
+				"fromTable": "subscriptions",
+				"isList": false
+			}
+		},
+		{
+			"id": "Organization-subscriptions-subscriptions",
+			"source": "Organization",
+			"sourceHandle": "field-41",
+			"target": "subscriptions",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "subscriptions",
+				"fromTable": "Organization",
+				"isList": true
+			}
+		},
+		{
+			"id": "User-organizationId-Organization",
+			"source": "User",
+			"sourceHandle": "field-13",
+			"target": "Organization",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "many-to-one",
+				"fromField": "organizationId",
+				"fromTable": "User",
+				"isList": false
+			}
+		},
+		{
+			"id": "Organization-Users-User",
+			"source": "Organization",
+			"sourceHandle": "field-42",
+			"target": "User",
+			"targetHandle": "table-input",
+			"label": null,
+			"type": "smoothstep",
+			"animated": true,
+			"data": {
+				"relationshipType": "one-to-many",
+				"fromField": "Users",
+				"fromTable": "Organization",
+				"isList": true
+			}
+		}
+	]
+}
