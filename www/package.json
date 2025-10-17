@@ -1,5 +1,5 @@
 {
-	"name": "www",
+	"name": "@viz/www",
 	"private": true,
 	"type": "module",
 	"scripts": {
