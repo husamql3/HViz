@@ -7,7 +7,15 @@ export const removeIdSuffix = (str: string): string => {
 };
 
 export const pluralize = (str: string): string => {
-	if (str.endsWith("y")) return `${str.slice(0, -1)}ies`;
 	if (str.endsWith("s")) return str;
+
+	if (str.endsWith("y")) {
+		const beforeY = str[str.length - 2];
+		if (beforeY && ["a", "e", "i", "o", "u"].includes(beforeY.toLowerCase())) {
+			return `${str}s`;
+		}
+		return `${str.slice(0, -1)}ies`;
+	}
+
 	return `${str}s`;
 };

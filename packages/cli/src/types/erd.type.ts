@@ -46,5 +46,5 @@ export type Edge = {
 
 export type ErdResult = {
 	nodes: Node[];
-	edges: Edge[];
+	edges?: Edge[];
 };

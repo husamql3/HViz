@@ -3,7 +3,7 @@ import { mysqlGenerate, pgGenerate, sqliteGenerate } from "drizzle-dbml-generato
 import type { DatabaseType } from "@/types/db.type";
 import type { Edge, ErdResult, Node } from "@/types/erd.type";
 import { calcTableWidth } from "@/utils/calc-table-width";
-import { pluralize, removeIdSuffix, toCamelCase } from "../helpers/drizzle-helpers";
+import { pluralize, removeIdSuffix, toCamelCase } from "@/utils/helpers/drizzle-helpers";
 
 export const genDrizzleERD = async (schemaModule: string, dbType: DatabaseType): Promise<ErdResult> => {
 	let generateFn: (options: { schema: string; relational: boolean }) => string;
@@ -24,19 +24,16 @@ export const genDrizzleERD = async (schemaModule: string, dbType: DatabaseType):
 
 	// Generate DBML string using drizzle-dbml-generator
 	const dbml = generateFn({ schema: schemaModule, relational: true });
-	console.log("dbml", dbml);
 
 	// Parse DBML to Database object using @dbml/core
 	const parser = new Parser();
 	const database = parser.parse(dbml, "dbml");
-	console.log("database", database);
 
 	const nodes: Node[] = [];
 	const edges: Edge[] = [];
 
 	// Assume single schema for simplicity
 	const dbSchema = database.schemas[0];
-	console.log("dbSchema", dbSchema);
 
 	// First, create nodes with scalar fields
 	dbSchema?.tables.forEach((table) => {
@@ -70,7 +67,6 @@ export const genDrizzleERD = async (schemaModule: string, dbType: DatabaseType):
 			},
 		});
 	});
-	console.log("nodes", nodes);
 
 	// Now, process refs to add virtual relation fields and edges
 	dbSchema?.refs.forEach((ref) => {
@@ -78,9 +74,6 @@ export const genDrizzleERD = async (schemaModule: string, dbType: DatabaseType):
 		const right = ref?.endpoints[1];
 		const isComposite = left && left.fieldNames.length > 1; // Skip composites for simplicity;
 		if (isComposite) return;
-
-		// const _leftFieldName = left?.fieldNames[0];
-		// const _rightFieldName = right?.fieldNames[0];
 
 		let manyEndpoint: typeof left, oneEndpoint: typeof right, relationshipDir: ">" | "<" | "-";
 		if (left?.relation === "*" && right?.relation === "1") {
@@ -103,7 +96,6 @@ export const genDrizzleERD = async (schemaModule: string, dbType: DatabaseType):
 		const manyTableName = manyEndpoint.tableName;
 		const oneTableName = oneEndpoint.tableName;
 		const fkFieldName = manyEndpoint.fieldNames[0];
-		// 	const _pkFieldName = oneEndpoint.fieldNames[0];
 
 		// Find nodes
 		const manyNode = nodes.find((n) => n.id === manyTableName);
@@ -188,7 +180,6 @@ export const genDrizzleERD = async (schemaModule: string, dbType: DatabaseType):
 			},
 		});
 	});
-	console.log("edges", edges);
 
 	return { nodes, edges };
 };

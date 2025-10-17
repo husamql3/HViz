@@ -57,26 +57,12 @@ export const main = async () => {
 			const schema = await file(schemaFilePath).text();
 			erdResult = await genPrismaERD(schema);
 		}
-
-		// console.log("erdResult", erdResult);
 	} catch (e) {
 		s2.stop("ERD generation failed");
 		cancel(`Error generating ERD: ${e instanceof Error ? e.message : "Unknown error"}`);
 		return process.exit(1);
 	}
 	s2.stop("ERD generated");
-
-	// const outputPath = `${import.meta.dir}/../../view/src/utils/data.json`;
-	// const s3 = spinner();
-	// s3.start("Writing output");
-	// try {
-	// 	await write(outputPath, JSON.stringify(erdResult, null, 2));
-	// 	s3.stop("Output written");
-	// } catch (e) {
-	// 	s3.stop("Failed to write output");
-	// 	cancel(`Error writing output: ${e instanceof Error ? e.message : "Unknown error"}`);
-	// 	process.exit(1);
-	// }
 
 	const s4 = spinner();
 	s4.start("Starting server");

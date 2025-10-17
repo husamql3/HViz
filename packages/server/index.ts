@@ -4,6 +4,8 @@ import { Hono } from "hono";
 import { serveStatic } from "hono/bun";
 
 export const PORT = 4000;
+
+// path for the build client to serve static files
 const distPath = path.resolve(import.meta.dir, "../view/build/client");
 
 export const createServer = (erdData: ErdResult) => {

@@ -37,6 +37,8 @@
 			"packages/view/app/**",
 			"!packages/view/app/app.css",
 			"packages/cli/src/**",
+			"packages/cli/__tests__/**",
+			"packages/cli/__mocks__/**",
 			"packages/server/index.ts",
 			"www/app/**",
 			"!www/app/app.css"

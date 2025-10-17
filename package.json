@@ -8,7 +8,8 @@
     "dev:www": "bun run --filter='@viz/www' dev",
     "build": "bun run --filter='*' build",
     "deploy:www": "bun run --filter='@viz/www' deploy",
-    "check": "bunx biome check --write --verbose --unsafe"
+    "check": "bunx biome check --write --verbose --unsafe",
+    "test": "bun run --filter='*' test"
   },
   "workspaces": [
     "packages/*",
