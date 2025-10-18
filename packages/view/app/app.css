@@ -243,9 +243,10 @@
 
 /* XYFlow */
 .react-flow__node-default {
-	background-color: transparent;
-	padding: 0;
-	/* overflow: hidden !important; */
-	/* override the default border-radius */
-	border-radius: 12px;
+	background-color: transparent !important;
+	padding: 0px !important;
+	border: none !important;
+	box-shadow: none !important;
+	border-radius: 12px !important;
+	overflow: hidden !important;
 }

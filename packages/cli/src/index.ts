@@ -1,10 +1,10 @@
+import { writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { cancel, intro, isCancel, outro, spinner, text } from "@clack/prompts";
 import { createServer, PORT } from "@viz/server";
 import { file, serve } from "bun";
 import open from "open";
 import color from "picocolors";
-
 import type { ErdResult } from "@/types/erd.type";
 import { schemaPathSuggestions } from "@/utils/cmd/schema-path-suggestions";
 import { selectDB } from "./utils/cmd/select-db";
@@ -13,7 +13,7 @@ import { genPrismaERD } from "./utils/erd/gen-prisma-erd";
 
 export const main = async () => {
 	console.log();
-	intro(color.inverse(" Viz "));
+	intro(color.inverse(" HViz "));
 
 	// Select the database type (prisma, drizzle, typeorm)
 	const projectType = await selectDB();
@@ -63,6 +63,9 @@ export const main = async () => {
 		return process.exit(1);
 	}
 	s2.stop("ERD generated");
+
+	// write the erd result to a json file
+	await writeFile(resolve(import.meta.dir, "../../view/app/utils/data.json"), JSON.stringify(erdResult, null, 2));
 
 	const s4 = spinner();
 	s4.start("Starting server");

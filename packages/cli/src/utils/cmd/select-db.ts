@@ -8,10 +8,18 @@ export const selectDB = async (): Promise<DatabaseType> => {
 			{ value: "prisma", label: "Prisma" },
 			{ value: "drizzle", label: "Drizzle" },
 			{ value: "typeorm", label: "TypeORM", hint: "coming soon" },
+			{ value: "postgres", label: "PostgreSQL", hint: "coming soon" },
+			{ value: "mysql", label: "MySQL", hint: "coming soon" },
+			{ value: "sqlite", label: "SQLite", hint: "coming soon" },
 		],
 	});
 	if (isCancel(orm)) {
 		cancel("Operation cancelled");
+		return process.exit(0);
+	}
+
+	if (["typeorm", "postgres", "mysql", "sqlite"].includes(orm)) {
+		cancel(`${orm} is not supported yet. Please use Drizzle or Prisma.`);
 		return process.exit(0);
 	}
 

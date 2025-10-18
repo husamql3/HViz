@@ -21,11 +21,7 @@ export const ROADMAP: RoadmapItem[] = [
 	},
 	{
 		title: "ORM Support",
-		subFeatures: [
-			{ title: "Prisma" },
-			{ title: "Drizzle" },
-			{ title: "TypeORM" },
-		],
+		subFeatures: [{ title: "Prisma" }, { title: "Drizzle" }, { title: "TypeORM", status: "in progress" }],
 		priority: "P1", // Critical - without this, no parsing
 		status: "in progress",
 	},

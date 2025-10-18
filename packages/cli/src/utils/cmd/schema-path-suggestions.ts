@@ -17,7 +17,7 @@ export const schemaPathSuggestions = (db: DatabaseType) => {
 			break;
 		case "typeorm":
 			schemaPromptMessage = "Enter the TypeORM entities directory or config path";
-			defaultSchemaPath = "src/entities"; // todo: check this
+			defaultSchemaPath = "src/entities";
 			break;
 	}
 

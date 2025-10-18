@@ -1,19 +1,21 @@
 import type { ErdResult } from "@viz/cli/src/types/erd.type";
 import { Board } from "@/components/board";
 import { Header } from "@/components/header";
+import { INITIAL_EDGES, INITIAL_NODES } from "@/utils/data";
 
 export function meta() {
 	return [{ title: "hviz" }, { name: "description", content: "Welcome to React Router!" }];
 }
 
 export const clientLoader = async () => {
-	const erd = await fetch("/api/diagram", {
-		headers: {
-			"Content-Type": "application/json",
-		},
-	});
-	const { data: erdData } = await erd.json();
-	console.log("erdData", erdData);
+	const erdData = { nodes: INITIAL_NODES, edges: INITIAL_EDGES };
+	// const erd = await fetch("/api/diagram", {
+	// 	headers: {
+	// 		"Content-Type": "application/json",
+	// 	},
+	// });
+	// const { data: erdData } = await erd.json();
+	// console.log("erdData", erdData);
 	return { erdData };
 };
 
