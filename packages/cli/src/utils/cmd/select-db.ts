@@ -1,5 +1,5 @@
 import { cancel, isCancel, select } from "@clack/prompts";
-import type { DatabaseType } from "@/types/db.type";
+import type { DatabaseType } from "../../types/db.type";
 
 export const selectDB = async (): Promise<DatabaseType> => {
 	const orm = await select({

@@ -1,8 +1,14 @@
-import { getDMMF } from "@prisma/internals";
-import type { Edge, ErdResult, Node } from "@/types/erd.type";
-import { calcTableWidth } from "@/utils/calc-table-width";
+import type { Edge, ErdResult, Node } from "../../types/erd.type";
+import { calcTableWidth } from "../../utils/calc-table-width";
 
 export const genPrismaERD = async (schema: string): Promise<ErdResult> => {
+	const PrismaInternals = await import("@prisma/internals");
+	const getDMMF = PrismaInternals.getDMMF || (PrismaInternals as any).default?.getDMMF;
+
+	if (!getDMMF) {
+		throw new Error("Failed to load getDMMF from @prisma/internals");
+	}
+
 	const dmmf = await getDMMF({
 		datamodel: schema,
 	});

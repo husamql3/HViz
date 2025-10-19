@@ -1,9 +1,9 @@
 import { Parser } from "@dbml/core";
 import { mysqlGenerate, pgGenerate, sqliteGenerate } from "drizzle-dbml-generator";
-import type { DatabaseType } from "@/types/db.type";
-import type { Edge, ErdResult, Node } from "@/types/erd.type";
-import { calcTableWidth } from "@/utils/calc-table-width";
-import { pluralize, removeIdSuffix, toCamelCase } from "@/utils/helpers/drizzle-helpers";
+import type { DatabaseType } from "../../types/db.type";
+import type { Edge, ErdResult, Node } from "../../types/erd.type";
+import { calcTableWidth } from "../../utils/calc-table-width";
+import { pluralize, removeIdSuffix, toCamelCase } from "../../utils/helpers/drizzle-helpers";
 
 export const genDrizzleERD = async (schemaModule: string, dbType: DatabaseType): Promise<ErdResult> => {
 	let generateFn: (options: { schema: string; relational: boolean }) => string;

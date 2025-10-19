@@ -1,12 +1,14 @@
 import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { serveStatic } from "@hono/node-server/serve-static";
 import type { ErdResult } from "@viz/cli/src/types/erd.type";
 import { Hono } from "hono";
-import { serveStatic } from "hono/bun";
 
-export const PORT = 4000;
+export const PORT = 2000;
 
 // path for the build client to serve static files
-const distPath = path.resolve(import.meta.dir, "../view/build/client");
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const distPath = process.env.VIEW_BUILD_PATH || path.resolve(__dirname, "../view-build");
 
 export const createServer = (erdData: ErdResult) => {
 	const app = new Hono()

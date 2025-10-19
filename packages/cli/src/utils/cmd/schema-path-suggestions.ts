@@ -1,4 +1,4 @@
-import type { DatabaseType } from "@/types/db.type";
+import type { DatabaseType } from "../../types/db.type";
 
 export const schemaPathSuggestions = (db: DatabaseType) => {
 	let schemaPromptMessage = "";

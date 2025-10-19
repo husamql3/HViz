@@ -1,12 +1,12 @@
-import { writeFile } from "node:fs/promises";
+import { access, readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { cancel, intro, isCancel, outro, spinner, text } from "@clack/prompts";
+import { serve } from "@hono/node-server";
 import { createServer, PORT } from "@viz/server";
-import { file, serve } from "bun";
 import open from "open";
 import color from "picocolors";
-import type { ErdResult } from "@/types/erd.type";
-import { schemaPathSuggestions } from "@/utils/cmd/schema-path-suggestions";
+import type { ErdResult } from "./types/erd.type";
+import { schemaPathSuggestions } from "./utils/cmd/schema-path-suggestions";
 import { selectDB } from "./utils/cmd/select-db";
 import { genDrizzleERD } from "./utils/erd/gen-drizzle-erd";
 import { genPrismaERD } from "./utils/erd/gen-prisma-erd";
@@ -34,13 +34,10 @@ export const main = async () => {
 		return process.exit(0);
 	}
 
-	const schemaFilePath = resolve(import.meta.dir, schemaFilePathInput);
+	const schemaFilePath = resolve(process.cwd(), schemaFilePathInput);
 
 	try {
-		(await file(schemaFilePath).exists()) ||
-			(() => {
-				throw new Error("Schema file not found");
-			})();
+		await access(schemaFilePath);
 	} catch {
 		cancel(`Schema file does not exist at ${schemaFilePath}`);
 		process.exit(1);
@@ -54,7 +51,7 @@ export const main = async () => {
 			const schemaModule = await import(schemaFilePath);
 			erdResult = await genDrizzleERD(schemaModule, projectType);
 		} else {
-			const schema = await file(schemaFilePath).text();
+			const schema = await readFile(schemaFilePath, "utf-8");
 			erdResult = await genPrismaERD(schema);
 		}
 	} catch (e) {
@@ -65,7 +62,7 @@ export const main = async () => {
 	s2.stop("ERD generated");
 
 	// write the erd result to a json file
-	await writeFile(resolve(import.meta.dir, "../../view/app/utils/data.json"), JSON.stringify(erdResult, null, 2));
+	// await writeFile(resolve(import.meta.dir, "../../view/app/utils/data.json"), JSON.stringify(erdResult, null, 2));
 
 	const s4 = spinner();
 	s4.start("Starting server");

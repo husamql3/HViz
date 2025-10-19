@@ -1,4 +1,4 @@
-import type { Field } from "@/types/erd.type";
+import type { Field } from "../types/erd.type";
 
 export const calcTableWidth = (fields: Field[]) => {
 	const iconWidth = 80; // Space for icons (up to 4 icons at ~16px each + gaps)

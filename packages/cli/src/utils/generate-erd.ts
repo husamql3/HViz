@@ -1,8 +1,8 @@
-import { file } from "bun";
-import type { DatabaseType } from "@/types/db.type";
-import type { ErdResult } from "@/types/erd.type";
-import { genDrizzleERD } from "@/utils/erd/gen-drizzle-erd";
-import { genPrismaERD } from "@/utils/erd/gen-prisma-erd";
+import { readFile } from "node:fs/promises";
+import type { DatabaseType } from "../types/db.type";
+import type { ErdResult } from "../types/erd.type";
+import { genDrizzleERD } from "./erd/gen-drizzle-erd";
+import { genPrismaERD } from "./erd/gen-prisma-erd";
 
 type GenerateERDOptions = {
 	type: DatabaseType;
@@ -15,7 +15,7 @@ export const generateERD = async ({ type, schemaFilePath }: GenerateERDOptions):
 		 * prisma erd generator should accept the schema string
 		 */
 		case "prisma": {
-			const schema = await file(schemaFilePath).text();
+			const schema = await readFile(schemaFilePath, "utf-8");
 			return genPrismaERD(schema);
 		}
 		/**

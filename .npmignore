@@ -1,0 +1,28 @@
+# Source files
+packages/
+www/
+scripts/
+
+# Tests
+**/__tests__/
+**/__mocks__/
+*.test.ts
+*.spec.ts
+coverage/
+
+# Config files
+tsconfig.json
+vitest.config.ts
+tsup.config.ts
+biome.json
+
+# Development
+node_modules/
+*.log
+.env*
+.git/
+.github/
+
+# Keep these in the package
+!dist/
+!view-build/
