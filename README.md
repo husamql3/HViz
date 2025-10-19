@@ -1,16 +1,5 @@
 <div align="center">
 
-![License](https://img.shields.io/github/license/husamql3/hviz)
-![Version](https://img.shields.io/github/package-json/v/husamql3/hviz?color=0066CC&label=Version&style=flat)
-
-</div>
-
-![hviz banner](https://www.hviz.tech/og-img.png)
-
-A CLI tool for visualizing your database schema
-
-<div align="center">
-
 # hviz
 
 **Beautiful ERD visualization for your database schema**
