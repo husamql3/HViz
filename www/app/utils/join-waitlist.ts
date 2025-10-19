@@ -2,7 +2,8 @@ import { getSupabaseClient } from "@/lib/supabase";
 
 export const joinWaitlist = async (email: string) => {
 	try {
-		const { error } = await getSupabaseClient().from("hviz_waitlist").insert([{ email }]).select();
+		const supabase = await getSupabaseClient();
+		const { error } = await supabase.from("hviz_waitlist").insert([{ email }]).select();
 
 		if (error?.code === "23505") {
 			return {

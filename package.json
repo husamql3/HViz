@@ -1,89 +1,40 @@
 {
   "name": "hviz",
+  "module": "index.ts",
   "type": "module",
-  "version": "1.0.2",
-  "description": "Database schema visualization tool",
+  "private": true,
   "author": {
     "name": "husamql3",
-    "url": "https://x.com/husamql3"
+    "url": "https://x.com/husamql3",
+    "email": "husamql3@gmail.com"
   },
-  "keywords": [
-    "erd",
-    "erd-generator",
-    "database-diagram",
-    "schema-visualization",
-    "prisma",
-    "drizzle",
-    "typeorm",
-    "postgres",
-    "mysql",
-    "sqlite",
-    "database-design",
-    "cli-tool",
-    "entity-relationship-diagram"
-  ],
-  "homepage": "https://www.hviz.tech",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/husamql3/hviz"
   },
+  "homepage": "https://www.hviz.tech",
   "bugs": {
     "url": "https://github.com/husamql3/hviz/issues"
   },
-  "license": "MIT",
-  "bin": {
-    "hviz": "./dist/cli.js"
-  },
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
-    }
-  },
-  "files": [
-    "dist",
-    "view-build"
-  ],
-  "scripts": {
-    "dev": "bun run --cwd packages/cli dev",
-    "dev:cli": "bun run --cwd packages/cli dev",
-    "dev:view": "bun run --filter='@viz/view' dev",
-    "dev:www": "bun run --filter='@viz/www' dev",
-    "build": "bun run build:view && bun run build:bundle && bun run post-build",
-    "build:view": "bun run --cwd packages/view build",
-    "build:bundle": "tsup",
-    "post-build": "bun run scripts/post-build.ts",
-    "check": "bunx biome check --write --verbose --unsafe",
-    "test": "bun run --filter='*' test",
-    "test:cli": "bun run build && node dist/cli.js",
-    "prepublishOnly": "bun run build"
-  },
+  "description": "",
+  "keywords": [],
   "workspaces": [
     "packages/*",
     "www"
   ],
-  "dependencies": {
-    "@clack/prompts": "^0.11.0",
-    "@dbml/core": "^3.14.1",
-    "@hono/node-server": "^1.19.5",
-    "@prisma/internals": "^5.0.0",
-    "drizzle-dbml-generator": "^0.10.0",
-    "hono": "^4.9.10",
-    "open": "^10.2.0",
-    "picocolors": "^1.1.1",
-    "zod": "^4.1.12"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
+  "scripts": {
+    "dev:www": "bun run --filter='@viz/www' dev",
+    "dev:core": "bun run --filter='@hviz/core' dev",
+    "build:www": "bun run --filter='@viz/www' build",
+    "build:core": "bun run --filter='@hviz/core' build",
+    "check": "bunx biome check --write --verbose --unsafe"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.2.2",
-    "@types/bun": "latest",
-    "@types/node": "latest",
-    "tsup": "^8.5.0",
+    "@biomejs/biome": "^2.2.6",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
     "typescript": "^5"
   },
   "engines": {

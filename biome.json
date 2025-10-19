@@ -1,5 +1,5 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.2.5/schema.json",
+	"$schema": "https://biomejs.dev/schemas/2.2.6/schema.json",
 	"assist": {
 		"actions": {
 			"source": {
@@ -33,16 +33,7 @@
 		"defaultBranch": "main"
 	},
 	"files": {
-		"includes": [
-			"packages/view/app/**",
-			"!packages/view/app/app.css",
-			"packages/cli/src/**",
-			"packages/cli/__tests__/**",
-			"packages/cli/__mocks__/**",
-			"packages/server/index.ts",
-			"www/app/**",
-			"!www/app/app.css"
-		],
+		"includes": ["www/app/**", "!www/app/app.css"],
 		"ignoreUnknown": true
 	}
 }
