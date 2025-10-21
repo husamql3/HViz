@@ -1,15 +1,36 @@
-import { serve } from '@hono/node-server'
-import { Hono } from 'hono'
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { serveStatic } from "@hono/node-server/serve-static";
+import { Hono } from "hono";
 
-const app = new Hono()
+import type { ErdResult } from "../types/erd.type";
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
+const getDistPath = () => {
+  if (process.env.NODE_ENV === "development") {
+    const __dirname = path.dirname(fileURLToPath(import.meta.url));
+    return path.resolve(__dirname, "../../view-build");
+  }
 
-serve({
-  fetch: app.fetch,
-  port: 3000
-}, (info) => {
-  console.log(`Server is running on http://localhost:${info.port}`)
-})
+  const __dirname = path.dirname(fileURLToPath(import.meta.url));
+  return path.resolve(__dirname, "../view-build");
+};
+
+const distPath = getDistPath();
+
+export const createServer = (erdData: ErdResult) => {
+  const app = new Hono()
+    .use("*", async (c, next) => {
+      c.header("Access-Control-Allow-Origin", "*");
+      c.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+      c.header("Access-Control-Allow-Headers", "Content-Type");
+      await next();
+    })
+    .use("/*", serveStatic({ root: distPath }))
+    .get("/api/diagram", (c) => {
+      return c.json({
+        data: erdData,
+      });
+    });
+
+  return app;
+};

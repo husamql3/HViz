@@ -20,61 +20,39 @@
 
 **hviz** is a zero-config CLI tool that instantly transforms your database schema into beautiful, interactive Entity Relationship Diagrams (ERDs). Point it at your schema file, and watch your database come to life in your browser.
 
-No more manual diagramming. No more outdated documentation. Just run one command.
-
 ## 🚀 Quick Start
 
 ```bash
-# Using npx (no installation required)
-npx hviz
-
-# Or install globally
+# Install globally (recommended)
 npm install -g hviz
 hviz
 
 # Using bun
-bunx hviz
+bun install -g hviz
+hviz
 ```
 
 That's it! The CLI will guide you through the rest.
 
-## 🎯 Features
+## Supported ORMs & Databases
 
-- **🔥 Zero Configuration** - Works out of the box with sensible defaults
-- **⚡️ Lightning Fast** - Built with performance in mind
-- **🎨 Beautiful UI** - Clean, modern interface with smooth interactions
-- **🔄 Interactive Diagrams** - Pan, zoom, and explore your schema relationships
-- **📦 Multiple ORMs** - Support for Prisma, Drizzle ORM (TypeORM, raw SQL coming soon)
-- **🌐 Browser-Based** - Automatically opens in your default browser
-- **🎭 Relationship Visualization** - Clearly shows one-to-one, one-to-many, and many-to-many relationships
-- **📱 Responsive** - Works on any screen size
+### Currently Supported
 
-## 🛠 Supported ORMs & Databases
-
-### Currently Supported ✅
-
-| ORM         | Database                           | Status    |
-| ----------- | ---------------------------------- | --------- |
-| **Prisma**  | PostgreSQL, MySQL, SQLite, MongoDB | ✅ Stable |
-| **Drizzle** | PostgreSQL                         | ✅ Stable |
-| **Drizzle** | MySQL                              | ✅ Stable |
-| **Drizzle** | SQLite                             | ✅ Stable |
-
-### Coming Soon 🚧
-
-- TypeORM
-- Direct PostgreSQL connection
-- Direct MySQL connection
-- Direct SQLite connection
+- [x] Prisma (PostgreSQL, MySQL, SQLite, MongoDB)
+- [x] Drizzle (PostgreSQL, MySQL, SQLite)
+- [ ] Typeorm
+- [ ] PostgreSQL
+- [ ] MySQL
+- [ ] SQLite
 
 ## 📖 Usage
 
-### Interactive Mode (Recommended)
+### Interactive Mode
 
 Simply run the command and follow the prompts:
 
 ```bash
-npx hviz
+hviz
 ```
 
 The CLI will ask you:
@@ -91,7 +69,7 @@ Then it will:
 ### For Prisma Projects
 
 ```bash
-npx hviz
+hviz
 # Select: Prisma
 # Path: prisma/schema.prisma (or your custom path)
 ```
@@ -99,27 +77,11 @@ npx hviz
 ### For Drizzle Projects
 
 ```bash
-npx hviz
+hviz
 # Select: Drizzle
 # Choose your dialect: PostgreSQL, MySQL, or SQLite
 # Path: src/db/schema.ts (or your custom path)
 ```
-
-## 📸 What You'll Get
-
-- **Table View**: See all your tables with their columns and types
-- **Relationship Lines**: Visual connections between related tables
-- **Type Information**: Column types, constraints, and defaults
-- **Interactive Canvas**: Pan and zoom to navigate large schemas
-- **Clean Layout**: Automatic positioning for optimal readability
-
-## 🏗 How It Works
-
-1. **Parse**: Reads your schema file (Prisma or Drizzle)
-2. **Transform**: Converts it to DBML (Database Markup Language)
-3. **Generate**: Creates an interactive ERD structure
-4. **Serve**: Spins up a local server with the visualization
-5. **Open**: Launches your browser to view the diagram
 
 ## 🤝 Contributing
 
@@ -132,7 +94,7 @@ Contributions are welcome! Feel free to:
 
 ## 📝 License
 
-MIT © [husamql3](https://github.com/husamql3)
+MIT
 
 ## 🔗 Links
 

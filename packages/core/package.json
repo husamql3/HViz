@@ -1,20 +1,70 @@
 {
-  "name": "@hviz/core",
+  "name": "hviz",
+  "version": "1.0.7",
   "type": "module",
+  "description": "Beautiful ERD visualization for your database schema",
+  "license": "MIT",
+  "author": {
+    "name": "husamql3",
+    "url": "https://x.com/husamql3",
+    "email": "devhsmq@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/husamql3/hviz",
+    "directory": "packages/core"
+  },
+  "homepage": "https://www.hviz.tech",
+  "bugs": {
+    "url": "https://github.com/husamql3/hviz/issues"
+  },
+  "keywords": [
+    "erd",
+    "database",
+    "visualization",
+    "prisma",
+    "drizzle",
+    "schema",
+    "cli"
+  ],
+  "bin": {
+    "hviz": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "view-build",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "dev": "bun run src/index.ts",
-    "dev:watch": "bun --watch src/index.ts",
-    "build": "tsc",
-    "start": "node dist/index.js"
+    "dev": "NODE_ENV=development bun run src/index.ts",
+    "build": "tsup",
+    "prepublishOnly": "echo 'Building for publish...' && bun run build"
   },
   "dependencies": {
     "@clack/prompts": "^0.11.0",
+    "@dbml/core": "^3.15.0-alpha.0",
     "@hono/node-server": "^1.19.5",
+    "@prisma/internals": "^6.17.1",
+    "commander": "^14.0.1",
+    "drizzle-dbml-generator": "^0.10.0",
     "hono": "^4.10.1",
+    "open": "^10.2.0",
     "picocolors": "^1.1.1"
   },
   "devDependencies": {
     "@types/node": "^20.11.17",
+    "tsup": "^8.5.0",
     "tsx": "^4.7.1",
     "typescript": "^5.8.3"
   }

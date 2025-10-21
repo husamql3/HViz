@@ -1,0 +1,106 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            target: linux-x64
+            artifact: hviz-linux-x64
+          - os: ubuntu-latest
+            target: linux-arm64
+            artifact: hviz-linux-arm64
+          - os: macos-latest
+            target: darwin-x64
+            artifact: hviz-darwin-x64
+          - os: macos-latest
+            target: darwin-arm64
+            artifact: hviz-darwin-arm64
+          - os: windows-latest
+            target: windows-x64
+            artifact: hviz-windows-x64.exe
+    
+    runs-on: ${{ matrix.os }}
+    
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: 1.2.19
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build all packages
+        run: bun run build:core
+
+      - name: Build binary
+        working-directory: ./packages/core
+        run: bun build src/index.ts --compile --minify --outfile bin/${{ matrix.artifact }}
+
+      - name: Create tar.gz for Unix systems
+        if: runner.os != 'Windows'
+        working-directory: ./packages/core
+        run: |
+          mkdir -p releases
+          tar -czf releases/${{ matrix.artifact }}.tar.gz -C bin ${{ matrix.artifact }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact }}
+          path: packages/core/bin/${{ matrix.artifact }}
+
+  publish:
+    needs: build-and-release
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: 1.2.19
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: packages/core/bin
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+          files: packages/core/bin/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish to npm
+        working-directory: ./packages/core
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

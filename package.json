@@ -6,7 +6,7 @@
   "author": {
     "name": "husamql3",
     "url": "https://x.com/husamql3",
-    "email": "husamql3@gmail.com"
+    "email": "devhsmq@gmail.com"
   },
   "license": "MIT",
   "repository": {
@@ -24,15 +24,22 @@
     "www"
   ],
   "scripts": {
-    "dev:www": "bun run --filter='@viz/www' dev",
-    "dev:core": "bun run --filter='@hviz/core' dev",
-    "build:www": "bun run --filter='@viz/www' build",
-    "build:core": "bun run --filter='@hviz/core' build",
-    "check": "bunx biome check --write --verbose --unsafe"
+    "dev:www": "bun run --filter='@hviz/www' dev",
+    "dev:core": "bun run --cwd packages/core dev",
+    "build": "bun run build:view && bun run build:core",
+    "build:view": "bun run --cwd packages/view build",
+    "build:core": "bun run --cwd packages/core build && bun run scripts/post-build.ts",
+    "build:www": "bun run --cwd www build",
+    "check": "bunx biome check --write --verbose --unsafe",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "bun run build && changeset publish"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.2.6",
-    "@types/bun": "latest"
+    "@changesets/cli": "^2.29.7",
+    "@types/bun": "latest",
+    "tsup": "^8.3.5"
   },
   "peerDependencies": {
     "typescript": "^5"

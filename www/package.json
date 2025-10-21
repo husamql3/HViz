@@ -1,5 +1,5 @@
 {
-	"name": "@viz/www",
+	"name": "@hviz/www",
 	"private": true,
 	"type": "module",
 	"scripts": {
