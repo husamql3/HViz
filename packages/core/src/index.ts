@@ -33,7 +33,6 @@ export const main = async () => {
       if (!value.trim()) return "Schema path is required.";
       return undefined;
     },
-    initialValue: defaultSchemaPath,
   });
   if (isCancel(schemaFilePathInput)) {
     cancel("Operation cancelled");
@@ -56,8 +55,7 @@ export const main = async () => {
       const schemaModule = await import(schemaFilePath);
       erdResult = await genDrizzleERD(schemaModule, databaseType);
     } else if (databaseType === "prisma") {
-      const schema = await readFile(schemaFilePath, "utf-8");
-      erdResult = await genPrismaERD(schema);
+      erdResult = await genPrismaERD(schemaFilePath);
     } else if (databaseType === "typeorm") {
       erdResult = await genTypeORMERD(schemaFilePath);
     }

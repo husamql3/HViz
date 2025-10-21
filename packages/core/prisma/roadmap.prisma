@@ -1,0 +1,11 @@
+model roadmap {
+  id             String           @id @default(uuid()) @db.Uuid
+  created_at     DateTime         @default(now()) @db.Timestamptz(6)
+  problem_no     Int
+  problem_order  Int              @unique
+  problem_slug   String
+  topic          String
+  difficulty     String           @default("easy")
+  group_progress group_progress[]
+  submissions    submissions[]
+}

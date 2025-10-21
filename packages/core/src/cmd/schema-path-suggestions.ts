@@ -6,18 +6,18 @@ export const schemaPathSuggestions = (db: DatabaseType) => {
 
 	switch (db) {
 		case "prisma":
-			schemaPromptMessage = "Enter the Prisma schema file path";
+			schemaPromptMessage = "Enter the Prisma directory path or schema file path";
 			defaultSchemaPath = "prisma/schema.prisma";
 			break;
 		case "drizzle-postgres":
 		case "drizzle-mysql":
 		case "drizzle-sqlite":
-			schemaPromptMessage = "Enter the Drizzle schema file path";
+			schemaPromptMessage = "Enter the Drizzle directory path or schema file path";
 			defaultSchemaPath = "drizzle/schema.ts";
 			break;
 		case "typeorm":
 			schemaPromptMessage = "Enter the TypeORM entities directory or config path";
-			defaultSchemaPath = "src/entities/schema.ts"; // todo: change to directory later
+			defaultSchemaPath = "src/entities/";
 			break;
 	}
 

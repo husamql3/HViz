@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
+// /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
 import { describe, expect, it, vi } from "vitest";
 import { mkdir, writeFile, rm } from "node:fs/promises";
@@ -9,8 +9,6 @@ import { mediumDrizzleDbml } from "../__mocks__/drizzle-schemas";
 import { complexPrismaSchema, mediumPrismaSchema } from "../__mocks__/prisma-schemas";
 import { genDrizzleERD } from "../src/generators/gen-drizzle-erd";
 import { genPrismaERD } from "../src/generators/gen-prisma-erd";
-import { simpleTypeORMSchema } from "../__mocks__/typeorm-schemas";
-import { genTypeORMERD } from "../src/generators/gen-typeorm-erd";
 
 // Mock drizzle-dbml-generator with inline return values
 vi.mock("drizzle-dbml-generator", () => ({

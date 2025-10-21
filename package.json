@@ -1,6 +1,5 @@
 {
   "name": "hviz",
-  "module": "index.ts",
   "type": "module",
   "private": true,
   "author": {
@@ -9,16 +8,6 @@
     "email": "devhsmq@gmail.com"
   },
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/husamql3/hviz"
-  },
-  "homepage": "https://www.hviz.tech",
-  "bugs": {
-    "url": "https://github.com/husamql3/hviz/issues"
-  },
-  "description": "",
-  "keywords": [],
   "workspaces": [
     "packages/*",
     "www"

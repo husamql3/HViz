@@ -1,20 +1,41 @@
+import { readFile } from "node:fs/promises";
 import type { Edge, ErdResult, Node } from "../types/erd.type.ts";
-import { calcTableWidth } from "../utils/helpers/calc-table-width.ts";
+import { calcTableWidth } from "../utils/calc-table-width.ts";
+import { getFilesFromDir } from "../utils/get-files-from-dir.ts";
+import { combinePrismaSchemas } from "../utils/helpers/prisma-helpers.ts";
 
-export const genPrismaERD = async (schema: string): Promise<ErdResult> => {
-	if (!schema || schema.trim() === '') {
-		throw new Error('Schema cannot be empty');
+export const genPrismaERD = async (schemaPath: string): Promise<ErdResult> => {
+	let combinedSchema: string;
+
+	const looksLikeSchemaContent = /^\s*(model|enum|generator|datasource|type)\s/m.test(schemaPath);
+	if (looksLikeSchemaContent) {
+		combinedSchema = schemaPath;
+	} else {
+		const files = await getFilesFromDir([".prisma"], schemaPath);
+		if (files.length === 0) {
+			throw new Error(`No Prisma schema files found at ${schemaPath}`);
+		}
+
+		const schemaContents = await Promise.all(
+			files.map((file) => readFile(file, "utf-8"))
+		);
+
+		combinedSchema = combinePrismaSchemas(schemaContents);
+	}
+
+	if (!combinedSchema || combinedSchema.trim() === "") {
+		throw new Error("Schema content cannot be empty");
 	}
 
 	const PrismaInternals = await import("@prisma/internals");
 	const getDMMF = PrismaInternals.getDMMF || (PrismaInternals as any).default?.getDMMF;
 
 	const dmmf = await getDMMF({
-		datamodel: schema,
+		datamodel: combinedSchema,
 	});
 
 	if (!dmmf.datamodel.models || dmmf.datamodel.models.length === 0) {
-		throw new Error('Schema must contain at least one model');
+		throw new Error("Schema must contain at least one model");
 	}
 
 	const nodes: Node[] = [];
@@ -52,7 +73,7 @@ export const genPrismaERD = async (schema: string): Promise<ErdResult> => {
 				label: model.name,
 				fields,
 			},
-			position: { x: 0, y: 0 }, // Will be set by dagre layout
+			position: { x: 0, y: 0 }, // Will be set by dagre layout in view pkg
 			style: {
 				width: calcTableWidth(fields),
 			},

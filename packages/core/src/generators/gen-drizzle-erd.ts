@@ -1,6 +1,6 @@
 import type { DatabaseType } from "../types/db.type.ts";
 import type { Edge, ErdResult, Node } from "../types/erd.type.ts";
-import { calcTableWidth } from "../utils/helpers/calc-table-width.ts";
+import { calcTableWidth } from "../utils/calc-table-width.ts";
 import { pluralize, removeIdSuffix, toCamelCase } from "../utils/helpers/drizzle-helpers.ts";
 
 export const genDrizzleERD = async (schemaModule: string, dbType: DatabaseType): Promise<ErdResult> => {

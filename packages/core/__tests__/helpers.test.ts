@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
 import { describe, expect, it } from "vitest";
+
 import type { Field } from "../src/types/erd.type";
-import { calcTableWidth } from "../src/utils/helpers/calc-table-width";
+import { calcTableWidth } from "../src/utils/calc-table-width";
 import { pluralize, removeIdSuffix, toCamelCase } from "../src/utils/helpers/drizzle-helpers";
 
 describe("Helper Functions", () => {
