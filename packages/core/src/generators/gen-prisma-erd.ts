@@ -2,25 +2,20 @@ import type { Edge, ErdResult, Node } from "../types/erd.type.ts";
 import { calcTableWidth } from "../utils/helpers/calc-table-width.ts";
 
 export const genPrismaERD = async (schema: string): Promise<ErdResult> => {
+	if (!schema || schema.trim() === '') {
+		throw new Error('Schema cannot be empty');
+	}
+
 	const PrismaInternals = await import("@prisma/internals");
 	const getDMMF = PrismaInternals.getDMMF || (PrismaInternals as any).default?.getDMMF;
-
-	// let getDMMF;
-	// try {
-	// 	const { getDMMF: importedGetDMMF } = await import("@prisma/internals");
-	// 	getDMMF = importedGetDMMF;
-	// 	if (!getDMMF) {
-	// 		throw new Error("getDMMF is not available in @prisma/internals");
-	// 	}
-	// } catch (error) {
-	// 	throw new Error(
-	// 		`Failed to load @prisma/internals: ${error instanceof Error ? error.message : String(error)}`
-	// 	);
-	// }
 
 	const dmmf = await getDMMF({
 		datamodel: schema,
 	});
+
+	if (!dmmf.datamodel.models || dmmf.datamodel.models.length === 0) {
+		throw new Error('Schema must contain at least one model');
+	}
 
 	const nodes: Node[] = [];
 	const edges: Edge[] = [];

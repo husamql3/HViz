@@ -12,6 +12,7 @@ import type { ErdResult } from "./types/erd.type";
 import { genDrizzleERD } from "./generators/gen-drizzle-erd";
 import { genPrismaERD } from "./generators/gen-prisma-erd";
 import { createServer } from "./lib/create-server";
+import { genTypeORMERD } from "./generators/gen-typeorm-erd";
 
 export const main = async () => {
   const { port } = cmdArgs();
@@ -54,16 +55,25 @@ export const main = async () => {
     if (databaseType.startsWith("drizzle")) {
       const schemaModule = await import(schemaFilePath);
       erdResult = await genDrizzleERD(schemaModule, databaseType);
-    } else {
+    } else if (databaseType === "prisma") {
       const schema = await readFile(schemaFilePath, "utf-8");
       erdResult = await genPrismaERD(schema);
+    } else if (databaseType === "typeorm") {
+      erdResult = await genTypeORMERD(schemaFilePath);
     }
   } catch (e) {
     s2.stop("ERD generation failed");
     cancel(`Error generating ERD: ${e instanceof Error ? e.message : "Unknown error"}`);
     return process.exit(1);
   }
+
+  if (!erdResult) {
+    s2.stop("ERD generation failed");
+    cancel("ERD generation failed: No result produced");
+    return process.exit(1);
+  }
   s2.stop("ERD generated");
+
 
   if (process.env.NODE_ENV === "development") {
     const { writeFile } = await import("node:fs/promises");

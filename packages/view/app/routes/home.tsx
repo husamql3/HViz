@@ -8,14 +8,14 @@ export function meta() {
 }
 
 export const clientLoader = async () => {
-	const erdData = { nodes: INITIAL_NODES, edges: INITIAL_EDGES };
-	// const erd = await fetch("/api/diagram", {
-	// 	headers: {
-	// 		"Content-Type": "application/json",
-	// 	},
-	// });
-	// const { data: erdData } = await erd.json();
-	// console.log("erdData", erdData);
+	// const erdData = { nodes: INITIAL_NODES, edges: INITIAL_EDGES };
+	const erd = await fetch("/api/diagram", {
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
+	const { data: erdData } = await erd.json();
+	console.log("erdData", erdData);
 	return { erdData };
 };
 

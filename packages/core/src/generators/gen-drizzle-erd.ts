@@ -33,11 +33,21 @@ export const genDrizzleERD = async (schemaModule: string, dbType: DatabaseType):
   const nodes: Node[] = [];
   const edges: Edge[] = [];
 
+  // Add validation for schemas
+  if (!database.schemas || database.schemas.length === 0) {
+    throw new Error('Database must contain at least one schema');
+  }
+
   // Assume single schema for simplicity
   const dbSchema = database.schemas[0];
 
+  // Add validation for tables
+  if (!dbSchema?.tables || dbSchema.tables.length === 0) {
+    throw new Error('Schema must contain at least one table');
+  }
+
   // First, create nodes with scalar fields
-  dbSchema?.tables.forEach((table) => {
+  dbSchema.tables.forEach((table) => {
     const fields = table.fields.map((field) => {
       let fieldLabel = field.name;
       if (field.pk) fieldLabel += " (ID)";

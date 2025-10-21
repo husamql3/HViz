@@ -8,7 +8,7 @@ export const selectDB = async (): Promise<DatabaseType> => {
     options: [
       { value: "prisma", label: "Prisma" },
       { value: "drizzle", label: "Drizzle" },
-      { value: "typeorm", label: "TypeORM", hint: "coming soon" },
+      { value: "typeorm", label: "TypeORM" },
       { value: "postgres", label: "PostgreSQL", hint: "coming soon" },
       { value: "mysql", label: "MySQL", hint: "coming soon" },
       { value: "sqlite", label: "SQLite", hint: "coming soon" },
@@ -19,8 +19,8 @@ export const selectDB = async (): Promise<DatabaseType> => {
     return process.exit(0);
   }
 
-  if (["typeorm", "postgres", "mysql", "sqlite"].includes(databaseType)) {
-    cancel(`${databaseType} is not supported yet. Please use Drizzle or Prisma.`);
+  if (["postgres", "mysql", "sqlite"].includes(databaseType)) {
+    cancel(`${databaseType} is not supported yet. Please use Drizzle, Prisma, or TypeORM.`);
     return process.exit(0);
   }
 
