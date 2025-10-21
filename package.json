@@ -30,6 +30,7 @@
     "build:view": "bun run --cwd packages/view build",
     "build:core": "bun run --cwd packages/core build && bun run scripts/post-build.ts",
     "build:www": "bun run --cwd www build",
+    "test": "bun run --filter='*' test",
     "check": "bunx biome check --write --verbose --unsafe",
     "changeset": "changeset",
     "version": "changeset version",
