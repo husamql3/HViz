@@ -1,5 +1,0 @@
----
-"hviz": patch
----
-
-remove shebang

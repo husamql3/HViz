@@ -1,7 +1,7 @@
 import { serve } from "@hono/node-server";
 import { cancel, intro, isCancel, outro, spinner, text } from "@clack/prompts";
 import { resolve } from "node:path";
-import { access, readFile } from "node:fs/promises";
+import { access, readFile, stat } from "node:fs/promises";
 import open from "open";
 import color from "picocolors";
 
@@ -52,8 +52,14 @@ export const main = async () => {
   let erdResult: ErdResult | undefined;
   try {
     if (databaseType.startsWith("drizzle")) {
-      const schemaModule = await import(schemaFilePath);
-      erdResult = await genDrizzleERD(schemaModule, databaseType);
+      const stats = await stat(schemaFilePath);
+      if (stats.isFile()) {
+        const schemaModule = await import(schemaFilePath);
+        erdResult = await genDrizzleERD(schemaModule, databaseType);
+      } else if (stats.isDirectory()) {
+        erdResult = await genDrizzleERD(schemaFilePath, databaseType);
+      }
+
     } else if (databaseType === "prisma") {
       erdResult = await genPrismaERD(schemaFilePath);
     } else if (databaseType === "typeorm") {

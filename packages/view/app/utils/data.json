@@ -1,115 +1,6 @@
 {
   "nodes": [
     {
-      "id": "submissions",
-      "type": "default",
-      "data": {
-        "label": "submissions",
-        "fields": [
-          {
-            "name": "id",
-            "type": "String",
-            "isId": false,
-            "isUnique": false,
-            "isList": false,
-            "kind": "scalar",
-            "label": "id",
-            "isNullable": false
-          },
-          {
-            "name": "created_at",
-            "type": "DateTime",
-            "isId": false,
-            "isUnique": false,
-            "isList": false,
-            "kind": "scalar",
-            "label": "created_at",
-            "isNullable": false
-          },
-          {
-            "name": "user_id",
-            "type": "String",
-            "isId": false,
-            "isUnique": false,
-            "isList": false,
-            "kind": "scalar",
-            "label": "user_id",
-            "isNullable": false
-          },
-          {
-            "name": "problem_id",
-            "type": "String",
-            "isId": false,
-            "isUnique": false,
-            "isList": false,
-            "kind": "scalar",
-            "label": "problem_id",
-            "isNullable": false
-          },
-          {
-            "name": "solved",
-            "type": "Boolean",
-            "isId": false,
-            "isUnique": false,
-            "isList": false,
-            "kind": "scalar",
-            "label": "solved",
-            "isNullable": false
-          },
-          {
-            "name": "group_no",
-            "type": "Int",
-            "isId": false,
-            "isUnique": false,
-            "isList": false,
-            "kind": "scalar",
-            "label": "group_no",
-            "isNullable": true
-          },
-          {
-            "name": "group",
-            "type": "groups",
-            "isId": false,
-            "isUnique": false,
-            "isList": false,
-            "kind": "object",
-            "relationName": "groupsTosubmissions",
-            "label": "group → groups",
-            "isNullable": true
-          },
-          {
-            "name": "problem",
-            "type": "roadmap",
-            "isId": false,
-            "isUnique": false,
-            "isList": false,
-            "kind": "object",
-            "relationName": "roadmapTosubmissions",
-            "label": "problem → roadmap",
-            "isNullable": false
-          },
-          {
-            "name": "user",
-            "type": "leetcoders",
-            "isId": false,
-            "isUnique": false,
-            "isList": false,
-            "kind": "object",
-            "relationName": "leetcodersTosubmissions",
-            "label": "user → leetcoders",
-            "isNullable": false
-          }
-        ]
-      },
-      "position": {
-        "x": 0,
-        "y": 0
-      },
-      "style": {
-        "width": 294
-      }
-    },
-    {
       "id": "group_progress",
       "type": "default",
       "data": {
@@ -117,7 +8,7 @@
         "fields": [
           {
             "name": "id",
-            "type": "String",
+            "type": "uuid",
             "isId": true,
             "isUnique": false,
             "isList": false,
@@ -127,7 +18,7 @@
           },
           {
             "name": "created_at",
-            "type": "DateTime",
+            "type": "timestamp (6) with time zone",
             "isId": false,
             "isUnique": false,
             "isList": false,
@@ -137,7 +28,7 @@
           },
           {
             "name": "group_no",
-            "type": "Int",
+            "type": "integer",
             "isId": false,
             "isUnique": false,
             "isList": false,
@@ -147,7 +38,7 @@
           },
           {
             "name": "current_problem",
-            "type": "Int",
+            "type": "integer",
             "isId": false,
             "isUnique": false,
             "isList": false,
@@ -156,25 +47,25 @@
             "isNullable": false
           },
           {
-            "name": "roadmap",
-            "type": "roadmap",
-            "isId": false,
-            "isUnique": false,
-            "isList": false,
-            "kind": "object",
-            "relationName": "group_progressToroadmap",
-            "label": "roadmap → roadmap",
-            "isNullable": false
-          },
-          {
-            "name": "group",
+            "name": "groupNo",
             "type": "groups",
             "isId": false,
             "isUnique": false,
             "isList": false,
             "kind": "object",
-            "relationName": "group_progressTogroups",
-            "label": "group → groups",
+            "relationName": null,
+            "label": "groupNo → groups",
+            "isNullable": false
+          },
+          {
+            "name": "currentProblem",
+            "type": "roadmap",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "object",
+            "relationName": null,
+            "label": "currentProblem → roadmap",
             "isNullable": false
           }
         ]
@@ -184,7 +75,7 @@
         "y": 0
       },
       "style": {
-        "width": 294
+        "width": 434
       }
     },
     {
@@ -195,7 +86,7 @@
         "fields": [
           {
             "name": "id",
-            "type": "String",
+            "type": "uuid",
             "isId": true,
             "isUnique": false,
             "isList": false,
@@ -205,7 +96,7 @@
           },
           {
             "name": "group_no",
-            "type": "Int",
+            "type": "integer",
             "isId": false,
             "isUnique": true,
             "isList": false,
@@ -214,15 +105,15 @@
             "isNullable": false
           },
           {
-            "name": "group_progress",
+            "name": "groupProgress",
             "type": "group_progress",
             "isId": false,
             "isUnique": false,
             "isList": true,
             "kind": "object",
-            "relationName": "group_progressTogroups",
-            "label": "group_progress → group_progress",
-            "isNullable": false
+            "relationName": null,
+            "label": "groupProgress → group_progress",
+            "isNullable": true
           },
           {
             "name": "leetcoders",
@@ -231,9 +122,9 @@
             "isUnique": false,
             "isList": true,
             "kind": "object",
-            "relationName": "groupsToleetcoders",
+            "relationName": null,
             "label": "leetcoders → leetcoders",
-            "isNullable": false
+            "isNullable": true
           },
           {
             "name": "submissions",
@@ -242,9 +133,9 @@
             "isUnique": false,
             "isList": true,
             "kind": "object",
-            "relationName": "groupsTosubmissions",
+            "relationName": null,
             "label": "submissions → submissions",
-            "isNullable": false
+            "isNullable": true
           }
         ]
       },
@@ -253,18 +144,18 @@
         "y": 0
       },
       "style": {
-        "width": 364
+        "width": 357
       }
     },
     {
-      "id": "roadmap",
+      "id": "leetcoders",
       "type": "default",
       "data": {
-        "label": "roadmap",
+        "label": "leetcoders",
         "fields": [
           {
             "name": "id",
-            "type": "String",
+            "type": "uuid",
             "isId": true,
             "isUnique": false,
             "isList": false,
@@ -273,166 +164,118 @@
             "isNullable": false
           },
           {
-            "name": "created_at",
-            "type": "DateTime",
+            "name": "name",
+            "type": "text",
             "isId": false,
             "isUnique": false,
             "isList": false,
             "kind": "scalar",
-            "label": "created_at",
+            "label": "name",
             "isNullable": false
           },
           {
-            "name": "problem_no",
-            "type": "Int",
-            "isId": false,
-            "isUnique": false,
-            "isList": false,
-            "kind": "scalar",
-            "label": "problem_no",
-            "isNullable": false
-          },
-          {
-            "name": "problem_order",
-            "type": "Int",
+            "name": "email",
+            "type": "text",
             "isId": false,
             "isUnique": true,
             "isList": false,
             "kind": "scalar",
-            "label": "problem_order",
+            "label": "email",
             "isNullable": false
           },
           {
-            "name": "problem_slug",
-            "type": "String",
+            "name": "lc_username",
+            "type": "text",
             "isId": false,
             "isUnique": false,
             "isList": false,
             "kind": "scalar",
-            "label": "problem_slug",
+            "label": "lc_username",
             "isNullable": false
           },
           {
-            "name": "topic",
-            "type": "String",
+            "name": "gh_username",
+            "type": "text",
             "isId": false,
             "isUnique": false,
             "isList": false,
             "kind": "scalar",
-            "label": "topic",
-            "isNullable": false
+            "label": "gh_username",
+            "isNullable": true
           },
           {
-            "name": "difficulty",
-            "type": "String",
+            "name": "x_username",
+            "type": "text",
             "isId": false,
             "isUnique": false,
             "isList": false,
             "kind": "scalar",
-            "label": "difficulty",
-            "isNullable": false
+            "label": "x_username",
+            "isNullable": true
           },
           {
-            "name": "group_progress",
-            "type": "group_progress",
-            "isId": false,
-            "isUnique": false,
-            "isList": true,
-            "kind": "object",
-            "relationName": "group_progressToroadmap",
-            "label": "group_progress → group_progress",
-            "isNullable": false
-          },
-          {
-            "name": "submissions",
-            "type": "submissions",
-            "isId": false,
-            "isUnique": false,
-            "isList": true,
-            "kind": "object",
-            "relationName": "roadmapTosubmissions",
-            "label": "submissions → submissions",
-            "isNullable": false
-          }
-        ]
-      },
-      "position": {
-        "x": 0,
-        "y": 0
-      },
-      "style": {
-        "width": 364
-      }
-    },
-    {
-      "id": "resources",
-      "type": "default",
-      "data": {
-        "label": "resources",
-        "fields": [
-          {
-            "name": "id",
-            "type": "String",
-            "isId": true,
-            "isUnique": false,
-            "isList": false,
-            "kind": "scalar",
-            "label": "id (ID)",
-            "isNullable": false
-          },
-          {
-            "name": "created_at",
-            "type": "DateTime",
+            "name": "li_username",
+            "type": "text",
             "isId": false,
             "isUnique": false,
             "isList": false,
             "kind": "scalar",
-            "label": "created_at",
-            "isNullable": false
+            "label": "li_username",
+            "isNullable": true
           },
           {
-            "name": "title",
-            "type": "String",
+            "name": "avatar",
+            "type": "text",
             "isId": false,
             "isUnique": false,
             "isList": false,
             "kind": "scalar",
-            "label": "title",
-            "isNullable": false
+            "label": "avatar",
+            "isNullable": true
           },
           {
-            "name": "url",
-            "type": "String",
+            "name": "website",
+            "type": "text",
             "isId": false,
             "isUnique": false,
             "isList": false,
             "kind": "scalar",
-            "label": "url",
-            "isNullable": false
+            "label": "website",
+            "isNullable": true
           },
           {
-            "name": "contributor",
-            "type": "String",
+            "name": "group_no",
+            "type": "integer",
             "isId": false,
             "isUnique": false,
             "isList": false,
             "kind": "scalar",
-            "label": "contributor",
+            "label": "group_no",
             "isNullable": false
           },
           {
-            "name": "topic",
-            "type": "String",
+            "name": "has_second_chance",
+            "type": "boolean",
             "isId": false,
             "isUnique": false,
             "isList": false,
             "kind": "scalar",
-            "label": "topic",
+            "label": "has_second_chance",
+            "isNullable": false
+          },
+          {
+            "name": "rejoined_at",
+            "type": "timestamp (6) with time zone",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "rejoined_at",
             "isNullable": false
           },
           {
             "name": "is_visible",
-            "type": "Boolean",
+            "type": "boolean",
             "isId": false,
             "isUnique": false,
             "isList": false,
@@ -441,56 +284,66 @@
             "isNullable": false
           },
           {
-            "name": "is_approved",
-            "type": "Boolean",
+            "name": "username",
+            "type": "text",
+            "isId": false,
+            "isUnique": true,
+            "isList": false,
+            "kind": "scalar",
+            "label": "username",
+            "isNullable": false
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp (6) with time zone",
             "isId": false,
             "isUnique": false,
             "isList": false,
             "kind": "scalar",
-            "label": "is_approved",
+            "label": "created_at",
             "isNullable": false
           },
           {
-            "name": "type_id",
-            "type": "Int",
+            "name": "is_notified",
+            "type": "boolean",
             "isId": false,
             "isUnique": false,
             "isList": false,
             "kind": "scalar",
-            "label": "type_id",
+            "label": "is_notified",
             "isNullable": false
           },
           {
-            "name": "tab_id",
-            "type": "Int",
+            "name": "status",
+            "type": "leetcode_status",
             "isId": false,
             "isUnique": false,
             "isList": false,
             "kind": "scalar",
-            "label": "tab_id",
+            "label": "status",
             "isNullable": false
           },
           {
-            "name": "type",
-            "type": "resource_types",
+            "name": "groupNo",
+            "type": "groups",
             "isId": false,
             "isUnique": false,
             "isList": false,
             "kind": "object",
-            "relationName": "resource_typesToresources",
-            "label": "type → resource_types",
+            "relationName": null,
+            "label": "groupNo → groups",
             "isNullable": false
           },
           {
-            "name": "tab",
-            "type": "resource_tabs",
+            "name": "submissions",
+            "type": "submissions",
             "isId": false,
             "isUnique": false,
-            "isList": false,
+            "isList": true,
             "kind": "object",
-            "relationName": "resource_tabsToresources",
-            "label": "tab → resource_tabs",
-            "isNullable": false
+            "relationName": null,
+            "label": "submissions → submissions",
+            "isNullable": true
           }
         ]
       },
@@ -499,7 +352,7 @@
         "y": 0
       },
       "style": {
-        "width": 294
+        "width": 441
       }
     },
     {
@@ -510,7 +363,7 @@
         "fields": [
           {
             "name": "id",
-            "type": "Int",
+            "type": "serial",
             "isId": true,
             "isUnique": false,
             "isList": false,
@@ -520,7 +373,7 @@
           },
           {
             "name": "name",
-            "type": "String",
+            "type": "text",
             "isId": false,
             "isUnique": true,
             "isList": false,
@@ -535,9 +388,9 @@
             "isUnique": false,
             "isList": true,
             "kind": "object",
-            "relationName": "resource_tabsToresources",
+            "relationName": null,
             "label": "resources → resources",
-            "isNullable": false
+            "isNullable": true
           }
         ]
       },
@@ -557,7 +410,7 @@
         "fields": [
           {
             "name": "id",
-            "type": "Int",
+            "type": "serial",
             "isId": true,
             "isUnique": false,
             "isList": false,
@@ -567,7 +420,7 @@
           },
           {
             "name": "name",
-            "type": "String",
+            "type": "text",
             "isId": false,
             "isUnique": true,
             "isList": false,
@@ -582,9 +435,9 @@
             "isUnique": false,
             "isList": true,
             "kind": "object",
-            "relationName": "resource_typesToresources",
+            "relationName": null,
             "label": "resources → resources",
-            "isNullable": false
+            "isNullable": true
           }
         ]
       },
@@ -597,14 +450,14 @@
       }
     },
     {
-      "id": "leetcoders",
+      "id": "resources",
       "type": "default",
       "data": {
-        "label": "leetcoders",
+        "label": "resources",
         "fields": [
           {
             "name": "id",
-            "type": "String",
+            "type": "uuid",
             "isId": true,
             "isUnique": false,
             "isList": false,
@@ -613,138 +466,8 @@
             "isNullable": false
           },
           {
-            "name": "name",
-            "type": "String",
-            "isId": false,
-            "isUnique": false,
-            "isList": false,
-            "kind": "scalar",
-            "label": "name",
-            "isNullable": false
-          },
-          {
-            "name": "email",
-            "type": "String",
-            "isId": false,
-            "isUnique": true,
-            "isList": false,
-            "kind": "scalar",
-            "label": "email",
-            "isNullable": false
-          },
-          {
-            "name": "lc_username",
-            "type": "String",
-            "isId": false,
-            "isUnique": false,
-            "isList": false,
-            "kind": "scalar",
-            "label": "lc_username",
-            "isNullable": false
-          },
-          {
-            "name": "gh_username",
-            "type": "String",
-            "isId": false,
-            "isUnique": false,
-            "isList": false,
-            "kind": "scalar",
-            "label": "gh_username",
-            "isNullable": true
-          },
-          {
-            "name": "x_username",
-            "type": "String",
-            "isId": false,
-            "isUnique": false,
-            "isList": false,
-            "kind": "scalar",
-            "label": "x_username",
-            "isNullable": true
-          },
-          {
-            "name": "li_username",
-            "type": "String",
-            "isId": false,
-            "isUnique": false,
-            "isList": false,
-            "kind": "scalar",
-            "label": "li_username",
-            "isNullable": true
-          },
-          {
-            "name": "avatar",
-            "type": "String",
-            "isId": false,
-            "isUnique": false,
-            "isList": false,
-            "kind": "scalar",
-            "label": "avatar",
-            "isNullable": true
-          },
-          {
-            "name": "website",
-            "type": "String",
-            "isId": false,
-            "isUnique": false,
-            "isList": false,
-            "kind": "scalar",
-            "label": "website",
-            "isNullable": true
-          },
-          {
-            "name": "group_no",
-            "type": "Int",
-            "isId": false,
-            "isUnique": false,
-            "isList": false,
-            "kind": "scalar",
-            "label": "group_no",
-            "isNullable": false
-          },
-          {
-            "name": "has_second_chance",
-            "type": "Boolean",
-            "isId": false,
-            "isUnique": false,
-            "isList": false,
-            "kind": "scalar",
-            "label": "has_second_chance",
-            "isNullable": false
-          },
-          {
-            "name": "rejoined_at",
-            "type": "DateTime",
-            "isId": false,
-            "isUnique": false,
-            "isList": false,
-            "kind": "scalar",
-            "label": "rejoined_at",
-            "isNullable": false
-          },
-          {
-            "name": "is_visible",
-            "type": "Boolean",
-            "isId": false,
-            "isUnique": false,
-            "isList": false,
-            "kind": "scalar",
-            "label": "is_visible",
-            "isNullable": false
-          },
-          {
-            "name": "username",
-            "type": "String",
-            "isId": false,
-            "isUnique": true,
-            "isList": false,
-            "kind": "scalar",
-            "label": "username",
-            "isNullable": false
-          },
-          {
             "name": "created_at",
-            "type": "DateTime",
+            "type": "timestamp (6) with time zone",
             "isId": false,
             "isUnique": false,
             "isList": false,
@@ -753,45 +476,105 @@
             "isNullable": false
           },
           {
-            "name": "is_notified",
-            "type": "Boolean",
+            "name": "title",
+            "type": "text",
             "isId": false,
             "isUnique": false,
             "isList": false,
             "kind": "scalar",
-            "label": "is_notified",
+            "label": "title",
             "isNullable": false
           },
           {
-            "name": "status",
-            "type": "LeetcodeStatus",
+            "name": "url",
+            "type": "text",
             "isId": false,
             "isUnique": false,
             "isList": false,
-            "kind": "enum",
-            "label": "status",
+            "kind": "scalar",
+            "label": "url",
             "isNullable": false
           },
           {
-            "name": "group",
-            "type": "groups",
+            "name": "contributor",
+            "type": "text",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "contributor",
+            "isNullable": false
+          },
+          {
+            "name": "topic",
+            "type": "text",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "topic",
+            "isNullable": false
+          },
+          {
+            "name": "is_visible",
+            "type": "boolean",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "is_visible",
+            "isNullable": false
+          },
+          {
+            "name": "is_approved",
+            "type": "boolean",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "is_approved",
+            "isNullable": false
+          },
+          {
+            "name": "type_id",
+            "type": "integer",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "type_id",
+            "isNullable": false
+          },
+          {
+            "name": "tab_id",
+            "type": "integer",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "tab_id",
+            "isNullable": false
+          },
+          {
+            "name": "type",
+            "type": "resource_types",
             "isId": false,
             "isUnique": false,
             "isList": false,
             "kind": "object",
-            "relationName": "groupsToleetcoders",
-            "label": "group → groups",
+            "relationName": null,
+            "label": "type → resource_types",
             "isNullable": false
           },
           {
-            "name": "submissions",
-            "type": "submissions",
+            "name": "tab",
+            "type": "resource_tabs",
             "isId": false,
             "isUnique": false,
-            "isList": true,
+            "isList": false,
             "kind": "object",
-            "relationName": "leetcodersTosubmissions",
-            "label": "submissions → submissions",
+            "relationName": null,
+            "label": "tab → resource_tabs",
             "isNullable": false
           }
         ]
@@ -801,105 +584,306 @@
         "y": 0
       },
       "style": {
-        "width": 336
+        "width": 434
+      }
+    },
+    {
+      "id": "roadmap",
+      "type": "default",
+      "data": {
+        "label": "roadmap",
+        "fields": [
+          {
+            "name": "id",
+            "type": "uuid",
+            "isId": true,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "id (ID)",
+            "isNullable": false
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp (6) with time zone",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "created_at",
+            "isNullable": false
+          },
+          {
+            "name": "problem_no",
+            "type": "integer",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "problem_no",
+            "isNullable": false
+          },
+          {
+            "name": "problem_order",
+            "type": "integer",
+            "isId": false,
+            "isUnique": true,
+            "isList": false,
+            "kind": "scalar",
+            "label": "problem_order",
+            "isNullable": false
+          },
+          {
+            "name": "problem_slug",
+            "type": "text",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "problem_slug",
+            "isNullable": false
+          },
+          {
+            "name": "topic",
+            "type": "text",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "topic",
+            "isNullable": false
+          },
+          {
+            "name": "difficulty",
+            "type": "text",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "difficulty",
+            "isNullable": false
+          },
+          {
+            "name": "groupProgress",
+            "type": "group_progress",
+            "isId": false,
+            "isUnique": false,
+            "isList": true,
+            "kind": "object",
+            "relationName": null,
+            "label": "groupProgress → group_progress",
+            "isNullable": true
+          },
+          {
+            "name": "submissions",
+            "type": "submissions",
+            "isId": false,
+            "isUnique": false,
+            "isList": true,
+            "kind": "object",
+            "relationName": null,
+            "label": "submissions → submissions",
+            "isNullable": true
+          }
+        ]
+      },
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "width": 434
+      }
+    },
+    {
+      "id": "submissions",
+      "type": "default",
+      "data": {
+        "label": "submissions",
+        "fields": [
+          {
+            "name": "id",
+            "type": "uuid",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "id",
+            "isNullable": false
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp (6) with time zone",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "created_at",
+            "isNullable": false
+          },
+          {
+            "name": "user_id",
+            "type": "uuid",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "user_id",
+            "isNullable": false
+          },
+          {
+            "name": "problem_id",
+            "type": "uuid",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "problem_id",
+            "isNullable": false
+          },
+          {
+            "name": "solved",
+            "type": "boolean",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "solved",
+            "isNullable": false
+          },
+          {
+            "name": "group_no",
+            "type": "integer",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "group_no",
+            "isNullable": true
+          },
+          {
+            "name": "groupNo",
+            "type": "groups",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "object",
+            "relationName": null,
+            "label": "groupNo → groups",
+            "isNullable": true
+          },
+          {
+            "name": "problem",
+            "type": "roadmap",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "object",
+            "relationName": null,
+            "label": "problem → roadmap",
+            "isNullable": false
+          },
+          {
+            "name": "user",
+            "type": "leetcoders",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "object",
+            "relationName": null,
+            "label": "user → leetcoders",
+            "isNullable": false
+          }
+        ]
+      },
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "width": 434
       }
     }
   ],
   "edges": [
     {
-      "id": "submissions-group-groups",
-      "source": "submissions",
-      "sourceHandle": "field-6",
-      "target": "groups",
-      "targetHandle": "table-input",
-      "label": "groupsTosubmissions",
-      "type": "smoothstep",
-      "animated": true,
-      "data": {
-        "relationshipType": "many-to-one",
-        "fromField": "group",
-        "fromTable": "submissions",
-        "isList": false
-      }
-    },
-    {
-      "id": "submissions-problem-roadmap",
-      "source": "submissions",
-      "sourceHandle": "field-7",
-      "target": "roadmap",
-      "targetHandle": "table-input",
-      "label": "roadmapTosubmissions",
-      "type": "smoothstep",
-      "animated": true,
-      "data": {
-        "relationshipType": "many-to-one",
-        "fromField": "problem",
-        "fromTable": "submissions",
-        "isList": false
-      }
-    },
-    {
-      "id": "submissions-user-leetcoders",
-      "source": "submissions",
-      "sourceHandle": "field-8",
-      "target": "leetcoders",
-      "targetHandle": "table-input",
-      "label": "leetcodersTosubmissions",
-      "type": "smoothstep",
-      "animated": true,
-      "data": {
-        "relationshipType": "many-to-one",
-        "fromField": "user",
-        "fromTable": "submissions",
-        "isList": false
-      }
-    },
-    {
-      "id": "group_progress-roadmap-roadmap",
+      "id": "group_progress-groupNo-groups",
       "source": "group_progress",
       "sourceHandle": "field-4",
-      "target": "roadmap",
-      "targetHandle": "table-input",
-      "label": "group_progressToroadmap",
-      "type": "smoothstep",
-      "animated": true,
-      "data": {
-        "relationshipType": "many-to-one",
-        "fromField": "roadmap",
-        "fromTable": "group_progress",
-        "isList": false
-      }
-    },
-    {
-      "id": "group_progress-group-groups",
-      "source": "group_progress",
-      "sourceHandle": "field-5",
       "target": "groups",
       "targetHandle": "table-input",
-      "label": "group_progressTogroups",
+      "label": null,
       "type": "smoothstep",
       "animated": true,
       "data": {
         "relationshipType": "many-to-one",
-        "fromField": "group",
+        "fromField": "groupNo",
         "fromTable": "group_progress",
         "isList": false
       }
     },
     {
-      "id": "groups-group_progress-group_progress",
+      "id": "groups-groupProgress-group_progress",
       "source": "groups",
       "sourceHandle": "field-2",
       "target": "group_progress",
       "targetHandle": "table-input",
-      "label": "group_progressTogroups",
+      "label": null,
       "type": "smoothstep",
       "animated": true,
       "data": {
         "relationshipType": "one-to-many",
-        "fromField": "group_progress",
+        "fromField": "groupProgress",
         "fromTable": "groups",
         "isList": true
+      }
+    },
+    {
+      "id": "group_progress-currentProblem-roadmap",
+      "source": "group_progress",
+      "sourceHandle": "field-5",
+      "target": "roadmap",
+      "targetHandle": "table-input",
+      "label": null,
+      "type": "smoothstep",
+      "animated": true,
+      "data": {
+        "relationshipType": "many-to-one",
+        "fromField": "currentProblem",
+        "fromTable": "group_progress",
+        "isList": false
+      }
+    },
+    {
+      "id": "roadmap-groupProgress-group_progress",
+      "source": "roadmap",
+      "sourceHandle": "field-7",
+      "target": "group_progress",
+      "targetHandle": "table-input",
+      "label": null,
+      "type": "smoothstep",
+      "animated": true,
+      "data": {
+        "relationshipType": "one-to-many",
+        "fromField": "groupProgress",
+        "fromTable": "roadmap",
+        "isList": true
+      }
+    },
+    {
+      "id": "leetcoders-groupNo-groups",
+      "source": "leetcoders",
+      "sourceHandle": "field-17",
+      "target": "groups",
+      "targetHandle": "table-input",
+      "label": null,
+      "type": "smoothstep",
+      "animated": true,
+      "data": {
+        "relationshipType": "many-to-one",
+        "fromField": "groupNo",
+        "fromTable": "leetcoders",
+        "isList": false
       }
     },
     {
@@ -908,7 +892,7 @@
       "sourceHandle": "field-3",
       "target": "leetcoders",
       "targetHandle": "table-input",
-      "label": "groupsToleetcoders",
+      "label": null,
       "type": "smoothstep",
       "animated": true,
       "data": {
@@ -919,60 +903,12 @@
       }
     },
     {
-      "id": "groups-submissions-submissions",
-      "source": "groups",
-      "sourceHandle": "field-4",
-      "target": "submissions",
-      "targetHandle": "table-input",
-      "label": "groupsTosubmissions",
-      "type": "smoothstep",
-      "animated": true,
-      "data": {
-        "relationshipType": "one-to-many",
-        "fromField": "submissions",
-        "fromTable": "groups",
-        "isList": true
-      }
-    },
-    {
-      "id": "roadmap-group_progress-group_progress",
-      "source": "roadmap",
-      "sourceHandle": "field-7",
-      "target": "group_progress",
-      "targetHandle": "table-input",
-      "label": "group_progressToroadmap",
-      "type": "smoothstep",
-      "animated": true,
-      "data": {
-        "relationshipType": "one-to-many",
-        "fromField": "group_progress",
-        "fromTable": "roadmap",
-        "isList": true
-      }
-    },
-    {
-      "id": "roadmap-submissions-submissions",
-      "source": "roadmap",
-      "sourceHandle": "field-8",
-      "target": "submissions",
-      "targetHandle": "table-input",
-      "label": "roadmapTosubmissions",
-      "type": "smoothstep",
-      "animated": true,
-      "data": {
-        "relationshipType": "one-to-many",
-        "fromField": "submissions",
-        "fromTable": "roadmap",
-        "isList": true
-      }
-    },
-    {
       "id": "resources-type-resource_types",
       "source": "resources",
       "sourceHandle": "field-10",
       "target": "resource_types",
       "targetHandle": "table-input",
-      "label": "resource_typesToresources",
+      "label": null,
       "type": "smoothstep",
       "animated": true,
       "data": {
@@ -983,12 +919,28 @@
       }
     },
     {
+      "id": "resource_types-resources-resources",
+      "source": "resource_types",
+      "sourceHandle": "field-2",
+      "target": "resources",
+      "targetHandle": "table-input",
+      "label": null,
+      "type": "smoothstep",
+      "animated": true,
+      "data": {
+        "relationshipType": "one-to-many",
+        "fromField": "resources",
+        "fromTable": "resource_types",
+        "isList": true
+      }
+    },
+    {
       "id": "resources-tab-resource_tabs",
       "source": "resources",
       "sourceHandle": "field-11",
       "target": "resource_tabs",
       "targetHandle": "table-input",
-      "label": "resource_tabsToresources",
+      "label": null,
       "type": "smoothstep",
       "animated": true,
       "data": {
@@ -1004,7 +956,7 @@
       "sourceHandle": "field-2",
       "target": "resources",
       "targetHandle": "table-input",
-      "label": "resource_tabsToresources",
+      "label": null,
       "type": "smoothstep",
       "animated": true,
       "data": {
@@ -1015,34 +967,82 @@
       }
     },
     {
-      "id": "resource_types-resources-resources",
-      "source": "resource_types",
-      "sourceHandle": "field-2",
-      "target": "resources",
-      "targetHandle": "table-input",
-      "label": "resource_typesToresources",
-      "type": "smoothstep",
-      "animated": true,
-      "data": {
-        "relationshipType": "one-to-many",
-        "fromField": "resources",
-        "fromTable": "resource_types",
-        "isList": true
-      }
-    },
-    {
-      "id": "leetcoders-group-groups",
-      "source": "leetcoders",
-      "sourceHandle": "field-17",
+      "id": "submissions-groupNo-groups",
+      "source": "submissions",
+      "sourceHandle": "field-6",
       "target": "groups",
       "targetHandle": "table-input",
-      "label": "groupsToleetcoders",
+      "label": null,
       "type": "smoothstep",
       "animated": true,
       "data": {
         "relationshipType": "many-to-one",
-        "fromField": "group",
-        "fromTable": "leetcoders",
+        "fromField": "groupNo",
+        "fromTable": "submissions",
+        "isList": false
+      }
+    },
+    {
+      "id": "groups-submissions-submissions",
+      "source": "groups",
+      "sourceHandle": "field-4",
+      "target": "submissions",
+      "targetHandle": "table-input",
+      "label": null,
+      "type": "smoothstep",
+      "animated": true,
+      "data": {
+        "relationshipType": "one-to-many",
+        "fromField": "submissions",
+        "fromTable": "groups",
+        "isList": true
+      }
+    },
+    {
+      "id": "submissions-problem-roadmap",
+      "source": "submissions",
+      "sourceHandle": "field-7",
+      "target": "roadmap",
+      "targetHandle": "table-input",
+      "label": null,
+      "type": "smoothstep",
+      "animated": true,
+      "data": {
+        "relationshipType": "many-to-one",
+        "fromField": "problem",
+        "fromTable": "submissions",
+        "isList": false
+      }
+    },
+    {
+      "id": "roadmap-submissions-submissions",
+      "source": "roadmap",
+      "sourceHandle": "field-8",
+      "target": "submissions",
+      "targetHandle": "table-input",
+      "label": null,
+      "type": "smoothstep",
+      "animated": true,
+      "data": {
+        "relationshipType": "one-to-many",
+        "fromField": "submissions",
+        "fromTable": "roadmap",
+        "isList": true
+      }
+    },
+    {
+      "id": "submissions-user-leetcoders",
+      "source": "submissions",
+      "sourceHandle": "field-8",
+      "target": "leetcoders",
+      "targetHandle": "table-input",
+      "label": null,
+      "type": "smoothstep",
+      "animated": true,
+      "data": {
+        "relationshipType": "many-to-one",
+        "fromField": "user",
+        "fromTable": "submissions",
         "isList": false
       }
     },
@@ -1052,7 +1052,7 @@
       "sourceHandle": "field-18",
       "target": "submissions",
       "targetHandle": "table-input",
-      "label": "leetcodersTosubmissions",
+      "label": null,
       "type": "smoothstep",
       "animated": true,
       "data": {

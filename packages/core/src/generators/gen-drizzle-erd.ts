@@ -1,9 +1,13 @@
 import type { DatabaseType } from "../types/db.type.ts";
 import type { Edge, ErdResult, Node } from "../types/erd.type.ts";
 import { calcTableWidth } from "../utils/calc-table-width.ts";
-import { pluralize, removeIdSuffix, toCamelCase } from "../utils/helpers/drizzle-helpers.ts";
+import { getFilesFromDir } from "../utils/get-files-from-dir.ts";
+import { pluralize, removeIdSuffix, toCamelCase, combineDrizzleSchemas } from "../utils/helpers/drizzle-helpers.ts";
 
-export const genDrizzleERD = async (schemaModule: string, dbType: DatabaseType): Promise<ErdResult> => {
+export const genDrizzleERD = async (
+  schemaPathOrModule: string | any, 
+  dbType: DatabaseType
+): Promise<ErdResult> => {
   const { Parser } = await import("@dbml/core");
   const { mysqlGenerate, pgGenerate, sqliteGenerate } = await import("drizzle-dbml-generator");
 
@@ -21,6 +25,29 @@ export const genDrizzleERD = async (schemaModule: string, dbType: DatabaseType):
       break;
     default:
       throw new Error(`Unsupported database type: ${dbType}`);
+  }
+
+  let schemaModule: any;
+
+  // Check if schemaPathOrModule is a string (file/directory path) or already an imported module
+  if (typeof schemaPathOrModule === "string") {
+    // It's a path - need to find and import schema files
+    const files = await getFilesFromDir([".ts"], schemaPathOrModule);
+    
+    if (files.length === 0) {
+      throw new Error(`No Drizzle schema files (.ts) found at ${schemaPathOrModule}`);
+    }
+
+    // Import and merge all schema files
+    schemaModule = await combineDrizzleSchemas(files);
+  } else {
+    // It's already an imported module (backward compatibility)
+    schemaModule = schemaPathOrModule;
+  }
+
+  // Validate that we have a schema
+  if (!schemaModule || Object.keys(schemaModule).length === 0) {
+    throw new Error("Schema module is empty or invalid");
   }
 
   // Generate DBML string using drizzle-dbml-generator

@@ -1,6 +1,6 @@
 {
   "name": "hviz",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "type": "module",
   "description": "Beautiful ERD visualization for your database schema",
   "license": "MIT",

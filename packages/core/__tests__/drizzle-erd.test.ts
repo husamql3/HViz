@@ -17,6 +17,12 @@ vi.mock("drizzle-dbml-generator", () => ({
 	sqliteGenerate: vi.fn(),
 }));
 
+// Mock schema object for tests (since we're mocking the generator functions)
+const mockSchema = {
+	users: { name: "users" },
+	posts: { name: "posts" },
+};
+
 describe("Drizzle ERD Generation", () => {
 	describe("Database Type Support", () => {
 		beforeEach(() => {
@@ -26,28 +32,28 @@ describe("Drizzle ERD Generation", () => {
 		});
 
 		it("should handle postgres dialect", async () => {
-			const result = await genDrizzleERD("", "drizzle-postgres");
+			const result = await genDrizzleERD(mockSchema, "drizzle-postgres");
 
 			expect(result.nodes.length).toBeGreaterThan(0);
 			expect(result.edges?.length).toBeGreaterThan(0);
 		});
 
 		it("should handle mysql dialect", async () => {
-			const result = await genDrizzleERD("", "drizzle-mysql");
+			const result = await genDrizzleERD(mockSchema, "drizzle-mysql");
 
 			expect(result.nodes.length).toBeGreaterThan(0);
 			expect(result.edges?.length).toBeGreaterThan(0);
 		});
 
 		it("should handle sqlite dialect", async () => {
-			const result = await genDrizzleERD("", "drizzle-sqlite");
+			const result = await genDrizzleERD(mockSchema, "drizzle-sqlite");
 
 			expect(result.nodes.length).toBeGreaterThan(0);
 			expect(result.edges?.length).toBeGreaterThan(0);
 		});
 
 		it("should throw error for unsupported database type", async () => {
-			await expect(genDrizzleERD("", "unsupported" as any)).rejects.toThrow("Unsupported database type");
+			await expect(genDrizzleERD(mockSchema, "unsupported" as any)).rejects.toThrow("Unsupported database type");
 		});
 	});
 
@@ -57,7 +63,7 @@ describe("Drizzle ERD Generation", () => {
 		});
 
 		it("should generate ERD from DBML", async () => {
-			const result = await genDrizzleERD("", "drizzle-postgres");
+			const result = await genDrizzleERD(mockSchema, "drizzle-postgres");
 
 			expect(result.nodes).toHaveLength(2);
 			expect(result.edges).toBeDefined();
@@ -71,7 +77,7 @@ describe("Drizzle ERD Generation", () => {
 		});
 
 		it("should create virtual relation fields", async () => {
-			const result = await genDrizzleERD("", "drizzle-postgres");
+			const result = await genDrizzleERD(mockSchema, "drizzle-postgres");
 
 			const postsNode = result.nodes.find((n) => n.id === "posts");
 			const usersNode = result.nodes.find((n) => n.id === "users");
@@ -92,14 +98,14 @@ describe("Drizzle ERD Generation", () => {
 		});
 
 		it("should handle multiple relationships", async () => {
-			const result = await genDrizzleERD("", "drizzle-postgres");
+			const result = await genDrizzleERD(mockSchema, "drizzle-postgres");
 
 			expect(result.nodes.length).toBeGreaterThanOrEqual(5);
 			expect(result.edges?.length).toBeGreaterThan(5);
 		});
 
 		it("should handle one-to-one relationships", async () => {
-			const result = await genDrizzleERD("", "drizzle-postgres");
+			const result = await genDrizzleERD(mockSchema, "drizzle-postgres");
 
 			// Find profile-user relationship
 			const edge = result.edges?.find((e) => e.data.relationshipType === "one-to-one");
@@ -107,14 +113,14 @@ describe("Drizzle ERD Generation", () => {
 		});
 
 		it("should handle many-to-one relationships", async () => {
-			const result = await genDrizzleERD("", "drizzle-postgres");
+			const result = await genDrizzleERD(mockSchema, "drizzle-postgres");
 
 			const manyToOneEdges = result.edges?.filter((e) => e.data.relationshipType === "many-to-one");
 			expect(manyToOneEdges?.length).toBeGreaterThan(0);
 		});
 
 		it("should handle one-to-many relationships", async () => {
-			const result = await genDrizzleERD("", "drizzle-postgres");
+			const result = await genDrizzleERD(mockSchema, "drizzle-postgres");
 
 			const oneToManyEdges = result.edges?.filter((e) => e.data.relationshipType === "one-to-many");
 			expect(oneToManyEdges?.length).toBeGreaterThan(0);
@@ -127,14 +133,14 @@ describe("Drizzle ERD Generation", () => {
 		});
 
 		it("should handle complex schema with many tables", async () => {
-			const result = await genDrizzleERD("", "drizzle-postgres");
+			const result = await genDrizzleERD(mockSchema, "drizzle-postgres");
 
 			expect(result.nodes.length).toBeGreaterThan(10);
 			expect(result.edges?.length).toBeGreaterThan(15);
 		});
 
 		it("should handle self-referencing relationships", async () => {
-			const result = await genDrizzleERD("", "drizzle-postgres");
+			const result = await genDrizzleERD(mockSchema, "drizzle-postgres");
 
 			const commentsNode = result.nodes.find((n) => n.id === "comments");
 			if (commentsNode) {
@@ -145,7 +151,7 @@ describe("Drizzle ERD Generation", () => {
 		});
 
 		it("should correctly identify nullable relationships", async () => {
-			const result = await genDrizzleERD("", "drizzle-postgres");
+			const result = await genDrizzleERD(mockSchema, "drizzle-postgres");
 
 			const likesNode = result.nodes.find((n) => n.id === "likes");
 			if (likesNode) {
@@ -162,7 +168,7 @@ describe("Drizzle ERD Generation", () => {
 			vi.mocked(pgGenerate).mockReturnValue(largeDbml);
 
 			const startTime = performance.now();
-			const result = await genDrizzleERD("", "drizzle-postgres");
+			const result = await genDrizzleERD(mockSchema, "drizzle-postgres");
 			const duration = performance.now() - startTime;
 
 			expect(result.nodes).toHaveLength(50);
@@ -174,7 +180,7 @@ describe("Drizzle ERD Generation", () => {
 			vi.mocked(pgGenerate).mockReturnValue(largeDbml);
 
 			const startTime = performance.now();
-			const result = await genDrizzleERD("", "drizzle-postgres");
+			const result = await genDrizzleERD(mockSchema, "drizzle-postgres");
 			const duration = performance.now() - startTime;
 
 			expect(result.nodes).toHaveLength(100);
@@ -185,7 +191,7 @@ describe("Drizzle ERD Generation", () => {
 			const largeDbml = generateLargeDrizzleDbml(500);
 			vi.mocked(pgGenerate).mockReturnValue(largeDbml);
 
-			const result = await genDrizzleERD("", "drizzle-postgres");
+			const result = await genDrizzleERD(mockSchema, "drizzle-postgres");
 
 			expect(result.nodes).toHaveLength(500);
 			expect(result.nodes.every((node) => node.id && node.data.fields)).toBe(true);
@@ -195,7 +201,7 @@ describe("Drizzle ERD Generation", () => {
 			const largeDbml = generateLargeDrizzleDbml(100);
 			vi.mocked(pgGenerate).mockReturnValue(largeDbml);
 
-			const result = await genDrizzleERD("", "drizzle-postgres");
+			const result = await genDrizzleERD(mockSchema, "drizzle-postgres");
 
 			// Verify all nodes
 			result.nodes.forEach((node) => {
@@ -221,7 +227,7 @@ describe("Drizzle ERD Generation", () => {
 			vi.mocked(pgGenerate).mockReturnValue(largeDbml);
 
 			const initialMemory = process.memoryUsage().heapUsed;
-			const result = await genDrizzleERD("", "drizzle-postgres");
+			const result = await genDrizzleERD(mockSchema, "drizzle-postgres");
 			const finalMemory = process.memoryUsage().heapUsed;
 
 			const memoryIncrease = (finalMemory - initialMemory) / 1024 / 1024;
@@ -237,7 +243,7 @@ describe("Drizzle ERD Generation", () => {
 		});
 
 		it("should correctly identify primary keys", async () => {
-			const result = await genDrizzleERD("", "drizzle-postgres");
+			const result = await genDrizzleERD(mockSchema, "drizzle-postgres");
 
 			const usersNode = result.nodes.find((n) => n.id === "users");
 			const idField = usersNode?.data.fields.find((f) => f.name === "id");
@@ -247,7 +253,7 @@ describe("Drizzle ERD Generation", () => {
 		});
 
 		it("should correctly identify unique fields", async () => {
-			const result = await genDrizzleERD("", "drizzle-postgres");
+			const result = await genDrizzleERD(mockSchema, "drizzle-postgres");
 
 			const usersNode = result.nodes.find((n) => n.id === "users");
 			const emailField = usersNode?.data.fields.find((f) => f.name === "email");
@@ -257,7 +263,7 @@ describe("Drizzle ERD Generation", () => {
 		});
 
 		it("should correctly identify not null fields", async () => {
-			const result = await genDrizzleERD("", "drizzle-postgres");
+			const result = await genDrizzleERD(mockSchema, "drizzle-postgres");
 
 			const usersNode = result.nodes.find((n) => n.id === "users");
 			const emailField = usersNode?.data.fields.find((f) => f.name === "email");
@@ -267,7 +273,7 @@ describe("Drizzle ERD Generation", () => {
 		});
 
 		it("should handle nullable fields", async () => {
-			const result = await genDrizzleERD("", "drizzle-postgres");
+			const result = await genDrizzleERD(mockSchema, "drizzle-postgres");
 
 			const usersNode = result.nodes.find((n) => n.id === "users");
 			const nameField = usersNode?.data.fields.find((f) => f.name === "name");
@@ -284,7 +290,7 @@ describe("Drizzle ERD Generation", () => {
 		});
 
 		it("should create bidirectional edges", async () => {
-			const result = await genDrizzleERD("", "drizzle-postgres");
+			const result = await genDrizzleERD(mockSchema, "drizzle-postgres");
 
 			// Should have edges in both directions for the relationship
 			const forwardEdge = result.edges?.find((e) => e.source === "posts" && e.target === "users");
@@ -295,7 +301,7 @@ describe("Drizzle ERD Generation", () => {
 		});
 
 		it("should set correct edge properties", async () => {
-			const result = await genDrizzleERD("", "drizzle-postgres");
+			const result = await genDrizzleERD(mockSchema, "drizzle-postgres");
 
 			result.edges?.forEach((edge) => {
 				expect(edge.id).toBeTruthy();

@@ -17,6 +17,12 @@ vi.mock("drizzle-dbml-generator", () => ({
 	sqliteGenerate: vi.fn().mockReturnValue(mediumDrizzleDbml),
 }));
 
+// Mock schema object for Drizzle tests
+const mockDrizzleSchema = {
+	users: { name: "users" },
+	posts: { name: "posts" },
+};
+
 // Helper function to create temporary TypeORM schema
 async function createTempTypeORMSchema(schema: Record<string, string>): Promise<string> {
 	const tempDir = join(tmpdir(), `typeorm-integration-${Date.now()}-${Math.random().toString(36).slice(2)}`);
@@ -33,7 +39,7 @@ describe("Integration Tests", () => {
 	describe("End-to-End ERD Generation", () => {
 		it("should generate consistent output format across ORMs", async () => {
 			const prismaResult = await genPrismaERD(mediumPrismaSchema);
-			const drizzleResult = await genDrizzleERD("", "drizzle-postgres");
+			const drizzleResult = await genDrizzleERD(mockDrizzleSchema, "drizzle-postgres");
 
 			// Both should have the same structure
 			expect(prismaResult).toHaveProperty("nodes");

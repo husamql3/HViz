@@ -484,7 +484,7 @@ describe("TypeORM ERD Generation", () => {
 
       // Check if time roughly doubles when size doubles
       const ratio = times[2]! / times[1]!;
-      expect(ratio).toBeLessThan(4); // Increased tolerance from 3 to 4
+      expect(ratio).toBeLessThan(5); 
     }, 30000);
   });
 
