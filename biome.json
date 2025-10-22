@@ -21,6 +21,9 @@
 			"suspicious": {
 				"noArrayIndexKey": "off"
 			},
+			"security": {
+				"noDangerouslySetInnerHtml": "off"
+			},
 			"correctness": {
 				"useUniqueElementIds": "off"
 			}
@@ -33,7 +36,12 @@
 		"defaultBranch": "main"
 	},
 	"files": {
-		"includes": ["www/app/**", "!www/app/app.css"],
+		"includes": [
+			"www/app/**",
+			"!www/app/app.css",
+			"!www/app/components/pixel-blast.tsx",
+			"!www/app/components/code-block"
+		],
 		"ignoreUnknown": true
 	}
 }

@@ -28,7 +28,7 @@ export const ROADMAP: RoadmapItem[] = [
 	{
 		title: "Schema Validation",
 		subtitle: "Validate schema files for accuracy",
-		status: "not started",
+		status: "done",
 		priority: "P2", // Important for reliability
 	},
 
@@ -41,7 +41,7 @@ export const ROADMAP: RoadmapItem[] = [
 			{ title: "SQLite", status: "not started" },
 		],
 		priority: "P2", // Depends on ORM parsing
-		status: "not started",
+		status: "in progress",
 	},
 	{
 		title: "Automatic Schema Detection",

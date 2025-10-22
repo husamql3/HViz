@@ -11,7 +11,7 @@ export const WEBSITE_KEYWORDS =
 	"ERD generator, database diagram, schema visualization, Prisma ERD, Drizzle ERD, TypeORM ERD, Postgres ERD, MySQL ERD, SQLite ERD, database design tool, CLI ERD tool";
 export const WEBSITE_AUTHOR = "husamql3";
 export const WEBSITE_TWITTER_USERNAME = "@husamql3";
-export const WEBSITE_OG_IMAGE = "https://www.hviz.tech/og-img.png";
+export const WEBSITE_OG_IMAGE = "https://www.hviz.tech/og.png";
 export const WEBSITE_SITEMAP = "https://www.hviz.tech/sitemap-index.xml";
 export const WEBSITE_OG_TITLE = "hviz - CLI Tool for Visualizing Your Database Schema";
 export const WEBSITE_OG_DESCRIPTION =

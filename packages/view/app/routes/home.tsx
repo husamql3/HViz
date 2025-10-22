@@ -1,7 +1,6 @@
 import type { ErdResult } from "hviz/src/types/erd.type.ts";
 import { Board } from "@/components/board";
 import { Header } from "@/components/header";
-import { INITIAL_EDGES, INITIAL_NODES } from "@/utils/data";
 
 export function meta() {
 	return [{ title: "hviz" }, { name: "description", content: "CLI Tool for Visualizing Your Database Schema!" }];

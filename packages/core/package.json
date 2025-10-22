@@ -1,8 +1,8 @@
 {
   "name": "hviz",
-  "version": "1.0.8",
+  "version": "1.1.8",
   "type": "module",
-  "description": "Beautiful ERD visualization for your database schema",
+  "description": "CLI tool for visualizing your database schema",
   "license": "MIT",
   "author": {
     "name": "husamql3",
@@ -47,7 +47,7 @@
     "access": "public"
   },
   "scripts": {
-    "dev": "cd ../view && bun run build && cd ../core && NODE_ENV=development bun run src/index.ts",
+    "dev": "NODE_ENV=development bun run src/index.ts",
     "build": "tsup",
     "prepublishOnly": "echo 'Building for publish...' && bun run build",
     "test": "vitest run",

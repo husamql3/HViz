@@ -9,20 +9,27 @@
 		"typecheck": "react-router typegen && tsc"
 	},
 	"dependencies": {
+		"@radix-ui/react-select": "^2.2.6",
 		"@radix-ui/react-slot": "^1.2.3",
+		"@radix-ui/react-use-controllable-state": "^1.2.2",
 		"@react-router/node": "^7.9.2",
 		"@react-router/serve": "^7.9.2",
+		"@shikijs/transformers": "^3.13.0",
 		"@supabase-js/source": "supabase/supabase-js",
 		"@supabase/supabase-js": "^2.75.0",
+		"@types/three": "^0.180.0",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
 		"isbot": "^5.1.31",
 		"lucide-react": "^0.546.0",
+		"postprocessing": "^6.37.8",
 		"react": "^19.1.1",
 		"react-dom": "^19.1.1",
 		"react-icons": "^5.5.0",
 		"react-router": "^7.9.2",
+		"shiki": "^3.13.0",
 		"tailwind-merge": "^3.3.1",
+		"three": "^0.180.0",
 		"zod": "^4.1.12"
 	},
 	"devDependencies": {

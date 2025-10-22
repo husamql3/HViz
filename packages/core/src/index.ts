@@ -1,45 +1,57 @@
-import { serve } from "@hono/node-server";
-import { cancel, intro, isCancel, outro, spinner, text } from "@clack/prompts";
+import { access, stat } from "node:fs/promises";
 import { resolve } from "node:path";
-import { access, readFile, stat } from "node:fs/promises";
+import { cancel, intro, isCancel, outro, spinner, text } from "@clack/prompts";
+import { serve } from "@hono/node-server";
 import open from "open";
 import color from "picocolors";
 
-import { selectDB } from "./cmd/select-db";
 import { cmdArgs } from "./cmd/cmd-args";
 import { schemaPathSuggestions } from "./cmd/schema-path-suggestions";
-import type { ErdResult } from "./types/erd.type";
+import { selectDB } from "./cmd/select-db";
 import { genDrizzleERD } from "./generators/gen-drizzle-erd";
 import { genPrismaERD } from "./generators/gen-prisma-erd";
-import { createServer } from "./lib/create-server";
 import { genTypeORMERD } from "./generators/gen-typeorm-erd";
+import { createServer } from "./lib/create-server";
+import type { DatabaseType } from "./types/db.type";
+import type { ErdResult } from "./types/erd.type";
 
 export const main = async () => {
-  const { port } = cmdArgs();
+  const { port, type, schema } = cmdArgs();
 
-  console.log();
   intro(color.inverse(" HViz "));
 
-  // Select the database type (prisma, drizzle, typeorm)
-  const databaseType = await selectDB();
+  let databaseType: DatabaseType;
+  let schemaFilePath: string;
 
-  // Get the schema path suggestions based on the database type
-  const { schemaPromptMessage, defaultSchemaPath } = schemaPathSuggestions(databaseType);
+  // If type and schema are provided via CLI, skip interactive prompts
+  if (type && schema) {
+    databaseType = type as DatabaseType;
+    schemaFilePath = resolve(process.cwd(), schema);
+  } else {
+    // Interactive mode: prompt for database type
+    databaseType = await selectDB();
 
-  const schemaFilePathInput = await text({
-    message: schemaPromptMessage,
-    placeholder: defaultSchemaPath,
-    validate: (value) => {
-      if (!value.trim()) return "Schema path is required.";
-      return undefined;
-    },
-  });
-  if (isCancel(schemaFilePathInput)) {
-    cancel("Operation cancelled");
-    return process.exit(0);
+    // Get the schema path suggestions based on the database type
+    const { schemaPromptMessage, defaultSchemaPath } = schemaPathSuggestions(databaseType as DatabaseType);
+
+    const schemaFilePathInput = await text({
+      message: schemaPromptMessage,
+      placeholder: defaultSchemaPath,
+      validate: (value) => {
+        if (!value.trim()) return "Schema path is required.";
+        return undefined;
+      },
+    });
+
+    if (isCancel(schemaFilePathInput)) {
+      cancel("Operation cancelled");
+      return process.exit(0);
+    }
+
+    schemaFilePath = resolve(process.cwd(), schemaFilePathInput);
   }
 
-  const schemaFilePath = resolve(process.cwd(), schemaFilePathInput);
+  // Validate schema file exists
   try {
     await access(schemaFilePath);
   } catch {
@@ -55,11 +67,10 @@ export const main = async () => {
       const stats = await stat(schemaFilePath);
       if (stats.isFile()) {
         const schemaModule = await import(schemaFilePath);
-        erdResult = await genDrizzleERD(schemaModule, databaseType);
+        erdResult = await genDrizzleERD(schemaModule, databaseType as DatabaseType);
       } else if (stats.isDirectory()) {
-        erdResult = await genDrizzleERD(schemaFilePath, databaseType);
+        erdResult = await genDrizzleERD(schemaFilePath, databaseType as DatabaseType);
       }
-
     } else if (databaseType === "prisma") {
       erdResult = await genPrismaERD(schemaFilePath);
     } else if (databaseType === "typeorm") {
@@ -78,7 +89,6 @@ export const main = async () => {
   }
   s2.stop("ERD generated");
 
-
   if (process.env.NODE_ENV === "development") {
     const { writeFile } = await import("node:fs/promises");
     await writeFile(resolve(import.meta.dir, "../../view/app/utils/data.json"), JSON.stringify(erdResult, null, 2));
@@ -96,12 +106,12 @@ export const main = async () => {
 
   try {
     await open(`http://localhost:${port}`);
-  } catch (e) {
+  } catch (_e) {
     console.warn(
       color.yellow(`⚠️  Failed to open browser. Please visit ${color.cyan(`http://localhost:${port}`)} manually.`),
     );
   }
-}
+};
 
 main().catch((err) => {
   console.error(color.red(`❌ Unexpected error: ${err.message}`));

@@ -16,9 +16,7 @@ export const genPrismaERD = async (schemaPath: string): Promise<ErdResult> => {
 			throw new Error(`No Prisma schema files found at ${schemaPath}`);
 		}
 
-		const schemaContents = await Promise.all(
-			files.map((file) => readFile(file, "utf-8"))
-		);
+		const schemaContents = await Promise.all(files.map((file) => readFile(file, "utf-8")));
 
 		combinedSchema = combinePrismaSchemas(schemaContents);
 	}

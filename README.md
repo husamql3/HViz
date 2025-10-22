@@ -2,54 +2,62 @@
 
 # hviz
 
-**Beautiful ERD visualization for your database schema**
+**CLI tool for visualizing your database schema**
 
 [![License](https://img.shields.io/github/license/husamql3/hviz?style=flat-square)](LICENSE)
-[![Version](https://img.shields.io/github/package-json/v/husamql3/hviz?color=0066CC&label=version&style=flat-square)](package.json)
 [![NPM](https://img.shields.io/npm/v/hviz?style=flat-square)](https://www.npmjs.com/package/hviz)
 
 [Website](https://www.hviz.tech) • [Report Bug](https://github.com/husamql3/hviz/issues) • [Request Feature](https://github.com/husamql3/hviz/issues)
 
-![hviz banner](https://www.hviz.tech/og-img.png)
+![hviz banner](https://hviz.tech/tut.mp4)
 
 </div>
 
 ---
 
-## ✨ What is hviz?
-
-**hviz** is a zero-config CLI tool that instantly transforms your database schema into beautiful, interactive Entity Relationship Diagrams (ERDs). Point it at your schema file, and watch your database come to life in your browser.
-
 ## 🚀 Quick Start
 
 ```bash
-# Install globally (recommended)
-npm install -g hviz
-hviz
+# Run with npx (no installation needed)
+npx hviz
 
-# Using bun
-bun install -g hviz
-hviz
+# Or with bunx
+bunx hviz
 ```
 
-That's it! The CLI will guide you through the rest.
+That's it! hviz will guide you through the rest with interactive prompts.
 
-## Supported ORMs & Databases
+---
 
-### Currently Supported
+## 📦 Installation
 
-- [x] Prisma (PostgreSQL, MySQL, SQLite, MongoDB)
-- [x] Drizzle (PostgreSQL, MySQL, SQLite)
-- [ ] Typeorm
-- [ ] PostgreSQL
-- [ ] MySQL
-- [ ] SQLite
+Install globally for quick access:
 
-## 📖 Usage
+```bash
+# npm
+npm install -g hviz
 
-### Interactive Mode
+# bun
+bun install -g hviz
+```
 
-Simply run the command and follow the prompts:
+Or add to your project as a dev dependency:
+
+```bash
+# npm
+npm install -D hviz
+
+# bun
+bun install -D hviz
+```
+
+---
+
+## 🎯 Usage
+
+### Interactive Mode (Recommended)
+
+Simply run hviz and follow the prompts:
 
 ```bash
 hviz
@@ -57,31 +65,46 @@ hviz
 
 The CLI will ask you:
 
-1. **Which ORM/Database you're using** (Prisma, Drizzle, etc.)
-2. **Path to your schema file** (with smart defaults)
+1. **Which ORM you're using** (Prisma, Drizzle, or TypeORM)
+2. **Path to your schema file** (with smart suggestions)
 
 Then it will:
 
-- Generate your ERD
+- Parse your schema
+- Generate an interactive ERD
 - Start a local server
-- Automatically open the visualization in your browser
+- Open the visualization in your browser
 
-### For Prisma Projects
+### Non-Interactive Mode
 
-```bash
-hviz
-# Select: Prisma
-# Path: prisma/schema.prisma (or your custom path)
-```
-
-### For Drizzle Projects
+Specify all options directly:
 
 ```bash
-hviz
-# Select: Drizzle
-# Choose your dialect: PostgreSQL, MySQL, or SQLite
-# Path: src/db/schema.ts (or your custom path)
+# Prisma
+hviz --type prisma --schema prisma/schema.prisma
+
+# Drizzle
+hviz --type drizzle --schema drizzle/schema.ts
+
+# TypeORM
+hviz --type typeorm --schema typeorm/schema.ts
+
+# Custom port
+hviz --type prisma --schema prisma/schema.prisma --port 4000
 ```
+
+---
+
+## 🛠️ CLI Options
+
+| Option      | Alias | Description                         | Default            |
+| ----------- | ----- | ----------------------------------- | ------------------ |
+| `--type`    | `-t`  | ORM type (prisma, drizzle, typeorm) | Interactive prompt |
+| `--schema`  | `-s`  | Path to schema file                 | Interactive prompt |
+| `--port`    | `-p`  | Port to run server on               | `3000`             |
+| `--version` | `-v`  | Show version                        | -                  |
+
+---
 
 ## 🤝 Contributing
 
@@ -92,21 +115,15 @@ Contributions are welcome! Feel free to:
 - 🔧 Submit pull requests
 - 📖 Improve documentation
 
+---
+
 ## 📝 License
 
 MIT
+
+---
 
 ## 🔗 Links
 
 - **Website**: [hviz.tech](https://www.hviz.tech)
 - **Author**: [@husamql3](https://x.com/husamql3)
-
----
-
-<div align="center">
-
-**Built with ❤️ for developers who love great tools**
-
-If hviz helped you, consider [giving it a star ⭐️](https://github.com/husamql3/hviz)
-
-</div>

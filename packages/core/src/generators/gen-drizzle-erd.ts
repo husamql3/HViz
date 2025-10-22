@@ -2,222 +2,219 @@ import type { DatabaseType } from "../types/db.type.ts";
 import type { Edge, ErdResult, Node } from "../types/erd.type.ts";
 import { calcTableWidth } from "../utils/calc-table-width.ts";
 import { getFilesFromDir } from "../utils/get-files-from-dir.ts";
-import { pluralize, removeIdSuffix, toCamelCase, combineDrizzleSchemas } from "../utils/helpers/drizzle-helpers.ts";
+import { combineDrizzleSchemas, pluralize, removeIdSuffix, toCamelCase } from "../utils/helpers/drizzle-helpers.ts";
 
-export const genDrizzleERD = async (
-  schemaPathOrModule: string | any, 
-  dbType: DatabaseType
-): Promise<ErdResult> => {
-  const { Parser } = await import("@dbml/core");
-  const { mysqlGenerate, pgGenerate, sqliteGenerate } = await import("drizzle-dbml-generator");
+export const genDrizzleERD = async (schemaPathOrModule: string | any, dbType: DatabaseType): Promise<ErdResult> => {
+	const { Parser } = await import("@dbml/core");
+	const { mysqlGenerate, pgGenerate, sqliteGenerate } = await import("drizzle-dbml-generator");
 
-  let generateFn: (options: { schema: string; relational: boolean }) => string;
+	let generateFn: (options: { schema: string; relational: boolean }) => string;
 
-  switch (dbType) {
-    case "drizzle-postgres":
-      generateFn = pgGenerate;
-      break;
-    case "drizzle-mysql":
-      generateFn = mysqlGenerate;
-      break;
-    case "drizzle-sqlite":
-      generateFn = sqliteGenerate;
-      break;
-    default:
-      throw new Error(`Unsupported database type: ${dbType}`);
-  }
+	switch (dbType) {
+		case "drizzle-postgres":
+			generateFn = pgGenerate;
+			break;
+		case "drizzle-mysql":
+			generateFn = mysqlGenerate;
+			break;
+		case "drizzle-sqlite":
+			generateFn = sqliteGenerate;
+			break;
+		default:
+			throw new Error(`Unsupported database type: ${dbType}`);
+	}
 
-  let schemaModule: any;
+	let schemaModule: any;
 
-  // Check if schemaPathOrModule is a string (file/directory path) or already an imported module
-  if (typeof schemaPathOrModule === "string") {
-    // It's a path - need to find and import schema files
-    const files = await getFilesFromDir([".ts"], schemaPathOrModule);
-    
-    if (files.length === 0) {
-      throw new Error(`No Drizzle schema files (.ts) found at ${schemaPathOrModule}`);
-    }
+	// Check if schemaPathOrModule is a string (file/directory path) or already an imported module
+	if (typeof schemaPathOrModule === "string") {
+		// It's a path - need to find and import schema files
+		const files = await getFilesFromDir([".ts"], schemaPathOrModule);
 
-    // Import and merge all schema files
-    schemaModule = await combineDrizzleSchemas(files);
-  } else {
-    // It's already an imported module (backward compatibility)
-    schemaModule = schemaPathOrModule;
-  }
+		if (files.length === 0) {
+			throw new Error(`No Drizzle schema files (.ts) found at ${schemaPathOrModule}`);
+		}
 
-  // Validate that we have a schema
-  if (!schemaModule || Object.keys(schemaModule).length === 0) {
-    throw new Error("Schema module is empty or invalid");
-  }
+		// Import and merge all schema files
+		schemaModule = await combineDrizzleSchemas(files);
+	} else {
+		// It's already an imported module (backward compatibility)
+		schemaModule = schemaPathOrModule;
+	}
 
-  // Generate DBML string using drizzle-dbml-generator
-  const dbml = generateFn({ schema: schemaModule, relational: true });
+	// Validate that we have a schema
+	if (!schemaModule || Object.keys(schemaModule).length === 0) {
+		throw new Error("Schema module is empty or invalid");
+	}
 
-  // Parse DBML to Database object using @dbml/core
-  const parser = new Parser();
-  const database = parser.parse(dbml, "dbml");
+	// Generate DBML string using drizzle-dbml-generator
+	const dbml = generateFn({ schema: schemaModule, relational: true });
 
-  const nodes: Node[] = [];
-  const edges: Edge[] = [];
+	// Parse DBML to Database object using @dbml/core
+	const parser = new Parser();
+	const database = parser.parse(dbml, "dbml");
 
-  // Add validation for schemas
-  if (!database.schemas || database.schemas.length === 0) {
-    throw new Error('Database must contain at least one schema');
-  }
+	const nodes: Node[] = [];
+	const edges: Edge[] = [];
 
-  // Assume single schema for simplicity
-  const dbSchema = database.schemas[0];
+	// Add validation for schemas
+	if (!database.schemas || database.schemas.length === 0) {
+		throw new Error("Database must contain at least one schema");
+	}
 
-  // Add validation for tables
-  if (!dbSchema?.tables || dbSchema.tables.length === 0) {
-    throw new Error('Schema must contain at least one table');
-  }
+	// Assume single schema for simplicity
+	const dbSchema = database.schemas[0];
 
-  // First, create nodes with scalar fields
-  dbSchema.tables.forEach((table) => {
-    const fields = table.fields.map((field) => {
-      let fieldLabel = field.name;
-      if (field.pk) fieldLabel += " (ID)";
+	// Add validation for tables
+	if (!dbSchema?.tables || dbSchema.tables.length === 0) {
+		throw new Error("Schema must contain at least one table");
+	}
 
-      return {
-        name: field.name,
-        type: field.type.type_name,
-        isId: !!field.pk, // Convert to boolean
-        isUnique: !!field.unique, // Convert to boolean
-        isList: false,
-        kind: "scalar" as const,
-        relationName: undefined,
-        label: fieldLabel,
-        isNullable: !field.not_null,
-      };
-    });
+	// First, create nodes with scalar fields
+	dbSchema.tables.forEach((table) => {
+		const fields = table.fields.map((field) => {
+			let fieldLabel = field.name;
+			if (field.pk) fieldLabel += " (ID)";
 
-    nodes.push({
-      id: table.name,
-      type: "default",
-      data: {
-        label: table.name,
-        fields,
-      },
-      position: { x: 0, y: 0 },
-      style: {
-        width: calcTableWidth(fields),
-      },
-    });
-  });
+			return {
+				name: field.name,
+				type: field.type.type_name,
+				isId: !!field.pk, // Convert to boolean
+				isUnique: !!field.unique, // Convert to boolean
+				isList: false,
+				kind: "scalar" as const,
+				relationName: undefined,
+				label: fieldLabel,
+				isNullable: !field.not_null,
+			};
+		});
 
-  // Now, process refs to add virtual relation fields and edges
-  dbSchema?.refs.forEach((ref) => {
-    const left = ref?.endpoints[0];
-    const right = ref?.endpoints[1];
-    const isComposite = left && left.fieldNames.length > 1; // Skip composites for simplicity;
-    if (isComposite) return;
+		nodes.push({
+			id: table.name,
+			type: "default",
+			data: {
+				label: table.name,
+				fields,
+			},
+			position: { x: 0, y: 0 },
+			style: {
+				width: calcTableWidth(fields),
+			},
+		});
+	});
 
-    let manyEndpoint: typeof left, oneEndpoint: typeof right, relationshipDir: ">" | "<" | "-";
-    if (left?.relation === "*" && right?.relation === "1") {
-      manyEndpoint = left;
-      oneEndpoint = right;
-      relationshipDir = ">";
-    } else if (left?.relation === "1" && right?.relation === "*") {
-      manyEndpoint = right;
-      oneEndpoint = left;
-      relationshipDir = "<";
-    } else if (left?.relation === "1" && right?.relation === "1") {
-      // One-to-one; treat left as "many" (FK side), but no list
-      manyEndpoint = left;
-      oneEndpoint = right;
-      relationshipDir = "-";
-    } else {
-      return; // Unsupported
-    }
+	// Now, process refs to add virtual relation fields and edges
+	dbSchema?.refs.forEach((ref) => {
+		const left = ref?.endpoints[0];
+		const right = ref?.endpoints[1];
+		const isComposite = left && left.fieldNames.length > 1; // Skip composites for simplicity;
+		if (isComposite) return;
 
-    const manyTableName = manyEndpoint.tableName;
-    const oneTableName = oneEndpoint.tableName;
-    const fkFieldName = manyEndpoint.fieldNames[0];
+		let manyEndpoint: typeof left, oneEndpoint: typeof right, relationshipDir: ">" | "<" | "-";
+		if (left?.relation === "*" && right?.relation === "1") {
+			manyEndpoint = left;
+			oneEndpoint = right;
+			relationshipDir = ">";
+		} else if (left?.relation === "1" && right?.relation === "*") {
+			manyEndpoint = right;
+			oneEndpoint = left;
+			relationshipDir = "<";
+		} else if (left?.relation === "1" && right?.relation === "1") {
+			// One-to-one; treat left as "many" (FK side), but no list
+			manyEndpoint = left;
+			oneEndpoint = right;
+			relationshipDir = "-";
+		} else {
+			return; // Unsupported
+		}
 
-    // Find nodes
-    const manyNode = nodes.find((n) => n.id === manyTableName);
-    const oneNode = nodes.find((n) => n.id === oneTableName);
-    if (!manyNode || !oneNode) return;
+		const manyTableName = manyEndpoint.tableName;
+		const oneTableName = oneEndpoint.tableName;
+		const fkFieldName = manyEndpoint.fieldNames[0];
 
-    // Find FK field in many node to get nullability
-    const fkField = manyNode.data.fields.find((f) => f.name === fkFieldName);
-    if (!fkField) return;
+		// Find nodes
+		const manyNode = nodes.find((n) => n.id === manyTableName);
+		const oneNode = nodes.find((n) => n.id === oneTableName);
+		if (!manyNode || !oneNode) return;
 
-    // Add virtual field to many side (many-to-one)
-    const manyVirtualName = toCamelCase(removeIdSuffix(fkFieldName || ""));
-    const manyVirtualField = {
-      name: manyVirtualName,
-      type: oneTableName,
-      isId: false,
-      isUnique: false,
-      isList: false, // false for many-to-one or one-to-one
-      kind: "object",
-      relationName: ref.name,
-      label: `${manyVirtualName} → ${oneTableName}`,
-      isNullable: fkField.isNullable,
-    };
-    manyNode.data.fields.push(manyVirtualField);
-    const manyFieldIndex = manyNode.data.fields.length - 1;
+		// Find FK field in many node to get nullability
+		const fkField = manyNode.data.fields.find((f) => f.name === fkFieldName);
+		if (!fkField) return;
 
-    // Update width for many node
-    manyNode.style.width = calcTableWidth(manyNode.data.fields);
+		// Add virtual field to many side (many-to-one)
+		const manyVirtualName = toCamelCase(removeIdSuffix(fkFieldName || ""));
+		const manyVirtualField = {
+			name: manyVirtualName,
+			type: oneTableName,
+			isId: false,
+			isUnique: false,
+			isList: false, // false for many-to-one or one-to-one
+			kind: "object",
+			relationName: ref.name,
+			label: `${manyVirtualName} → ${oneTableName}`,
+			isNullable: fkField.isNullable,
+		};
+		manyNode.data.fields.push(manyVirtualField);
+		const manyFieldIndex = manyNode.data.fields.length - 1;
 
-    // Add edge for many-to-one
-    edges.push({
-      id: `${manyTableName}-${manyVirtualName}-${oneTableName}`,
-      source: manyTableName,
-      sourceHandle: `field-${manyFieldIndex}`,
-      target: oneTableName,
-      targetHandle: `table-input`,
-      label: ref.name,
-      type: "smoothstep",
-      animated: true,
-      data: {
-        relationshipType: relationshipDir === "-" ? "one-to-one" : "many-to-one",
-        fromField: manyVirtualName,
-        fromTable: manyTableName,
-        isList: manyVirtualField.isList,
-      },
-    });
+		// Update width for many node
+		manyNode.style.width = calcTableWidth(manyNode.data.fields);
 
-    // Add virtual field to one side (one-to-many)
-    const oneVirtualName = pluralize(toCamelCase(manyTableName));
-    const oneVirtualField = {
-      name: oneVirtualName,
-      type: manyTableName,
-      isId: false,
-      isUnique: false,
-      isList: relationshipDir !== "-", // true for one-to-many, false for one-to-one
-      kind: "object",
-      relationName: ref.name,
-      label: `${oneVirtualName} → ${manyTableName}`,
-      isNullable: true, // Lists are typically "nullable" in Prisma sense
-    };
-    oneNode.data.fields.push(oneVirtualField);
-    const oneFieldIndex = oneNode.data.fields.length - 1;
+		// Add edge for many-to-one
+		edges.push({
+			id: `${manyTableName}-${manyVirtualName}-${oneTableName}`,
+			source: manyTableName,
+			sourceHandle: `field-${manyFieldIndex}`,
+			target: oneTableName,
+			targetHandle: `table-input`,
+			label: ref.name,
+			type: "smoothstep",
+			animated: true,
+			data: {
+				relationshipType: relationshipDir === "-" ? "one-to-one" : "many-to-one",
+				fromField: manyVirtualName,
+				fromTable: manyTableName,
+				isList: manyVirtualField.isList,
+			},
+		});
 
-    // Update width for one node
-    oneNode.style.width = calcTableWidth(oneNode.data.fields);
+		// Add virtual field to one side (one-to-many)
+		const oneVirtualName = pluralize(toCamelCase(manyTableName));
+		const oneVirtualField = {
+			name: oneVirtualName,
+			type: manyTableName,
+			isId: false,
+			isUnique: false,
+			isList: relationshipDir !== "-", // true for one-to-many, false for one-to-one
+			kind: "object",
+			relationName: ref.name,
+			label: `${oneVirtualName} → ${manyTableName}`,
+			isNullable: true, // Lists are typically "nullable" in Prisma sense
+		};
+		oneNode.data.fields.push(oneVirtualField);
+		const oneFieldIndex = oneNode.data.fields.length - 1;
 
-    // Add edge for one-to-many
-    edges.push({
-      id: `${oneTableName}-${oneVirtualName}-${manyTableName}`,
-      source: oneTableName,
-      sourceHandle: `field-${oneFieldIndex}`,
-      target: manyTableName,
-      targetHandle: `table-input`,
-      label: ref.name,
-      type: "smoothstep",
-      animated: true,
-      data: {
-        relationshipType: relationshipDir === "-" ? "one-to-one" : "one-to-many",
-        fromField: oneVirtualName,
-        fromTable: oneTableName,
-        isList: oneVirtualField.isList,
-      },
-    });
-  });
+		// Update width for one node
+		oneNode.style.width = calcTableWidth(oneNode.data.fields);
 
-  return { nodes, edges };
+		// Add edge for one-to-many
+		edges.push({
+			id: `${oneTableName}-${oneVirtualName}-${manyTableName}`,
+			source: oneTableName,
+			sourceHandle: `field-${oneFieldIndex}`,
+			target: manyTableName,
+			targetHandle: `table-input`,
+			label: ref.name,
+			type: "smoothstep",
+			animated: true,
+			data: {
+				relationshipType: relationshipDir === "-" ? "one-to-one" : "one-to-many",
+				fromField: oneVirtualName,
+				fromTable: oneTableName,
+				isList: oneVirtualField.isList,
+			},
+		});
+	});
+
+	return { nodes, edges };
 };

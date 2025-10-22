@@ -115,7 +115,9 @@ const nodeTypes = {
 							>
 								<TableCell className="py-3 px-4 relative overflow-visible">
 									{/* handle for foreign key fields */}
-									{field.kind === "object" && <Handle type="source" position={Position.Right} id={`field-${i}`} isConnectable={false} />}
+									{field.kind === "object" && (
+										<Handle type="source" position={Position.Right} id={`field-${i}`} isConnectable={false} />
+									)}
 
 									{/* render icon and field name */}
 									<div className="flex items-center gap-3">
@@ -166,7 +168,7 @@ const Legend = () => {
 			icon: <BsDiamond className="size-3 text-[#B4B4B4]" />,
 			label: "Nullable",
 		},
-	]
+	];
 
 	return (
 		<div className="absolute bottom-0 left-0 z-10 bg-zinc-900/95 backdrop-blur-sm border-t border-r border-zinc-800 rounded-tr-lg p-3 shadow-xl">
@@ -179,8 +181,8 @@ const Legend = () => {
 				))}
 			</div>
 		</div>
-	)
-}
+	);
+};
 
 export const Board = ({ erdData }: { erdData: ErdResult }) => {
 	const initialLayoutedNodes = useMemo(() => {
@@ -189,8 +191,8 @@ export const Board = ({ erdData }: { erdData: ErdResult }) => {
 		dagreGraph.setGraph({ rankdir: "LR", ranksep: 250, nodesep: 200 });
 
 		erdData.nodes?.forEach((node) => {
-			const height = 56 + node.data.fields.length * 48 + 16
-			const width = node.style.width
+			const height = 56 + node.data.fields.length * 48 + 16;
+			const width = node.style.width;
 			dagreGraph.setNode(node.id, { width, height });
 		});
 

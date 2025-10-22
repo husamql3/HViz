@@ -1,4 +1,4 @@
- @import "tailwindcss";
+@import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -243,8 +243,8 @@
 
 /* XYFlow */
 .react-flow__node-default {
-	background-color: transparent !important;
-	padding: 0px !important;
-	border: none !important;
-	box-shadow: none !important;
+	background-color: transparent;
+	padding: 0px;
+	border: none;
+	box-shadow: none;
 }
