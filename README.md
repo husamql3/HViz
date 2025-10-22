@@ -8,7 +8,7 @@
 
 [Website](https://www.hviz.tech) • [Report Bug](https://github.com/husamql3/hviz/issues) • [Request Feature](https://github.com/husamql3/hviz/issues)
 
-![hviz](./assets/tut.mp4)
+![hviz](./assets/og.png)
 
 </div>
 
