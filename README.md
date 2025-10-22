@@ -4,12 +4,11 @@
 
 **CLI tool for visualizing your database schema**
 
-[![License](https://img.shields.io/github/license/husamql3/hviz?style=flat-square)](LICENSE)
 [![NPM](https://img.shields.io/npm/v/hviz?style=flat-square)](https://www.npmjs.com/package/hviz)
 
 [Website](https://www.hviz.tech) • [Report Bug](https://github.com/husamql3/hviz/issues) • [Request Feature](https://github.com/husamql3/hviz/issues)
 
-![hviz banner](https://hviz.tech/tut.mp4)
+![hviz](./assets/tut.mp4)
 
 </div>
 
