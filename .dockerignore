@@ -1,0 +1,64 @@
+# Dependencies
+node_modules
+**/node_modules
+.pnp
+.pnp.js
+
+# Testing
+coverage
+*.test.ts
+*.test.js
+*.spec.ts
+*.spec.js
+__tests__
+__mocks__
+
+# Build outputs (we'll copy specific ones)
+**/dist
+**/build
+**/.next
+**/out
+.turbo
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+lerna-debug.log*
+
+# Misc
+.changeset
+*.md
+!README.md
+LICENSE
+CODEOWNERS
+
+# Development files
+*.development.*
+dev-*
+tmp
+temp
+
+# Docker
+Dockerfile*
+docker-compose*
+.dockerignore

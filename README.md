@@ -22,6 +22,11 @@ npx hviz
 
 # Or with bunx
 bunx hviz
+
+# Or with Docker (no installation needed)
+docker run --rm -p 3000:3333 \
+  -v "$(pwd)/prisma":/app/prisma \
+  hviz --type prisma --schema /app/prisma/schema.prisma
 ```
 
 That's it! hviz will guide you through the rest with interactive prompts.
@@ -49,6 +54,22 @@ npm install -D hviz
 # bun
 bun install -D hviz
 ```
+
+### 🐳 Docker
+
+Use Docker without any local installation:
+
+```bash
+# Build the image
+docker build -t hviz .
+
+# Run with your schema
+docker run --rm -p 3000:3333 \
+  -v "$(pwd)/prisma":/app/prisma \
+  hviz --type prisma --schema /app/prisma/schema.prisma
+```
+
+Then open your browser at `http://localhost:3000`
 
 ---
 
@@ -91,6 +112,34 @@ hviz --type typeorm --schema typeorm/schema.ts
 # Custom port
 hviz --type prisma --schema prisma/schema.prisma --port 4000
 ```
+
+### 🐳 Docker Usage
+
+Run HViz in Docker with different ORMs:
+
+```bash
+# Prisma
+docker run --rm -p 3000:3333 \
+  -v "$(pwd)/prisma":/app/prisma \
+  hviz --type prisma --schema /app/prisma/schema.prisma
+
+# Drizzle
+docker run --rm -p 3000:3333 \
+  -v "$(pwd)/drizzle":/app/drizzle \
+  hviz --type drizzle --schema /app/drizzle/schema.ts
+
+# TypeORM
+docker run --rm -p 3000:3333 \
+  -v "$(pwd)/src/entities":/app/entities \
+  hviz --type typeorm --schema /app/entities
+
+# Custom port
+docker run --rm -p 8080:3333 \
+  -v "$(pwd)/prisma":/app/prisma \
+  hviz --type prisma --schema /app/prisma/schema.prisma
+```
+
+Access the visualization at `http://localhost:3000` (or at `http://localhost:{HOST_PORT}` if you specified a custom port, e.g., `http://localhost:8080`)
 
 ---
 
