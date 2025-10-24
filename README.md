@@ -5,6 +5,7 @@
 **CLI tool for visualizing your database schema**
 
 [![NPM](https://img.shields.io/npm/v/hviz?style=flat-square)](https://www.npmjs.com/package/hviz)
+[![NPM Downloads](https://img.shields.io/npm/dm/hviz?style=flat-square)](https://www.npmjs.com/package/hviz)
 
 [Website](https://www.hviz.tech) • [Report Bug](https://github.com/husamql3/hviz/issues) • [Request Feature](https://github.com/husamql3/hviz/issues)
 
@@ -107,12 +108,7 @@ hviz --type prisma --schema prisma/schema.prisma --port 4000
 
 ## 🤝 Contributing
 
-Contributions are welcome! Feel free to:
-
-- 🐛 Report bugs
-- 💡 Suggest new features
-- 🔧 Submit pull requests
-- 📖 Improve documentation
+Please read our [**Contributing Guidelines**](./CONTRIBUTING.md) for detailed information about
 
 ---
 
