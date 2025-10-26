@@ -11,6 +11,7 @@ import { selectDB } from "./cmd/select-db";
 import { genDrizzleERD } from "./generators/gen-drizzle-erd";
 import { genPrismaERD } from "./generators/gen-prisma-erd";
 import { genTypeORMERD } from "./generators/gen-typeorm-erd";
+import { genMySQLERD } from "./generators/gen-mysql-erd";
 import { createServer } from "./lib/create-server";
 import type { DatabaseType } from "./types/db.type";
 import type { ErdResult } from "./types/erd.type";
@@ -75,10 +76,13 @@ export const main = async () => {
       erdResult = await genPrismaERD(schemaFilePath);
     } else if (databaseType === "typeorm") {
       erdResult = await genTypeORMERD(schemaFilePath);
+    } else if (databaseType === "mysql") {
+      erdResult = await genMySQLERD(schemaFilePath);
     }
   } catch (e) {
     s2.stop("ERD generation failed");
-    cancel(`Error generating ERD: ${e instanceof Error ? e.message : "Unknown error"}`);
+    console.log(e);
+    cancel(`Error generating ERD: ${e instanceof Error ? e : "Unknown error"}`);
     return process.exit(1);
   }
 

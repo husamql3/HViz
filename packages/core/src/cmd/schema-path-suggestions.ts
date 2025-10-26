@@ -19,6 +19,10 @@ export const schemaPathSuggestions = (db: DatabaseType) => {
 			schemaPromptMessage = "Enter the TypeORM entities directory or config path";
 			defaultSchemaPath = "src/entities/";
 			break;
+		case "mysql":
+			schemaPromptMessage = "Enter the MySQL schema directory path";
+			defaultSchemaPath = "db/schema/";
+			break;
 	}
 
 	return {
