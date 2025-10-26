@@ -1,1066 +1,1428 @@
 {
-	"nodes": [
-		{
-			"id": "submissions",
-			"type": "default",
-			"data": {
-				"label": "submissions",
-				"fields": [
-					{
-						"name": "id",
-						"type": "String",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "id",
-						"isNullable": false
-					},
-					{
-						"name": "created_at",
-						"type": "DateTime",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "created_at",
-						"isNullable": false
-					},
-					{
-						"name": "user_id",
-						"type": "String",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "user_id",
-						"isNullable": false
-					},
-					{
-						"name": "problem_id",
-						"type": "String",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "problem_id",
-						"isNullable": false
-					},
-					{
-						"name": "solved",
-						"type": "Boolean",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "solved",
-						"isNullable": false
-					},
-					{
-						"name": "group_no",
-						"type": "Int",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "group_no",
-						"isNullable": true
-					},
-					{
-						"name": "group",
-						"type": "groups",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "object",
-						"relationName": "groupsTosubmissions",
-						"label": "group → groups",
-						"isNullable": true
-					},
-					{
-						"name": "problem",
-						"type": "roadmap",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "object",
-						"relationName": "roadmapTosubmissions",
-						"label": "problem → roadmap",
-						"isNullable": false
-					},
-					{
-						"name": "user",
-						"type": "leetcoders",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "object",
-						"relationName": "leetcodersTosubmissions",
-						"label": "user → leetcoders",
-						"isNullable": false
-					}
-				]
-			},
-			"position": {
-				"x": 0,
-				"y": 0
-			},
-			"style": {
-				"width": 294
-			}
-		},
-		{
-			"id": "group_progress",
-			"type": "default",
-			"data": {
-				"label": "group_progress",
-				"fields": [
-					{
-						"name": "id",
-						"type": "String",
-						"isId": true,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "id (ID)",
-						"isNullable": false
-					},
-					{
-						"name": "created_at",
-						"type": "DateTime",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "created_at",
-						"isNullable": false
-					},
-					{
-						"name": "group_no",
-						"type": "Int",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "group_no",
-						"isNullable": false
-					},
-					{
-						"name": "current_problem",
-						"type": "Int",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "current_problem",
-						"isNullable": false
-					},
-					{
-						"name": "roadmap",
-						"type": "roadmap",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "object",
-						"relationName": "group_progressToroadmap",
-						"label": "roadmap → roadmap",
-						"isNullable": false
-					},
-					{
-						"name": "group",
-						"type": "groups",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "object",
-						"relationName": "group_progressTogroups",
-						"label": "group → groups",
-						"isNullable": false
-					}
-				]
-			},
-			"position": {
-				"x": 0,
-				"y": 0
-			},
-			"style": {
-				"width": 294
-			}
-		},
-		{
-			"id": "groups",
-			"type": "default",
-			"data": {
-				"label": "groups",
-				"fields": [
-					{
-						"name": "id",
-						"type": "String",
-						"isId": true,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "id (ID)",
-						"isNullable": false
-					},
-					{
-						"name": "group_no",
-						"type": "Int",
-						"isId": false,
-						"isUnique": true,
-						"isList": false,
-						"kind": "scalar",
-						"label": "group_no",
-						"isNullable": false
-					},
-					{
-						"name": "group_progress",
-						"type": "group_progress",
-						"isId": false,
-						"isUnique": false,
-						"isList": true,
-						"kind": "object",
-						"relationName": "group_progressTogroups",
-						"label": "group_progress → group_progress",
-						"isNullable": false
-					},
-					{
-						"name": "leetcoders",
-						"type": "leetcoders",
-						"isId": false,
-						"isUnique": false,
-						"isList": true,
-						"kind": "object",
-						"relationName": "groupsToleetcoders",
-						"label": "leetcoders → leetcoders",
-						"isNullable": false
-					},
-					{
-						"name": "submissions",
-						"type": "submissions",
-						"isId": false,
-						"isUnique": false,
-						"isList": true,
-						"kind": "object",
-						"relationName": "groupsTosubmissions",
-						"label": "submissions → submissions",
-						"isNullable": false
-					}
-				]
-			},
-			"position": {
-				"x": 0,
-				"y": 0
-			},
-			"style": {
-				"width": 364
-			}
-		},
-		{
-			"id": "roadmap",
-			"type": "default",
-			"data": {
-				"label": "roadmap",
-				"fields": [
-					{
-						"name": "id",
-						"type": "String",
-						"isId": true,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "id (ID)",
-						"isNullable": false
-					},
-					{
-						"name": "created_at",
-						"type": "DateTime",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "created_at",
-						"isNullable": false
-					},
-					{
-						"name": "problem_no",
-						"type": "Int",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "problem_no",
-						"isNullable": false
-					},
-					{
-						"name": "problem_order",
-						"type": "Int",
-						"isId": false,
-						"isUnique": true,
-						"isList": false,
-						"kind": "scalar",
-						"label": "problem_order",
-						"isNullable": false
-					},
-					{
-						"name": "problem_slug",
-						"type": "String",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "problem_slug",
-						"isNullable": false
-					},
-					{
-						"name": "topic",
-						"type": "String",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "topic",
-						"isNullable": false
-					},
-					{
-						"name": "difficulty",
-						"type": "String",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "difficulty",
-						"isNullable": false
-					},
-					{
-						"name": "group_progress",
-						"type": "group_progress",
-						"isId": false,
-						"isUnique": false,
-						"isList": true,
-						"kind": "object",
-						"relationName": "group_progressToroadmap",
-						"label": "group_progress → group_progress",
-						"isNullable": false
-					},
-					{
-						"name": "submissions",
-						"type": "submissions",
-						"isId": false,
-						"isUnique": false,
-						"isList": true,
-						"kind": "object",
-						"relationName": "roadmapTosubmissions",
-						"label": "submissions → submissions",
-						"isNullable": false
-					}
-				]
-			},
-			"position": {
-				"x": 0,
-				"y": 0
-			},
-			"style": {
-				"width": 364
-			}
-		},
-		{
-			"id": "resources",
-			"type": "default",
-			"data": {
-				"label": "resources",
-				"fields": [
-					{
-						"name": "id",
-						"type": "String",
-						"isId": true,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "id (ID)",
-						"isNullable": false
-					},
-					{
-						"name": "created_at",
-						"type": "DateTime",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "created_at",
-						"isNullable": false
-					},
-					{
-						"name": "title",
-						"type": "String",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "title",
-						"isNullable": false
-					},
-					{
-						"name": "url",
-						"type": "String",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "url",
-						"isNullable": false
-					},
-					{
-						"name": "contributor",
-						"type": "String",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "contributor",
-						"isNullable": false
-					},
-					{
-						"name": "topic",
-						"type": "String",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "topic",
-						"isNullable": false
-					},
-					{
-						"name": "is_visible",
-						"type": "Boolean",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "is_visible",
-						"isNullable": false
-					},
-					{
-						"name": "is_approved",
-						"type": "Boolean",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "is_approved",
-						"isNullable": false
-					},
-					{
-						"name": "type_id",
-						"type": "Int",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "type_id",
-						"isNullable": false
-					},
-					{
-						"name": "tab_id",
-						"type": "Int",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "tab_id",
-						"isNullable": false
-					},
-					{
-						"name": "type",
-						"type": "resource_types",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "object",
-						"relationName": "resource_typesToresources",
-						"label": "type → resource_types",
-						"isNullable": false
-					},
-					{
-						"name": "tab",
-						"type": "resource_tabs",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "object",
-						"relationName": "resource_tabsToresources",
-						"label": "tab → resource_tabs",
-						"isNullable": false
-					}
-				]
-			},
-			"position": {
-				"x": 0,
-				"y": 0
-			},
-			"style": {
-				"width": 294
-			}
-		},
-		{
-			"id": "resource_tabs",
-			"type": "default",
-			"data": {
-				"label": "resource_tabs",
-				"fields": [
-					{
-						"name": "id",
-						"type": "Int",
-						"isId": true,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "id (ID)",
-						"isNullable": false
-					},
-					{
-						"name": "name",
-						"type": "String",
-						"isId": false,
-						"isUnique": true,
-						"isList": false,
-						"kind": "scalar",
-						"label": "name",
-						"isNullable": false
-					},
-					{
-						"name": "resources",
-						"type": "resources",
-						"isId": false,
-						"isUnique": false,
-						"isList": true,
-						"kind": "object",
-						"relationName": "resource_tabsToresources",
-						"label": "resources → resources",
-						"isNullable": false
-					}
-				]
-			},
-			"position": {
-				"x": 0,
-				"y": 0
-			},
-			"style": {
-				"width": 294
-			}
-		},
-		{
-			"id": "resource_types",
-			"type": "default",
-			"data": {
-				"label": "resource_types",
-				"fields": [
-					{
-						"name": "id",
-						"type": "Int",
-						"isId": true,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "id (ID)",
-						"isNullable": false
-					},
-					{
-						"name": "name",
-						"type": "String",
-						"isId": false,
-						"isUnique": true,
-						"isList": false,
-						"kind": "scalar",
-						"label": "name",
-						"isNullable": false
-					},
-					{
-						"name": "resources",
-						"type": "resources",
-						"isId": false,
-						"isUnique": false,
-						"isList": true,
-						"kind": "object",
-						"relationName": "resource_typesToresources",
-						"label": "resources → resources",
-						"isNullable": false
-					}
-				]
-			},
-			"position": {
-				"x": 0,
-				"y": 0
-			},
-			"style": {
-				"width": 294
-			}
-		},
-		{
-			"id": "leetcoders",
-			"type": "default",
-			"data": {
-				"label": "leetcoders",
-				"fields": [
-					{
-						"name": "id",
-						"type": "String",
-						"isId": true,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "id (ID)",
-						"isNullable": false
-					},
-					{
-						"name": "name",
-						"type": "String",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "name",
-						"isNullable": false
-					},
-					{
-						"name": "email",
-						"type": "String",
-						"isId": false,
-						"isUnique": true,
-						"isList": false,
-						"kind": "scalar",
-						"label": "email",
-						"isNullable": false
-					},
-					{
-						"name": "lc_username",
-						"type": "String",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "lc_username",
-						"isNullable": false
-					},
-					{
-						"name": "gh_username",
-						"type": "String",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "gh_username",
-						"isNullable": true
-					},
-					{
-						"name": "x_username",
-						"type": "String",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "x_username",
-						"isNullable": true
-					},
-					{
-						"name": "li_username",
-						"type": "String",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "li_username",
-						"isNullable": true
-					},
-					{
-						"name": "avatar",
-						"type": "String",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "avatar",
-						"isNullable": true
-					},
-					{
-						"name": "website",
-						"type": "String",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "website",
-						"isNullable": true
-					},
-					{
-						"name": "group_no",
-						"type": "Int",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "group_no",
-						"isNullable": false
-					},
-					{
-						"name": "has_second_chance",
-						"type": "Boolean",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "has_second_chance",
-						"isNullable": false
-					},
-					{
-						"name": "rejoined_at",
-						"type": "DateTime",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "rejoined_at",
-						"isNullable": false
-					},
-					{
-						"name": "is_visible",
-						"type": "Boolean",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "is_visible",
-						"isNullable": false
-					},
-					{
-						"name": "username",
-						"type": "String",
-						"isId": false,
-						"isUnique": true,
-						"isList": false,
-						"kind": "scalar",
-						"label": "username",
-						"isNullable": false
-					},
-					{
-						"name": "created_at",
-						"type": "DateTime",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "created_at",
-						"isNullable": false
-					},
-					{
-						"name": "is_notified",
-						"type": "Boolean",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "scalar",
-						"label": "is_notified",
-						"isNullable": false
-					},
-					{
-						"name": "status",
-						"type": "LeetcodeStatus",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "enum",
-						"label": "status",
-						"isNullable": false
-					},
-					{
-						"name": "group",
-						"type": "groups",
-						"isId": false,
-						"isUnique": false,
-						"isList": false,
-						"kind": "object",
-						"relationName": "groupsToleetcoders",
-						"label": "group → groups",
-						"isNullable": false
-					},
-					{
-						"name": "submissions",
-						"type": "submissions",
-						"isId": false,
-						"isUnique": false,
-						"isList": true,
-						"kind": "object",
-						"relationName": "leetcodersTosubmissions",
-						"label": "submissions → submissions",
-						"isNullable": false
-					}
-				]
-			},
-			"position": {
-				"x": 0,
-				"y": 0
-			},
-			"style": {
-				"width": 336
-			}
-		}
-	],
-	"edges": [
-		{
-			"id": "submissions-group-groups",
-			"source": "submissions",
-			"sourceHandle": "field-6",
-			"target": "groups",
-			"targetHandle": "table-input",
-			"label": "groupsTosubmissions",
-			"type": "smoothstep",
-			"animated": true,
-			"data": {
-				"relationshipType": "many-to-one",
-				"fromField": "group",
-				"fromTable": "submissions",
-				"isList": false
-			}
-		},
-		{
-			"id": "submissions-problem-roadmap",
-			"source": "submissions",
-			"sourceHandle": "field-7",
-			"target": "roadmap",
-			"targetHandle": "table-input",
-			"label": "roadmapTosubmissions",
-			"type": "smoothstep",
-			"animated": true,
-			"data": {
-				"relationshipType": "many-to-one",
-				"fromField": "problem",
-				"fromTable": "submissions",
-				"isList": false
-			}
-		},
-		{
-			"id": "submissions-user-leetcoders",
-			"source": "submissions",
-			"sourceHandle": "field-8",
-			"target": "leetcoders",
-			"targetHandle": "table-input",
-			"label": "leetcodersTosubmissions",
-			"type": "smoothstep",
-			"animated": true,
-			"data": {
-				"relationshipType": "many-to-one",
-				"fromField": "user",
-				"fromTable": "submissions",
-				"isList": false
-			}
-		},
-		{
-			"id": "group_progress-roadmap-roadmap",
-			"source": "group_progress",
-			"sourceHandle": "field-4",
-			"target": "roadmap",
-			"targetHandle": "table-input",
-			"label": "group_progressToroadmap",
-			"type": "smoothstep",
-			"animated": true,
-			"data": {
-				"relationshipType": "many-to-one",
-				"fromField": "roadmap",
-				"fromTable": "group_progress",
-				"isList": false
-			}
-		},
-		{
-			"id": "group_progress-group-groups",
-			"source": "group_progress",
-			"sourceHandle": "field-5",
-			"target": "groups",
-			"targetHandle": "table-input",
-			"label": "group_progressTogroups",
-			"type": "smoothstep",
-			"animated": true,
-			"data": {
-				"relationshipType": "many-to-one",
-				"fromField": "group",
-				"fromTable": "group_progress",
-				"isList": false
-			}
-		},
-		{
-			"id": "groups-group_progress-group_progress",
-			"source": "groups",
-			"sourceHandle": "field-2",
-			"target": "group_progress",
-			"targetHandle": "table-input",
-			"label": "group_progressTogroups",
-			"type": "smoothstep",
-			"animated": true,
-			"data": {
-				"relationshipType": "one-to-many",
-				"fromField": "group_progress",
-				"fromTable": "groups",
-				"isList": true
-			}
-		},
-		{
-			"id": "groups-leetcoders-leetcoders",
-			"source": "groups",
-			"sourceHandle": "field-3",
-			"target": "leetcoders",
-			"targetHandle": "table-input",
-			"label": "groupsToleetcoders",
-			"type": "smoothstep",
-			"animated": true,
-			"data": {
-				"relationshipType": "one-to-many",
-				"fromField": "leetcoders",
-				"fromTable": "groups",
-				"isList": true
-			}
-		},
-		{
-			"id": "groups-submissions-submissions",
-			"source": "groups",
-			"sourceHandle": "field-4",
-			"target": "submissions",
-			"targetHandle": "table-input",
-			"label": "groupsTosubmissions",
-			"type": "smoothstep",
-			"animated": true,
-			"data": {
-				"relationshipType": "one-to-many",
-				"fromField": "submissions",
-				"fromTable": "groups",
-				"isList": true
-			}
-		},
-		{
-			"id": "roadmap-group_progress-group_progress",
-			"source": "roadmap",
-			"sourceHandle": "field-7",
-			"target": "group_progress",
-			"targetHandle": "table-input",
-			"label": "group_progressToroadmap",
-			"type": "smoothstep",
-			"animated": true,
-			"data": {
-				"relationshipType": "one-to-many",
-				"fromField": "group_progress",
-				"fromTable": "roadmap",
-				"isList": true
-			}
-		},
-		{
-			"id": "roadmap-submissions-submissions",
-			"source": "roadmap",
-			"sourceHandle": "field-8",
-			"target": "submissions",
-			"targetHandle": "table-input",
-			"label": "roadmapTosubmissions",
-			"type": "smoothstep",
-			"animated": true,
-			"data": {
-				"relationshipType": "one-to-many",
-				"fromField": "submissions",
-				"fromTable": "roadmap",
-				"isList": true
-			}
-		},
-		{
-			"id": "resources-type-resource_types",
-			"source": "resources",
-			"sourceHandle": "field-10",
-			"target": "resource_types",
-			"targetHandle": "table-input",
-			"label": "resource_typesToresources",
-			"type": "smoothstep",
-			"animated": true,
-			"data": {
-				"relationshipType": "many-to-one",
-				"fromField": "type",
-				"fromTable": "resources",
-				"isList": false
-			}
-		},
-		{
-			"id": "resources-tab-resource_tabs",
-			"source": "resources",
-			"sourceHandle": "field-11",
-			"target": "resource_tabs",
-			"targetHandle": "table-input",
-			"label": "resource_tabsToresources",
-			"type": "smoothstep",
-			"animated": true,
-			"data": {
-				"relationshipType": "many-to-one",
-				"fromField": "tab",
-				"fromTable": "resources",
-				"isList": false
-			}
-		},
-		{
-			"id": "resource_tabs-resources-resources",
-			"source": "resource_tabs",
-			"sourceHandle": "field-2",
-			"target": "resources",
-			"targetHandle": "table-input",
-			"label": "resource_tabsToresources",
-			"type": "smoothstep",
-			"animated": true,
-			"data": {
-				"relationshipType": "one-to-many",
-				"fromField": "resources",
-				"fromTable": "resource_tabs",
-				"isList": true
-			}
-		},
-		{
-			"id": "resource_types-resources-resources",
-			"source": "resource_types",
-			"sourceHandle": "field-2",
-			"target": "resources",
-			"targetHandle": "table-input",
-			"label": "resource_typesToresources",
-			"type": "smoothstep",
-			"animated": true,
-			"data": {
-				"relationshipType": "one-to-many",
-				"fromField": "resources",
-				"fromTable": "resource_types",
-				"isList": true
-			}
-		},
-		{
-			"id": "leetcoders-group-groups",
-			"source": "leetcoders",
-			"sourceHandle": "field-17",
-			"target": "groups",
-			"targetHandle": "table-input",
-			"label": "groupsToleetcoders",
-			"type": "smoothstep",
-			"animated": true,
-			"data": {
-				"relationshipType": "many-to-one",
-				"fromField": "group",
-				"fromTable": "leetcoders",
-				"isList": false
-			}
-		},
-		{
-			"id": "leetcoders-submissions-submissions",
-			"source": "leetcoders",
-			"sourceHandle": "field-18",
-			"target": "submissions",
-			"targetHandle": "table-input",
-			"label": "leetcodersTosubmissions",
-			"type": "smoothstep",
-			"animated": true,
-			"data": {
-				"relationshipType": "one-to-many",
-				"fromField": "submissions",
-				"fromTable": "leetcoders",
-				"isList": true
-			}
-		}
-	]
+  "nodes": [
+    {
+      "id": "users",
+      "type": "default",
+      "data": {
+        "label": "users",
+        "fields": [
+          {
+            "name": "id",
+            "type": "INT",
+            "isId": true,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "id",
+            "isNullable": false
+          },
+          {
+            "name": "email",
+            "type": "VARCHAR(255)",
+            "isId": false,
+            "isUnique": true,
+            "isList": false,
+            "kind": "scalar",
+            "label": "email",
+            "isNullable": false
+          },
+          {
+            "name": "password_hash",
+            "type": "VARCHAR(255)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "password_hash",
+            "isNullable": false
+          },
+          {
+            "name": "role",
+            "type": "ENUM",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "role",
+            "isNullable": false
+          },
+          {
+            "name": "is_active",
+            "type": "BOOLEAN",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "is_active",
+            "isNullable": false
+          },
+          {
+            "name": "created_at",
+            "type": "TIMESTAMP",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "created_at",
+            "isNullable": false
+          },
+          {
+            "name": "updated_at",
+            "type": "TIMESTAMP",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "updated_at",
+            "isNullable": false
+          }
+        ]
+      },
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "width": 343
+      }
+    },
+    {
+      "id": "departments",
+      "type": "default",
+      "data": {
+        "label": "departments",
+        "fields": [
+          {
+            "name": "id",
+            "type": "INT",
+            "isId": true,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "id",
+            "isNullable": false
+          },
+          {
+            "name": "name",
+            "type": "VARCHAR(100)",
+            "isId": false,
+            "isUnique": true,
+            "isList": false,
+            "kind": "scalar",
+            "label": "name",
+            "isNullable": false
+          },
+          {
+            "name": "description",
+            "type": "TEXT",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "description",
+            "isNullable": false
+          },
+          {
+            "name": "head_teacher_id",
+            "type": "INT",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "head_teacher_id",
+            "isNullable": false
+          },
+          {
+            "name": "created_at",
+            "type": "TIMESTAMP",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "created_at",
+            "isNullable": false
+          },
+          {
+            "name": "updated_at",
+            "type": "TIMESTAMP",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "updated_at",
+            "isNullable": false
+          }
+        ]
+      },
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "width": 301
+      }
+    },
+    {
+      "id": "classes",
+      "type": "default",
+      "data": {
+        "label": "classes",
+        "fields": [
+          {
+            "name": "id",
+            "type": "INT",
+            "isId": true,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "id",
+            "isNullable": false
+          },
+          {
+            "name": "name",
+            "type": "VARCHAR(50)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "name",
+            "isNullable": false
+          },
+          {
+            "name": "grade_level",
+            "type": "INT",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "grade_level",
+            "isNullable": false
+          },
+          {
+            "name": "section",
+            "type": "VARCHAR(10)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "section",
+            "isNullable": false
+          },
+          {
+            "name": "academic_year",
+            "type": "VARCHAR(20)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "academic_year",
+            "isNullable": false
+          },
+          {
+            "name": "max_students",
+            "type": "INT",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "max_students",
+            "isNullable": false
+          },
+          {
+            "name": "room_number",
+            "type": "VARCHAR(20)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "room_number",
+            "isNullable": false
+          },
+          {
+            "name": "created_at",
+            "type": "TIMESTAMP",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "created_at",
+            "isNullable": false
+          },
+          {
+            "name": "updated_at",
+            "type": "TIMESTAMP",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "updated_at",
+            "isNullable": false
+          }
+        ]
+      },
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "width": 336
+      }
+    },
+    {
+      "id": "students",
+      "type": "default",
+      "data": {
+        "label": "students",
+        "fields": [
+          {
+            "name": "id",
+            "type": "INT",
+            "isId": true,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "id",
+            "isNullable": false
+          },
+          {
+            "name": "user_id",
+            "type": "INT",
+            "isId": false,
+            "isUnique": true,
+            "isList": false,
+            "kind": "object",
+            "label": "user_id",
+            "isNullable": false,
+            "relationName": "studentsTousers"
+          },
+          {
+            "name": "student_number",
+            "type": "VARCHAR(50)",
+            "isId": false,
+            "isUnique": true,
+            "isList": false,
+            "kind": "scalar",
+            "label": "student_number",
+            "isNullable": false
+          },
+          {
+            "name": "first_name",
+            "type": "VARCHAR(100)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "first_name",
+            "isNullable": false
+          },
+          {
+            "name": "last_name",
+            "type": "VARCHAR(100)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "last_name",
+            "isNullable": false
+          },
+          {
+            "name": "date_of_birth",
+            "type": "DATE",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "date_of_birth",
+            "isNullable": false
+          },
+          {
+            "name": "gender",
+            "type": "ENUM",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "gender",
+            "isNullable": false
+          },
+          {
+            "name": "address",
+            "type": "TEXT",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "address",
+            "isNullable": false
+          },
+          {
+            "name": "phone",
+            "type": "VARCHAR(20)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "phone",
+            "isNullable": false
+          },
+          {
+            "name": "parent_name",
+            "type": "VARCHAR(200)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "parent_name",
+            "isNullable": false
+          },
+          {
+            "name": "parent_phone",
+            "type": "VARCHAR(20)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "parent_phone",
+            "isNullable": false
+          },
+          {
+            "name": "parent_email",
+            "type": "VARCHAR(255)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "parent_email",
+            "isNullable": false
+          },
+          {
+            "name": "enrollment_date",
+            "type": "DATE",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "enrollment_date",
+            "isNullable": false
+          },
+          {
+            "name": "class_id",
+            "type": "INT",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "object",
+            "label": "class_id",
+            "isNullable": false,
+            "relationName": "studentsToclasses"
+          },
+          {
+            "name": "status",
+            "type": "ENUM",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "status",
+            "isNullable": false
+          },
+          {
+            "name": "photo_url",
+            "type": "VARCHAR(255)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "photo_url",
+            "isNullable": false
+          },
+          {
+            "name": "created_at",
+            "type": "TIMESTAMP",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "created_at",
+            "isNullable": false
+          },
+          {
+            "name": "updated_at",
+            "type": "TIMESTAMP",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "updated_at",
+            "isNullable": false
+          }
+        ]
+      },
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "width": 343
+      }
+    },
+    {
+      "id": "teachers",
+      "type": "default",
+      "data": {
+        "label": "teachers",
+        "fields": [
+          {
+            "name": "id",
+            "type": "INT",
+            "isId": true,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "id",
+            "isNullable": false
+          },
+          {
+            "name": "user_id",
+            "type": "INT",
+            "isId": false,
+            "isUnique": true,
+            "isList": false,
+            "kind": "object",
+            "label": "user_id",
+            "isNullable": false,
+            "relationName": "teachersTousers"
+          },
+          {
+            "name": "employee_number",
+            "type": "VARCHAR(50)",
+            "isId": false,
+            "isUnique": true,
+            "isList": false,
+            "kind": "scalar",
+            "label": "employee_number",
+            "isNullable": false
+          },
+          {
+            "name": "first_name",
+            "type": "VARCHAR(100)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "first_name",
+            "isNullable": false
+          },
+          {
+            "name": "last_name",
+            "type": "VARCHAR(100)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "last_name",
+            "isNullable": false
+          },
+          {
+            "name": "date_of_birth",
+            "type": "DATE",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "date_of_birth",
+            "isNullable": false
+          },
+          {
+            "name": "gender",
+            "type": "ENUM",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "gender",
+            "isNullable": false
+          },
+          {
+            "name": "address",
+            "type": "TEXT",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "address",
+            "isNullable": false
+          },
+          {
+            "name": "phone",
+            "type": "VARCHAR(20)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "phone",
+            "isNullable": false
+          },
+          {
+            "name": "qualification",
+            "type": "VARCHAR(200)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "qualification",
+            "isNullable": false
+          },
+          {
+            "name": "specialization",
+            "type": "VARCHAR(200)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "specialization",
+            "isNullable": false
+          },
+          {
+            "name": "hire_date",
+            "type": "DATE",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "hire_date",
+            "isNullable": false
+          },
+          {
+            "name": "department_id",
+            "type": "INT",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "object",
+            "label": "department_id",
+            "isNullable": false,
+            "relationName": "teachersTodepartments"
+          },
+          {
+            "name": "salary",
+            "type": "DECIMAL(10)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "salary",
+            "isNullable": false
+          },
+          {
+            "name": "status",
+            "type": "ENUM",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "status",
+            "isNullable": false
+          },
+          {
+            "name": "photo_url",
+            "type": "VARCHAR(255)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "photo_url",
+            "isNullable": false
+          },
+          {
+            "name": "created_at",
+            "type": "TIMESTAMP",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "created_at",
+            "isNullable": false
+          },
+          {
+            "name": "updated_at",
+            "type": "TIMESTAMP",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "updated_at",
+            "isNullable": false
+          }
+        ]
+      },
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "width": 350
+      }
+    },
+    {
+      "id": "courses",
+      "type": "default",
+      "data": {
+        "label": "courses",
+        "fields": [
+          {
+            "name": "id",
+            "type": "INT",
+            "isId": true,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "id",
+            "isNullable": false
+          },
+          {
+            "name": "code",
+            "type": "VARCHAR(20)",
+            "isId": false,
+            "isUnique": true,
+            "isList": false,
+            "kind": "scalar",
+            "label": "code",
+            "isNullable": false
+          },
+          {
+            "name": "name",
+            "type": "VARCHAR(200)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "name",
+            "isNullable": false
+          },
+          {
+            "name": "description",
+            "type": "TEXT",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "description",
+            "isNullable": false
+          },
+          {
+            "name": "credits",
+            "type": "INT",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "credits",
+            "isNullable": false
+          },
+          {
+            "name": "department_id",
+            "type": "INT",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "object",
+            "label": "department_id",
+            "isNullable": false,
+            "relationName": "coursesTodepartments"
+          },
+          {
+            "name": "teacher_id",
+            "type": "INT",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "object",
+            "label": "teacher_id",
+            "isNullable": false,
+            "relationName": "coursesToteachers"
+          },
+          {
+            "name": "class_id",
+            "type": "INT",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "object",
+            "label": "class_id",
+            "isNullable": false,
+            "relationName": "coursesToclasses"
+          },
+          {
+            "name": "schedule",
+            "type": "VARCHAR(100)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "schedule",
+            "isNullable": false
+          },
+          {
+            "name": "academic_year",
+            "type": "VARCHAR(20)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "academic_year",
+            "isNullable": false
+          },
+          {
+            "name": "semester",
+            "type": "ENUM",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "semester",
+            "isNullable": false
+          },
+          {
+            "name": "max_students",
+            "type": "INT",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "max_students",
+            "isNullable": false
+          },
+          {
+            "name": "is_active",
+            "type": "BOOLEAN",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "is_active",
+            "isNullable": false
+          },
+          {
+            "name": "created_at",
+            "type": "TIMESTAMP",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "created_at",
+            "isNullable": false
+          },
+          {
+            "name": "updated_at",
+            "type": "TIMESTAMP",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "updated_at",
+            "isNullable": false
+          }
+        ]
+      },
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "width": 336
+      }
+    },
+    {
+      "id": "enrollments",
+      "type": "default",
+      "data": {
+        "label": "enrollments",
+        "fields": [
+          {
+            "name": "id",
+            "type": "INT",
+            "isId": true,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "id",
+            "isNullable": false
+          },
+          {
+            "name": "student_id",
+            "type": "INT",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "object",
+            "label": "student_id",
+            "isNullable": false,
+            "relationName": "enrollmentsTostudents"
+          },
+          {
+            "name": "course_id",
+            "type": "INT",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "object",
+            "label": "course_id",
+            "isNullable": false,
+            "relationName": "enrollmentsTocourses"
+          },
+          {
+            "name": "enrollment_date",
+            "type": "DATE",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "enrollment_date",
+            "isNullable": false
+          },
+          {
+            "name": "status",
+            "type": "ENUM",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "status",
+            "isNullable": false
+          },
+          {
+            "name": "final_grade",
+            "type": "DECIMAL(5)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "final_grade",
+            "isNullable": false
+          },
+          {
+            "name": "grade_letter",
+            "type": "VARCHAR(2)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "grade_letter",
+            "isNullable": false
+          },
+          {
+            "name": "created_at",
+            "type": "TIMESTAMP",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "created_at",
+            "isNullable": false
+          },
+          {
+            "name": "updated_at",
+            "type": "TIMESTAMP",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "updated_at",
+            "isNullable": false
+          }
+        ]
+      },
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "width": 322
+      }
+    },
+    {
+      "id": "attendance",
+      "type": "default",
+      "data": {
+        "label": "attendance",
+        "fields": [
+          {
+            "name": "id",
+            "type": "INT",
+            "isId": true,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "id",
+            "isNullable": false
+          },
+          {
+            "name": "student_id",
+            "type": "INT",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "object",
+            "label": "student_id",
+            "isNullable": false,
+            "relationName": "attendanceTostudents"
+          },
+          {
+            "name": "course_id",
+            "type": "INT",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "object",
+            "label": "course_id",
+            "isNullable": false,
+            "relationName": "attendanceTocourses"
+          },
+          {
+            "name": "date",
+            "type": "DATE",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "date",
+            "isNullable": false
+          },
+          {
+            "name": "status",
+            "type": "ENUM",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "status",
+            "isNullable": false
+          },
+          {
+            "name": "notes",
+            "type": "TEXT",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "notes",
+            "isNullable": false
+          },
+          {
+            "name": "marked_by",
+            "type": "INT",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "object",
+            "label": "marked_by",
+            "isNullable": false,
+            "relationName": "attendanceToteachers"
+          },
+          {
+            "name": "created_at",
+            "type": "TIMESTAMP",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "created_at",
+            "isNullable": false
+          },
+          {
+            "name": "updated_at",
+            "type": "TIMESTAMP",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "updated_at",
+            "isNullable": false
+          }
+        ]
+      },
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "width": 301
+      }
+    },
+    {
+      "id": "exam_results",
+      "type": "default",
+      "data": {
+        "label": "exam_results",
+        "fields": [
+          {
+            "name": "id",
+            "type": "INT",
+            "isId": true,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "id",
+            "isNullable": false
+          },
+          {
+            "name": "enrollment_id",
+            "type": "INT",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "object",
+            "label": "enrollment_id",
+            "isNullable": false,
+            "relationName": "exam_resultsToenrollments"
+          },
+          {
+            "name": "exam_type",
+            "type": "ENUM",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "exam_type",
+            "isNullable": false
+          },
+          {
+            "name": "exam_name",
+            "type": "VARCHAR(200)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "exam_name",
+            "isNullable": false
+          },
+          {
+            "name": "exam_date",
+            "type": "DATE",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "exam_date",
+            "isNullable": false
+          },
+          {
+            "name": "max_score",
+            "type": "DECIMAL(5)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "max_score",
+            "isNullable": false
+          },
+          {
+            "name": "score",
+            "type": "DECIMAL(5)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "score",
+            "isNullable": false
+          },
+          {
+            "name": "percentage",
+            "type": "DECIMAL(5)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "percentage",
+            "isNullable": false
+          },
+          {
+            "name": "grade_letter",
+            "type": "VARCHAR(2)",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "grade_letter",
+            "isNullable": false
+          },
+          {
+            "name": "notes",
+            "type": "TEXT",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "notes",
+            "isNullable": false
+          },
+          {
+            "name": "graded_by",
+            "type": "INT",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "object",
+            "label": "graded_by",
+            "isNullable": false,
+            "relationName": "exam_resultsToteachers"
+          },
+          {
+            "name": "created_at",
+            "type": "TIMESTAMP",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "created_at",
+            "isNullable": false
+          },
+          {
+            "name": "updated_at",
+            "type": "TIMESTAMP",
+            "isId": false,
+            "isUnique": false,
+            "isList": false,
+            "kind": "scalar",
+            "label": "updated_at",
+            "isNullable": false
+          }
+        ]
+      },
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "width": 322
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "students-user_id-to-users",
+      "source": "students",
+      "target": "users",
+      "sourceHandle": "field-1",
+      "targetHandle": "table-input",
+      "label": "studentsTousers",
+      "type": "smoothstep",
+      "animated": true,
+      "data": {
+        "relationshipType": "many-to-one",
+        "fromField": "user_id",
+        "fromTable": "students",
+        "isList": false
+      }
+    },
+    {
+      "id": "students-class_id-to-classes",
+      "source": "students",
+      "target": "classes",
+      "sourceHandle": "field-13",
+      "targetHandle": "table-input",
+      "label": "studentsToclasses",
+      "type": "smoothstep",
+      "animated": true,
+      "data": {
+        "relationshipType": "many-to-one",
+        "fromField": "class_id",
+        "fromTable": "students",
+        "isList": false
+      }
+    },
+    {
+      "id": "teachers-user_id-to-users",
+      "source": "teachers",
+      "target": "users",
+      "sourceHandle": "field-1",
+      "targetHandle": "table-input",
+      "label": "teachersTousers",
+      "type": "smoothstep",
+      "animated": true,
+      "data": {
+        "relationshipType": "many-to-one",
+        "fromField": "user_id",
+        "fromTable": "teachers",
+        "isList": false
+      }
+    },
+    {
+      "id": "teachers-department_id-to-departments",
+      "source": "teachers",
+      "target": "departments",
+      "sourceHandle": "field-12",
+      "targetHandle": "table-input",
+      "label": "teachersTodepartments",
+      "type": "smoothstep",
+      "animated": true,
+      "data": {
+        "relationshipType": "many-to-one",
+        "fromField": "department_id",
+        "fromTable": "teachers",
+        "isList": false
+      }
+    },
+    {
+      "id": "courses-department_id-to-departments",
+      "source": "courses",
+      "target": "departments",
+      "sourceHandle": "field-5",
+      "targetHandle": "table-input",
+      "label": "coursesTodepartments",
+      "type": "smoothstep",
+      "animated": true,
+      "data": {
+        "relationshipType": "many-to-one",
+        "fromField": "department_id",
+        "fromTable": "courses",
+        "isList": false
+      }
+    },
+    {
+      "id": "courses-teacher_id-to-teachers",
+      "source": "courses",
+      "target": "teachers",
+      "sourceHandle": "field-6",
+      "targetHandle": "table-input",
+      "label": "coursesToteachers",
+      "type": "smoothstep",
+      "animated": true,
+      "data": {
+        "relationshipType": "many-to-one",
+        "fromField": "teacher_id",
+        "fromTable": "courses",
+        "isList": false
+      }
+    },
+    {
+      "id": "courses-class_id-to-classes",
+      "source": "courses",
+      "target": "classes",
+      "sourceHandle": "field-7",
+      "targetHandle": "table-input",
+      "label": "coursesToclasses",
+      "type": "smoothstep",
+      "animated": true,
+      "data": {
+        "relationshipType": "many-to-one",
+        "fromField": "class_id",
+        "fromTable": "courses",
+        "isList": false
+      }
+    },
+    {
+      "id": "enrollments-student_id-to-students",
+      "source": "enrollments",
+      "target": "students",
+      "sourceHandle": "field-1",
+      "targetHandle": "table-input",
+      "label": "enrollmentsTostudents",
+      "type": "smoothstep",
+      "animated": true,
+      "data": {
+        "relationshipType": "many-to-one",
+        "fromField": "student_id",
+        "fromTable": "enrollments",
+        "isList": false
+      }
+    },
+    {
+      "id": "enrollments-course_id-to-courses",
+      "source": "enrollments",
+      "target": "courses",
+      "sourceHandle": "field-2",
+      "targetHandle": "table-input",
+      "label": "enrollmentsTocourses",
+      "type": "smoothstep",
+      "animated": true,
+      "data": {
+        "relationshipType": "many-to-one",
+        "fromField": "course_id",
+        "fromTable": "enrollments",
+        "isList": false
+      }
+    },
+    {
+      "id": "attendance-student_id-to-students",
+      "source": "attendance",
+      "target": "students",
+      "sourceHandle": "field-1",
+      "targetHandle": "table-input",
+      "label": "attendanceTostudents",
+      "type": "smoothstep",
+      "animated": true,
+      "data": {
+        "relationshipType": "many-to-one",
+        "fromField": "student_id",
+        "fromTable": "attendance",
+        "isList": false
+      }
+    },
+    {
+      "id": "attendance-course_id-to-courses",
+      "source": "attendance",
+      "target": "courses",
+      "sourceHandle": "field-2",
+      "targetHandle": "table-input",
+      "label": "attendanceTocourses",
+      "type": "smoothstep",
+      "animated": true,
+      "data": {
+        "relationshipType": "many-to-one",
+        "fromField": "course_id",
+        "fromTable": "attendance",
+        "isList": false
+      }
+    },
+    {
+      "id": "attendance-marked_by-to-teachers",
+      "source": "attendance",
+      "target": "teachers",
+      "sourceHandle": "field-6",
+      "targetHandle": "table-input",
+      "label": "attendanceToteachers",
+      "type": "smoothstep",
+      "animated": true,
+      "data": {
+        "relationshipType": "many-to-one",
+        "fromField": "marked_by",
+        "fromTable": "attendance",
+        "isList": false
+      }
+    },
+    {
+      "id": "exam_results-enrollment_id-to-enrollments",
+      "source": "exam_results",
+      "target": "enrollments",
+      "sourceHandle": "field-1",
+      "targetHandle": "table-input",
+      "label": "exam_resultsToenrollments",
+      "type": "smoothstep",
+      "animated": true,
+      "data": {
+        "relationshipType": "many-to-one",
+        "fromField": "enrollment_id",
+        "fromTable": "exam_results",
+        "isList": false
+      }
+    },
+    {
+      "id": "exam_results-graded_by-to-teachers",
+      "source": "exam_results",
+      "target": "teachers",
+      "sourceHandle": "field-10",
+      "targetHandle": "table-input",
+      "label": "exam_resultsToteachers",
+      "type": "smoothstep",
+      "animated": true,
+      "data": {
+        "relationshipType": "many-to-one",
+        "fromField": "graded_by",
+        "fromTable": "exam_results",
+        "isList": false
+      }
+    }
+  ]
 }
