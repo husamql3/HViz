@@ -15,6 +15,8 @@ import { genMySQLERD } from "./generators/gen-mysql-erd";
 import { createServer } from "./lib/create-server";
 import type { DatabaseType } from "./types/db.type";
 import type { ErdResult } from "./types/erd.type";
+import { genSqliteERD } from "./generators/gen-sqlite-erd";
+import { genPgSQLERD } from "./generators/gen-pgsql-erd";
 
 export const main = async () => {
   const { port, type, schema } = cmdArgs();
@@ -78,6 +80,10 @@ export const main = async () => {
       erdResult = await genTypeORMERD(schemaFilePath);
     } else if (databaseType === "mysql") {
       erdResult = await genMySQLERD(schemaFilePath);
+    } else if (databaseType === "sqlite") {
+      erdResult = await genSqliteERD(schemaFilePath);
+    } else if (databaseType === "postgres") {
+      erdResult = await genPgSQLERD(schemaFilePath);
     }
   } catch (e) {
     s2.stop("ERD generation failed");

@@ -36,9 +36,9 @@ export const ROADMAP: RoadmapItem[] = [
 	{
 		title: "Database Support",
 		subFeatures: [
-			{ title: "Postgres", status: "not started" },
+			{ title: "Postgres", status: "done" },
 			{ title: "MySQL", status: "done" },
-			{ title: "SQLite", status: "not started" },
+			{ title: "SQLite", status: "done" },
 		],
 		priority: "P2", // Depends on ORM parsing
 		status: "in progress",

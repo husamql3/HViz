@@ -23,6 +23,14 @@ export const schemaPathSuggestions = (db: DatabaseType) => {
 			schemaPromptMessage = "Enter the MySQL schema directory path";
 			defaultSchemaPath = "db/schema/";
 			break;
+		case "sqlite":
+			schemaPromptMessage = "Enter the SQLite schema directory path";
+			defaultSchemaPath = "db/schema/";
+			break;
+		case "postgres":
+			schemaPromptMessage = "Enter the PostgreSQL schema directory path";
+			defaultSchemaPath = "db/schema/";
+			break;
 	}
 
 	return {
