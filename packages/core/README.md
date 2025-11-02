@@ -87,6 +87,15 @@ bunx hviz --type typeorm --schema typeorm/schema.ts
 
 # Custom port
 bunx hviz --type prisma --schema prisma/schema.prisma --port 4000
+
+# PostgreSQL
+bunx hviz --type postgres --schema schema.sql
+
+# MySQL
+bunx hviz --type mysql --schema schema.sql
+
+# SQLite
+bunx hviz --type sqlite --schema schema.sql
 ```
 
 ### Add to package.json Scripts
@@ -127,11 +136,19 @@ bun run visualize
 
 ---
 
-## 🗄️ Supported ORMs
+## 🗄️ Supported ORMs & Databases
+
+### ORMs
 
 - ✅ **Prisma**
-- ✅ **Drizzle**
+- ✅ **Drizzle** (PostgreSQL, MySQL, SQLite)
 - ✅ **TypeORM**
+
+### Raw SQL Files
+
+- ✅ **PostgreSQL** (.sql files)
+- ✅ **MySQL** (.sql files)
+- ✅ **SQLite** (.sql files)
 
 ---
 

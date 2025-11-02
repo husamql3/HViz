@@ -10,10 +10,11 @@ export default function Roadmap() {
 				<Header />
 				<Slogan />
 
-				<div className="flex flex-col gap-4 pt-14 px-4 pb-14">
+				<div className="flex flex-col gap-4 pt-14 px-4 pb-14 z-100">
 					<p className="border-l-4 pl-2 text-lg border-green-700">roadmap</p>
 					<p className="text-xs">Our progress toward a robust ERD generator. Here's what's in the works:</p>
-					<div className="flex flex-col gap-4 z-100">
+
+					<div className="flex flex-col gap-4">
 						{ROADMAP.map((item) => (
 							<div key={item.title} className="flex flex-col gap-1">
 								<div className="flex flex-row gap-2 items-center">

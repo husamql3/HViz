@@ -35,13 +35,9 @@ export const ROADMAP: RoadmapItem[] = [
 	// 🟡 Essential Features
 	{
 		title: "Database Support",
-		subFeatures: [
-			{ title: "Postgres", status: "done" },
-			{ title: "MySQL", status: "done" },
-			{ title: "SQLite", status: "done" },
-		],
-		priority: "P2", // Depends on ORM parsing
-		status: "in progress",
+		subFeatures: [{ title: "Postgres" }, { title: "MySQL" }, { title: "SQLite" }],
+		priority: "P2",
+		status: "done",
 	},
 	{
 		title: "Automatic Schema Detection",
