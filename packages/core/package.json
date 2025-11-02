@@ -1,6 +1,6 @@
 {
   "name": "hviz",
-  "version": "1.2.8",
+  "version": "1.3.8",
   "type": "module",
   "description": "CLI tool for visualizing your database schema",
   "license": "MIT",
